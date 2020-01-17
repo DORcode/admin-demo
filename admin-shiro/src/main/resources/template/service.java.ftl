@@ -52,6 +52,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
    */
    Result delete${entity}ById(${entity}Vo ${entity?uncap_first}) throws BaseException;
+
    /**
     * @MethodName delete${entity}
     * @Description TODO
