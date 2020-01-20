@@ -31,7 +31,7 @@ import com.baomidou.mybatisplus.plugins.pagination.Pagination;
 </#if>
 @Accessors(chain = true)
 </#if>
-public class ${entity} extends Pagination implements Serializable {
+public class ${entity}Po extends Pagination implements Serializable {
 
     private static final long serialVersionUID = 1L;
 <#-- ----------  BEGIN 字段循环遍历  ---------->

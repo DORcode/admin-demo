@@ -30,7 +30,7 @@ import lombok.experimental.Accessors;
 </#if>
 @Accessors(chain = true)
 </#if>
-public class ${entity} implements Serializable {
+public class ${entity}Vo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 <#-- ----------  BEGIN 字段循环遍历  ---------->

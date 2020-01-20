@@ -28,8 +28,8 @@ import java.util.Map;
 public class GeneratorUtil {
     private static String OUTPUT_JAVA = "f://generator/demo/src/main/java";
     private static String OUTPUT_RES = "f://generator/demo/src/main/resources";
-    private static String PARENTPACKAGE = "com.coin.demo";
-    private static String PARENTPACKAGEPATH = "/com/coin/demo/";
+    private static String PARENTPACKAGE = "com.coin.test";
+    private static String PARENTPACKAGEPATH = "/com/coin/test/";
     private static String UTILPACKAGE = PARENTPACKAGE + ".util";
     public static void main(String[] args) {
         AutoGenerator ac = new AutoGenerator();
@@ -51,10 +51,10 @@ public class GeneratorUtil {
 
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.ORACLE);
-        dsc.setUrl("jdbc:oracle:thin:@:ORCL");
+        dsc.setUrl("jdbc:oracle:thin:@10.6.172.161:1521:ORCL");
         dsc.setDriverName("oracle.jdbc.driver.OracleDriver");
-        dsc.setUsername("");
-        dsc.setPassword("");
+        dsc.setUsername("GM_BEIJING");
+        dsc.setPassword("GM_BEIJING");
         dsc.setTypeConvert(new OracleTypeConvert() {
             @Override
             public DbColumnType processTypeConvert(String fieldType) {

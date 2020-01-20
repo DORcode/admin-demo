@@ -3,8 +3,15 @@ package ${package.ServiceImpl};
 import ${package.Entity}.${entity};
 import ${package.Mapper}.${table.mapperName};
 import ${package.Service}.${table.serviceName};
+import ${cfg.utilpackage}.BaseException;
 import ${superServiceImplClassPackage};
 import org.springframework.stereotype.Service;
+
+import ${cfg.utilpackage}.Result;
+import ${cfg.parentpackage}.po.${entity}Po;
+import ${cfg.parentpackage}.vo.${entity}Vo;
+
+import java.util.List;
 
 /**
 * @ClassName ${table.serviceImplName}
@@ -39,7 +46,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
 
     /**
-     * @MethodName select${entity}List
+     * @MethodName select${entity}s
      * @Description TODO
      * @param List<${entity}Po>
      * @return
@@ -47,7 +54,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
-    public Result select${entity}List(List<${entity}Po> ${entity?uncap_first}List) throws BaseException {
+    public Result select${entity}s(List<${entity}Po> ${entity?uncap_first}List) throws BaseException {
         return Result.rows(1000l, null);
     }
 
@@ -78,7 +85,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
 
     /**
-     * @MethodName delete${entity}List
+     * @MethodName delete${entity}s
      * @Description TODO
      * @param List<${entity}Po>
      * @return
@@ -86,7 +93,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
-    public Result delete${entity}List(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public Result delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         return Result.success();
     }
 
@@ -104,7 +111,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
 
     /**
-     * @MethodName update${entity}List
+     * @MethodName update${entity}s
      * @Description TODO
      * @param List<${entity}Vo>
      * @return
@@ -112,7 +119,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
-    public Result update${entity}List(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public Result update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         return Result.success();
     };
 
@@ -130,7 +137,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
 
     /**
-     * @MethodName insert${entity}List
+     * @MethodName insert${entity}s
      * @Description TODO
      * @param List<${entity}Po>
      * @return
@@ -138,7 +145,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
-    public Result insert${entity}List(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public Result insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         return Result.success();
     }
 }
