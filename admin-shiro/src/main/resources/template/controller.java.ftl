@@ -59,8 +59,8 @@ public class ${table.controllerName} {
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
-    @RequestMapping("select")
-    @ApiOperation(value="${table.comment!""}", response=UserEntity.class)
+    @RequestMapping("select${entity}")
+    @ApiOperation(value="查询${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
@@ -69,7 +69,7 @@ public class ${table.controllerName} {
     }
 
     /**
-     * @MethodName select${entity}List
+     * @MethodName select${entity}s
      * @Description TODO
      * @param List<${entity}Po>
      * @return
@@ -77,13 +77,13 @@ public class ${table.controllerName} {
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
-    @RequestMapping("select")
-    @ApiOperation(value="${table.comment!""}", response=UserEntity.class)
+    @RequestMapping("select${entity}s")
+    @ApiOperation(value="查询${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
     public Result select${entity}s(List<${entity}Po> ${entity?uncap_first}List) throws BaseException {
-        return ${table.serviceName?uncap_first}.select${entity}List(${entity?uncap_first}List);
+        return ${table.serviceName?uncap_first}.select${entity}s(${entity?uncap_first}List);
     }
 
     /**
@@ -95,6 +95,11 @@ public class ${table.controllerName} {
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
      */
+    @RequestMapping("delete${entity}ById")
+    @ApiOperation(value="根据主键删除${table.comment!""}")
+    <#if restControllerStyle == false>
+        @ResponseBody
+    </#if>
     public Result delete${entity}ById(${entity}Vo ${entity?uncap_first}) throws BaseException {
         return ${table.serviceName?uncap_first}.delete${entity}ById(${entity?uncap_first});
     }
@@ -108,64 +113,104 @@ public class ${table.controllerName} {
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
      */
+    @RequestMapping("delete${entity}")
+    @ApiOperation(value="删除${table.comment!""}")
+    <#if restControllerStyle == false>
+        @ResponseBody
+    </#if>
     public Result delete${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return ;
+        return ${table.serviceName?uncap_first}.delete${entity}(${entity?uncap_first});
     }
 
-        /**
-        * @MethodName delete${entity}s
-        * @Description TODO
-        * @param List<${entity}Po>
-            * @return
-            * @throws BaseException
-            * @author
-            * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
-            */
-            Result delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException;
+    /**
+    * @MethodName delete${entity}s
+    * @Description TODO
+    * @param List<${entity}Po>
+    * @return
+    * @throws BaseException
+    * @author
+    * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
+    */
+    @RequestMapping("delete${entity}s")
+    @ApiOperation(value="删除多个${table.comment!""}")
+    <#if restControllerStyle == false>
+        @ResponseBody
+    </#if>
+    Result delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+        return ${table.serviceName?uncap_first}.delete${entity}s(${entity?uncap_first}List);
+    }
 
-                /**
-                * @MethodName update${entity}
-                * @Description TODO
-                * @param ${entity}Vo
-                * @return
-                * @throws BaseException
-                * @author
-                * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
-                */
-                Result update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException;
+    /**
+    * @MethodName update${entity}
+    * @Description TODO
+    * @param ${entity}Vo
+    * @return
+    * @throws BaseException
+    * @author
+    * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
+    */
+    @RequestMapping("update${entity}")
+    @ApiOperation(value="更新${table.comment!""}")
+    <#if restControllerStyle == false>
+        @ResponseBody
+    </#if>
+    Result update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+        return ${table.serviceName?uncap_first}.
+    }
 
-                /**
-                * @MethodName update${entity}s
-                * @Description TODO
-                * @param List<${entity}Vo>
-                    * @return
-                    * @throws BaseException
-                    * @author
-                    * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
-                    */
-                    Result update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException;
+    /**
+    * @MethodName update${entity}s
+    * @Description TODO
+    * @param List<${entity}Vo>
+    * @return
+    * @throws BaseException
+    * @author
+    * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
+    */
+    @RequestMapping("update${entity}s")
+    @ApiOperation(value="更新多个${table.comment!""}")
+    <#if restControllerStyle == false>
+        @ResponseBody
+    </#if>
+    Result update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+        return ${table.serviceName?uncap_first}.update${entity}s(${entity?uncap_first}List);
+    }
 
-                        /**
-                        * @MethodName insert${entity}
-                        * @Description TODO
-                        * @param ${entity}Po
-                        * @return
-                        * @throws BaseException
-                        * @author
-                        * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
-                        */
-                        Result insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException;
+    /**
+    * @MethodName insert${entity}
+    * @Description TODO
+    * @param ${entity}Po
+    * @return
+    * @throws BaseException
+    * @author
+    * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
+    */
+    @RequestMapping("insert${entity}")
+    @ApiOperation(value="插入${table.comment!""}")
+    <#if restControllerStyle == false>
+        @ResponseBody
+    </#if>
+    Result insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+        return ${table.serviceName?uncap_first}.
+    }
 
-                        /**
-                        * @MethodName insert${entity}s
-                        * @Description TODO
-                        * @param List<${entity}Po>
-                            * @return
-                            * @throws BaseException
-                            * @author
-                            * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
-                            */
-                            Result insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException;
+    /**
+    * @MethodName insert${entity}s
+    * @Description TODO
+    * @param List<${entity}Po>
+    * @return
+    * @throws BaseException
+    * @author
+    * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
+    */
+    @RequestMapping("insert${entity}s")
+    @ApiOperation(value="插入多个${table.comment!""}")
+    <#if restControllerStyle == false>
+        @ResponseBody
+    </#if>
+    Result insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException  {
+        return ${table.serviceName?uncap_first}.insert${entity}s(${entity?uncap_first}List)
+    }
 
 }
 </#if>
