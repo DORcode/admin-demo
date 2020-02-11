@@ -31,7 +31,33 @@ public class GeneratorUtil {
     private static String PARENTPACKAGE = "com.coin.test";
     private static String PARENTPACKAGEPATH = "/com/coin/test/";
     private static String UTILPACKAGE = PARENTPACKAGE + ".util";
+    private static DbType DB_TYPE = null;
+    private static String DB_DRIVER = "";
+    private static String DB_URL= "";
+    private static String DB_UM = "";
+    private static String DB_PWD = "";
     public static void main(String[] args) {
+        oracle();
+
+    }
+
+    public static void oracle() {
+        DB_TYPE = DbType.ORACLE;
+        DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
+        DB_URL= "jdbc:oracle:thin:@10.6.172.161:1521:ORCL";
+        DB_UM = "GM_BEIJING";
+        DB_PWD = "GM_BEIJING";
+    }
+
+    public static void mysql() {
+        DB_TYPE = DbType.MYSQL;
+        DB_DRIVER = "com.mysql.jdbc.Driver";
+        DB_URL= "jdbc:mysql://localhost:3308/stock";
+        DB_UM = "root";
+        DB_PWD = "123456";
+    }
+
+    private static void generate() {
         AutoGenerator ac = new AutoGenerator();
 
         GlobalConfig gc = new GlobalConfig();
@@ -50,11 +76,11 @@ public class GeneratorUtil {
         ac.setGlobalConfig(gc);
 
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setDbType(DbType.ORACLE);
-        dsc.setUrl("jdbc:oracle:thin:@10.6.172.161:1521:ORCL");
-        dsc.setDriverName("oracle.jdbc.driver.OracleDriver");
-        dsc.setUsername("GM_BEIJING");
-        dsc.setPassword("GM_BEIJING");
+        dsc.setDbType(DB_TYPE);
+        dsc.setUrl(DB_URL);
+        dsc.setDriverName(DB_DRIVER);
+        dsc.setUsername(DB_UM);
+        dsc.setPassword(DB_PWD);
         dsc.setTypeConvert(new OracleTypeConvert() {
             @Override
             public DbColumnType processTypeConvert(String fieldType) {
@@ -141,6 +167,5 @@ public class GeneratorUtil {
 
         ac.setTemplateEngine(new FreemarkerTemplateEngine());
         ac.execute();
-
     }
 }
