@@ -37,7 +37,7 @@ public class GeneratorUtil {
     private static String DB_UM = "";
     private static String DB_PWD = "";
     public static void main(String[] args) {
-        oracle();
+        mysql();
 
     }
 
@@ -47,14 +47,16 @@ public class GeneratorUtil {
         DB_URL= "jdbc:oracle:thin:@10.6.172.161:1521:ORCL";
         DB_UM = "GM_BEIJING";
         DB_PWD = "GM_BEIJING";
+        generate();
     }
 
     public static void mysql() {
         DB_TYPE = DbType.MYSQL;
-        DB_DRIVER = "com.mysql.jdbc.Driver";
+        DB_DRIVER = "com.mysql.cj.jdbc.Driver";
         DB_URL= "jdbc:mysql://localhost:3308/stock";
         DB_UM = "root";
         DB_PWD = "123456";
+        generate();
     }
 
     private static void generate() {

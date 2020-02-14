@@ -10,7 +10,7 @@ import lombok.Data;
  * @Version V1.0
  **/
 @Data
-public class BaseException extends Exception {
+public class BaseException extends RuntimeException {
 
     private Integer code;
 
