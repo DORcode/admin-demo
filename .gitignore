@@ -177,3 +177,6 @@
 .idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_2_3_BUILD_SNAPSHOT.xml
 .idea/libraries/Maven__org_springframework_spring_web_5_2_3_RELEASE.xml
 .idea/libraries/Maven__org_springframework_spring_webmvc_5_2_3_RELEASE.xml
+admin-test/.mvn/wrapper/maven-wrapper.jar
+admin-test/.mvn/wrapper/maven-wrapper.properties
+admin-test/.mvn/wrapper/MavenWrapperDownloader.java
