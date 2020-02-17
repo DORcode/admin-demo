@@ -3,6 +3,7 @@ package com.coin.shiro.util;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.converts.OracleTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
@@ -36,6 +37,7 @@ public class GeneratorUtil {
     private static String DB_URL= "";
     private static String DB_UM = "";
     private static String DB_PWD = "";
+    private static ITypeConvert TYPE_CONVERT = null;
     public static void main(String[] args) {
         mysql();
 
@@ -47,15 +49,33 @@ public class GeneratorUtil {
         DB_URL= "jdbc:oracle:thin:@10.6.172.161:1521:ORCL";
         DB_UM = "GM_BEIJING";
         DB_PWD = "GM_BEIJING";
+        TYPE_CONVERT = new OracleTypeConvert() {
+            @Override
+            public DbColumnType processTypeConvert(String fieldType) {
+                /*if(fieldType.contains("")) {
+                    return DbColumnType.BOOLEAN;
+                }*/
+                return super.processTypeConvert(fieldType);
+            }
+        };
         generate();
     }
 
     public static void mysql() {
         DB_TYPE = DbType.MYSQL;
         DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-        DB_URL= "jdbc:mysql://localhost:3308/stock";
+        DB_URL= "jdbc:mysql://localhost:3308/stock?serverTimezone=UTC";
         DB_UM = "root";
-        DB_PWD = "123456";
+        DB_PWD = "123";
+        TYPE_CONVERT = new MySqlTypeConvert() {
+            @Override
+            public DbColumnType processTypeConvert(String fieldType) {
+                /*if(fieldType.contains("")) {
+                    return DbColumnType.BOOLEAN;
+                }*/
+                return super.processTypeConvert(fieldType);
+            }
+        };
         generate();
     }
 
@@ -83,15 +103,7 @@ public class GeneratorUtil {
         dsc.setDriverName(DB_DRIVER);
         dsc.setUsername(DB_UM);
         dsc.setPassword(DB_PWD);
-        dsc.setTypeConvert(new OracleTypeConvert() {
-            @Override
-            public DbColumnType processTypeConvert(String fieldType) {
-                /*if(fieldType.contains("")) {
-                    return DbColumnType.BOOLEAN;
-                }*/
-                return super.processTypeConvert(fieldType);
-            }
-        });
+        dsc.setTypeConvert(TYPE_CONVERT);
         ac.setDataSource(dsc);
 
         PackageConfig pc = new PackageConfig();
