@@ -32,7 +32,7 @@
         <module>admin-base</module>
         <module>admin-shiro</module>
         <module>admin-generator</module>
-        <module>admin-test</module>
+        <module>admin-auth</module>
     </modules>
 
     <dependencies>

@@ -1,13 +1,13 @@
-package com.coin.test;
+package com.coin.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AdminTestApplication {
+public class AdminAuthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AdminTestApplication.class, args);
+        SpringApplication.run(AdminAuthApplication.class, args);
     }
 
 }
