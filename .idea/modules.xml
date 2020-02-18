@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin-auth/admin-auth.iml" filepath="$PROJECT_DIR$/admin-auth/admin-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin-base/admin-base.iml" filepath="$PROJECT_DIR$/admin-base/admin-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin-demo.iml" filepath="$PROJECT_DIR$/admin-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin-generator/admin-generator.iml" filepath="$PROJECT_DIR$/admin-generator/admin-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin-shiro/admin-shiro.iml" filepath="$PROJECT_DIR$/admin-shiro/admin-shiro.iml" />
+    </modules>
+  </component>
+</project>

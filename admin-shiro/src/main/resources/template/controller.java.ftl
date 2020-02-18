@@ -1,10 +1,11 @@
 package ${package.Controller};
 
-import ${package.Service}.${table.serviceName}
+import ${package.Service}.${table.serviceName};
 import ${cfg.utilpackage}.BaseException;
 import ${cfg.parentpackage}.vo.${entity}Vo;
-import ${cfg.parentpackage}.vo.${entity}Po;
+import ${cfg.parentpackage}.po.${entity}Po;
 import ${cfg.utilpackage}.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 <#if restControllerStyle>
@@ -47,13 +48,13 @@ public class ${table.controllerName} extends ${superControllerClass} {
 <#else>
 public class ${table.controllerName} {
 
-    @Override
+    @Autowired
     private ${table.serviceName} ${table.serviceName?uncap_first};
 
     /**
      * @MethodName select${entity}
      * @Description TODO
-     * @param ${entity}Vo
+     * @param ${entity?uncap_first}
      * @return
      * @throws BaseException
      * @author
@@ -71,7 +72,7 @@ public class ${table.controllerName} {
     /**
      * @MethodName select${entity}s
      * @Description TODO
-     * @param List<${entity}Po>
+     * @param ${entity?uncap_first}List
      * @return
      * @throws BaseException
      * @author
@@ -89,7 +90,7 @@ public class ${table.controllerName} {
     /**
      * @MethodName delete${entity}
      * @Description TODO
-     * @param ${entity}Vo
+     * @param ${entity?uncap_first}
      * @return
      * @throws BaseException
      * @author
@@ -107,7 +108,7 @@ public class ${table.controllerName} {
     /**
      * @MethodName delete${entity}
      * @Description TODO
-     * @param ${entity}Vo
+     * @param ${entity?uncap_first}
      * @return
      * @throws BaseException
      * @author
@@ -125,7 +126,7 @@ public class ${table.controllerName} {
     /**
     * @MethodName delete${entity}s
     * @Description TODO
-    * @param List<${entity}Po>
+    * @param ${entity?uncap_first}List
     * @return
     * @throws BaseException
     * @author
@@ -136,14 +137,14 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    Result delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public Result delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         return ${table.serviceName?uncap_first}.delete${entity}s(${entity?uncap_first}List);
     }
 
     /**
     * @MethodName update${entity}
     * @Description TODO
-    * @param ${entity}Vo
+    * @param ${entity?uncap_first}
     * @return
     * @throws BaseException
     * @author
@@ -154,14 +155,14 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    Result update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return ${table.serviceName?uncap_first}.
+    public Result update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+        return ${table.serviceName?uncap_first}.update${entity}(${entity?uncap_first});
     }
 
     /**
     * @MethodName update${entity}s
     * @Description TODO
-    * @param List<${entity}Vo>
+    * @param ${entity?uncap_first}List
     * @return
     * @throws BaseException
     * @author
@@ -172,14 +173,14 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    Result update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public Result update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         return ${table.serviceName?uncap_first}.update${entity}s(${entity?uncap_first}List);
     }
 
     /**
     * @MethodName insert${entity}
     * @Description TODO
-    * @param ${entity}Po
+    * @param ${entity?uncap_first}
     * @return
     * @throws BaseException
     * @author
@@ -190,14 +191,14 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    Result insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return ${table.serviceName?uncap_first}.
+    public Result insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+        return ${table.serviceName?uncap_first}.insert${entity}(${entity?uncap_first});
     }
 
     /**
     * @MethodName insert${entity}s
     * @Description TODO
-    * @param List<${entity}Po>
+    * @param ${entity?uncap_first}List
     * @return
     * @throws BaseException
     * @author
@@ -208,8 +209,8 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    Result insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException  {
-        return ${table.serviceName?uncap_first}.insert${entity}s(${entity?uncap_first}List)
+    public Result insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException  {
+        return ${table.serviceName?uncap_first}.insert${entity}s(${entity?uncap_first}List);
     }
 
 }

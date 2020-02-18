@@ -5,6 +5,7 @@ import ${package.Mapper}.${table.mapperName};
 import ${package.Service}.${table.serviceName};
 import ${cfg.utilpackage}.BaseException;
 import ${superServiceImplClassPackage};
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ${cfg.utilpackage}.Result;
@@ -30,13 +31,13 @@ open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperNam
 <#else>
 public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
 
-    @Override
+    @Autowired
     private ${table.mapperName} ${table.mapperName?uncap_first};
 
     /**
      * @MethodName select${entity}
      * @Description TODO
-     * @param ${entity}Vo
+     * @param ${entity?uncap_first}
      * @return
      * @throws BaseException
      * @author
@@ -50,7 +51,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     /**
      * @MethodName select${entity}s
      * @Description TODO
-     * @param List<${entity}Po>
+     * @param ${entity?uncap_first}List
      * @return
      * @throws BaseException
      * @author
@@ -63,7 +64,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     /**
      * @MethodName delete${entity}
      * @Description TODO
-     * @param ${entity}Vo
+     * @param ${entity?uncap_first}
      * @return
      * @throws BaseException
      * @author
@@ -76,20 +77,20 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     /**
      * @MethodName delete${entity}
      * @Description TODO
-     * @param ${entity}Vo
+     * @param ${entity?uncap_first}
      * @return
      * @throws BaseException
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
      */
     public Result delete${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return Reslut.success();
+        return Result.success();
     }
 
     /**
      * @MethodName delete${entity}s
      * @Description TODO
-     * @param List<${entity}Po>
+     * @param ${entity?uncap_first}List
      * @return
      * @throws BaseException
      * @author
@@ -102,7 +103,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     /**
      * @MethodName update${entity}
      * @Description TODO
-     * @param ${entity}Vo
+     * @param ${entity?uncap_first}
      * @return
      * @throws BaseException
      * @author
@@ -115,7 +116,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     /**
      * @MethodName update${entity}s
      * @Description TODO
-     * @param List<${entity}Vo>
+     * @param ${entity?uncap_first}List
      * @return
      * @throws BaseException
      * @author
@@ -128,7 +129,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     /**
      * @MethodName insert${entity}
      * @Description TODO
-     * @param ${entity}Po
+     * @param ${entity?uncap_first}
      * @return
      * @throws BaseException
      * @author
@@ -141,7 +142,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     /**
      * @MethodName insert${entity}s
      * @Description TODO
-     * @param List<${entity}Po>
+     * @param ${entity?uncap_first}List
      * @return
      * @throws BaseException
      * @author
