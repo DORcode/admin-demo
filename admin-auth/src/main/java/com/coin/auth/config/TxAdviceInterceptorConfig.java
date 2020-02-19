@@ -24,7 +24,7 @@ import java.util.Map;
 @Configuration
 public class TxAdviceInterceptorConfig {
 
-    private static final String AOP_POINTCUT_EXPRESSION = "execution(* com.coin.service..*.*(..))";
+    private static final String AOP_POINTCUT_EXPRESSION = "execution(* com.coin.auth.service..*.*(..))";
 
     @Autowired
     private PlatformTransactionManager transactionManager;

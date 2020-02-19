@@ -23,7 +23,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    /**
     * @MethodName select${entity}
     * @Description TODO
-    * @param ${entity}Vo
+    * @param ${entity?uncap_first}
     * @return
     * @throws BaseException
     * @author
@@ -34,7 +34,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    /**
     * @MethodName select${entity}s
     * @Description TODO
-    * @param List<${entity}Po>
+    * @param ${entity?uncap_first}List
     * @return
     * @throws BaseException
     * @author
@@ -45,7 +45,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    /**
    * @MethodName delete${entity}
    * @Description TODO
-   * @param ${entity}Vo
+   * @param ${entity?uncap_first}
    * @return
    * @throws BaseException
    * @author
@@ -56,7 +56,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    /**
     * @MethodName delete${entity}
     * @Description TODO
-    * @param ${entity}Vo
+    * @param ${entity?uncap_first}
     * @return
     * @throws BaseException
     * @author
@@ -67,7 +67,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    /**
     * @MethodName delete${entity}s
     * @Description TODO
-    * @param List<${entity}Po>
+    * @param ${entity?uncap_first}List
     * @return
     * @throws BaseException
     * @author
@@ -78,7 +78,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    /**
     * @MethodName update${entity}
     * @Description TODO
-    * @param ${entity}Vo
+    * @param ${entity?uncap_first}
     * @return
     * @throws BaseException
     * @author
@@ -89,7 +89,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    /**
     * @MethodName update${entity}s
     * @Description TODO
-    * @param List<${entity}Vo>
+    * @param ${entity?uncap_first}List
     * @return
     * @throws BaseException
     * @author
@@ -100,7 +100,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    /**
     * @MethodName insert${entity}
     * @Description TODO
-    * @param ${entity}Po
+    * @param ${entity?uncap_first}
     * @return
     * @throws BaseException
     * @author
@@ -111,7 +111,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    /**
     * @MethodName insert${entity}s
     * @Description TODO
-    * @param List<${entity}Po>
+    * @param ${entity?uncap_first}List
     * @return
     * @throws BaseException
     * @author

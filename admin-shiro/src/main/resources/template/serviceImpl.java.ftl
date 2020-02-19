@@ -57,6 +57,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
+    @Override
     public Result select${entity}s(List<${entity}Po> ${entity?uncap_first}List) throws BaseException {
         return Result.rows(1000l, null);
     }
@@ -70,6 +71,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
      */
+    @Override
     public Result delete${entity}ById(${entity}Vo ${entity?uncap_first}) throws BaseException {
         return Result.success();
     }
@@ -83,6 +85,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
      */
+    @Override
     public Result delete${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
         return Result.success();
     }
@@ -96,6 +99,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
+    @Override
     public Result delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         return Result.success();
     }
@@ -109,6 +113,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
+    @Override
     public Result update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
         return Result.success();
     }
@@ -122,6 +127,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
+    @Override
     public Result update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         return Result.success();
     };
@@ -135,7 +141,8 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
-    Result insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+    @Override
+    public Result insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
         return Result.success();
     }
 
@@ -148,6 +155,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
+    @Override
     public Result insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         return Result.success();
     }
