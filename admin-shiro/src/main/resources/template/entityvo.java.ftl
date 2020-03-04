@@ -1,16 +1,14 @@
 package ${cfg.parentpackage}.vo;
 
 <#list table.importPackages as pkg>
-<#if pkg != 'com.baomidou.mybatisplus.annotations.TableId'
-&& pkg != 'com.baomidou.mybatisplus.annotations.TableField'
+<#if pkg != 'com.baomidou.mybatisplus.annotation.TableId'
+&& pkg != 'com.baomidou.mybatisplus.annotation.TableField'
 && pkg != 'com.baomidou.mybatisplus.activerecord.Model'
-&& pkg != 'com.baomidou.mybatisplus.annotations.TableName'>
+&& pkg != 'com.baomidou.mybatisplus.annotation.TableName'>
 import ${pkg};
 </#if>
 </#list>
 <#if entityLombokModel>
-
-import com.baomidou.mybatisplus.annotations.Version;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -1,15 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.coin.auth.mapper.SysUserRoleMapper">
+<mapper namespace="com.coin.auth.web.mapper.SysUserRoleMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.coin.auth.entity.SysUserRole">
+    <resultMap id="BaseResultMap" type="com.coin.auth.web.entity.SysUserRole">
         <id column="ID" property="id" />
-        <result column="USER_ID" property="userId" />
         <result column="ROLE_ID" property="roleId" />
+        <result column="USER_ID" property="userId" />
         <result column="CREATE_TIME" property="createTime" />
         <result column="UPDATE_TIME" property="updateTime" />
         <result column="IS_DELETE" property="isDelete" />
     </resultMap>
 
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, ROLE_ID, USER_ID, CREATE_TIME, UPDATE_TIME, IS_DELETE
+    </sql>
+
+
+    <insert id="insertSelective" parameterType="com.coin.auth.web.entity.SysUserRole" >
+        insert into sys_user_role
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="roleId != null">
+                ROLE_ID,
+            </if>
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME,
+            </if>
+            <if test="isDelete != null">
+                IS_DELETE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                <if test="id != null">
+                    {id},
+                </if>
+                <if test="roleId != null">
+                    {roleId},
+                </if>
+                <if test="userId != null">
+                    {userId},
+                </if>
+                <if test="createTime != null">
+                    {createTime},
+                </if>
+                <if test="updateTime != null">
+                    {updateTime},
+                </if>
+                <if test="isDelete != null">
+                    {isDelete},
+                </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.coin.auth.web.entity.SysUserRole">
+        update sys_user_role
+        <set>
+                <if test="id != null">
+                    ID = #{id},
+                </if>
+                <if test="roleId != null">
+                    ROLE_ID = #{roleId},
+                </if>
+                <if test="userId != null">
+                    USER_ID = #{userId},
+                </if>
+                <if test="createTime != null">
+                    CREATE_TIME = #{createTime},
+                </if>
+                <if test="updateTime != null">
+                    UPDATE_TIME = #{updateTime},
+                </if>
+                <if test="isDelete != null">
+                    IS_DELETE = #{isDelete},
+                </if>
+        </set>
+        where ID = #{id}
+    </update>
 </mapper>

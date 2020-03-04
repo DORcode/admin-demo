@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.coin.auth.mapper.SysPermissionMapper">
+<mapper namespace="com.coin.auth.web.mapper.SysPermissionMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.coin.auth.entity.SysPermission">
+    <resultMap id="BaseResultMap" type="com.coin.auth.web.entity.SysPermission">
         <id column="ID" property="id" />
         <result column="CODE" property="code" />
         <result column="P_CODE" property="pCode" />
@@ -17,4 +17,128 @@
         <result column="IS_DELETE" property="isDelete" />
     </resultMap>
 
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, CODE, P_CODE, NAME, URL, TYPE, SEQ, DESCRIPTION, CREATE_TIME, UPDATE_TIME, IS_DELETE
+    </sql>
+
+
+    <insert id="insertSelective" parameterType="com.coin.auth.web.entity.SysPermission" >
+        insert into sys_permission
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="code != null">
+                CODE,
+            </if>
+            <if test="pCode != null">
+                P_CODE,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="url != null">
+                URL,
+            </if>
+            <if test="type != null">
+                TYPE,
+            </if>
+            <if test="seq != null">
+                SEQ,
+            </if>
+            <if test="description != null">
+                DESCRIPTION,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME,
+            </if>
+            <if test="isDelete != null">
+                IS_DELETE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                <if test="id != null">
+                    {id},
+                </if>
+                <if test="code != null">
+                    {code},
+                </if>
+                <if test="pCode != null">
+                    {pCode},
+                </if>
+                <if test="name != null">
+                    {name},
+                </if>
+                <if test="url != null">
+                    {url},
+                </if>
+                <if test="type != null">
+                    {type},
+                </if>
+                <if test="seq != null">
+                    {seq},
+                </if>
+                <if test="description != null">
+                    {description},
+                </if>
+                <if test="createTime != null">
+                    {createTime},
+                </if>
+                <if test="updateTime != null">
+                    {updateTime},
+                </if>
+                <if test="isDelete != null">
+                    {isDelete},
+                </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.coin.auth.web.entity.SysPermission">
+        update sys_permission
+        <set>
+                <if test="id != null">
+                    ID = #{id},
+                </if>
+                <if test="code != null">
+                    CODE = #{code},
+                </if>
+                <if test="pCode != null">
+                    P_CODE = #{pCode},
+                </if>
+                <if test="name != null">
+                    NAME = #{name},
+                </if>
+                <if test="url != null">
+                    URL = #{url},
+                </if>
+                <if test="type != null">
+                    TYPE = #{type},
+                </if>
+                <if test="seq != null">
+                    SEQ = #{seq},
+                </if>
+                <if test="description != null">
+                    DESCRIPTION = #{description},
+                </if>
+                <if test="createTime != null">
+                    CREATE_TIME = #{createTime},
+                </if>
+                <if test="updateTime != null">
+                    UPDATE_TIME = #{updateTime},
+                </if>
+                <if test="isDelete != null">
+                    IS_DELETE = #{isDelete},
+                </if>
+        </set>
+        where ID = #{id}
+    </update>
+    <select id="selectPermissionsByUserId" resultType="java.lang.String">
+        select distinct url from sys_permission p left join sys_role_permission rp on p.code=rp.permission_code
+        left join sys_role r on rp.role_id=r.id left join sys_user_role ur on r.id=ur.role_id where
+        ur.user_id=#{userId} and p.is_delete=0 and rp.is_delete=0 and r.is_delete=0 and ur.is_delete=0
+    </select>
 </mapper>

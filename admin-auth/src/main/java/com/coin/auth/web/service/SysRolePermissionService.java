@@ -1,0 +1,119 @@
+package com.coin.auth.web.service;
+
+import com.coin.auth.web.entity.SysRolePermission;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.coin.auth.util.BaseException;
+import com.coin.auth.web.po.SysRolePermissionPo;
+import com.coin.auth.web.vo.SysRolePermissionVo;
+import com.coin.auth.web.dto.SysRolePermissionDto;
+import java.util.List;
+
+/**
+ * @ClassName SysRolePermissionService
+ * @Description: TODO
+ * @Author kh
+ * @Date 2020-02-27
+ * @Version V1.0
+ */
+public interface SysRolePermissionService extends IService<SysRolePermission> {
+
+   /**
+    * @MethodName selectSysRolePermission
+    * @Description TODO
+    * @param sysRolePermission
+    * @return
+    * @throws BaseException
+    * @author
+    * @date 2020/02/27 07:00:996.014
+    */
+    SysRolePermissionDto selectSysRolePermission(SysRolePermissionVo sysRolePermission) throws BaseException;
+
+   /**
+    * @MethodName selectSysRolePermissions
+    * @Description TODO
+    * @param sysRolePermission
+    * @return
+    * @throws BaseException
+    * @author
+    * @date 2020/02/27 07:00:996.014
+    */
+    List<SysRolePermissionVo> selectSysRolePermissions(SysRolePermissionPo sysRolePermission) throws BaseException;
+
+   /**
+   * @MethodName deleteSysRolePermission
+   * @Description TODO
+   * @param sysRolePermission
+   * @return
+   * @throws BaseException
+   * @author
+   * @date 2020/02/27 07:00:14.996
+   */
+   int deleteSysRolePermissionById(SysRolePermissionVo sysRolePermission) throws BaseException;
+
+   /**
+    * @MethodName deleteSysRolePermission
+    * @Description TODO
+    * @param sysRolePermission
+    * @return
+    * @throws BaseException
+    * @author
+    * @date 2020/02/27 07:00:14.996
+    */
+   int deleteSysRolePermission(SysRolePermissionVo sysRolePermission) throws BaseException;
+
+   /**
+    * @MethodName deleteSysRolePermissions
+    * @Description TODO
+    * @param sysRolePermissionList
+    * @return
+    * @throws BaseException
+    * @author
+    * @date 2020/02/27 07:00:996.014
+    */
+   int deleteSysRolePermissions(List<SysRolePermissionVo> sysRolePermissionList) throws BaseException;
+
+   /**
+    * @MethodName updateSysRolePermission
+    * @Description TODO
+    * @param sysRolePermission
+    * @return
+    * @throws BaseException
+    * @author
+    * @date 2020/02/27 07:00:996.014
+    */
+   int updateSysRolePermission(SysRolePermissionVo sysRolePermission) throws BaseException;
+
+   /**
+    * @MethodName updateSysRolePermissions
+    * @Description TODO
+    * @param sysRolePermissionList
+    * @return
+    * @throws BaseException
+    * @author
+    * @date 2020/02/27 07:00:996.014
+    */
+   int updateSysRolePermissions(List<SysRolePermissionVo> sysRolePermissionList) throws BaseException;
+
+   /**
+    * @MethodName insertSysRolePermission
+    * @Description TODO
+    * @param sysRolePermission
+    * @return
+    * @throws BaseException
+    * @author
+    * @date 2020/02/27 07:00:996.014
+    */
+   int insertSysRolePermission(SysRolePermissionVo sysRolePermission) throws BaseException;
+
+   /**
+    * @MethodName insertSysRolePermissions
+    * @Description TODO
+    * @param sysRolePermissionList
+    * @return
+    * @throws BaseException
+    * @author
+    * @date 2020/02/27 07:00:996.014
+    */
+   int insertSysRolePermissions(List<SysRolePermissionVo> sysRolePermissionList) throws BaseException;
+
+ }

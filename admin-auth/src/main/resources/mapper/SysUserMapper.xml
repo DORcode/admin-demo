@@ -1,16 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.coin.auth.mapper.SysUserMapper">
+<mapper namespace="com.coin.auth.web.mapper.SysUserMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.coin.auth.entity.SysUser">
+    <resultMap id="BaseResultMap" type="com.coin.auth.web.entity.SysUser">
         <id column="ID" property="id" />
         <result column="NAME" property="name" />
         <result column="PASSWORD" property="password" />
+        <result column="USERNAME" property="username" />
+        <result column="SEX" property="sex" />
+        <result column="MOBILE" property="mobile" />
         <result column="CODE" property="code" />
         <result column="CREATE_TIME" property="createTime" />
         <result column="UPDATE_TIME" property="updateTime" />
         <result column="IS_DELETE" property="isDelete" />
     </resultMap>
 
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, NAME, PASSWORD, USERNAME, SEX, MOBILE, CODE, CREATE_TIME, UPDATE_TIME, IS_DELETE
+    </sql>
+
+
+    <select id="selectOneSelective" parameterType="com.coin.auth.web.entity.SysUser" resultType="com.coin.auth.web.entity.SysUser">
+        select * from sys_user
+        <where>
+            and IS_DELETE = 0
+            <if test="id != null">
+                and ID = #{id}
+            </if>
+            <if test="name != null">
+                and NAME = #{name}
+            </if>
+            <if test="password != null">
+                and PASSWORD = #{password}
+            </if>
+            <if test="username != null">
+                and USERNAME = #{username}
+            </if>
+            <if test="sex != null">
+                and SEX = #{sex}
+            </if>
+            <if test="mobile != null">
+                and MOBILE = #{mobile}
+            </if>
+            <if test="code != null">
+                and CODE = #{code}
+            </if>
+            <if test="createTime != null">
+                and CREATE_TIME = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and UPDATE_TIME = #{updateTime}
+            </if>
+
+        </where> limit 1
+    </select>
+
+
+    <insert id="insertSelective" parameterType="com.coin.auth.web.entity.SysUser" >
+        insert into sys_user
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="password != null">
+                PASSWORD,
+            </if>
+            <if test="username != null">
+                USERNAME,
+            </if>
+            <if test="sex != null">
+                SEX,
+            </if>
+            <if test="mobile != null">
+                MOBILE,
+            </if>
+            <if test="code != null">
+                CODE,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME,
+            </if>
+            <if test="isDelete != null">
+                IS_DELETE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                <if test="id != null">
+                    {id},
+                </if>
+                <if test="name != null">
+                    {name},
+                </if>
+                <if test="password != null">
+                    {password},
+                </if>
+                <if test="username != null">
+                    {username},
+                </if>
+                <if test="sex != null">
+                    {sex},
+                </if>
+                <if test="mobile != null">
+                    {mobile},
+                </if>
+                <if test="code != null">
+                    {code},
+                </if>
+                <if test="createTime != null">
+                    {createTime},
+                </if>
+                <if test="updateTime != null">
+                    {updateTime},
+                </if>
+                <if test="isDelete != null">
+                    {isDelete},
+                </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.coin.auth.web.entity.SysUser">
+        update sys_user
+        <set>
+                <if test="id != null">
+                    ID = #{id},
+                </if>
+                <if test="name != null">
+                    NAME = #{name},
+                </if>
+                <if test="password != null">
+                    PASSWORD = #{password},
+                </if>
+                <if test="username != null">
+                    USERNAME = #{username},
+                </if>
+                <if test="sex != null">
+                    SEX = #{sex},
+                </if>
+                <if test="mobile != null">
+                    MOBILE = #{mobile},
+                </if>
+                <if test="code != null">
+                    CODE = #{code},
+                </if>
+                <if test="createTime != null">
+                    CREATE_TIME = #{createTime},
+                </if>
+                <if test="updateTime != null">
+                    UPDATE_TIME = #{updateTime},
+                </if>
+                <if test="isDelete != null">
+                    IS_DELETE = #{isDelete},
+                </if>
+        </set>
+        where ID = #{id}
+    </update>
 </mapper>

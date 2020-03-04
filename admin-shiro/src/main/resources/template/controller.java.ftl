@@ -4,6 +4,7 @@ import ${package.Service}.${table.serviceName};
 import ${cfg.utilpackage}.BaseException;
 import ${cfg.parentpackage}.vo.${entity}Vo;
 import ${cfg.parentpackage}.po.${entity}Po;
+import ${cfg.parentpackage}.dto.${entity}Dto;
 import ${cfg.utilpackage}.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -66,13 +67,14 @@ public class ${table.controllerName} {
         @ResponseBody
     </#if>
     public Result select${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return ${table.serviceName?uncap_first}.select${entity}(${entity?uncap_first});
+        ${table.serviceName?uncap_first}.select${entity}(${entity?uncap_first});
+        return Result.success();
     }
 
     /**
      * @MethodName select${entity}s
      * @Description TODO
-     * @param ${entity?uncap_first}List
+     * @param ${entity?uncap_first}
      * @return
      * @throws BaseException
      * @author
@@ -83,8 +85,9 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result select${entity}s(List<${entity}Po> ${entity?uncap_first}List) throws BaseException {
-        return ${table.serviceName?uncap_first}.select${entity}s(${entity?uncap_first}List);
+    public Result select${entity}s(${entity}Po ${entity?uncap_first}) throws BaseException {
+        ${table.serviceName?uncap_first}.select${entity}s(${entity?uncap_first});
+        return Result.success();
     }
 
     /**
@@ -102,7 +105,8 @@ public class ${table.controllerName} {
         @ResponseBody
     </#if>
     public Result delete${entity}ById(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return ${table.serviceName?uncap_first}.delete${entity}ById(${entity?uncap_first});
+        ${table.serviceName?uncap_first}.delete${entity}ById(${entity?uncap_first});
+        return Result.success();
     }
 
     /**
@@ -120,7 +124,8 @@ public class ${table.controllerName} {
         @ResponseBody
     </#if>
     public Result delete${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return ${table.serviceName?uncap_first}.delete${entity}(${entity?uncap_first});
+        ${table.serviceName?uncap_first}.delete${entity}(${entity?uncap_first});
+        return Result.success();
     }
 
     /**
@@ -138,7 +143,8 @@ public class ${table.controllerName} {
         @ResponseBody
     </#if>
     public Result delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
-        return ${table.serviceName?uncap_first}.delete${entity}s(${entity?uncap_first}List);
+        ${table.serviceName?uncap_first}.delete${entity}s(${entity?uncap_first}List);
+        return Result.success();
     }
 
     /**
@@ -156,7 +162,8 @@ public class ${table.controllerName} {
         @ResponseBody
     </#if>
     public Result update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return ${table.serviceName?uncap_first}.update${entity}(${entity?uncap_first});
+        ${table.serviceName?uncap_first}.update${entity}(${entity?uncap_first});
+        return Result.success();
     }
 
     /**
@@ -174,7 +181,8 @@ public class ${table.controllerName} {
         @ResponseBody
     </#if>
     public Result update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
-        return ${table.serviceName?uncap_first}.update${entity}s(${entity?uncap_first}List);
+        ${table.serviceName?uncap_first}.update${entity}s(${entity?uncap_first}List);
+        return Result.success();
     }
 
     /**
@@ -192,7 +200,8 @@ public class ${table.controllerName} {
         @ResponseBody
     </#if>
     public Result insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return ${table.serviceName?uncap_first}.insert${entity}(${entity?uncap_first});
+        ${table.serviceName?uncap_first}.insert${entity}(${entity?uncap_first});
+        return Result.success();
     }
 
     /**
@@ -210,7 +219,8 @@ public class ${table.controllerName} {
         @ResponseBody
     </#if>
     public Result insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException  {
-        return ${table.serviceName?uncap_first}.insert${entity}s(${entity?uncap_first}List);
+        ${table.serviceName?uncap_first}.insert${entity}s(${entity?uncap_first}List);
+        return Result.success();
     }
 
 }

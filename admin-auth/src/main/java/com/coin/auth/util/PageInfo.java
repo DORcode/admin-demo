@@ -1,7 +1,9 @@
 package com.coin.auth.util;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,7 +14,7 @@ import java.util.List;
  * @Version V1.0
  **/
 @Data
-public class PageInfo {
+public class PageInfo implements Serializable {
 
     /**
      * 总数量
@@ -21,15 +23,18 @@ public class PageInfo {
     /**
      * 当前页数
      */
+    @JSONField(name="pageNum")
     private long current;
     /**
      * 每页数量
      */
+    @JSONField(name="pageSize")
     private int size;
 
     /**
      * 总页数
      */
+    @JSONField(name="totalPage")
     private long pages;
     /**
      * 数据

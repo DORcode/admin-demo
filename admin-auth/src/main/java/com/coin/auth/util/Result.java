@@ -30,20 +30,30 @@ public class Result implements Serializable {
         this.data = data;
     }
 
+    public static Result response(ResultCodeEnum code) {
+        return new Result(code.getCode(), code.getMsg());
+    }
+
     public static Result success() {
         return new Result(ResultCodeEnum.SUCCESS.getCode(), ResultCodeEnum.SUCCESS.getMsg());
     }
+
 
     public static Result success(Object data) {
         return new Result(ResultCodeEnum.SUCCESS.getCode(), ResultCodeEnum.SUCCESS.getMsg(), data);
     }
 
-    public static Result fail(ResultCodeEnum code) {
-        return new Result(code.getCode(), code.getMsg());
+    public static Result success(ResultCodeEnum code, Object data) {
+        return new Result(code.getCode(), code.getMsg(), data);
     }
 
     public static Result fail(BaseException be) {
+        if(be.getCode() == null) {
+            return new Result(3001, be.getMsg());
+        }
+
         return new Result(be.getCode(), be.getMsg());
+
     }
 
     public static Result rows(long total, List<?> data) {

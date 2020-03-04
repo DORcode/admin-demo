@@ -31,7 +31,7 @@ public class RepeatRequestAspect {
     ThreadLocal<String> requestParam = new ThreadLocal<>();
 
 
-    @Pointcut("execution(public * com.coin.auth.controller.*.*(..))")
+    @Pointcut("execution(public * com.coin.auth.web.controller.*.*(..))")
     public void repeatRequest() {
     }
 

@@ -1,19 +1,20 @@
 package ${cfg.parentpackage}.po;
 
 <#list table.importPackages as pkg>
-<#if pkg != 'com.baomidou.mybatisplus.annotations.TableId'
-    && pkg != 'com.baomidou.mybatisplus.annotations.TableField'
+<#if pkg != 'com.baomidou.mybatisplus.annotation.TableId'
+    && pkg != 'com.baomidou.mybatisplus.annotation.TableField'
     && pkg != 'com.baomidou.mybatisplus.activerecord.Model'
-    && pkg != 'com.baomidou.mybatisplus.annotations.TableName'>
+    && pkg != 'com.baomidou.mybatisplus.annotation.TableName'>
 import ${pkg};
 </#if>
 </#list>
 <#if entityLombokModel>
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import com.baomidou.mybatisplus.plugins.pagination.Pagination;
+
 </#if>
 
 /**
@@ -32,7 +33,7 @@ import com.baomidou.mybatisplus.plugins.pagination.Pagination;
 </#if>
 @Accessors(chain = true)
 </#if>
-public class ${entity}Po extends Pagination implements Serializable {
+public class ${entity}Po extends Page implements Serializable {
 
     private static final long serialVersionUID = 1L;
 <#-- ----------  BEGIN 字段循环遍历  ---------->

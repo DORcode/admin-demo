@@ -13,7 +13,13 @@ import lombok.Setter;
 
 public enum ResultCodeEnum {
     SUCCESS(200, "请求成功"),
-    PARAM_ERROR(1001, "参数错误");
+    LOGIN_SUCCESS(2001, "登录成功"),
+    LOGINED(2002, "已登录！"),
+
+    LOGINOUT_SUCCESS(2010, "登出成功"),
+    ACCOUNT_ERROR(3001, "帐户或密码错误！"),
+    PARAM_ERROR(1001, "参数错误"),
+    SERVER_ERROR(5001, "服务端异常！");
     @Getter
     @Setter
     private Integer code;

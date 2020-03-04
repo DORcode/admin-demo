@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.coin.auth.mapper.SysAppMapper">
+<mapper namespace="com.coin.auth.web.mapper.SysAppMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.coin.auth.entity.SysApp">
+    <resultMap id="BaseResultMap" type="com.coin.auth.web.entity.SysApp">
         <id column="ID" property="id" />
         <result column="APP_ID" property="appId" />
         <result column="NAME" property="name" />
@@ -12,4 +12,78 @@
         <result column="IS_DELETE" property="isDelete" />
     </resultMap>
 
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, APP_ID, NAME, CREATE_TIME, UPDATE_TIME, IS_DELETE
+    </sql>
+
+
+    <insert id="insertSelective" parameterType="com.coin.auth.web.entity.SysApp" >
+        insert into sys_app
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="appId != null">
+                APP_ID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME,
+            </if>
+            <if test="isDelete != null">
+                IS_DELETE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                <if test="id != null">
+                    {id},
+                </if>
+                <if test="appId != null">
+                    {appId},
+                </if>
+                <if test="name != null">
+                    {name},
+                </if>
+                <if test="createTime != null">
+                    {createTime},
+                </if>
+                <if test="updateTime != null">
+                    {updateTime},
+                </if>
+                <if test="isDelete != null">
+                    {isDelete},
+                </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.coin.auth.web.entity.SysApp">
+        update sys_app
+        <set>
+                <if test="id != null">
+                    ID = #{id},
+                </if>
+                <if test="appId != null">
+                    APP_ID = #{appId},
+                </if>
+                <if test="name != null">
+                    NAME = #{name},
+                </if>
+                <if test="createTime != null">
+                    CREATE_TIME = #{createTime},
+                </if>
+                <if test="updateTime != null">
+                    UPDATE_TIME = #{updateTime},
+                </if>
+                <if test="isDelete != null">
+                    IS_DELETE = #{isDelete},
+                </if>
+        </set>
+        where ID = #{id}
+    </update>
 </mapper>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import ${cfg.utilpackage}.Result;
 import ${cfg.parentpackage}.po.${entity}Po;
 import ${cfg.parentpackage}.vo.${entity}Vo;
+import ${cfg.parentpackage}.dto.${entity}Dto;
 
 import lombok.extern.slf4j.Slf4j;
 import java.util.List;
@@ -44,22 +45,22 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public Result select${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return Result.success(null);
+    public ${entity}Vo select${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+        return null;
     }
 
     /**
      * @MethodName select${entity}s
      * @Description TODO
-     * @param ${entity?uncap_first}List
+     * @param ${entity?uncap_first}
      * @return
      * @throws BaseException
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public Result select${entity}s(List<${entity}Po> ${entity?uncap_first}List) throws BaseException {
-        return Result.rows(1000l, null);
+    public List<${entity}Vo> select${entity}s(${entity}Po ${entity?uncap_first}) throws BaseException {
+        return null;
     }
 
     /**
@@ -72,8 +73,8 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
      */
     @Override
-    public Result delete${entity}ById(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return Result.success();
+    public int delete${entity}ById(${entity}Vo ${entity?uncap_first}) throws BaseException {
+        return 0;
     }
 
     /**
@@ -86,8 +87,8 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
      */
     @Override
-    public Result delete${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return Result.success();
+    public int delete${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+        return 0;
     }
 
     /**
@@ -100,8 +101,8 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public Result delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
-        return Result.success();
+    public int delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+        return 1;
     }
 
     /**
@@ -114,8 +115,8 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public Result update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return Result.success();
+    public int update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+        return 1;
     }
 
     /**
@@ -128,8 +129,8 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public Result update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
-        return Result.success();
+    public int update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+        return 1;
     };
 
     /**
@@ -142,8 +143,8 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public Result insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return Result.success();
+    public int insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+        return 1;
     }
 
     /**
@@ -156,8 +157,8 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public Result insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
-        return Result.success();
+    public int insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+        return 1;
     }
 }
 </#if>

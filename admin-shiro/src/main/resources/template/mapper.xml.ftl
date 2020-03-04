@@ -36,4 +36,46 @@
     </sql>
 
 </#if>
+
+    <select id="selectOneSelective" parameterType="${package.Entity}.${entity}">
+        select * from sys_user
+        <where>
+            and IS_DELETE = 0
+            <#list table.fields as field>
+                <if test="${field.propertyName} != null">
+                    and ${field.name} = <#noparse>#{</#noparse>${field.propertyName}<#noparse>}</#noparse>
+                </if>
+            </#list>
+        </where>
+    </select>
+
+    <insert id="insertSelective" parameterType="${package.Entity}.${entity}" >
+        insert into ${table.name}
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <#list table.fields as field>
+            <if test="${field.propertyName} != null">
+                ${field.name},
+            </if>
+            </#list>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <#list table.fields as field>
+                <if test="${field.propertyName} != null">
+                    {${field.propertyName}},
+                </if>
+            </#list>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="${package.Entity}.${entity}">
+        update ${table.name}
+        <set>
+            <#list table.fields as field>
+                <if test="${field.propertyName} != null">
+                    ${field.name} = <#noparse>#{</#noparse>${field.propertyName}<#noparse>}</#noparse>,
+                </if>
+            </#list>
+        </set>
+        where ID = <#noparse>#{</#noparse>id<#noparse>}</#noparse>
+    </update>
 </mapper>

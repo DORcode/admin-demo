@@ -1,5 +1,6 @@
 package com.coin.shiro.util;
 
+import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
@@ -7,11 +8,10 @@ import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.converts.OracleTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
-import com.baomidou.mybatisplus.generator.config.rules.DbType;
+import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import org.apache.ibatis.annotations.Mapper;
-import org.thymeleaf.expression.Lists;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,12 +38,14 @@ public class GeneratorUtil {
     private static String DB_UM = "";
     private static String DB_PWD = "";
     private static ITypeConvert TYPE_CONVERT = null;
+    private static GlobalConfig gc;
     public static void main(String[] args) {
+        gc = new GlobalConfig();
         mysql();
 
     }
 
-    public static void oracle() {
+    public static void oracle(GlobalConfig gc) {
         DB_TYPE = DbType.ORACLE;
         DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
         DB_URL= "jdbc:oracle:thin:@10.6.172.161:1521:ORCL";
@@ -51,11 +53,11 @@ public class GeneratorUtil {
         DB_PWD = "GM_BEIJING";
         TYPE_CONVERT = new OracleTypeConvert() {
             @Override
-            public DbColumnType processTypeConvert(String fieldType) {
+            public IColumnType processTypeConvert(GlobalConfig gc, String fieldType) {
                 /*if(fieldType.contains("")) {
                     return DbColumnType.BOOLEAN;
                 }*/
-                return super.processTypeConvert(fieldType);
+                return super.processTypeConvert(gc, fieldType);
             }
         };
         generate();
@@ -69,11 +71,11 @@ public class GeneratorUtil {
         DB_PWD = "123";
         TYPE_CONVERT = new MySqlTypeConvert() {
             @Override
-            public DbColumnType processTypeConvert(String fieldType) {
+            public IColumnType processTypeConvert(GlobalConfig gc, String fieldType) {
                 /*if(fieldType.contains("")) {
                     return DbColumnType.BOOLEAN;
                 }*/
-                return super.processTypeConvert(fieldType);
+                return super.processTypeConvert(gc, fieldType);
             }
         };
         generate();
@@ -82,13 +84,13 @@ public class GeneratorUtil {
     private static void generate() {
         AutoGenerator ac = new AutoGenerator();
 
-        GlobalConfig gc = new GlobalConfig();
+
         gc.setOutputDir(OUTPUT_JAVA);
         gc.setFileOverride(true);
         // gc.setActiveRecord(true);
         gc.setEnableCache(false);
         gc.setBaseResultMap(true);
-        gc.setBaseColumnList(false);
+        gc.setBaseColumnList(true);
         gc.setAuthor("kh");
         gc.setControllerName("%sCotroller");
         gc.setServiceImplName("%sServiceImpl");
@@ -174,6 +176,13 @@ public class GeneratorUtil {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 return OUTPUT_JAVA + PARENTPACKAGEPATH + "/vo/" + tableInfo.getEntityName() + "Vo.java";
+            }
+        });
+
+        focList.add(new FileOutConfig("template/entitydto.java.ftl") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return OUTPUT_JAVA + PARENTPACKAGEPATH + "/dto/" + tableInfo.getEntityName() + "Dto.java";
             }
         });
         cfg.setFileOutConfigList(focList);
