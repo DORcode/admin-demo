@@ -1,5 +1,6 @@
 package com.coin.auth.web.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.coin.auth.web.entity.SysUser;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.coin.auth.util.BaseException;
@@ -48,7 +49,7 @@ public interface SysUserService extends IService<SysUser> {
     * @author
     * @date 2020/02/27 07:00:49.015
     */
-    List<SysUserVo> selectSysUsers(SysUserPo sysUser) throws BaseException;
+   IPage<SysUser> selectSysUsers(SysUserPo sysUser) throws BaseException;
 
    /**
    * @MethodName deleteSysUser

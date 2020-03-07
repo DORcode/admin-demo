@@ -69,7 +69,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.coin.auth.web.entity.SysRole">
+    <update id="updateByPrimaryKeySelective" parameterType="com.coin.auth.web.vo.SysRoleVo">
         update sys_role
         <set>
                 <if test="id != null">

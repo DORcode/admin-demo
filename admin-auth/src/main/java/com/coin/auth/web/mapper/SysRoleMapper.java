@@ -2,6 +2,7 @@ package com.coin.auth.web.mapper;
 
 import com.coin.auth.web.entity.SysRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.coin.auth.web.vo.SysRoleVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -44,5 +45,5 @@ public interface SysRoleMapper extends BaseMapper<SysRole> {
     * @author
     * @date 2020/02/27 07:00:949.014
     */
-    int updateByPrimaryKeySelective(SysRole sysRole);
+    int updateByPrimaryKeySelective(SysRoleVo sysRole);
 }

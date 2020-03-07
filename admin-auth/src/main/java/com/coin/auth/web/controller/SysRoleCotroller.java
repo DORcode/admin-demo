@@ -1,10 +1,15 @@
 package com.coin.auth.web.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.coin.auth.util.ResultCodeEnum;
+import com.coin.auth.web.dto.SysRoleDto;
+import com.coin.auth.web.entity.SysRole;
 import com.coin.auth.web.service.SysRoleService;
 import com.coin.auth.util.BaseException;
 import com.coin.auth.web.vo.SysRoleVo;
 import com.coin.auth.web.po.SysRolePo;
 import com.coin.auth.util.Result;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,8 +49,8 @@ public class SysRoleCotroller {
     @RequestMapping("selectSysRole")
     @ApiOperation(value="查询")
     public Result selectSysRole(SysRoleVo sysRole) throws BaseException {
-        sysRoleService.selectSysRole(sysRole);
-        return Result.success();
+        SysRoleDto sysRoleDto = sysRoleService.selectSysRole(sysRole);
+        return Result.success(sysRoleDto);
     }
 
     /**
@@ -60,8 +65,8 @@ public class SysRoleCotroller {
     @RequestMapping("selectSysRoles")
     @ApiOperation(value="查询")
     public Result selectSysRoles(SysRolePo sysRole) throws BaseException {
-        sysRoleService.selectSysRoles(sysRole);
-        return Result.success();
+        IPage<SysRole> roleIPage = sysRoleService.selectSysRoles(sysRole);
+        return Result.success(roleIPage);
     }
 
     /**
@@ -77,7 +82,7 @@ public class SysRoleCotroller {
     @ApiOperation(value="根据主键删除")
     public Result deleteSysRoleById(SysRoleVo sysRole) throws BaseException {
         sysRoleService.deleteSysRoleById(sysRole);
-        return Result.success();
+        return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
 
     /**
@@ -89,11 +94,12 @@ public class SysRoleCotroller {
      * @author
      * @date 2020/02/27 07:00:14.960
      */
+    @RequiresPermissions(value = "delete")
     @RequestMapping("deleteSysRole")
     @ApiOperation(value="删除")
     public Result deleteSysRole(SysRoleVo sysRole) throws BaseException {
         sysRoleService.deleteSysRole(sysRole);
-        return Result.success();
+        return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
 
     /**
@@ -109,7 +115,7 @@ public class SysRoleCotroller {
     @ApiOperation(value="删除多个")
     public Result deleteSysRoles(List<SysRoleVo> sysRoleList) throws BaseException {
         sysRoleService.deleteSysRoles(sysRoleList);
-        return Result.success();
+        return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
 
     /**
@@ -125,7 +131,7 @@ public class SysRoleCotroller {
     @ApiOperation(value="更新")
     public Result updateSysRole(SysRoleVo sysRole) throws BaseException {
         sysRoleService.updateSysRole(sysRole);
-        return Result.success();
+        return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
 
     /**
@@ -141,7 +147,7 @@ public class SysRoleCotroller {
     @ApiOperation(value="更新多个")
     public Result updateSysRoles(List<SysRoleVo> sysRoleList) throws BaseException {
         sysRoleService.updateSysRoles(sysRoleList);
-        return Result.success();
+        return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
 
     /**
@@ -157,7 +163,7 @@ public class SysRoleCotroller {
     @ApiOperation(value="插入")
     public Result insertSysRole(SysRoleVo sysRole) throws BaseException {
         sysRoleService.insertSysRole(sysRole);
-        return Result.success();
+        return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
 
     /**
@@ -173,7 +179,7 @@ public class SysRoleCotroller {
     @ApiOperation(value="插入多个")
     public Result insertSysRoles(List<SysRoleVo> sysRoleList) throws BaseException  {
         sysRoleService.insertSysRoles(sysRoleList);
-        return Result.success();
+        return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
 
 }

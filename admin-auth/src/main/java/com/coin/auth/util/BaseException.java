@@ -25,5 +25,10 @@ public class BaseException extends RuntimeException {
         this.msg = msg;
     }
 
+    public BaseException(ResultCodeEnum code) {
+        this.code = code.getCode();
+        this.msg = code.getMsg();
+    }
+
 
 }

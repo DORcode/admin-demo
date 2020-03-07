@@ -1,5 +1,9 @@
 package com.coin.auth.web.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.coin.auth.util.BeanUtil;
+import com.coin.auth.util.ResultCodeEnum;
+import com.coin.auth.web.entity.SysUser;
 import com.coin.auth.web.service.SysUserService;
 import com.coin.auth.util.BaseException;
 import com.coin.auth.web.vo.SysUserVo;
@@ -34,7 +38,7 @@ public class SysUserCotroller {
 
     /**
      * @MethodName selectSysUser
-     * @Description TODO
+     * @Description 此处有问题，入参和返回都不合理
      * @param sysUser
      * @return
      * @throws BaseException
@@ -44,8 +48,10 @@ public class SysUserCotroller {
     @RequestMapping("selectSysUser")
     @ApiOperation(value="查询用户")
     public Result selectSysUser(SysUserVo sysUser) throws BaseException {
-        sysUserService.selectSysUser(sysUser);
-        return Result.success();
+        SysUser user = new SysUser();
+        BeanUtil.copyProperties(user, sysUser);
+        SysUser u = sysUserService.selectOneSelective(user);
+        return Result.success(u);
     }
 
     /**
@@ -60,8 +66,8 @@ public class SysUserCotroller {
     @RequestMapping("selectSysUsers")
     @ApiOperation(value="查询用户")
     public Result selectSysUsers(SysUserPo sysUser) throws BaseException {
-        sysUserService.selectSysUsers(sysUser);
-        return Result.success();
+        IPage<SysUser> userIPage = sysUserService.selectSysUsers(sysUser);
+        return Result.success(userIPage);
     }
 
     /**
@@ -76,8 +82,14 @@ public class SysUserCotroller {
     @RequestMapping("deleteSysUserById")
     @ApiOperation(value="根据主键删除用户")
     public Result deleteSysUserById(SysUserVo sysUser) throws BaseException {
-        sysUserService.deleteSysUserById(sysUser);
-        return Result.success();
+        int num = sysUserService.deleteSysUser(sysUser);
+        if(num == 1) {
+            return Result.success(ResultCodeEnum.SAVE_SUCCESS);
+        } else {
+            throw new BaseException(ResultCodeEnum.SAVE_FAIL);
+        }
+
+
     }
 
     /**
@@ -157,7 +169,7 @@ public class SysUserCotroller {
     @ApiOperation(value="插入用户")
     public Result insertSysUser(SysUserVo sysUser) throws BaseException {
         sysUserService.insertSysUser(sysUser);
-        return Result.success();
+        return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
 
     /**
@@ -173,7 +185,7 @@ public class SysUserCotroller {
     @ApiOperation(value="插入多个用户")
     public Result insertSysUsers(List<SysUserVo> sysUserList) throws BaseException  {
         sysUserService.insertSysUsers(sysUserList);
-        return Result.success();
+        return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
 
 }

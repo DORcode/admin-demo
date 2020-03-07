@@ -22,6 +22,9 @@ public class SysUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public SysUser() {
+    }
+
     public SysUser(String username) {
         this.username = username;
     }

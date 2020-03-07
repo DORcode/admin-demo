@@ -1,5 +1,6 @@
 package com.coin.auth.web.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.coin.auth.web.entity.SysRole;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.coin.auth.util.BaseException;
@@ -52,7 +53,7 @@ public interface SysRoleService extends IService<SysRole> {
     * @author
     * @date 2020/02/27 07:00:953.014
     */
-    List<SysRoleVo> selectSysRoles(SysRolePo sysRole) throws BaseException;
+    IPage<SysRole> selectSysRoles(SysRolePo sysRole) throws BaseException;
 
    /**
    * @MethodName deleteSysRole

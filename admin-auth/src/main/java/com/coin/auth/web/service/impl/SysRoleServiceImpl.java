@@ -1,7 +1,12 @@
 package com.coin.auth.web.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.coin.auth.util.BeanUtil;
+import com.coin.auth.util.ResultCodeEnum;
 import com.coin.auth.web.entity.SysRole;
+import com.coin.auth.web.entity.SysUser;
 import com.coin.auth.web.mapper.SysRoleMapper;
 import com.coin.auth.web.service.SysRoleService;
 import com.coin.auth.util.BaseException;
@@ -53,7 +58,14 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public SysRoleDto selectSysRole(SysRoleVo sysRole) throws BaseException {
-        return null;
+        QueryWrapper<SysRole> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", sysRole.getCode()).eq("isDelete", "0");
+
+        SysRole role = sysRoleMapper.selectOne(queryWrapper);
+
+        SysRoleDto sysRoleDto = new SysRoleDto();
+        BeanUtil.copyProperties(sysRoleDto, role);
+        return sysRoleDto;
     }
 
     /**
@@ -66,8 +78,12 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      * @date 2020/02/27 07:26:590.035
      */
     @Override
-    public List<SysRoleVo> selectSysRoles(SysRolePo sysRole) throws BaseException {
-        return null;
+    public IPage<SysRole> selectSysRoles(SysRolePo sysRole) throws BaseException {
+        Page<SysRole> page = new Page<>(sysRole.getCurrent(), sysRole.getSize());
+        QueryWrapper<SysRole> queryWrapper = new QueryWrapper<>();
+
+        IPage<SysRole> roleIPage = sysRoleMapper.selectPage(page, queryWrapper);
+        return roleIPage;
     }
 
     /**
@@ -81,8 +97,13 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public int deleteSysRoleById(SysRoleVo sysRole) throws BaseException {
-
-        return 0;
+        sysRole.setIsDelete("1");
+        int i = sysRoleMapper.updateByPrimaryKeySelective(sysRole);
+        int num = i;
+        if(num != 1) {
+            throw new BaseException(ResultCodeEnum.SAVE_FAIL);
+        }
+        return num;
     }
 
     /**
@@ -110,7 +131,10 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public int deleteSysRoles(List<SysRoleVo> sysRoleList) throws BaseException {
-        return 1;
+        for(SysRoleVo sr : sysRoleList) {
+            this.deleteSysRoleById(sr);
+        }
+        return sysRoleList.size();
     }
 
     /**
@@ -124,7 +148,8 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public int updateSysRole(SysRoleVo sysRole) throws BaseException {
-        return 1;
+        int num = sysRoleMapper.updateByPrimaryKeySelective(sysRole);
+        return num;
     }
 
     /**
@@ -152,7 +177,13 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public int insertSysRole(SysRoleVo sysRole) throws BaseException {
-        return 1;
+        SysRole role = new SysRole();
+        BeanUtil.copyProperties(role, sysRole);
+        int num = sysRoleMapper.insert(role);
+        if(num != 1) {
+            throw new BaseException(ResultCodeEnum.SAVE_FAIL);
+        }
+        return num;
     }
 
     /**
@@ -166,6 +197,9 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public int insertSysRoles(List<SysRoleVo> sysRoleList) throws BaseException {
-        return 1;
+        for(SysRoleVo sr : sysRoleList) {
+            this.insertSysRole(sr);
+        }
+        return sysRoleList.size();
     }
 }

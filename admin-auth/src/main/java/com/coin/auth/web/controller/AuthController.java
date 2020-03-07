@@ -2,10 +2,12 @@ package com.coin.auth.web.controller;
 
 
 import com.coin.auth.config.YmlConfig;
+import com.coin.auth.util.BaseException;
 import com.coin.auth.web.entity.SysUser;
 import com.coin.auth.web.service.SysUserService;
 import com.coin.auth.util.Result;
 import com.coin.auth.util.ResultCodeEnum;
+import com.coin.auth.web.vo.SysUserVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -13,10 +15,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -90,8 +89,17 @@ public class AuthController {
         return Result.response(ResultCodeEnum.LOGINOUT_SUCCESS);
     }
 
-    public void logon() {
+    @ApiOperation(value = "注册")
+    @RequestMapping(value = "logon", method = RequestMethod.POST)
+    @ResponseBody
+    public Result logon(SysUserVo user) throws BaseException {
+        int num = sysUserService.insertSysUser(user);
 
+        if(num != 1) {
+            throw new BaseException(ResultCodeEnum.LOGON_FAIL);
+        }
+
+        return Result.response(ResultCodeEnum.LOGON_SUCCESS);
     }
 
 
