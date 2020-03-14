@@ -51,6 +51,6 @@ public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    int updateByPrimaryKeySelective(${entity} ${entity?uncap_first});
+    int updateByPrimaryKeySelective(${entity}Vo ${entity?uncap_first});
 }
 </#if>

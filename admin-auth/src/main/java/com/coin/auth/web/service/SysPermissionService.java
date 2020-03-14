@@ -4,6 +4,7 @@ import com.coin.auth.web.entity.SysPermission;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.coin.auth.util.BaseException;
 import com.coin.auth.web.po.SysPermissionPo;
+import com.coin.auth.web.vo.Menu;
 import com.coin.auth.web.vo.SysPermissionVo;
 import com.coin.auth.web.dto.SysPermissionDto;
 import java.util.List;
@@ -38,7 +39,7 @@ public interface SysPermissionService extends IService<SysPermission> {
     * @author
     * @date 2020/02/27 07:00:913.014
     */
-    SysPermissionDto selectSysPermission(SysPermissionVo sysPermission) throws BaseException;
+    SysPermissionVo selectSysPermission(SysPermissionVo sysPermission) throws BaseException;
 
    /**
     * @MethodName selectSysPermissions
@@ -50,6 +51,17 @@ public interface SysPermissionService extends IService<SysPermission> {
     * @date 2020/02/27 07:00:913.014
     */
     List<SysPermissionVo> selectSysPermissions(SysPermissionPo sysPermission) throws BaseException;
+
+    /**
+     * @MethodName selectMenuList
+     * @Description 查询用户菜单
+     * @param
+     * @return java.util.List<com.coin.auth.web.vo.Menu>
+     * @throws
+     * @author kh
+     * @date 2020/3/8 21:31
+     */
+    List<Menu> selectMenuList() throws BaseException;
 
    /**
    * @MethodName deleteSysPermission

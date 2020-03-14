@@ -2,6 +2,7 @@ package com.coin.auth.web.vo;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -55,6 +56,4 @@ public class SysRoleVo implements Serializable {
      * 是否删除，0否，1是
      */
     private String isDelete;
-
-
 }

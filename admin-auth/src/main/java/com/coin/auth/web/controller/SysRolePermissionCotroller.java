@@ -1,7 +1,11 @@
 package com.coin.auth.web.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.coin.auth.web.po.SysPermissionPo;
 import com.coin.auth.web.service.SysRolePermissionService;
 import com.coin.auth.util.BaseException;
+import com.coin.auth.web.vo.SysPermissionVo;
 import com.coin.auth.web.vo.SysRolePermissionVo;
 import com.coin.auth.web.po.SysRolePermissionPo;
 import com.coin.auth.util.Result;
@@ -17,7 +21,7 @@ import java.util.List;
 
 /**
 * @ClassName SysRolePermissionCotroller
-* @Description: 角色权限
+* @Description: 角色权限关联管理
 * @Author kh
 * @Date 2020-02-27
 * @Version V1.0
@@ -51,7 +55,7 @@ public class SysRolePermissionCotroller {
     /**
      * @MethodName selectSysRolePermissions
      * @Description TODO
-     * @param sysRolePermission
+     * @param sysPermission
      * @return
      * @throws BaseException
      * @author
@@ -59,9 +63,9 @@ public class SysRolePermissionCotroller {
      */
     @RequestMapping("selectSysRolePermissions")
     @ApiOperation(value="查询角色权限")
-    public Result selectSysRolePermissions(SysRolePermissionPo sysRolePermission) throws BaseException {
-        sysRolePermissionService.selectSysRolePermissions(sysRolePermission);
-        return Result.success();
+    public Result selectSysRolePermissions(Page page, SysPermissionPo sysPermission) throws BaseException {
+        IPage<SysPermissionVo> permissions = sysRolePermissionService.selectSysRolePermissions(page, sysPermission);
+        return Result.success(permissions);
     }
 
     /**

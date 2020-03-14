@@ -1,7 +1,9 @@
 package com.coin.auth.web.controller;
 
+import com.coin.auth.util.ResultCodeEnum;
 import com.coin.auth.web.service.SysUserRoleService;
 import com.coin.auth.util.BaseException;
+import com.coin.auth.web.vo.SysRoleVo;
 import com.coin.auth.web.vo.SysUserRoleVo;
 import com.coin.auth.web.po.SysUserRolePo;
 import com.coin.auth.util.Result;
@@ -45,6 +47,10 @@ public class SysUserRoleCotroller {
     @ApiOperation(value="查询用户角色关联表")
     public Result selectSysUserRole(SysUserRoleVo sysUserRole) throws BaseException {
         sysUserRoleService.selectSysUserRole(sysUserRole);
+        // 用户 角色，用户绑定角色，
+
+        // 用户添加角色 用户id， 角色id即可
+        // 用户修改角色?需要修改吗？那么需要保证唯一关联性
         return Result.success();
     }
 
@@ -60,8 +66,8 @@ public class SysUserRoleCotroller {
     @RequestMapping("selectSysUserRoles")
     @ApiOperation(value="查询用户角色关联表")
     public Result selectSysUserRoles(SysUserRolePo sysUserRole) throws BaseException {
-        sysUserRoleService.selectSysUserRoles(sysUserRole);
-        return Result.success();
+        List<SysRoleVo> sysRoleVos = sysUserRoleService.selectSysUserRoles(sysUserRole);
+        return Result.success(sysRoleVos);
     }
 
     /**
@@ -77,7 +83,7 @@ public class SysUserRoleCotroller {
     @ApiOperation(value="根据主键删除用户角色关联表")
     public Result deleteSysUserRoleById(SysUserRoleVo sysUserRole) throws BaseException {
         sysUserRoleService.deleteSysUserRoleById(sysUserRole);
-        return Result.success();
+        return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
 
     /**
@@ -157,7 +163,7 @@ public class SysUserRoleCotroller {
     @ApiOperation(value="插入用户角色关联表")
     public Result insertSysUserRole(SysUserRoleVo sysUserRole) throws BaseException {
         sysUserRoleService.insertSysUserRole(sysUserRole);
-        return Result.success();
+        return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
 
     /**
@@ -173,7 +179,7 @@ public class SysUserRoleCotroller {
     @ApiOperation(value="插入多个用户角色关联表")
     public Result insertSysUserRoles(List<SysUserRoleVo> sysUserRoleList) throws BaseException  {
         sysUserRoleService.insertSysUserRoles(sysUserRoleList);
-        return Result.success();
+        return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
 
 }

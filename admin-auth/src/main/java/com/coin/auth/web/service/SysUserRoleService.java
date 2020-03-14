@@ -4,6 +4,7 @@ import com.coin.auth.web.entity.SysUserRole;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.coin.auth.util.BaseException;
 import com.coin.auth.web.po.SysUserRolePo;
+import com.coin.auth.web.vo.SysRoleVo;
 import com.coin.auth.web.vo.SysUserRoleVo;
 import com.coin.auth.web.dto.SysUserRoleDto;
 import java.util.List;
@@ -26,7 +27,7 @@ public interface SysUserRoleService extends IService<SysUserRole> {
     * @author
     * @date 2020/02/27 07:00:89.015
     */
-    SysUserRoleDto selectSysUserRole(SysUserRoleVo sysUserRole) throws BaseException;
+    SysRoleVo selectSysUserRole(SysUserRoleVo sysUserRole) throws BaseException;
 
    /**
     * @MethodName selectSysUserRoles
@@ -37,7 +38,7 @@ public interface SysUserRoleService extends IService<SysUserRole> {
     * @author
     * @date 2020/02/27 07:00:89.015
     */
-    List<SysUserRoleVo> selectSysUserRoles(SysUserRolePo sysUserRole) throws BaseException;
+    List<SysRoleVo> selectSysUserRoles(SysUserRolePo sysUserRole) throws BaseException;
 
    /**
    * @MethodName deleteSysUserRole

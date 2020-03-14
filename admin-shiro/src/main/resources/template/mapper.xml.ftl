@@ -67,7 +67,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKeySelective" parameterType="${package.Entity}.${entity}">
+    <update id="updateByPrimaryKeySelective" parameterType="${cfg.parentpackage}.vo.${entity}Vo">
         update ${table.name}
         <set>
             <#list table.fields as field>

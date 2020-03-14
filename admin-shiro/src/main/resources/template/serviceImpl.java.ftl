@@ -50,7 +50,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
 
     /**
-     * @MethodName select${entity}s
+     * @MethodName select${entity}sPage
      * @Description TODO
      * @param ${entity?uncap_first}
      * @return
@@ -59,7 +59,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public List<${entity}Vo> select${entity}s(${entity}Po ${entity?uncap_first}) throws BaseException {
+    public List<${entity}Vo> select${entity}sPage(${entity}Po ${entity?uncap_first}) throws BaseException {
         return null;
     }
 

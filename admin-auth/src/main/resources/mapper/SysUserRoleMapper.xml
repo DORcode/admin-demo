@@ -86,4 +86,13 @@
         </set>
         where ID = #{id}
     </update>
+    <update id="deleteByRoleId">
+        update sys_user_role ur set ur.is_delete=1 where ur.role_id=#{roleId,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectSysRoleVo" resultType="com.coin.auth.web.vo.SysRoleVo">
+        select * from sys_user_role ur left join sys_role r on ur.user_id=r.id
+        where ur.user_id=#{userId} and ur.is_delete=0
+
+    </select>
 </mapper>

@@ -62,7 +62,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.coin.auth.web.entity.SysRolePermission">
+    <update id="updateByPrimaryKeySelective" parameterType="com.coin.auth.web.vo.SysPermissionVo">
         update sys_role_permission
         <set>
                 <if test="id != null">
@@ -86,4 +86,18 @@
         </set>
         where ID = #{id}
     </update>
+    <update id="deleteByPermissionId">
+        update sys_role_permission rp left join sys_permission p on rp.permission_code=p.p_code
+        set is_delete=1 where p.id=#{permissionId}
+    </update>
+
+    <update id="deleteByRoleId">
+        update sys_role_permission rp
+        set is_delete=1 where rp.role_id=#{roleId}
+    </update>
+
+    <select id="selectSysRolePermissionsPage" resultType="com.coin.auth.web.vo.SysPermissionVo">
+        select * from sys_role_permission rp left join sys_permission p on rp.permission_code=r.code
+        where rp.role_id=#{role_id} and rp.is_delete='0'
+    </select>
 </mapper>

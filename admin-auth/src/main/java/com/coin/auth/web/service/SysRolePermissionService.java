@@ -1,9 +1,13 @@
 package com.coin.auth.web.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.coin.auth.web.entity.SysRolePermission;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.coin.auth.util.BaseException;
+import com.coin.auth.web.po.SysPermissionPo;
 import com.coin.auth.web.po.SysRolePermissionPo;
+import com.coin.auth.web.vo.SysPermissionVo;
 import com.coin.auth.web.vo.SysRolePermissionVo;
 import com.coin.auth.web.dto.SysRolePermissionDto;
 import java.util.List;
@@ -37,7 +41,7 @@ public interface SysRolePermissionService extends IService<SysRolePermission> {
     * @author
     * @date 2020/02/27 07:00:996.014
     */
-    List<SysRolePermissionVo> selectSysRolePermissions(SysRolePermissionPo sysRolePermission) throws BaseException;
+   IPage<SysPermissionVo> selectSysRolePermissions(Page page, SysPermissionPo sysPermission) throws BaseException;
 
    /**
    * @MethodName deleteSysRolePermission

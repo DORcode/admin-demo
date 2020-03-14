@@ -27,7 +27,6 @@ import java.util.Map;
  * @Date 2020-02-19
  * @Version V1.0
  */
-
 @Slf4j
 @RestController
 @RequestMapping("/api/auth")
@@ -94,11 +93,6 @@ public class AuthController {
     @ResponseBody
     public Result logon(SysUserVo user) throws BaseException {
         int num = sysUserService.insertSysUser(user);
-
-        if(num != 1) {
-            throw new BaseException(ResultCodeEnum.LOGON_FAIL);
-        }
-
         return Result.response(ResultCodeEnum.LOGON_SUCCESS);
     }
 

@@ -57,7 +57,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      */
     @Override
     public SysUserDto selectSysUser(SysUserVo sysUser) throws BaseException {
-        return null;
+        QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("id", sysUser.getId()).eq("isDelete", "0");
+        SysUser user = sysUserMapper.selectOne(queryWrapper);
+        SysUserDto sysUserDto = new SysUserDto();
+        BeanUtil.copyProperties(sysUserDto, user);
+        return sysUserDto;
     }
 
     /**
@@ -73,7 +78,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     public IPage<SysUser> selectSysUsers(SysUserPo sysUser) throws BaseException {
         Page<SysUser> page = new Page<>(sysUser.getCurrent(), sysUser.getSize());
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
-
+        queryWrapper.eq("isDelete", "0");
         IPage<SysUser> userIPage = sysUserMapper.selectPage(page, queryWrapper);
         return userIPage;
     }

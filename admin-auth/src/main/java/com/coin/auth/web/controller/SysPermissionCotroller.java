@@ -1,7 +1,9 @@
 package com.coin.auth.web.controller;
 
+import com.coin.auth.util.ResultCodeEnum;
 import com.coin.auth.web.service.SysPermissionService;
 import com.coin.auth.util.BaseException;
+import com.coin.auth.web.vo.Menu;
 import com.coin.auth.web.vo.SysPermissionVo;
 import com.coin.auth.web.po.SysPermissionPo;
 import com.coin.auth.util.Result;
@@ -47,6 +49,22 @@ public class SysPermissionCotroller {
         sysPermissionService.selectSysPermission(sysPermission);
         return Result.success();
     }
+    
+    /**
+     * @MethodName menus
+     * @Description 菜单
+     * @param  
+     * @return com.coin.auth.util.Result
+     * @throws 
+     * @author kh
+     * @date 2020/3/9 20:14
+     */
+    @RequestMapping("menus")
+    @ApiOperation(value="菜单树形")
+    public Result menus() {
+        List<Menu> menus = sysPermissionService.selectMenuList();
+        return Result.success(menus);
+    }
 
     /**
      * @MethodName selectSysPermissions
@@ -77,7 +95,7 @@ public class SysPermissionCotroller {
     @ApiOperation(value="根据主键删除权限")
     public Result deleteSysPermissionById(SysPermissionVo sysPermission) throws BaseException {
         sysPermissionService.deleteSysPermissionById(sysPermission);
-        return Result.success();
+        return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
 
     /**
@@ -93,7 +111,7 @@ public class SysPermissionCotroller {
     @ApiOperation(value="删除权限")
     public Result deleteSysPermission(SysPermissionVo sysPermission) throws BaseException {
         sysPermissionService.deleteSysPermission(sysPermission);
-        return Result.success();
+        return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
 
     /**
@@ -125,7 +143,7 @@ public class SysPermissionCotroller {
     @ApiOperation(value="更新权限")
     public Result updateSysPermission(SysPermissionVo sysPermission) throws BaseException {
         sysPermissionService.updateSysPermission(sysPermission);
-        return Result.success();
+        return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
 
     /**
@@ -141,7 +159,7 @@ public class SysPermissionCotroller {
     @ApiOperation(value="更新多个权限")
     public Result updateSysPermissions(List<SysPermissionVo> sysPermissionList) throws BaseException {
         sysPermissionService.updateSysPermissions(sysPermissionList);
-        return Result.success();
+        return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
 
     /**
@@ -157,7 +175,7 @@ public class SysPermissionCotroller {
     @ApiOperation(value="插入权限")
     public Result insertSysPermission(SysPermissionVo sysPermission) throws BaseException {
         sysPermissionService.insertSysPermission(sysPermission);
-        return Result.success();
+        return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
 
     /**
@@ -173,7 +191,7 @@ public class SysPermissionCotroller {
     @ApiOperation(value="插入多个权限")
     public Result insertSysPermissions(List<SysPermissionVo> sysPermissionList) throws BaseException  {
         sysPermissionService.insertSysPermissions(sysPermissionList);
-        return Result.success();
+        return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
 
 }

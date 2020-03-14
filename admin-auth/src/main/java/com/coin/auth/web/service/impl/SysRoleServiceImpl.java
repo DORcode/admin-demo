@@ -8,6 +8,8 @@ import com.coin.auth.util.ResultCodeEnum;
 import com.coin.auth.web.entity.SysRole;
 import com.coin.auth.web.entity.SysUser;
 import com.coin.auth.web.mapper.SysRoleMapper;
+import com.coin.auth.web.mapper.SysRolePermissionMapper;
+import com.coin.auth.web.mapper.SysUserRoleMapper;
 import com.coin.auth.web.service.SysRoleService;
 import com.coin.auth.util.BaseException;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -36,6 +38,12 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     @Autowired
     private SysRoleMapper sysRoleMapper;
 
+    @Autowired
+    private SysUserRoleMapper sysUserRoleMapper;
+
+    @Autowired
+    private SysRolePermissionMapper sysRolePermissionMapper;
+
     @Override
     public Set<String> selectSysRoleNamesByUserId(String userId) {
 
@@ -59,7 +67,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     @Override
     public SysRoleDto selectSysRole(SysRoleVo sysRole) throws BaseException {
         QueryWrapper<SysRole> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("id", sysRole.getCode()).eq("isDelete", "0");
+        queryWrapper.eq("id", sysRole.getId()).eq("isDelete", "0");
 
         SysRole role = sysRoleMapper.selectOne(queryWrapper);
 
@@ -81,7 +89,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     public IPage<SysRole> selectSysRoles(SysRolePo sysRole) throws BaseException {
         Page<SysRole> page = new Page<>(sysRole.getCurrent(), sysRole.getSize());
         QueryWrapper<SysRole> queryWrapper = new QueryWrapper<>();
-
+        queryWrapper.eq("isDelete", "0");
         IPage<SysRole> roleIPage = sysRoleMapper.selectPage(page, queryWrapper);
         return roleIPage;
     }
@@ -99,6 +107,13 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     public int deleteSysRoleById(SysRoleVo sysRole) throws BaseException {
         sysRole.setIsDelete("1");
         int i = sysRoleMapper.updateByPrimaryKeySelective(sysRole);
+
+        //删除 用户 角色 关联
+        sysUserRoleMapper.deleteByRoleId(sysRole.getId());
+
+        //删除 角色 权限 关联
+        sysRolePermissionMapper.deleteByRoleId(sysRole.getId());
+
         int num = i;
         if(num != 1) {
             throw new BaseException(ResultCodeEnum.SAVE_FAIL);

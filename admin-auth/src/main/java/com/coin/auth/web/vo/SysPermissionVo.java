@@ -2,6 +2,7 @@ package com.coin.auth.web.vo;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

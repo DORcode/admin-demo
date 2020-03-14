@@ -33,7 +33,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     ${entity}Vo select${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException;
 
    /**
-    * @MethodName select${entity}s
+    * @MethodName select${entity}sPage
     * @Description TODO
     * @param ${entity?uncap_first}
     * @return
@@ -41,7 +41,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    List<${entity}Vo> select${entity}s(${entity}Po ${entity?uncap_first}) throws BaseException;
+    List<${entity}Vo> select${entity}sPage(${entity}Po ${entity?uncap_first}) throws BaseException;
 
    /**
    * @MethodName delete${entity}

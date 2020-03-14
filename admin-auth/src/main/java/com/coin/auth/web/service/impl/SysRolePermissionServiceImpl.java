@@ -1,10 +1,15 @@
 package com.coin.auth.web.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.coin.auth.util.BeanUtil;
 import com.coin.auth.web.entity.SysRolePermission;
 import com.coin.auth.web.mapper.SysRolePermissionMapper;
+import com.coin.auth.web.po.SysPermissionPo;
 import com.coin.auth.web.service.SysRolePermissionService;
 import com.coin.auth.util.BaseException;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.coin.auth.web.vo.SysPermissionVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +18,8 @@ import com.coin.auth.web.vo.SysRolePermissionVo;
 import com.coin.auth.web.dto.SysRolePermissionDto;
 
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,15 +53,16 @@ public class SysRolePermissionServiceImpl extends ServiceImpl<SysRolePermissionM
     /**
      * @MethodName selectSysRolePermissions
      * @Description TODO
-     * @param sysRolePermission
+     * @param sysPermission
      * @return
      * @throws BaseException
      * @author
      * @date 2020/02/27 07:26:628.035
      */
     @Override
-    public List<SysRolePermissionVo> selectSysRolePermissions(SysRolePermissionPo sysRolePermission) throws BaseException {
-        return null;
+    public IPage<SysPermissionVo> selectSysRolePermissions(Page page,
+               SysPermissionPo sysPermission) throws BaseException {
+        return page.setRecords(sysRolePermissionMapper.selectSysRolePermissionsPage(page, sysPermission));
     }
 
     /**
@@ -68,7 +76,9 @@ public class SysRolePermissionServiceImpl extends ServiceImpl<SysRolePermissionM
      */
     @Override
     public int deleteSysRolePermissionById(SysRolePermissionVo sysRolePermission) throws BaseException {
-        return 0;
+        sysRolePermission.setIsDelete("1");
+        int num = sysRolePermissionMapper.updateByPrimaryKeySelective(sysRolePermission);
+        return num;
     }
 
     /**
@@ -138,7 +148,10 @@ public class SysRolePermissionServiceImpl extends ServiceImpl<SysRolePermissionM
      */
     @Override
     public int insertSysRolePermission(SysRolePermissionVo sysRolePermission) throws BaseException {
-        return 1;
+        SysRolePermission p = new SysRolePermission();
+        BeanUtil.copyProperties(p, sysRolePermission);
+        int num = sysRolePermissionMapper.insert(p);
+        return num;
     }
 
     /**
@@ -152,6 +165,13 @@ public class SysRolePermissionServiceImpl extends ServiceImpl<SysRolePermissionM
      */
     @Override
     public int insertSysRolePermissions(List<SysRolePermissionVo> sysRolePermissionList) throws BaseException {
-        return 1;
+        List<SysRolePermission> list = new ArrayList<>();
+        for(SysRolePermissionVo sp: sysRolePermissionList) {
+            SysRolePermission permission = new SysRolePermission();
+            BeanUtil.copyProperties(permission, sp);
+            list.add(permission);
+        }
+        saveBatch(list);
+        return list.size();
     }
 }
