@@ -13,6 +13,7 @@ import lombok.Setter;
 
 public enum ResultCodeEnum {
     SUCCESS(200, "请求成功"),
+
     LOGIN_SUCCESS(2001, "登录成功"),
     LOGINED(2002, "已登录！"),
 
@@ -23,7 +24,6 @@ public enum ResultCodeEnum {
     LOGON_FAIL(2031, "注册失败"),
 
     UNLOGIN(2040, "未登录"),
-
 
     PARAM_IS_NULL(2050, "参数不应该为空"),
 
@@ -37,7 +37,7 @@ public enum ResultCodeEnum {
     UPDATE_SUCCESS(2091, "更新成功"),
 
     ACCOUNT_ERROR(3001, "帐户或密码错误！"),
-    PARAM_ERROR(1001, "参数错误"),
+    PARAM_ERROR(4001, "参数错误"),
     SERVER_ERROR(5001, "服务端异常！");
 
     @Getter

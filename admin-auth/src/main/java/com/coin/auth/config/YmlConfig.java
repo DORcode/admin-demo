@@ -63,6 +63,25 @@ public class YmlConfig {
             .signWith(SignatureAlgorithm.ES512, jwt.getHeader())
             .compact();
     }
+
+    public Map createJwtMap(String id, String username) {
+        Date now = new Date();
+        Date date = new Date(now.getTime() + jwt.getExpire() * 1000);
+        Map claims = new HashMap<>();
+        String token = Jwts.builder()
+                .setHeaderParam("typ", "JWT")
+                .setExpiration(date)
+                .setSubject(username)
+                //.setClaims(claims)
+                //.setId("")
+                .setIssuedAt(now)
+                .signWith(SignatureAlgorithm.ES512, jwt.getHeader())
+                .compact();
+        Map map = new HashMap<>();
+        map.put("token", jwt);
+        map.put("tokenExpireTime", date);
+        return map;
+    }
     
     
     /**

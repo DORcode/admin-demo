@@ -14,6 +14,7 @@ import java.util.List;
  **/
 @Data
 public class Result implements Serializable {
+    private boolean success;
     private Integer code;
     private String msg;
     private Object data;
@@ -24,32 +25,52 @@ public class Result implements Serializable {
         this.data = data;
     }
 
+    public Result() {
+    }
+
     public Result(Integer code, String msg, Object data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
-    public static Result response(ResultCodeEnum code) {
-        return new Result(code.getCode(), code.getMsg());
+    public Result(boolean success, Integer code, String msg) {
+        this.success = success;
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public Result(boolean success, Integer code, String msg, Object data) {
+        this.success = success;
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+    }
+
+    public static Result success(ResultCodeEnum code) {
+        return new Result(true, code.getCode(), code.getMsg());
+    }
+
+    public static Result fail(ResultCodeEnum code) {
+        return new Result(true, code.getCode(), code.getMsg());
     }
 
     public static Result success() {
-        return new Result(ResultCodeEnum.SUCCESS.getCode(), ResultCodeEnum.SUCCESS.getMsg());
+        return new Result(true, ResultCodeEnum.SUCCESS.getCode(), ResultCodeEnum.SUCCESS.getMsg());
     }
 
 
     public static Result success(Object data) {
-        return new Result(ResultCodeEnum.SUCCESS.getCode(), ResultCodeEnum.SUCCESS.getMsg(), data);
+        return new Result(true, ResultCodeEnum.SUCCESS.getCode(), ResultCodeEnum.SUCCESS.getMsg(), data);
     }
 
     public static Result success(ResultCodeEnum code, Object data) {
-        return new Result(code.getCode(), code.getMsg(), data);
+        return new Result(true, code.getCode(), code.getMsg(), data);
     }
 
     public static Result fail(BaseException be) {
         if(be.getCode() == null) {
-            return new Result(3001, be.getMsg());
+            return new Result(false, 3001, be.getMsg());
         }
 
         return new Result(be.getCode(), be.getMsg());

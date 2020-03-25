@@ -41,31 +41,28 @@ public class AuthController {
     /**
      * @MethodName login
      * @Description 登录验证
-     * @param username 帐户
-     * @param password 密码
+     * @param sysUser 用户
      * @return com.coin.auth.util.Result
      * @throws
      * @author kh
      * @date 2020/2/26 16:46
      */
     @ApiOperation(value = "登录验证")
-    @RequestMapping("login/{username}/{password}")
+    @RequestMapping("login")
     @ResponseBody
-    public Result login(@PathVariable("username") String username, @PathVariable("password") String password) {
+    public Result login(@RequestBody SysUser sysUser) {
         Subject currentUser = SecurityUtils.getSubject();
 
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        UsernamePasswordToken token = new UsernamePasswordToken(sysUser.getUsername(), sysUser.getPassword());
         try {
             currentUser.login(token);
 
             SysUser user = (SysUser) currentUser.getPrincipal();
-            String jwt = jwtConfig.createJwt(user.getId(), user.getName());
-            Map map = new HashMap<>();
-            map.put("token", jwt);
+            Map map = jwtConfig.createJwtMap(user.getId(), user.getName());
             // 生成token
             return Result.success(ResultCodeEnum.LOGIN_SUCCESS, map);
         } catch ( AuthenticationException e) {
-            return Result.response(ResultCodeEnum.ACCOUNT_ERROR);
+            return Result.fail(ResultCodeEnum.ACCOUNT_ERROR);
         }
 
     }
@@ -85,7 +82,7 @@ public class AuthController {
     public Result logout() {
         Subject currentUser = SecurityUtils.getSubject();
         currentUser.logout();
-        return Result.response(ResultCodeEnum.LOGINOUT_SUCCESS);
+        return Result.success(ResultCodeEnum.LOGINOUT_SUCCESS);
     }
 
     @ApiOperation(value = "注册")
@@ -93,7 +90,7 @@ public class AuthController {
     @ResponseBody
     public Result logon(SysUserVo user) throws BaseException {
         int num = sysUserService.insertSysUser(user);
-        return Result.response(ResultCodeEnum.LOGON_SUCCESS);
+        return Result.success(ResultCodeEnum.LOGON_SUCCESS);
     }
 
 

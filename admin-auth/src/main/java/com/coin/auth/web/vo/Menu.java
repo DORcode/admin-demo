@@ -1,5 +1,6 @@
 package com.coin.auth.web.vo;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -57,6 +58,7 @@ public class Menu {
     /**
      * 链接
      */
+    @JSONField(name = "path")
     private String url;
 
     /**

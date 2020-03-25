@@ -26,9 +26,9 @@ public class GlobalExceptionHandler {
         if(e instanceof BaseException) {
             return Result.fail((BaseException) e);
         } else if(e instanceof AccountException) {
-            return Result.response(ResultCodeEnum.ACCOUNT_ERROR);
+            return Result.fail(ResultCodeEnum.ACCOUNT_ERROR);
         } else {
-            return Result.response(ResultCodeEnum.SERVER_ERROR);
+            return Result.fail(ResultCodeEnum.SERVER_ERROR);
         }
 
     }
