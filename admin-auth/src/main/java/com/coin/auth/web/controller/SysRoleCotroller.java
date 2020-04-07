@@ -11,6 +11,7 @@ import com.coin.auth.web.po.SysRolePo;
 import com.coin.auth.util.Result;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -48,7 +49,7 @@ public class SysRoleCotroller {
      */
     @RequestMapping("selectSysRole")
     @ApiOperation(value="查询")
-    public Result selectSysRole(SysRoleVo sysRole) throws BaseException {
+    public Result selectSysRole(@RequestBody SysRoleVo sysRole) throws BaseException {
         SysRoleDto sysRoleDto = sysRoleService.selectSysRole(sysRole);
         return Result.success(sysRoleDto);
     }
@@ -64,7 +65,7 @@ public class SysRoleCotroller {
      */
     @RequestMapping("selectSysRoles")
     @ApiOperation(value="查询")
-    public Result selectSysRoles(SysRolePo sysRole) throws BaseException {
+    public Result selectSysRoles(@RequestBody SysRolePo sysRole) throws BaseException {
         IPage<SysRole> roleIPage = sysRoleService.selectSysRoles(sysRole);
         return Result.success(roleIPage);
     }
@@ -80,7 +81,7 @@ public class SysRoleCotroller {
      */
     @RequestMapping("deleteSysRoleById")
     @ApiOperation(value="根据主键删除")
-    public Result deleteSysRoleById(SysRoleVo sysRole) throws BaseException {
+    public Result deleteSysRoleById(@RequestBody SysRoleVo sysRole) throws BaseException {
         sysRoleService.deleteSysRoleById(sysRole);
         return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
@@ -97,7 +98,7 @@ public class SysRoleCotroller {
     @RequiresPermissions(value = "delete")
     @RequestMapping("deleteSysRole")
     @ApiOperation(value="删除")
-    public Result deleteSysRole(SysRoleVo sysRole) throws BaseException {
+    public Result deleteSysRole(@RequestBody SysRoleVo sysRole) throws BaseException {
         sysRoleService.deleteSysRole(sysRole);
         return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
@@ -113,7 +114,7 @@ public class SysRoleCotroller {
     */
     @RequestMapping("deleteSysRoles")
     @ApiOperation(value="删除多个")
-    public Result deleteSysRoles(List<SysRoleVo> sysRoleList) throws BaseException {
+    public Result deleteSysRoles(@RequestBody List<SysRoleVo> sysRoleList) throws BaseException {
         sysRoleService.deleteSysRoles(sysRoleList);
         return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
@@ -129,7 +130,7 @@ public class SysRoleCotroller {
     */
     @RequestMapping("updateSysRole")
     @ApiOperation(value="更新")
-    public Result updateSysRole(SysRoleVo sysRole) throws BaseException {
+    public Result updateSysRole(@RequestBody SysRoleVo sysRole) throws BaseException {
         sysRoleService.updateSysRole(sysRole);
         return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
@@ -145,7 +146,7 @@ public class SysRoleCotroller {
     */
     @RequestMapping("updateSysRoles")
     @ApiOperation(value="更新多个")
-    public Result updateSysRoles(List<SysRoleVo> sysRoleList) throws BaseException {
+    public Result updateSysRoles(@RequestBody List<SysRoleVo> sysRoleList) throws BaseException {
         sysRoleService.updateSysRoles(sysRoleList);
         return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
@@ -161,7 +162,7 @@ public class SysRoleCotroller {
     */
     @RequestMapping("insertSysRole")
     @ApiOperation(value="插入")
-    public Result insertSysRole(SysRoleVo sysRole) throws BaseException {
+    public Result insertSysRole(@RequestBody SysRoleVo sysRole) throws BaseException {
         sysRoleService.insertSysRole(sysRole);
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
@@ -177,7 +178,7 @@ public class SysRoleCotroller {
     */
     @RequestMapping("insertSysRoles")
     @ApiOperation(value="插入多个")
-    public Result insertSysRoles(List<SysRoleVo> sysRoleList) throws BaseException  {
+    public Result insertSysRoles(@RequestBody List<SysRoleVo> sysRoleList) throws BaseException  {
         sysRoleService.insertSysRoles(sysRoleList);
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }

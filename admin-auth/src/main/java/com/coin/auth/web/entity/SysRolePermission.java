@@ -56,6 +56,8 @@ public class SysRolePermission implements Serializable {
      */
     @TableField("IS_DELETE")
     private String isDelete;
+    // 需要加一个权限类型，绑定的角色是查看权限，还是授权权限
+    // 角色应该是树形，上级有下级的所有权限
 
 
 }

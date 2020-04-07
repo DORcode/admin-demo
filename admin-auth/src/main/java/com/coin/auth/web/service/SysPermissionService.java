@@ -62,6 +62,17 @@ public interface SysPermissionService extends IService<SysPermission> {
      * @date 2020/3/8 21:31
      */
     List<Menu> selectMenuList() throws BaseException;
+    
+    /***
+     * @MethodName selectPermissionList
+     * @Description TODO
+     * @param  
+     * @return java.util.List<com.coin.auth.web.vo.SysPermissionVo>
+     * @throws 
+     * @author kh
+     * @date 2020/4/2 20:37
+     */
+    public List<SysPermissionVo> selectPermissionList();
 
    /**
    * @MethodName deleteSysPermission

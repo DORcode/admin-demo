@@ -98,6 +98,15 @@
 
     <select id="selectSysRolePermissionsPage" resultType="com.coin.auth.web.vo.SysPermissionVo">
         select * from sys_role_permission rp left join sys_permission p on rp.permission_code=r.code
-        where rp.role_id=#{role_id} and rp.is_delete='0'
+        where rp.role_id=#{role_id} and rp.is_delete='0' and p.is_delete='0'
+    </select>
+
+    <select id="selectSysRolePermissions" resultType="com.coin.auth.web.vo.SysPermissionVo">
+        select rp.id,p.name,p.code, p.p_code pCode,
+        if(isnull(rp.permission_code), 'false', 'true') selected
+        from  sys_permission p left join (select * from
+        sys_role_permission where role_id=#{role_id} and is_delete='0') rp
+        on rp.permission_code=p.code
+        where p.is_delete='0'
     </select>
 </mapper>

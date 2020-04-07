@@ -1,13 +1,18 @@
 package com.coin.auth.web.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.coin.auth.util.ResultCodeEnum;
+import com.coin.auth.web.entity.SysUser;
 import com.coin.auth.web.service.SysUserRoleService;
 import com.coin.auth.util.BaseException;
 import com.coin.auth.web.vo.SysRoleVo;
 import com.coin.auth.web.vo.SysUserRoleVo;
 import com.coin.auth.web.po.SysUserRolePo;
 import com.coin.auth.util.Result;
+import com.coin.auth.web.vo.SysUserVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -45,7 +50,7 @@ public class SysUserRoleCotroller {
      */
     @RequestMapping("selectSysUserRole")
     @ApiOperation(value="查询用户角色关联表")
-    public Result selectSysUserRole(SysUserRoleVo sysUserRole) throws BaseException {
+    public Result selectSysUserRole(@RequestBody SysUserRoleVo sysUserRole) throws BaseException {
         sysUserRoleService.selectSysUserRole(sysUserRole);
         // 用户 角色，用户绑定角色，
 
@@ -65,9 +70,23 @@ public class SysUserRoleCotroller {
      */
     @RequestMapping("selectSysUserRoles")
     @ApiOperation(value="查询用户角色关联表")
-    public Result selectSysUserRoles(SysUserRolePo sysUserRole) throws BaseException {
+    public Result selectSysUserRoles(@RequestBody SysUserRolePo sysUserRole) throws BaseException {
         List<SysRoleVo> sysRoleVos = sysUserRoleService.selectSysUserRoles(sysUserRole);
         return Result.success(sysRoleVos);
+    }
+
+    @RequestMapping("selectRelatedSysUsers")
+    @ApiOperation(value="查询角色已关联的用户")
+    public Result selectelatedSysUsers(@RequestBody SysUserRolePo sysUserRole) throws BaseException {
+        IPage<SysUserVo> pages = sysUserRoleService.selectRlatedSysUsers(new Page(sysUserRole.getCurrent(), sysUserRole.getSize()), sysUserRole);
+        return Result.success(pages);
+    }
+
+    @RequestMapping("selectUnrelatedSysUsers")
+    @ApiOperation(value="查询角色未关联的用户")
+    public Result selectUnrelatedSysUsers(@RequestBody SysUserRolePo sysUserRole) throws BaseException {
+        IPage<SysUserVo> pages = sysUserRoleService.selectUnrelatedSysUsers(new Page(sysUserRole.getCurrent(), sysUserRole.getSize()), sysUserRole);
+        return Result.success(pages);
     }
 
     /**
@@ -81,7 +100,7 @@ public class SysUserRoleCotroller {
      */
     @RequestMapping("deleteSysUserRoleById")
     @ApiOperation(value="根据主键删除用户角色关联表")
-    public Result deleteSysUserRoleById(SysUserRoleVo sysUserRole) throws BaseException {
+    public Result deleteSysUserRoleById(@RequestBody SysUserRoleVo sysUserRole) throws BaseException {
         sysUserRoleService.deleteSysUserRoleById(sysUserRole);
         return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
@@ -97,7 +116,7 @@ public class SysUserRoleCotroller {
      */
     @RequestMapping("deleteSysUserRole")
     @ApiOperation(value="删除用户角色关联表")
-    public Result deleteSysUserRole(SysUserRoleVo sysUserRole) throws BaseException {
+    public Result deleteSysUserRole(@RequestBody SysUserRoleVo sysUserRole) throws BaseException {
         sysUserRoleService.deleteSysUserRole(sysUserRole);
         return Result.success();
     }
@@ -113,7 +132,7 @@ public class SysUserRoleCotroller {
     */
     @RequestMapping("deleteSysUserRoles")
     @ApiOperation(value="删除多个用户角色关联表")
-    public Result deleteSysUserRoles(List<SysUserRoleVo> sysUserRoleList) throws BaseException {
+    public Result deleteSysUserRoles(@RequestBody List<SysUserRoleVo> sysUserRoleList) throws BaseException {
         sysUserRoleService.deleteSysUserRoles(sysUserRoleList);
         return Result.success();
     }
@@ -129,7 +148,7 @@ public class SysUserRoleCotroller {
     */
     @RequestMapping("updateSysUserRole")
     @ApiOperation(value="更新用户角色关联表")
-    public Result updateSysUserRole(SysUserRoleVo sysUserRole) throws BaseException {
+    public Result updateSysUserRole(@RequestBody SysUserRoleVo sysUserRole) throws BaseException {
         sysUserRoleService.updateSysUserRole(sysUserRole);
         return Result.success();
     }
@@ -145,7 +164,7 @@ public class SysUserRoleCotroller {
     */
     @RequestMapping("updateSysUserRoles")
     @ApiOperation(value="更新多个用户角色关联表")
-    public Result updateSysUserRoles(List<SysUserRoleVo> sysUserRoleList) throws BaseException {
+    public Result updateSysUserRoles(@RequestBody List<SysUserRoleVo> sysUserRoleList) throws BaseException {
         sysUserRoleService.updateSysUserRoles(sysUserRoleList);
         return Result.success();
     }
@@ -161,7 +180,7 @@ public class SysUserRoleCotroller {
     */
     @RequestMapping("insertSysUserRole")
     @ApiOperation(value="插入用户角色关联表")
-    public Result insertSysUserRole(SysUserRoleVo sysUserRole) throws BaseException {
+    public Result insertSysUserRole(@RequestBody SysUserRoleVo sysUserRole) throws BaseException {
         sysUserRoleService.insertSysUserRole(sysUserRole);
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
@@ -177,7 +196,7 @@ public class SysUserRoleCotroller {
     */
     @RequestMapping("insertSysUserRoles")
     @ApiOperation(value="插入多个用户角色关联表")
-    public Result insertSysUserRoles(List<SysUserRoleVo> sysUserRoleList) throws BaseException  {
+    public Result insertSysUserRoles(@RequestBody List<SysUserRoleVo> sysUserRoleList) throws BaseException  {
         sysUserRoleService.insertSysUserRoles(sysUserRoleList);
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }

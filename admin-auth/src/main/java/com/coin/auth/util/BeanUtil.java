@@ -1,6 +1,7 @@
 package com.coin.auth.util;
 
 import org.apache.commons.beanutils.BeanUtilsBean;
+import org.springframework.beans.BeanUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
@@ -25,14 +26,7 @@ public class BeanUtil {
      * @date 2020/3/5 14:32
      */
     public static void copyProperties(final Object dest, final Object orig) {
-
-        try {
-            BeanUtilsBean.getInstance().copyProperties(dest, orig);
-        } catch (IllegalAccessException e) {
-            throw new BaseException();
-        } catch (InvocationTargetException e) {
-            throw new BaseException();
-        }
+        BeanUtils.copyProperties(orig, dest);
     }
     
     /**

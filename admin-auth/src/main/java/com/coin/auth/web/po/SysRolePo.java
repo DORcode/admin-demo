@@ -2,6 +2,8 @@ package com.coin.auth.web.po;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
+
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import lombok.Data;
@@ -46,18 +48,27 @@ public class SysRolePo extends Page implements Serializable {
     /**
      * 创建时间
      */
+    @TableField("CREATE_TIME")
     private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
+    @TableField("UPDATE_TIME")
     private LocalDateTime updateTime;
 
     /**
      * 是否删除，0否，1是
      */
+    @TableField("IS_DELETE")
     private String isDelete;
 
+    private LocalDateTime createTimeStart;
 
+    private LocalDateTime createTimeEnd;
+
+    private LocalDateTime updateTimeStart;
+
+    private LocalDateTime updateTimeEnd;
 
 }

@@ -2,6 +2,7 @@ package com.coin.auth.config;
 
 import io.jsonwebtoken.*;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -17,29 +18,23 @@ import java.util.Map;
  * @Version V1.0
  **/
 @Data
-@ConfigurationProperties(prefix = "app")
 @Component
+@ConfigurationProperties(prefix = "app")
 public class YmlConfig {
+    @Value("${app.encrypt.salt}")
+    private String salt;
 
-    private Jwt jwt;
+    @Value("${app.encrypt.iteration}")
+    private Integer iteration;
 
-    private Encrypt encrypt;
+    @Value("${app.jwt.secret}")
+    private String secret;
 
-//    /**
-//     * 密钥
-//     */
-//    private String secret;
-//    /**
-//     * 过期时间(秒)
-//     */
-//    private long expire;
-//
-//    private String header;
+    @Value("${app.jwt.expire}")
+    private Integer expire;
 
-//    private String salt;
-//
-//    private int iteration;
-    
+    @Value("${app.jwt.header}")
+    private String header;
     /**
      * @MethodName createJwt
      * @Description TODO
@@ -51,7 +46,7 @@ public class YmlConfig {
      */
     public String createJwt(String id, String username) {
         Date now = new Date();
-        Date date = new Date(now.getTime() + jwt.getExpire() * 1000);
+        Date date = new Date(now.getTime() + expire * 1000);
         Map claims = new HashMap<>();
         return Jwts.builder()
             .setHeaderParam("typ", "JWT")
@@ -60,26 +55,28 @@ public class YmlConfig {
             //.setClaims(claims)
             //.setId("")
             .setIssuedAt(now)
-            .signWith(SignatureAlgorithm.ES512, jwt.getHeader())
+            .signWith(SignatureAlgorithm.ES512, header)
             .compact();
     }
 
     public Map createJwtMap(String id, String username) {
         Date now = new Date();
-        Date date = new Date(now.getTime() + jwt.getExpire() * 1000);
+        long num = now.getTime() + expire * 1000;
+        Date date = new Date(now.getTime() + expire * 1000);
         Map claims = new HashMap<>();
         String token = Jwts.builder()
                 .setHeaderParam("typ", "JWT")
                 .setExpiration(date)
                 .setSubject(username)
+                .claim("id", id)
                 //.setClaims(claims)
                 //.setId("")
                 .setIssuedAt(now)
-                .signWith(SignatureAlgorithm.ES512, jwt.getHeader())
+                .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
         Map map = new HashMap<>();
-        map.put("token", jwt);
-        map.put("tokenExpireTime", date);
+        map.put("token", token);
+        map.put("tokenExpireTime", num);
         return map;
     }
     
@@ -95,7 +92,7 @@ public class YmlConfig {
      */
     public Claims getTokenClaim(String token) {
         try {
-            return Jwts.parser().setSigningKey(jwt.getSecret()).parseClaimsJws(token).getBody();
+            return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
         } catch (Exception e) {
             return null;
         }
@@ -119,8 +116,7 @@ public class YmlConfig {
         }
     }
 
-    @Data
-    class Jwt {
+    public class Jwt {
         /**
          * 密钥
          */
@@ -131,13 +127,52 @@ public class YmlConfig {
         private long expire;
 
         private String header;
+
+        public String getSecret() {
+            return secret;
+        }
+
+        public void setSecret(String secret) {
+            this.secret = secret;
+        }
+
+        public long getExpire() {
+            return expire;
+        }
+
+        public void setExpire(long expire) {
+            this.expire = expire;
+        }
+
+        public String getHeader() {
+            return header;
+        }
+
+        public void setHeader(String header) {
+            this.header = header;
+        }
     }
 
-    @Data
-    class Encrypt {
+    public class Encrypt {
 
         private String salt;
 
         private int iteration;
+
+        public String getSalt() {
+            return salt;
+        }
+
+        public void setSalt(String salt) {
+            this.salt = salt;
+        }
+
+        public int getIteration() {
+            return iteration;
+        }
+
+        public void setIteration(int iteration) {
+            this.iteration = iteration;
+        }
     }
 }

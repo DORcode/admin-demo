@@ -1,5 +1,6 @@
 package com.coin.auth.web.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -13,6 +14,7 @@ import com.coin.auth.web.mapper.SysUserRoleMapper;
 import com.coin.auth.web.service.SysRoleService;
 import com.coin.auth.util.BaseException;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,8 @@ import com.coin.auth.web.vo.SysRoleVo;
 import com.coin.auth.web.dto.SysRoleDto;
 
 import lombok.extern.slf4j.Slf4j;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -88,8 +92,27 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     @Override
     public IPage<SysRole> selectSysRoles(SysRolePo sysRole) throws BaseException {
         Page<SysRole> page = new Page<>(sysRole.getCurrent(), sysRole.getSize());
-        QueryWrapper<SysRole> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("isDelete", "0");
+        LambdaQueryWrapper<SysRole> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(SysRole::getIsDelete, "0");
+        if (StringUtils.isNotEmpty(sysRole.getName())) {
+            queryWrapper.and(wraper -> wraper.like(SysRole::getName, sysRole.getName()));
+        }
+
+        if (StringUtils.isNotEmpty(sysRole.getCode())) {
+            queryWrapper.and(wraper -> wraper.like(SysRole::getCode, sysRole.getCode()));
+        }
+
+        if(null != sysRole.getCreateTimeStart() || null != sysRole.getCreateTimeEnd()) {
+            LocalDateTime begin = null != sysRole.getCreateTimeStart() ? sysRole.getCreateTimeStart() : LocalDateTime.now();
+            LocalDateTime end = null != sysRole.getCreateTimeEnd() ? sysRole.getCreateTimeEnd() : LocalDateTime.now();
+            queryWrapper.and(wrapper -> wrapper.between(SysRole::getCreateTime, begin, end));
+        }
+
+        if(null != sysRole.getUpdateTimeStart() || null != sysRole.getUpdateTimeEnd()) {
+            LocalDateTime begin = null != sysRole.getUpdateTimeStart() ? sysRole.getUpdateTimeStart() : LocalDateTime.now();
+            LocalDateTime end = null != sysRole.getUpdateTimeEnd() ? sysRole.getUpdateTimeEnd() : LocalDateTime.now();
+            queryWrapper.and(wrapper -> wrapper.between(SysRole::getUpdateTime, begin, end));
+        }
         IPage<SysRole> roleIPage = sysRoleMapper.selectPage(page, queryWrapper);
         return roleIPage;
     }
@@ -194,6 +217,8 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     public int insertSysRole(SysRoleVo sysRole) throws BaseException {
         SysRole role = new SysRole();
         BeanUtil.copyProperties(role, sysRole);
+        role.setCreateTime(LocalDateTime.now());
+        role.setUpdateTime(role.getCreateTime());
         int num = sysRoleMapper.insert(role);
         if(num != 1) {
             throw new BaseException(ResultCodeEnum.SAVE_FAIL);

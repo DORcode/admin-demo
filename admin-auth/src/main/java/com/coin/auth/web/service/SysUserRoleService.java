@@ -1,5 +1,8 @@
 package com.coin.auth.web.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.coin.auth.web.entity.SysUser;
 import com.coin.auth.web.entity.SysUserRole;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.coin.auth.util.BaseException;
@@ -7,6 +10,8 @@ import com.coin.auth.web.po.SysUserRolePo;
 import com.coin.auth.web.vo.SysRoleVo;
 import com.coin.auth.web.vo.SysUserRoleVo;
 import com.coin.auth.web.dto.SysUserRoleDto;
+import com.coin.auth.web.vo.SysUserVo;
+
 import java.util.List;
 
 /**
@@ -39,6 +44,30 @@ public interface SysUserRoleService extends IService<SysUserRole> {
     * @date 2020/02/27 07:00:89.015
     */
     List<SysRoleVo> selectSysUserRoles(SysUserRolePo sysUserRole) throws BaseException;
+    
+    /**
+     * @MethodName selectRlatedSysUsers
+     * @Description TODO
+     * @param page
+ * @param sysUserRole 
+     * @return com.baomidou.mybatisplus.core.metadata.IPage<com.coin.auth.web.vo.SysUserVo>
+     * @throws 
+     * @author kh
+     * @date 2020/4/1 17:19
+     */
+    IPage<SysUserVo> selectRlatedSysUsers(Page page, SysUserRolePo sysUserRole) throws BaseException;
+    
+    /**
+     * @MethodName selectUnrelatedSysUsers
+     * @Description TODO
+     * @param page
+     * @param sysUserRole 
+     * @return com.baomidou.mybatisplus.core.metadata.IPage<com.coin.auth.web.vo.SysUserVo>
+     * @throws 
+     * @author kh
+     * @date 2020/4/1 16:56
+     */
+    IPage<SysUserVo> selectUnrelatedSysUsers(Page page, SysUserRolePo sysUserRole) throws BaseException;
 
    /**
    * @MethodName deleteSysUserRole

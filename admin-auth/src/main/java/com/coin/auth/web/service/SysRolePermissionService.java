@@ -10,6 +10,8 @@ import com.coin.auth.web.po.SysRolePermissionPo;
 import com.coin.auth.web.vo.SysPermissionVo;
 import com.coin.auth.web.vo.SysRolePermissionVo;
 import com.coin.auth.web.dto.SysRolePermissionDto;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -35,14 +37,24 @@ public interface SysRolePermissionService extends IService<SysRolePermission> {
    /**
     * @MethodName selectSysRolePermissions
     * @Description TODO
-    * @param sysRolePermission
+    * @param 
     * @return
     * @throws BaseException
     * @author
     * @date 2020/02/27 07:00:996.014
     */
    IPage<SysPermissionVo> selectSysRolePermissions(Page page, SysPermissionPo sysPermission) throws BaseException;
-
+   
+   /**
+    * @MethodName selectSysRolePermissions
+    * @Description TODO
+    * @param roleId 
+    * @return java.util.List<com.coin.auth.web.vo.SysPermissionVo>
+    * @throws 
+    * @author kh
+    * @date 2020/4/4 12:19
+    */
+   List<SysPermissionVo> selectSysRolePermissions(String roleId) throws BaseException;
    /**
    * @MethodName deleteSysRolePermission
    * @Description TODO
@@ -76,6 +88,16 @@ public interface SysRolePermissionService extends IService<SysRolePermission> {
     */
    int deleteSysRolePermissions(List<SysRolePermissionVo> sysRolePermissionList) throws BaseException;
 
+   /**
+    * @MethodName deleteByRoleId
+    * @Description TODO
+    * @param roleId
+    * @return int
+    * @throws
+    * @author kh
+    * @date 2020/4/4 11:32
+    */
+   int deleteByRoleId(@Param("roleId") String roleId) throws BaseException;
    /**
     * @MethodName updateSysRolePermission
     * @Description TODO

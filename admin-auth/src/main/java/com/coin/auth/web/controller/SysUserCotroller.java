@@ -10,6 +10,7 @@ import com.coin.auth.web.vo.SysUserVo;
 import com.coin.auth.web.po.SysUserPo;
 import com.coin.auth.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -47,7 +48,7 @@ public class SysUserCotroller {
      */
     @RequestMapping("selectSysUser")
     @ApiOperation(value="查询用户")
-    public Result selectSysUser(SysUserVo sysUser) throws BaseException {
+    public Result selectSysUser(@RequestBody SysUserVo sysUser) throws BaseException {
         SysUser user = new SysUser();
         BeanUtil.copyProperties(user, sysUser);
         SysUser u = sysUserService.selectOneSelective(user);
@@ -65,14 +66,14 @@ public class SysUserCotroller {
      */
     @RequestMapping("selectSysUsers")
     @ApiOperation(value="查询用户")
-    public Result selectSysUsers(SysUserPo sysUser) throws BaseException {
+    public Result selectSysUsers(@RequestBody SysUserPo sysUser) throws BaseException {
         IPage<SysUser> userIPage = sysUserService.selectSysUsers(sysUser);
         return Result.success(userIPage);
     }
 
     /**
      * @MethodName deleteSysUser
-     * @Description TODO
+     * @Description 改成restful
      * @param sysUser
      * @return
      * @throws BaseException
@@ -81,7 +82,7 @@ public class SysUserCotroller {
      */
     @RequestMapping("deleteSysUserById")
     @ApiOperation(value="根据主键删除用户")
-    public Result deleteSysUserById(SysUserVo sysUser) throws BaseException {
+    public Result deleteSysUserById(@RequestBody SysUserVo sysUser) throws BaseException {
         int num = sysUserService.deleteSysUser(sysUser);
         if(num == 1) {
             return Result.success(ResultCodeEnum.SAVE_SUCCESS);
@@ -103,7 +104,7 @@ public class SysUserCotroller {
      */
     @RequestMapping("deleteSysUser")
     @ApiOperation(value="删除用户")
-    public Result deleteSysUser(SysUserVo sysUser) throws BaseException {
+    public Result deleteSysUser(@RequestBody SysUserVo sysUser) throws BaseException {
         sysUserService.deleteSysUser(sysUser);
         return Result.success();
     }
@@ -119,7 +120,7 @@ public class SysUserCotroller {
     */
     @RequestMapping("deleteSysUsers")
     @ApiOperation(value="删除多个用户")
-    public Result deleteSysUsers(List<SysUserVo> sysUserList) throws BaseException {
+    public Result deleteSysUsers(@RequestBody List<SysUserVo> sysUserList) throws BaseException {
         sysUserService.deleteSysUsers(sysUserList);
         return Result.success();
     }
@@ -135,7 +136,7 @@ public class SysUserCotroller {
     */
     @RequestMapping("updateSysUser")
     @ApiOperation(value="更新用户")
-    public Result updateSysUser(SysUserVo sysUser) throws BaseException {
+    public Result updateSysUser(@RequestBody SysUserVo sysUser) throws BaseException {
         sysUserService.updateSysUser(sysUser);
         return Result.success();
     }
@@ -151,7 +152,7 @@ public class SysUserCotroller {
     */
     @RequestMapping("updateSysUsers")
     @ApiOperation(value="更新多个用户")
-    public Result updateSysUsers(List<SysUserVo> sysUserList) throws BaseException {
+    public Result updateSysUsers(@RequestBody List<SysUserVo> sysUserList) throws BaseException {
         sysUserService.updateSysUsers(sysUserList);
         return Result.success();
     }
@@ -167,7 +168,7 @@ public class SysUserCotroller {
     */
     @RequestMapping("insertSysUser")
     @ApiOperation(value="插入用户")
-    public Result insertSysUser(SysUserVo sysUser) throws BaseException {
+    public Result insertSysUser(@RequestBody SysUserVo sysUser) throws BaseException {
         sysUserService.insertSysUser(sysUser);
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
@@ -183,7 +184,7 @@ public class SysUserCotroller {
     */
     @RequestMapping("insertSysUsers")
     @ApiOperation(value="插入多个用户")
-    public Result insertSysUsers(List<SysUserVo> sysUserList) throws BaseException  {
+    public Result insertSysUsers(@RequestBody List<SysUserVo> sysUserList) throws BaseException  {
         sysUserService.insertSysUsers(sysUserList);
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }

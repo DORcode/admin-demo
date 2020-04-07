@@ -1,7 +1,7 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3308/admin_auth?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3308/admin_auth?serverTimezone=Asia/Shanghai&useUnicode=true&zeroDateTimeBehavior=convertToNull
     driver-class-name: com.mysql.cj.jdbc.Driver #oracle.jdbc.driver.OracleDriver
     username: root
     password: 123

@@ -39,6 +39,17 @@ public interface SysPermissionMapper extends BaseMapper<SysPermission> {
      * @date 2020/3/9 8:33
      */
     public List<Menu> selectMenuList(@Param("userId") String userId);
+    
+    /***
+     * @MethodName selectPermissionList
+     * @Description TODO
+     * @param  
+     * @return java.util.List<com.coin.auth.web.vo.SysPermissionVo>
+     * @throws 
+     * @author kh
+     * @date 2020/4/2 15:49
+     */
+    public List<SysPermissionVo> selectPermissionList();
 
     /**
     * @MethodName insertSelective

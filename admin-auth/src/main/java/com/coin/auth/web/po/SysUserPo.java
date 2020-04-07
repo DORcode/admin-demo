@@ -2,6 +2,8 @@ package com.coin.auth.web.po;
 
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
+
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import lombok.Data;
@@ -73,6 +75,11 @@ public class SysUserPo extends Page implements Serializable {
      */
     private String isDelete;
 
+    private LocalDateTime createTimeStart;
 
+    private LocalDateTime createTimeEnd;
 
+    private LocalDateTime updateTimeStart;
+
+    private LocalDateTime updateTimeEnd;
 }

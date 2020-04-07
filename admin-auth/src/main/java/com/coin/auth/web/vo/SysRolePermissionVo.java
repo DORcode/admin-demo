@@ -51,5 +51,7 @@ public class SysRolePermissionVo implements Serializable {
      */
     private String isDelete;
 
+    private boolean selected;
+
 
 }

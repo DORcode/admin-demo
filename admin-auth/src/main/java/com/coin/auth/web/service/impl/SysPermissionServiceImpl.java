@@ -100,6 +100,12 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
         return TreeUtil.getMenuTree(menus);
     }
 
+    @Override
+    public List<SysPermissionVo> selectPermissionList() {
+        List<SysPermissionVo> list = sysPermissionMapper.selectPermissionList();
+        return TreeUtil.getSysPermissionTree(list);
+    }
+
     /**
      * @MethodName deleteSysPermission
      * @Description TODO
@@ -218,6 +224,7 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
     public int insertSysPermission(SysPermissionVo sysPermission) throws BaseException {
         SysPermission permission = new SysPermission();
         BeanUtil.copyProperties(permission, sysPermission);
+        // 生成code pcode
         sysPermissionMapper.insert(permission);
         return 1;
     }

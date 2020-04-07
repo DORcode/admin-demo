@@ -53,6 +53,9 @@ public class SysUserRolePo extends Page implements Serializable {
      */
     private String isDelete;
 
+    private String name;
 
+    private String username;
 
+    private String code;
 }

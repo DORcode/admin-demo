@@ -147,4 +147,8 @@
         sys_permission p on rp.permission_code=p.code where ur.user_id=#{userId} and ur.is_delete=0 and
         rp.is_delete=0 and p.is_delete and (p.type= 1 or p.type=2)
     </select>
+
+    <select id="selectPermissionList" resultType="com.coin.auth.web.vo.SysPermissionVo">
+        select * from sys_permission p where p.is_delete=0 order by p.seq, p.p_code
+    </select>
 </mapper>

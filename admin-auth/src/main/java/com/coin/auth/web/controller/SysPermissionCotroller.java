@@ -66,6 +66,13 @@ public class SysPermissionCotroller {
         return Result.success(menus);
     }
 
+    @RequestMapping("selectPermissionList")
+    @ApiOperation(value="查询权限列表")
+    public Result selectPermissionList()  throws BaseException {
+        List<SysPermissionVo> sysPermissionVos = sysPermissionService.selectPermissionList();
+        return Result.success(sysPermissionVos);
+    }
+
     /**
      * @MethodName selectSysPermissions
      * @Description TODO

@@ -22,7 +22,7 @@
     </sql>
 
 
-    <select id="selectOneSelective" parameterType="com.coin.auth.web.entity.SysUser" resultType="com.coin.auth.web.entity.SysUser">
+    <select id="selectOneSelective" parameterType="com.coin.auth.web.entity.SysUser" resultMap="BaseResultMap">
         select * from sys_user
         <where>
             and IS_DELETE = 0

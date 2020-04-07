@@ -56,7 +56,6 @@ public class AuthController {
         UsernamePasswordToken token = new UsernamePasswordToken(sysUser.getUsername(), sysUser.getPassword());
         try {
             currentUser.login(token);
-
             SysUser user = (SysUser) currentUser.getPrincipal();
             Map map = jwtConfig.createJwtMap(user.getId(), user.getName());
             // 生成token

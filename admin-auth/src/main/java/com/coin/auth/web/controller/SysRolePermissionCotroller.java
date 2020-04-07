@@ -2,6 +2,7 @@ package com.coin.auth.web.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.coin.auth.util.ResultCodeEnum;
 import com.coin.auth.web.po.SysPermissionPo;
 import com.coin.auth.web.service.SysRolePermissionService;
 import com.coin.auth.util.BaseException;
@@ -10,6 +11,7 @@ import com.coin.auth.web.vo.SysRolePermissionVo;
 import com.coin.auth.web.po.SysRolePermissionPo;
 import com.coin.auth.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -66,6 +68,29 @@ public class SysRolePermissionCotroller {
     public Result selectSysRolePermissions(Page page, SysPermissionPo sysPermission) throws BaseException {
         IPage<SysPermissionVo> permissions = sysRolePermissionService.selectSysRolePermissions(page, sysPermission);
         return Result.success(permissions);
+    }
+
+    /**
+     * @MethodName selectSysRolePermissions
+     * @Description TODO
+     * @param roleId
+     * @return com.coin.auth.util.Result
+     * @throws
+     * @author kh
+     * @date 2020/4/4 21:21
+     */
+    @RequestMapping("selectSysRolePermissions/{roleId}")
+    @ApiOperation(value="查询权限树形")
+    public Result selectSysRolePermissions(@PathVariable("roleId") String roleId) throws BaseException {
+        List<SysPermissionVo> perms = sysRolePermissionService.selectSysRolePermissions(roleId);
+        return Result.success(perms);
+    }
+
+    @RequestMapping("deleteSysRolePermission/{roleId}")
+    @ApiOperation(value="删除角色权限")
+    public Result deleteSysRolePermission(@PathVariable("roleId") String roleId) throws BaseException {
+        int i = sysRolePermissionService.deleteByRoleId(roleId);
+        return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.coin.auth.config.shiro;
 
+import com.coin.auth.config.YmlConfig;
 import com.coin.auth.util.ResultCodeEnum;
 import com.coin.auth.web.entity.SysUser;
 import com.coin.auth.web.service.SysPermissionService;
@@ -13,6 +14,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Collections;
 import java.util.Set;
@@ -25,6 +27,9 @@ import java.util.Set;
  * @Version V1.0
  **/
 public class ShiroRealm extends AuthorizingRealm {
+
+    @Value("${app.encrypt.salt}")
+    private String salt;
 
     @Autowired
     private SysUserService sysUserService;
@@ -42,11 +47,8 @@ public class ShiroRealm extends AuthorizingRealm {
 
         //查询角色
         Set<String> roles = sysRoleService.selectSysRoleNamesByUserId(user.getId());
-
         //查询权限
         Set<String> permissions = sysPermissionService.selectPermissionsByUserId(user.getId());
-
-
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 
         if(CollectionUtils.isNotEmpty(roles)) {
@@ -68,7 +70,7 @@ public class ShiroRealm extends AuthorizingRealm {
         }
 
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(sysUser, sysUser.getPassword(),
-                ByteSource.Util.bytes(""), "realm");
+                ByteSource.Util.bytes(salt), "realm");
         return info;
     }
 }

@@ -79,4 +79,5 @@ public class ShiroConfig {
     public String md5(String pwd) {
         return EncryptUtil.md5(pwd, salt, iteration);
     }
+
 }

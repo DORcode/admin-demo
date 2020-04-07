@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.coin.auth.config.YmlConfig;
 import com.coin.auth.util.BeanUtil;
+import com.coin.auth.util.EncryptUtil;
 import com.coin.auth.util.ResultCodeEnum;
 import com.coin.auth.web.entity.SysUser;
 import com.coin.auth.web.mapper.SysUserMapper;
@@ -36,6 +38,9 @@ import java.util.Map;
 @Slf4j
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
+
+    @Autowired
+    private YmlConfig ymlConfig;
 
     @Autowired
     private SysUserMapper sysUserMapper;
@@ -78,7 +83,35 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     public IPage<SysUser> selectSysUsers(SysUserPo sysUser) throws BaseException {
         Page<SysUser> page = new Page<>(sysUser.getCurrent(), sysUser.getSize());
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("isDelete", "0");
+        queryWrapper.eq("is_delete", "0");
+        if (StringUtils.isNotEmpty(sysUser.getName())) {
+            queryWrapper.and(wraper -> wraper.like("name", sysUser.getName()));
+        }
+        if(StringUtils.isNotEmpty(sysUser.getUsername())) {
+            queryWrapper.and(wraper -> wraper.like("username", sysUser.getUsername()));
+        }
+        if(StringUtils.isNotEmpty(sysUser.getSex())) {
+            queryWrapper.and(wrapper -> wrapper.eq("sex", sysUser.getSex()));
+        }
+
+        if(StringUtils.isNotEmpty(sysUser.getMobile())) {
+            queryWrapper.and(wraper -> wraper.like("mobile", sysUser.getMobile()));
+        }
+        if(StringUtils.isNotEmpty(sysUser.getCode())) {
+            queryWrapper.and(wraper -> wraper.like("code", sysUser.getCode()));
+        }
+        if(null != sysUser.getCreateTimeStart() || null != sysUser.getCreateTimeEnd()) {
+            LocalDateTime begin = null != sysUser.getCreateTimeStart() ? sysUser.getCreateTimeStart() : LocalDateTime.now();
+            LocalDateTime end = null != sysUser.getCreateTimeEnd() ? sysUser.getCreateTimeEnd() : LocalDateTime.now();
+            queryWrapper.and(wrapper -> wrapper.between("create_time", begin, end));
+        }
+
+        if(null != sysUser.getUpdateTimeStart() || null != sysUser.getUpdateTimeEnd()) {
+            LocalDateTime begin = null != sysUser.getUpdateTimeStart() ? sysUser.getUpdateTimeStart() : LocalDateTime.now();
+            LocalDateTime end = null != sysUser.getUpdateTimeEnd() ? sysUser.getUpdateTimeEnd() : LocalDateTime.now();
+            queryWrapper.and(wrapper -> wrapper.between("update_time", begin, end));
+        }
+
         IPage<SysUser> userIPage = sysUserMapper.selectPage(page, queryWrapper);
         return userIPage;
     }
@@ -147,6 +180,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     public int updateSysUser(SysUserVo sysUser) throws BaseException {
         SysUser user = new SysUser();
         BeanUtil.copyProperties(user, sysUser);
+        user.setUpdateTime(LocalDateTime.now());
         UpdateWrapper<SysUser> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("id", sysUser.getId());
         int num = sysUserMapper.update(user, updateWrapper);
@@ -182,9 +216,16 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
             throw new BaseException(ResultCodeEnum.PARAM_IS_NULL);
         }
 
+        if (StringUtils.isEmpty(sysUser.getPassword())) {
+            String enc = EncryptUtil.md5("123456", ymlConfig.getSalt(), ymlConfig.getIteration());
+            sysUser.setPassword(enc);
+        }
         SysUser user = new SysUser();
-        BeanUtil.copyProperties(sysUser, user);
+        BeanUtil.copyProperties(user, sysUser);
         user.setIsDelete("0");
+        user.setCreateTime(LocalDateTime.now());
+        user.setUpdateTime(user.getCreateTime());
+        // code需要生成
         int num = sysUserMapper.insert(user);
         if(num != 1) {
             throw new BaseException(ResultCodeEnum.SAVE_FAIL);

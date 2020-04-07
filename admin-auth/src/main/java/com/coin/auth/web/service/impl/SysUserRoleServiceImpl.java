@@ -1,13 +1,17 @@
 package com.coin.auth.web.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.coin.auth.util.BeanUtil;
+import com.coin.auth.web.entity.SysUser;
 import com.coin.auth.web.entity.SysUserRole;
 import com.coin.auth.web.mapper.SysUserRoleMapper;
 import com.coin.auth.web.service.SysUserRoleService;
 import com.coin.auth.util.BaseException;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.coin.auth.web.vo.SysRoleVo;
+import com.coin.auth.web.vo.SysUserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +21,7 @@ import com.coin.auth.web.dto.SysUserRoleDto;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +65,26 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
     @Override
     public List<SysRoleVo> selectSysUserRoles(SysUserRolePo sysUserRole) throws BaseException {
         return sysUserRoleMapper.selectSysRoleVo(sysUserRole.getUserId());
+    }
+
+    @Override
+    public IPage<SysUserVo> selectRlatedSysUsers(Page page, SysUserRolePo sysUserRole) throws BaseException {
+        return  page.setRecords(sysUserRoleMapper.selectRelatedSysUsers(page, sysUserRole));
+    }
+
+    /**
+     * @MethodName selectUnrelatedSysUsers
+     * @Description TODO
+     * @param page
+     * @param sysUserRole 
+     * @return com.baomidou.mybatisplus.core.metadata.IPage<com.coin.auth.web.entity.SysUser>
+     * @throws 
+     * @author kh
+     * @date 2020/4/1 16:40
+     */
+    @Override
+    public IPage<SysUserVo> selectUnrelatedSysUsers(Page page, SysUserRolePo sysUserRole) throws BaseException {
+        return  page.setRecords(sysUserRoleMapper.selectUnrelatedSysUsers(page, sysUserRole));
     }
 
     /**
@@ -106,7 +131,17 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
      */
     @Override
     public int deleteSysUserRoles(List<SysUserRoleVo> sysUserRoleList) throws BaseException {
-        return 1;
+        List<SysUserRole> list = new ArrayList<>();
+        for(SysUserRoleVo sur : sysUserRoleList) {
+            SysUserRole role = new SysUserRole();
+            role.setId(sur.getId());
+            role.setIsDelete("1");
+            role.setUpdateTime(LocalDateTime.now());
+            list.add(role);
+        }
+
+        updateBatchById(list);
+        return sysUserRoleList.size();
     }
 
     /**

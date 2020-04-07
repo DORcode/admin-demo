@@ -1,8 +1,11 @@
 package com.coin.auth.web.mapper;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.coin.auth.web.entity.SysUserRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.coin.auth.web.po.SysUserRolePo;
 import com.coin.auth.web.vo.SysRoleVo;
+import com.coin.auth.web.vo.SysUserVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -37,6 +40,29 @@ public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
     * @date 2020/02/27 07:00:85.015
     */
     int updateByPrimaryKeySelective(SysUserRole sysUserRole);
+
+    /**
+     * @MethodName selectRelatedSysUsers
+     * @Description TODO
+     * @param page
+     * @param sysUserRole 
+     * @return java.util.List<com.coin.auth.web.vo.SysUserVo>
+     * @throws 
+     * @author kh
+     * @date 2020/4/1 17:23
+     */
+    List<SysUserVo> selectRelatedSysUsers(Page page, @Param("sr") SysUserRolePo sysUserRole);
+    /**
+     * @MethodName selectUnrelatedSysUsers
+     * @Description TODO
+     * @param page
+     * @param sysUserRole
+     * @return java.util.List<com.coin.auth.web.vo.SysUserVo>
+     * @throws 
+     * @author kh
+     * @date 2020/4/1 16:56
+     */
+    List<SysUserVo> selectUnrelatedSysUsers(Page page, @Param("sr") SysUserRolePo sysUserRole);
 
     /**
      * @MethodName deleteByRoleId

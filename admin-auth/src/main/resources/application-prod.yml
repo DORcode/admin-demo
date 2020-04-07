@@ -1,0 +1,10 @@
+
+app:
+  encrypt:
+    salt: a23d1cd
+    iteration: 2
+
+  jwt:
+    secret: 1a2z8k5dp9s3v
+    expire: 3600
+    header: token

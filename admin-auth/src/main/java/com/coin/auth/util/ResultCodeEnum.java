@@ -31,13 +31,14 @@ public enum ResultCodeEnum {
     SAVE_SUCCESS(2061, "保存成功"),
 
     DELETE_FAIL(2070, "删除失败"),
-    DELETE_SUCCESS(2070, "删除失败"),
+    DELETE_SUCCESS(2070, "删除成功"),
 
     UPDATE_FAIL(2080, "更新失败"),
     UPDATE_SUCCESS(2091, "更新成功"),
 
     ACCOUNT_ERROR(3001, "帐户或密码错误！"),
     PARAM_ERROR(4001, "参数错误"),
+    LIST_EMPTY_ERROR(4002, "列表不应该为！"),
     SERVER_ERROR(5001, "服务端异常！");
 
     @Getter

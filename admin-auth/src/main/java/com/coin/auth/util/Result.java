@@ -52,7 +52,7 @@ public class Result implements Serializable {
     }
 
     public static Result fail(ResultCodeEnum code) {
-        return new Result(true, code.getCode(), code.getMsg());
+        return new Result(false, code.getCode(), code.getMsg());
     }
 
     public static Result success() {
@@ -73,8 +73,7 @@ public class Result implements Serializable {
             return new Result(false, 3001, be.getMsg());
         }
 
-        return new Result(be.getCode(), be.getMsg());
-
+        return new Result(false, be.getCode(), be.getMsg());
     }
 
     public static Result rows(long total, List<?> data) {

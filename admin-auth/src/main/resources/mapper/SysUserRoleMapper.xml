@@ -95,4 +95,29 @@
         where ur.user_id=#{userId} and ur.is_delete=0
 
     </select>
+
+    <select id="selectUnrelatedSysUsers" resultType="com.coin.auth.web.vo.SysUserVo">
+        select * from sys_user su where su.is_delete=0
+         <if test="sr.name != null and sr.name != ''">
+             and name=#{sr.name,jdbcType=VARCHAR}
+         </if>
+        <if test="sr.name != null and sr.name != ''">
+            and name=#{sr.name,jdbcType=VARCHAR}
+        </if>
+        <if test="sr.name != null and sr.name != ''">
+            and name=#{sr.name,jdbcType=VARCHAR}
+        </if>
+         and su.id
+        not in (select sur.user_id from sys_user_role sur where sur.role_id=#{sr.roleId} and sur.is_delete=0)
+    </select>
+    <select id="selectRelatedSysUsers" resultType="com.coin.auth.web.vo.SysUserVo">
+        select * from sys_user_role sur left join sys_user su on sur.user_id=su.id where sur.is_delete=0
+        and su.is_delete=0 and sur.role_id=#{sr.roleId}
+        <if test="sr.name != null and sr.name != ''">
+            and su.name=#{sr.name}
+        </if>
+        <if test="sr.username != null and sr.username != ''">
+            and su.username=#{sr.username}
+        </if>
+    </select>
 </mapper>

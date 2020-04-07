@@ -22,6 +22,20 @@ public class SysPermissionVo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public SysPermissionVo() {
+    }
+
+    public SysPermissionVo(String id, String code, String pCode,
+                           String name, String url, String type, Integer seq) {
+        this.id = id;
+        this.code = code;
+        this.pCode = pCode;
+        this.name = name;
+        this.url = url;
+        this.type = type;
+        this.seq = seq;
+    }
+
     /**
      * 主键
      */
@@ -76,6 +90,10 @@ public class SysPermissionVo implements Serializable {
      * 是否删除，0否，1是
      */
     private String isDelete;
+
+    private boolean selected;
+
+    private List<SysPermissionVo> subPerms;
 
 
 }

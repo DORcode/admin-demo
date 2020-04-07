@@ -1,0 +1,1 @@
+insert into sys_user (id, name, username, `PASSWORD`, sex, code,CREATE_TIME, UPDATE_TIME) VALUES (uuid(), 'admin', 'admin','9549bc1c7f027032d2c9b72d786bb4d7', 1, '0',now(),now())

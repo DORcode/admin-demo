@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.coin.auth.web.po.SysPermissionPo;
 import com.coin.auth.web.vo.SysPermissionVo;
 import com.coin.auth.web.vo.SysRolePermissionVo;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -18,20 +19,31 @@ import java.util.List;
 * @Date 2020-02-27
 * @Version V1.0
 */
+@Mapper
 public interface SysRolePermissionMapper extends BaseMapper<SysRolePermission> {
     
     /**
      * @MethodName selectSysRolePermissionsPage
      * @Description TODO
      * @param page
- * @param sysPermission
+     * @param sysPermission
      * @return java.util.List<com.coin.auth.web.vo.SysPermissionVo>
      * @throws 
      * @author kh
      * @date 2020/3/13 9:29
      */
     List<SysPermissionVo> selectSysRolePermissionsPage(Page page, @Param("sp") SysPermissionPo sysPermission);
-
+    
+    /**
+     * @MethodName selectSysRolePermissions
+     * @Description TODO
+     * @param roleId 
+     * @return java.util.List<com.coin.auth.web.vo.SysPermissionVo>
+     * @throws 
+     * @author kh
+     * @date 2020/4/4 11:46
+     */
+    List<SysPermissionVo> selectSysRolePermissions(@Param("roleId") String roleId);
     /**
     * @MethodName insertSelective
     * @Description TODO
