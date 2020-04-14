@@ -34,6 +34,7 @@
         <module>admin-shiro</module>
         <module>admin-generator</module>
         <module>admin-auth</module>
+        <module>admin-test</module>
     </modules>
 
     <dependencies>
