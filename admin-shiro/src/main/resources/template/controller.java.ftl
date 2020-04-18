@@ -9,6 +9,7 @@ import ${cfg.utilpackage}.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 <#if restControllerStyle>
 import org.springframework.web.bind.annotation.RestController;
@@ -62,7 +63,7 @@ public class ${table.controllerName} {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    @RequestMapping("select${entity}/{id}")
+    @GetMapping("select${entity}/{id}")
     @ApiOperation(value="查询${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
@@ -81,7 +82,7 @@ public class ${table.controllerName} {
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
-    @RequestMapping("select${entity}")
+    @PostMapping("select${entity}")
     @ApiOperation(value="查询${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
@@ -100,7 +101,7 @@ public class ${table.controllerName} {
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
-    @RequestMapping("select${entity}s")
+    @PostMapping("select${entity}s")
     @ApiOperation(value="查询${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
@@ -119,7 +120,7 @@ public class ${table.controllerName} {
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
      */
-    @RequestMapping("delete${entity}/{id}")
+    @GetMapping("delete${entity}/{id}")
     @ApiOperation(value="根据主键删除${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
@@ -138,7 +139,7 @@ public class ${table.controllerName} {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    @RequestMapping("delete${entity}s")
+    @PostMapping("delete${entity}s")
     @ApiOperation(value="删除多个${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
@@ -157,7 +158,7 @@ public class ${table.controllerName} {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    @RequestMapping("update${entity}")
+    @PostMapping("update${entity}")
     @ApiOperation(value="更新${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
@@ -176,7 +177,7 @@ public class ${table.controllerName} {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    @RequestMapping("update${entity}s")
+    @PostMapping("update${entity}s")
     @ApiOperation(value="更新多个${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
@@ -195,7 +196,7 @@ public class ${table.controllerName} {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    @RequestMapping("insert${entity}")
+    @PostMapping("insert${entity}")
     @ApiOperation(value="插入${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
@@ -214,7 +215,7 @@ public class ${table.controllerName} {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    @RequestMapping("insert${entity}s")
+    @PostMapping("insert${entity}s")
     @ApiOperation(value="插入多个${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody

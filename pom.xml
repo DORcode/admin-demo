@@ -27,7 +27,8 @@
         <commons.io.version>2.5</commons.io.version>
         <commons.codec.version>1.10</commons.codec.version>
         <druid.version>1.1.18</druid.version>
-        <swagger.version>2.7.0</swagger.version>
+        <swagger.version>2.9.2</swagger.version>
+        <swagger.bootstrap.ui>1.9.0</swagger.bootstrap.ui>
         <shiro.version>1.5.1</shiro.version>
         <lombok.version>1.16.20</lombok.version>
     </properties>
@@ -99,16 +100,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -122,6 +114,25 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-swagger-ui</artifactId>-->
+<!--                <version>${swagger.version}</version>-->
+<!--            </dependency>-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger.bootstrap.ui}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

@@ -1,3 +1,5 @@
+server:
+  port: 9002
 
 spring:
   datasource:
@@ -35,7 +37,6 @@ spring:
         max-idle: 10 # 连接池中的最大空闲连接
         min-idle: 0 # 连接池中的最小空闲连接
 
-
 app:
   encrypt:
     salt: a23d1cd
@@ -46,5 +47,7 @@ app:
     expire: 3600
     header: token
 
-server:
-  port: 9002
+swagger:
+  enable: true
+  title: 后台管理
+  pkg: com.coin.auth

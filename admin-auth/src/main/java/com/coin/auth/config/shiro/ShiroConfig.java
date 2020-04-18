@@ -2,6 +2,7 @@ package com.coin.auth.config.shiro;
 
 import com.coin.auth.config.TokenFilter;
 import com.coin.auth.util.EncryptUtil;
+import com.coin.base.config.Swagger2Config;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.mgt.DefaultSecurityManager;
@@ -43,6 +44,11 @@ public class ShiroConfig {
         filterMap.put("/api/auth/login/**", "anon");
         filterMap.put("/api/auth/logon", "anon");
         filterMap.put("/api/**", "hasToken, authc");
+        filterMap.put("/swagger-ui.html", "anon");
+        filterMap.put("/swagger-resources", "anon");
+        filterMap.put("/api-docs","anon");
+        filterMap.put("/v2/api-docs", "anon");
+        filterMap.put("/webjars/**", "anon");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
 
         Map<String, Filter> filters = new HashMap<>();

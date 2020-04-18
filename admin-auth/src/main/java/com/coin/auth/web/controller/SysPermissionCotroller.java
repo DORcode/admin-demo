@@ -8,6 +8,7 @@ import com.coin.auth.web.vo.SysPermissionVo;
 import com.coin.auth.web.po.SysPermissionPo;
 import com.coin.auth.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -43,7 +44,7 @@ public class SysPermissionCotroller {
      * @author
      * @date 2020/02/27 07:00:927.014
      */
-    @RequestMapping("selectSysPermission")
+    @PostMapping("selectSysPermission")
     @ApiOperation(value="查询权限")
     public Result selectSysPermission(SysPermissionVo sysPermission) throws BaseException {
         sysPermissionService.selectSysPermission(sysPermission);
