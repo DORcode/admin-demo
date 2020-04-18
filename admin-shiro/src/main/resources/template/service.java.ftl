@@ -21,6 +21,17 @@ interface ${table.serviceName} : ${superServiceClass}<${entity}>
 <#else>
 public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
 
+    /**
+    * @MethodName select${entity}ById
+    * @Description TODO
+    * @param id
+    * @return
+    * @throws BaseException
+    * @author
+    * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
+    */
+    ${entity}Vo select${entity}ById(String id) throws BaseException;
+
    /**
     * @MethodName select${entity}
     * @Description TODO
@@ -46,24 +57,13 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    /**
    * @MethodName delete${entity}
    * @Description TODO
-   * @param ${entity?uncap_first}
+   * @param id
    * @return
    * @throws BaseException
    * @author
    * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
    */
-   int delete${entity}ById(${entity}Vo ${entity?uncap_first}) throws BaseException;
-
-   /**
-    * @MethodName delete${entity}
-    * @Description TODO
-    * @param ${entity?uncap_first}
-    * @return
-    * @throws BaseException
-    * @author
-    * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
-    */
-   int delete${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException;
+   int delete${entity}ById(String id) throws BaseException;
 
    /**
     * @MethodName delete${entity}s

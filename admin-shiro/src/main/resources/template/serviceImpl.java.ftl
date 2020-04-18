@@ -36,6 +36,19 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     private ${table.mapperName} ${table.mapperName?uncap_first};
 
     /**
+    * @MethodName select${entity}ById
+    * @Description TODO
+    * @param id
+    * @return
+    * @throws BaseException
+    * @author
+    * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
+    */
+    public ${entity}Vo select${entity}ById(String id) throws BaseException {
+        return null;
+    }
+
+    /**
      * @MethodName select${entity}
      * @Description TODO
      * @param ${entity?uncap_first}
@@ -73,21 +86,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
      */
     @Override
-    public int delete${entity}ById(${entity}Vo ${entity?uncap_first}) throws BaseException {
-        return 0;
-    }
-
-    /**
-     * @MethodName delete${entity}
-     * @Description TODO
-     * @param ${entity?uncap_first}
-     * @return
-     * @throws BaseException
-     * @author
-     * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
-     */
-    @Override
-    public int delete${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+    public int delete${entity}ById(String id) throws BaseException {
         return 0;
     }
 
