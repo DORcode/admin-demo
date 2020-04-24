@@ -9,7 +9,8 @@ import ${pkg};
 </#if>
 </#list>
 <#if entityLombokModel>
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -22,6 +23,7 @@ import lombok.experimental.Accessors;
 * @Date ${date}
 * @Version V1.0
 */
+@ApiModel(value = "${table.comment!""}")
 <#if entityLombokModel>
 @Data
 <#if superEntityClass??>
@@ -44,6 +46,7 @@ public class ${entity}Dto implements Serializable {
     /**
      * ${field.comment}
      */
+    @ApiModelProperty(value="${field.comment}", required=true)
 </#if>
     private ${field.propertyType} ${field.propertyName};
 </#list>

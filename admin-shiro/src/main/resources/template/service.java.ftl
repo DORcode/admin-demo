@@ -1,5 +1,6 @@
 package ${package.Service};
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import ${package.Entity}.${entity};
 import ${superServiceClassPackage};
 import ${cfg.utilpackage}.BaseException;
@@ -30,7 +31,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    ${entity}Vo select${entity}ById(String id) throws BaseException;
+    ${entity}Vo select${entity}ById(Serializable id) throws BaseException;
 
    /**
     * @MethodName select${entity}
@@ -52,7 +53,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    List<${entity}Vo> select${entity}sPage(${entity}Po ${entity?uncap_first}) throws BaseException;
+    IPage<${entity}Vo> select${entity}sPage(${entity}Po ${entity?uncap_first}) throws BaseException;
 
    /**
    * @MethodName delete${entity}
@@ -63,7 +64,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
    * @author
    * @date ${.now?string["yyyy/MM/dd hh:mm:ss.SSS"]}
    */
-   int delete${entity}ById(String id) throws BaseException;
+   int delete${entity}ById(Serializable id) throws BaseException;
 
    /**
     * @MethodName delete${entity}s

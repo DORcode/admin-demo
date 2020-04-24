@@ -1,11 +1,15 @@
 package ${package.Mapper};
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import ${package.Entity}.${entity};
 import ${superMapperClassPackage};
 import org.apache.ibatis.annotations.Mapper;
 import ${cfg.parentpackage}.po.${entity}Po;
 import ${cfg.parentpackage}.vo.${entity}Vo;
 import ${cfg.parentpackage}.dto.${entity}Dto;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
 * @ClassName ${entity}
@@ -29,7 +33,19 @@ public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    ${entity} selectOneSelective(${entity} ${entity?uncap_first});
+    ${entity}Vo selectOneSelective(${entity} ${entity?uncap_first});
+
+    /**
+    * @MethodName select${entity}sPage
+    * @Description TODO
+    * @param page
+    * @param ${entity?uncap_first}
+    * @return
+    * @throws
+    * @author
+    * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
+    */
+    List<${entity}Vo> select${entity}sPage(Page page, @Param("${entity?uncap_first}") ${entity}Po ${entity?uncap_first})
 
     /**
     * @MethodName insertSelective

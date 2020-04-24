@@ -1,16 +1,12 @@
 package ${cfg.parentpackage}.po;
 
 <#list table.importPackages as pkg>
-<#if pkg != 'com.baomidou.mybatisplus.annotation.TableId'
-    && pkg != 'com.baomidou.mybatisplus.annotation.TableField'
-    && pkg != 'com.baomidou.mybatisplus.activerecord.Model'
-    && pkg != 'com.baomidou.mybatisplus.annotation.TableName'>
 import ${pkg};
-</#if>
 </#list>
 <#if entityLombokModel>
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -24,6 +20,7 @@ import lombok.experimental.Accessors;
 * @Date ${date}
 * @Version V1.0
 */
+@ApiModel(value = "${table.comment!""}")
 <#if entityLombokModel>
 @Data
 <#if superEntityClass??>
@@ -32,6 +29,9 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 </#if>
 @Accessors(chain = true)
+</#if>
+<#if table.convert>
+    @TableName("${table.name}")
 </#if>
 public class ${entity}Po extends Page implements Serializable {
 
@@ -46,6 +46,7 @@ public class ${entity}Po extends Page implements Serializable {
     /**
      * ${field.comment}
      */
+    @ApiModelProperty(value="${field.comment}", required=true)
 </#if>
 <#if field.keyFlag>
 <#-- 主键 -->

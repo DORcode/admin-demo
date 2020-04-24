@@ -29,8 +29,8 @@ import java.util.Map;
 public class GeneratorUtil {
     private static String OUTPUT_JAVA = "f://generator/demo/src/main/java";
     private static String OUTPUT_RES = "f://generator/demo/src/main/resources";
-    private static String PARENTPACKAGE = "com.coin.auth";
-    private static String PARENTPACKAGEPATH = "/com/coin/auth/";
+    private static String PARENTPACKAGE = "com.cjsjy";
+    private static String PARENTPACKAGEPATH = "/com/cjsjy/";
     private static String UTILPACKAGE = PARENTPACKAGE + ".util";
     private static DbType DB_TYPE = null;
     private static String DB_DRIVER = "";
@@ -66,7 +66,7 @@ public class GeneratorUtil {
     public static void mysql() {
         DB_TYPE = DbType.MYSQL;
         DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-        DB_URL= "jdbc:mysql://localhost:3308/admin_auth?serverTimezone=UTC";
+        DB_URL= "jdbc:mysql://localhost:3308/file_mgt?serverTimezone=UTC";
         DB_UM = "root";
         DB_PWD = "123";
         TYPE_CONVERT = new MySqlTypeConvert() {
@@ -129,6 +129,7 @@ public class GeneratorUtil {
         sc.setColumnNaming(NamingStrategy.underline_to_camel);
         sc.setInclude(new String[] {});
         sc.setExclude(new String[] {});
+        sc.setEntityTableFieldAnnotationEnable(true);
 
         // sc.setSuperControllerClass();
         // sc.setSuperEntityClass();

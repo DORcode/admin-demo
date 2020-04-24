@@ -6,6 +6,7 @@ import ${cfg.parentpackage}.vo.${entity}Vo;
 import ${cfg.parentpackage}.po.${entity}Po;
 import ${cfg.parentpackage}.dto.${entity}Dto;
 import ${cfg.utilpackage}.Result;
+import ${cfg.utilpackage}.ResultCodeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,7 +58,7 @@ public class ${table.controllerName} {
     /**
     * @MethodName select${entity}ById
     * @Description TODO
-    * @param ${entity?uncap_first}
+    * @param id
     * @return
     * @throws BaseException
     * @author
@@ -68,7 +69,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result select${entity}ById(@PathVariable("id") String id) throws BaseException {
+    public Result select${entity}ById(@PathVariable("id") Serializable id) throws BaseException {
         ${table.serviceName?uncap_first}.select${entity}ById(id);
         return Result.success();
     }
@@ -101,20 +102,20 @@ public class ${table.controllerName} {
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
-    @PostMapping("select${entity}s")
+    @PostMapping("select${entity}sPage")
     @ApiOperation(value="查询${table.comment!""}")
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result select${entity}s(${entity}Po ${entity?uncap_first}) throws BaseException {
-        ${table.serviceName?uncap_first}.select${entity}s(${entity?uncap_first});
+    public Result select${entity}sPage(${entity}Po ${entity?uncap_first}) throws BaseException {
+        ${table.serviceName?uncap_first}.select${entity}sPage(${entity?uncap_first});
         return Result.success();
     }
 
     /**
-     * @MethodName delete${entity}
+     * @MethodName delete${entity}ById
      * @Description TODO
-     * @param ${entity?uncap_first}
+     * @param id
      * @return
      * @throws BaseException
      * @author
@@ -125,9 +126,9 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result delete${entity}ById(@PathVariable("id") String id) throws BaseException {
+    public Result delete${entity}ById(@PathVariable("id") Serializable id) throws BaseException {
         ${table.serviceName?uncap_first}.delete${entity}ById(id);
-        return Result.success();
+        return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
 
     /**
@@ -146,7 +147,7 @@ public class ${table.controllerName} {
     </#if>
     public Result delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         ${table.serviceName?uncap_first}.delete${entity}s(${entity?uncap_first}List);
-        return Result.success();
+        return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
 
     /**
@@ -165,7 +166,7 @@ public class ${table.controllerName} {
     </#if>
     public Result update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
         ${table.serviceName?uncap_first}.update${entity}(${entity?uncap_first});
-        return Result.success();
+        return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
 
     /**
@@ -184,7 +185,7 @@ public class ${table.controllerName} {
     </#if>
     public Result update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         ${table.serviceName?uncap_first}.update${entity}s(${entity?uncap_first}List);
-        return Result.success();
+        return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
 
     /**
@@ -203,7 +204,7 @@ public class ${table.controllerName} {
     </#if>
     public Result insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
         ${table.serviceName?uncap_first}.insert${entity}(${entity?uncap_first});
-        return Result.success();
+        return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
 
     /**
@@ -222,9 +223,8 @@ public class ${table.controllerName} {
     </#if>
     public Result insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException  {
         ${table.serviceName?uncap_first}.insert${entity}s(${entity?uncap_first}List);
-        return Result.success();
+        return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
-
 }
 </#if>
 </#if>
