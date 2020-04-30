@@ -7,7 +7,7 @@ import ${package.Entity}.${entity};
 import ${package.Mapper}.${table.mapperName};
 import ${package.Service}.${table.serviceName};
 import ${cfg.utilpackage}.BaseException;
-import ${cfg.utilpackage}.BeanUtil
+import ${cfg.utilpackage}.BeanUtil;
 import ${superServiceImplClassPackage};
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +18,7 @@ import ${cfg.parentpackage}.vo.${entity}Vo;
 import ${cfg.parentpackage}.dto.${entity}Dto;
 
 import lombok.extern.slf4j.Slf4j;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -56,9 +57,9 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
         queryWrapper.lambda().eq(${entity}::get${field.propertyName?cap_first}, id);
         </#if>
         </#list>
-        ${entity} ${entity?uncap_first} = queryWrapper.selectOne(queryWrapper);
+        ${entity} ${entity?uncap_first} = ${table.mapperName?uncap_first}.selectOne(queryWrapper);
         ${entity}Vo ${entity?uncap_first}Vo = new ${entity}Vo();
-        if(null != user) {
+        if(null != ${entity?uncap_first}) {
             BeanUtil.copyProperties(${entity?uncap_first}Vo, ${entity?uncap_first});
         }
         return ${entity?uncap_first}Vo;
@@ -132,6 +133,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      */
     @Override
     public int update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+        ${table.mapperName?uncap_first}.updateByPrimaryKeySelective(${entity?uncap_first});
         return 1;
     }
 

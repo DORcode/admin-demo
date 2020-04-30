@@ -50,7 +50,7 @@ public class ${entity} implements Serializable {
     /**
      * ${field.comment}
      */
-    @ApiModelProperty(value="${field.comment}", required=true)
+    @ApiModelProperty(value="${field.comment}", required=false)
 </#if>
 <#if field.keyFlag>
 <#-- 主键 -->

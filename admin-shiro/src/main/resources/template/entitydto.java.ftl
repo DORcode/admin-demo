@@ -46,7 +46,7 @@ public class ${entity}Dto implements Serializable {
     /**
      * ${field.comment}
      */
-    @ApiModelProperty(value="${field.comment}", required=true)
+    @ApiModelProperty(value="${field.comment}", required=false)
 </#if>
     private ${field.propertyType} ${field.propertyName};
 </#list>

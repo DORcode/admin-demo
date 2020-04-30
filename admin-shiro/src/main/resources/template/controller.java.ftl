@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 <#if restControllerStyle>
 import org.springframework.web.bind.annotation.RestController;
 <#else>
+
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.stereotype.Controller;
 </#if>
 <#if superControllerClassPackage??>
@@ -26,6 +29,7 @@ import io.swagger.annotations.ApiOperation;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -88,7 +92,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result select${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+    public Result select${entity}(@RequestBody ${entity}Vo ${entity?uncap_first}) throws BaseException {
         ${table.serviceName?uncap_first}.select${entity}(${entity?uncap_first});
         return Result.success();
     }
@@ -107,7 +111,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result select${entity}sPage(${entity}Po ${entity?uncap_first}) throws BaseException {
+    public Result select${entity}sPage(@RequestBody ${entity}Po ${entity?uncap_first}) throws BaseException {
         ${table.serviceName?uncap_first}.select${entity}sPage(${entity?uncap_first});
         return Result.success();
     }
@@ -145,7 +149,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public Result delete${entity}s(@RequestBody List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         ${table.serviceName?uncap_first}.delete${entity}s(${entity?uncap_first}List);
         return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
@@ -164,7 +168,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+    public Result update${entity}(@RequestBody ${entity}Vo ${entity?uncap_first}) throws BaseException {
         ${table.serviceName?uncap_first}.update${entity}(${entity?uncap_first});
         return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
@@ -183,7 +187,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public Result update${entity}s(@RequestBody List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
         ${table.serviceName?uncap_first}.update${entity}s(${entity?uncap_first}List);
         return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
@@ -202,7 +206,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+    public Result insert${entity}(@RequestBody ${entity}Vo ${entity?uncap_first}) throws BaseException {
         ${table.serviceName?uncap_first}.insert${entity}(${entity?uncap_first});
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
@@ -221,7 +225,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException  {
+    public Result insert${entity}s(@RequestBody List<${entity}Vo> ${entity?uncap_first}List) throws BaseException  {
         ${table.serviceName?uncap_first}.insert${entity}s(${entity?uncap_first}List);
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }

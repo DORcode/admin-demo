@@ -8,6 +8,7 @@ import ${cfg.utilpackage}.Result;
 import ${cfg.parentpackage}.po.${entity}Po;
 import ${cfg.parentpackage}.vo.${entity}Vo;
 import ${cfg.parentpackage}.dto.${entity}Dto;
+import java.io.Serializable;
 import java.util.List;
 
 /**

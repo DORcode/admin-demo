@@ -6,7 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/admin-base/admin-base.iml" filepath="$PROJECT_DIR$/admin-base/admin-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-demo.iml" filepath="$PROJECT_DIR$/admin-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-generator/admin-generator.iml" filepath="$PROJECT_DIR$/admin-generator/admin-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin-mybatis-generator/admin-mybatis-generator.iml" filepath="$PROJECT_DIR$/admin-mybatis-generator/admin-mybatis-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-shiro/admin-shiro.iml" filepath="$PROJECT_DIR$/admin-shiro/admin-shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin-test/admin-test.iml" filepath="$PROJECT_DIR$/admin-test/admin-test.iml" />
     </modules>
   </component>
 </project>

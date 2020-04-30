@@ -1,4 +1,4 @@
-package com.coin.admintest.effective.builder;
+package com.coin.admintest.effective.e002builder;
 
 /**
  * @ClassName NyPizza
