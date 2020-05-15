@@ -174,6 +174,16 @@
     <logger name="org.springframework.web" level="info"/>
     <logger name="org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor" level="INFO"/>
     <logger name="com.coin" level="debug"/>
+    <logger name="warmer.star.blog.mapper" level="error" />
+    <logger name="jdbc.sqltiming" level="error"/>
+    <logger name="com.ibatis" level="error" />
+    <logger name="com.ibatis.common.jdbc.SimpleDataSource" level="error" />
+    <logger name="com.ibatis.common.jdbc.ScriptRunner" level="error" />
+    <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="error" />
+    <logger name="java.sql.Connection" level="error" />
+    <logger name="java.sql.Statement" level="error" />
+    <logger name="java.sql.PreparedStatement" level="error" />
+    <logger name="java.sql.ResultSet" level="error" />
 
     <!--开发环境:打印控制台-->
     <springProfile name="dev">
