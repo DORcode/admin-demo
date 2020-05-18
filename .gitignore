@@ -181,3 +181,13 @@ admin-test/.mvn/wrapper/maven-wrapper.jar
 admin-test/.mvn/wrapper/maven-wrapper.properties
 admin-test/.mvn/wrapper/MavenWrapperDownloader.java
 /.idea/
+target/
+admin-test/target/classes/com/coin/admintest/effective/e002builder/NyPizza$Builder.class
+admin-test/target/classes/com/coin/admintest/effective/e002builder/NyPizza$Size.class
+admin-test/target/classes/com/coin/admintest/effective/e002builder/NyPizza.class
+admin-test/target/classes/com/coin/admintest/effective/e002builder/Pizza$Builder.class
+admin-test/target/classes/com/coin/admintest/effective/e002builder/Pizza$Topping.class
+admin-test/target/classes/com/coin/admintest/effective/e002builder/Pizza.class
+admin-test/target/classes/com/coin/admintest/effective/e003singleton/Elvis.class
+admin-test/target/classes/com/coin/admintest/effective/e003singleton/UtilityClass.class
+admin-test/admin-test.iml
