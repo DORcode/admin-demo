@@ -39,6 +39,7 @@
         <module>admin-generator</module>
         <module>admin-mybatis-generator</module>
         <module>admin-auth</module>
+        <module>admin-cas</module>
         <module>admin-test</module>
     </modules>
 
