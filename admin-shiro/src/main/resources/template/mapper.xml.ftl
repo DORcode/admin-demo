@@ -115,13 +115,13 @@
         <#list table.fields as field>
         <if test="${field.propertyName} != null">
             <#if field.type?upper_case?split("(")[0] == "INT">
-            {${field.propertyName}, jdbcType=INTEGER},
+                <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
-            {${field.propertyName}, jdbcType=TIMESTAMP},
+                <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
             <#elseif field.type?upper_case?split("(")[0] == "TEXT">
-                {${field.propertyName}, jdbcType=LONGVARCHAR},
+                <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
             <#else>
-            {${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}}},
+                <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
             </#if>
         </if>
         </#list>
