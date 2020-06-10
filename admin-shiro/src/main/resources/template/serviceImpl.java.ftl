@@ -163,7 +163,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     @Override
     public int insert${entity}(${entity}Vo ${entity?uncap_first}Vo) throws BaseException {
         ${entity} ${entity?uncap_first} = new ${entity}();
-        BeanUtil.copyProperties(${entity?uncap_first}Vo, ${entity?uncap_first});
+        BeanUtil.copyProperties(${entity?uncap_first}, ${entity?uncap_first}Vo);
         ${table.mapperName?uncap_first}.insert(${entity?uncap_first});
         return 1;
     }
