@@ -154,7 +154,7 @@
         <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
             where ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
         <#else>
-            where  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
+            where  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
         </#if>
         </#if>
         </#list>
