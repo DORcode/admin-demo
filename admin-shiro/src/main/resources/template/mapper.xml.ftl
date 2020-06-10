@@ -16,7 +16,7 @@
         <id column="${field.name}" property="${field.propertyName}" jdbcType="INTEGER" />
     <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
         <id column="${field.name}" property="${field.propertyName}" jdbcType="TIMESTAMP" />
-    <#elseif field.type?upper_case?split("(")[0] == "TEXT">
+    <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
         <id column="${field.name}" property="${field.propertyName}" jdbcType="LONGVARCHAR" />
     <#else>
         <id column="${field.name}" property="${field.propertyName}" jdbcType="${field.type?upper_case?split("(")[0]}" />
@@ -29,7 +29,7 @@
         <result column="${field.name}" property="${field.propertyName}" jdbcType="INTEGER" />
     <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
         <result column="${field.name}" property="${field.propertyName}" jdbcType="TIMESTAMP" />
-    <#elseif field.type?upper_case?split("(")[0] == "TEXT">
+    <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
         <result column="${field.name}" property="${field.propertyName}" jdbcType="LONGVARCHAR" />
     <#else>
         <result column="${field.name}" property="${field.propertyName}" jdbcType="${field.type?upper_case?split("(")[0]}" />
@@ -42,7 +42,7 @@
         <result column="${field.name}" property="${field.propertyName}" jdbcType="INTEGER" />
     <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
         <result column="${field.name}" property="${field.propertyName}" jdbcType="TIMESTAMP" />
-    <#elseif field.type?upper_case?split("(")[0] == "TEXT">
+    <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
         <result column="${field.name}" property="${field.propertyName}" jdbcType="LONGVARCHAR" />
     <#else>
         <result column="${field.name}" property="${field.propertyName}" jdbcType="${field.type?upper_case?split("(")[0]}" />
@@ -73,7 +73,7 @@
                AND ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
                 AND ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>
-            <#elseif field.type?upper_case?split("(")[0] == "TEXT">
+            <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
                 AND  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>
             <#else>
                 AND  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
@@ -92,7 +92,7 @@
                 AND ${field.name} = <#noparse>{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
                 AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>
-            <#elseif field.type?upper_case?split("(")[0] == "TEXT">
+            <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
                 AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>
             <#else>
                 AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
@@ -118,7 +118,7 @@
                 <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
                 <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
-            <#elseif field.type?upper_case?split("(")[0] == "TEXT">
+            <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
                 <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
             <#else>
                 <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
@@ -137,7 +137,7 @@
                 ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
                 ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
-            <#elseif field.type?upper_case?split("(")[0] == "TEXT">
+            <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
                 ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
             <#else>
                 ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
@@ -151,7 +151,7 @@
             where ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
         <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
             where ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
-        <#elseif field.type?upper_case?split("(")[0] == "TEXT">
+        <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
             where ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
         <#else>
             where  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
