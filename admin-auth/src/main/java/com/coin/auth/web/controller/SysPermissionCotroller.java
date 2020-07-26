@@ -9,6 +9,7 @@ import com.coin.auth.web.po.SysPermissionPo;
 import com.coin.auth.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
@@ -117,7 +118,7 @@ public class SysPermissionCotroller {
      */
     @RequestMapping("deleteSysPermission")
     @ApiOperation(value="删除权限")
-    public Result deleteSysPermission(SysPermissionVo sysPermission) throws BaseException {
+    public Result deleteSysPermission(@RequestBody SysPermissionVo sysPermission) throws BaseException {
         sysPermissionService.deleteSysPermission(sysPermission);
         return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
@@ -133,7 +134,7 @@ public class SysPermissionCotroller {
     */
     @RequestMapping("deleteSysPermissions")
     @ApiOperation(value="删除多个权限")
-    public Result deleteSysPermissions(List<SysPermissionVo> sysPermissionList) throws BaseException {
+    public Result deleteSysPermissions(@RequestBody List<SysPermissionVo> sysPermissionList) throws BaseException {
         sysPermissionService.deleteSysPermissions(sysPermissionList);
         return Result.success();
     }
@@ -149,7 +150,7 @@ public class SysPermissionCotroller {
     */
     @RequestMapping("updateSysPermission")
     @ApiOperation(value="更新权限")
-    public Result updateSysPermission(SysPermissionVo sysPermission) throws BaseException {
+    public Result updateSysPermission(@RequestBody SysPermissionVo sysPermission) throws BaseException {
         sysPermissionService.updateSysPermission(sysPermission);
         return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
@@ -181,7 +182,7 @@ public class SysPermissionCotroller {
     */
     @RequestMapping("insertSysPermission")
     @ApiOperation(value="插入权限")
-    public Result insertSysPermission(SysPermissionVo sysPermission) throws BaseException {
+    public Result insertSysPermission(@RequestBody SysPermissionVo sysPermission) throws BaseException {
         sysPermissionService.insertSysPermission(sysPermission);
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }

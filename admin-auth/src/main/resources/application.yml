@@ -5,7 +5,6 @@ spring:
 #mybatis:
 #  mapperLocations: classpath:mapper/*.xml
 
-
 logging:
   config: classpath:logback-spring.xml
   file:

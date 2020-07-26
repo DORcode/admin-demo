@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 import java.util.List;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -49,6 +51,7 @@ public class SysPermissionVo implements Serializable {
     /**
      * 上级编码
      */
+    @JsonProperty(value = "pCode")
     private String pCode;
 
     /**
@@ -92,6 +95,8 @@ public class SysPermissionVo implements Serializable {
     private String isDelete;
 
     private boolean selected;
+
+    private String icon;
 
     private List<SysPermissionVo> subPerms;
 

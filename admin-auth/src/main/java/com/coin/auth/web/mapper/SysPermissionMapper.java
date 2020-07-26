@@ -7,6 +7,7 @@ import com.coin.auth.web.vo.SysPermissionVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -50,6 +51,8 @@ public interface SysPermissionMapper extends BaseMapper<SysPermission> {
      * @date 2020/4/2 15:49
      */
     public List<SysPermissionVo> selectPermissionList();
+
+    Long getcode(Map map);
 
     /**
     * @MethodName insertSelective

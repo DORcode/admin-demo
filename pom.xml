@@ -132,6 +132,11 @@
                 <artifactId>swagger-bootstrap-ui</artifactId>
                 <version>${swagger.bootstrap.ui}</version>
             </dependency>
+            <dependency>
+                <groupId>org.mdkt.compiler</groupId>
+                <artifactId>InMemoryJavaCompiler</artifactId>
+                <version>1.3.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

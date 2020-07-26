@@ -25,7 +25,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({RuntimeException.class})
     @ResponseBody
     public Result exceptionHandler(RuntimeException e, HttpServletResponse response) {
-        response.setStatus(401);
         if(e instanceof BaseException) {
             return Result.fail((BaseException) e);
         } else if(e instanceof AccountException) {

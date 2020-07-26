@@ -30,7 +30,7 @@ public class CorFilter implements Filter {
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "Origin, No-Cache, X-Requested-With, Content-Type, Accept, Pragma, Last-Modified, Cache-Control, Expires, Authorization, token");
         response.setHeader("Access-Control-Allow-Credentials", "true");
-        chain.doFilter(req, res);
+        chain.doFilter(req, response);
     }
 
     @Override

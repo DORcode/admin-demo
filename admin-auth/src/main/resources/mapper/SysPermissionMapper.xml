@@ -100,9 +100,6 @@
     <update id="updateByPrimaryKeySelective" parameterType="com.coin.auth.web.vo.SysPermissionVo">
         update sys_permission
         <set>
-                <if test="id != null">
-                    ID = #{id},
-                </if>
                 <if test="code != null">
                     CODE = #{code},
                 </if>
@@ -133,6 +130,9 @@
                 <if test="isDelete != null">
                     IS_DELETE = #{isDelete},
                 </if>
+                <if test="icon != null">
+                    icon = #{icon},
+                </if>
         </set>
         where ID = #{id}
     </update>
@@ -151,4 +151,10 @@
     <select id="selectPermissionList" resultType="com.coin.auth.web.vo.SysPermissionVo">
         select * from sys_permission p where p.is_delete=0 order by p.seq, p.p_code
     </select>
+    <select id="getcode" statementType="CALLABLE">
+    {call PROC_GET_CODE(
+    #{upcode, jdbcType=VARCHAR, mode=IN},
+    #{name, jdbcType=VARCHAR, mode=IN},
+    #{glide, jdbcType=DECIMAL, mode=OUT})}
+</select>
 </mapper>

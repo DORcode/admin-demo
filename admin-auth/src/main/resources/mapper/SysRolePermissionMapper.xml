@@ -88,7 +88,7 @@
     </update>
     <update id="deleteByPermissionId">
         update sys_role_permission rp left join sys_permission p on rp.permission_code=p.p_code
-        set is_delete=1 where p.id=#{permissionId}
+        set rp.is_delete=1 where p.id=#{permissionId}
     </update>
 
     <update id="deleteByRoleId">

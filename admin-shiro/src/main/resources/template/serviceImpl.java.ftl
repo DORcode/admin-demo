@@ -154,7 +154,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     /**
      * @MethodName insert${entity}
      * @Description TODO
-     * @param ${entity?uncap_first}
+     * @param ${entity?uncap_first}Vo
      * @return
      * @throws BaseException
      * @author

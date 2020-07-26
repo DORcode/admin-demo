@@ -13,6 +13,7 @@ import com.coin.auth.web.service.SysPermissionService;
 import com.coin.auth.util.BaseException;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.coin.auth.web.vo.Menu;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,9 @@ import com.coin.auth.web.dto.SysPermissionDto;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.util.*;
 
 /**
 * @ClassName SysPermissionServiceImpl
@@ -224,9 +225,26 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
     public int insertSysPermission(SysPermissionVo sysPermission) throws BaseException {
         SysPermission permission = new SysPermission();
         BeanUtil.copyProperties(permission, sysPermission);
-        // 生成code pcode
-        sysPermissionMapper.insert(permission);
-        return 1;
+        Map map = new HashMap<>();
+        if (StringUtils.isNotEmpty(sysPermission.getPCode())) {
+            map.put("upcode", sysPermission.getPCode());
+        } else {
+            map.put("upcode", 0);
+        }
+
+        map.put("name", "menu");
+        map.put("glide", 0);
+        sysPermissionMapper.getcode(map);
+        BigDecimal gd = (BigDecimal) map.get("glide");
+        String format = new DecimalFormat("0000").format(gd);
+        if (StringUtils.isNotEmpty(sysPermission.getPCode())) {
+            permission.setCode(sysPermission.getPCode() + format);
+        } else {
+            permission.setCode(format);
+        }
+
+        int i = sysPermissionMapper.insert(permission);
+        return i;
     }
 
     /**
