@@ -41,6 +41,7 @@
         <module>admin-auth</module>
         <module>admin-cas</module>
         <module>admin-test</module>
+        <module>demo-es</module>
     </modules>
 
     <dependencies>
