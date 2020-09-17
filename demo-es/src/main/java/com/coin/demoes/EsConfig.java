@@ -1,5 +1,8 @@
 package com.coin.demoes;
 
+import com.coin.demoes.es.config.ElasticsearchClientFactory;
+import com.coin.demoes.es.config.RestClientConfiguration;
+import com.coin.demoes.es.config.RestClientPoolConfig;
 import org.apache.http.HttpHost;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.config.RequestConfig.Builder;
@@ -23,7 +26,7 @@ import javax.annotation.PostConstruct;
  * @Version V1.0
  **/
 @Configuration
-public class EsConfig implements DisposableBean {
+public class EsConfig {
 
     private static int connectTimeout = 1000; // 连接超时时间
     private static int socketTimeout = 30000; // 连接超时时间
@@ -59,8 +62,19 @@ public class EsConfig implements DisposableBean {
         return restHighLevelClient;
     }
 
-    @Override
-    public void destroy() throws Exception {
-
+    @Bean
+    public ElasticsearchClientFactory elasticsearchClientFactory() {
+        RestClientPoolConfig restClientPoolConfig = new RestClientPoolConfig();
+        restClientPoolConfig.setMinIdle(5);
+        restClientPoolConfig.setMaxTotal(20);
+        restClientPoolConfig.setMaxWaitMillis(2000);
+        RestClientConfiguration restClientConfiguration = new RestClientConfiguration();
+        restClientConfiguration.setConnectTimeout(1000);
+        restClientConfiguration.setConnectionRequestTimeout(500);
+        restClientConfiguration.setSocketTimeout(20000);
+        restClientConfiguration.setMaxConnectTotal(100);
+        restClientConfiguration.setMaxConnectTotal(100);
+        ElasticsearchClientFactory elasticsearchClientFactory = new ElasticsearchClientFactory(restClientConfiguration, restClientPoolConfig);
+        return elasticsearchClientFactory;
     }
 }
