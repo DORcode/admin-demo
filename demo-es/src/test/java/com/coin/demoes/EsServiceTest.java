@@ -62,6 +62,30 @@ class EsServiceTest {
         esService.createIndex("test-code", property);
     }
 
+    Object object = new Object();
+    @Test
+    void parallel() throws InterruptedException {
+        Thread.sleep(10000);
+        for(int i = 0; i< 1000; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                        try {
+
+                                //System.out.println("System.currentTimeMillis() = " + System.currentTimeMillis());
+                                createIndex();
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            System.out.println("e1 = " + e);
+                        }
+                    }
+            }).start();
+        }
+    }
+
     @Test
     void existsIndex() {
     }

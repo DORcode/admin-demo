@@ -2,6 +2,8 @@ package com.coin.demoes.es.config;
 
 import org.elasticsearch.client.RestHighLevelClient;
 
+import java.io.IOException;
+
 /**
  * @ClassName EsRestTemplate
  * @Description: TODO
@@ -17,9 +19,19 @@ public class RestClientTemplate {
     }
 
     public <T> T execute(RestClientCallback<T> callback) {
-        RestHighLevelClient client = this.elasticsearchClientFactory.getResource();
-        T t = callback.request(client);
-        this.elasticsearchClientFactory.returnObject(client);
-        return t;
+        RestHighLevelClient client = null;
+        try {
+            client = this.elasticsearchClientFactory.getResource();
+            T t = callback.request(client);
+            return t;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e.getMessage());
+        } finally {
+            if(null != client) {
+                this.elasticsearchClientFactory.returnObject(client);
+            }
+
+        }
     }
 }

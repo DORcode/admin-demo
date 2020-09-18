@@ -3,6 +3,7 @@ package com.coin.demoes;
 import com.coin.demoes.es.config.ElasticsearchClientFactory;
 import com.coin.demoes.es.config.RestClientConfiguration;
 import com.coin.demoes.es.config.RestClientPoolConfig;
+import com.coin.demoes.es.config.RestClientTemplate;
 import org.apache.http.HttpHost;
 import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.config.RequestConfig.Builder;
@@ -17,6 +18,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @ClassName EsConfig
@@ -37,7 +40,7 @@ public class EsConfig {
 
     private RestHighLevelClient restHighLevelClient;
 
-    @PostConstruct
+    @Bean
     public RestHighLevelClient restHighLevelClient() {
 
         RestClientBuilder builder = RestClient.builder(
@@ -65,16 +68,25 @@ public class EsConfig {
     @Bean
     public ElasticsearchClientFactory elasticsearchClientFactory() {
         RestClientPoolConfig restClientPoolConfig = new RestClientPoolConfig();
-        restClientPoolConfig.setMinIdle(5);
-        restClientPoolConfig.setMaxTotal(20);
-        restClientPoolConfig.setMaxWaitMillis(2000);
+        restClientPoolConfig.setMinIdle(16);
+        restClientPoolConfig.setMaxTotal(64);
+        restClientPoolConfig.setMaxIdle(32);
+        restClientPoolConfig.setMaxWaitMillis(8000);
         RestClientConfiguration restClientConfiguration = new RestClientConfiguration();
         restClientConfiguration.setConnectTimeout(1000);
         restClientConfiguration.setConnectionRequestTimeout(500);
         restClientConfiguration.setSocketTimeout(20000);
         restClientConfiguration.setMaxConnectTotal(100);
         restClientConfiguration.setMaxConnectTotal(100);
+        Map<String, String> defaultHeaders = new HashMap<>();
         ElasticsearchClientFactory elasticsearchClientFactory = new ElasticsearchClientFactory(restClientConfiguration, restClientPoolConfig);
+        elasticsearchClientFactory.setDefaultHeaders(defaultHeaders);
         return elasticsearchClientFactory;
+    }
+
+    @Bean
+    public RestClientTemplate restClientTemplate() {
+        RestClientTemplate restClientTemplate = new RestClientTemplate(elasticsearchClientFactory());
+        return restClientTemplate;
     }
 }

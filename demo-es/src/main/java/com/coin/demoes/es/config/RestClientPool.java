@@ -38,7 +38,8 @@ public class RestClientPool<T> implements Closeable {
         try {
             return pool.borrowObject();
         } catch (Exception e) {
-            throw new RuntimeException(e.getCause());
+            e.printStackTrace();
+            throw new RuntimeException(e.getMessage());
         }
     }
 

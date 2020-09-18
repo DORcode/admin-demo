@@ -14,8 +14,8 @@ public class RestClientPoolConfig extends GenericObjectPoolConfig {
 
     public RestClientPoolConfig() {
         setTestWhileIdle(true);
-        setMinEvictableIdleTimeMillis(60000);
-        setTimeBetweenEvictionRunsMillis(30000);
+        setMinEvictableIdleTimeMillis(30000);
+        setTimeBetweenEvictionRunsMillis(5000);
         setMaxIdle(32);
         setMaxTotal(64);
         setMinIdle(16);

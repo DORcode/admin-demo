@@ -1,6 +1,8 @@
 package com.coin.demoes;
 
 import com.coin.base.config.JacksonUtil;
+import com.coin.demoes.es.config.RestClientCallback;
+import com.coin.demoes.es.config.RestClientTemplate;
 import com.fasterxml.jackson.core.JsonParser;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.support.master.AcknowledgedResponse;
@@ -30,6 +32,9 @@ public class EsService {
     @Autowired
     RestHighLevelClient restHighLevelClient;
 
+    @Autowired
+    RestClientTemplate restClientTemplate;
+
     /**
      * @MethodName createIndex
      * @Description 创建索引
@@ -42,7 +47,8 @@ public class EsService {
     public void createIndex(String index, String map) throws Exception {
 
         if(existsIndex(index)) {
-            throw new Exception("索引已存在");
+            System.out.println("\"索引已存在\" = " + "索引已存在");
+            return;
         }
         CreateIndexRequest request = new CreateIndexRequest(index);
         request.settings(Settings.builder()
@@ -50,7 +56,11 @@ public class EsService {
                 .put("index.number_of_replicas", 1)
         );
         request.mapping(map, XContentType.JSON);
-        CreateIndexResponse createIndexResponse = restHighLevelClient.indices().create(request, RequestOptions.DEFAULT);
+        CreateIndexResponse createIndexResponse = restClientTemplate.execute(client -> {
+            return client.indices().create(request, RequestOptions.DEFAULT);
+        });
+
+        // CreateIndexResponse createIndexResponse = restHighLevelClient.indices().create(request, RequestOptions.DEFAULT);
         System.out.println("createIndexResponse = " + JacksonUtil.toJSONString(createIndexResponse));
     }
 
@@ -65,7 +75,13 @@ public class EsService {
      */
     public boolean existsIndex(String index) throws IOException {
         GetIndexRequest request = new GetIndexRequest(index);
-        boolean exists = restHighLevelClient.indices().exists(request, RequestOptions.DEFAULT);
+        boolean exists = restClientTemplate.execute(new RestClientCallback<Boolean>() {
+            @Override
+            public Boolean request(RestHighLevelClient client) throws IOException {
+                return client.indices().exists(request, RequestOptions.DEFAULT);
+            }
+        });
+        // boolean exists = restHighLevelClient.indices().exists(request, RequestOptions.DEFAULT);
         return exists;
     }
 

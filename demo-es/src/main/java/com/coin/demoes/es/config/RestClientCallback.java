@@ -2,6 +2,8 @@ package com.coin.demoes.es.config;
 
 import org.elasticsearch.client.RestHighLevelClient;
 
+import java.io.IOException;
+
 /**
  * @ClassName RestClientCallback
  * @Description: TODO
@@ -10,5 +12,5 @@ import org.elasticsearch.client.RestHighLevelClient;
  * @Version V1.0
  **/
 public interface RestClientCallback<T> {
-    T request(RestHighLevelClient client);
+    T request(RestHighLevelClient client) throws IOException;
 }

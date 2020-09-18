@@ -84,6 +84,9 @@ public class RestHighLevelClientFactory implements PooledObjectFactory<RestHighL
 
     private Header[] buildDefaultHeaders(Map<String, String> defaultHeaders){
         List<Header> headers = new ArrayList<>();
+        if(defaultHeaders == null) {
+            return headers.toArray(new Header[headers.size()]);
+        }
         for(String key : defaultHeaders.keySet()){
             Header header = new BasicHeader(key, defaultHeaders.get(key));
             headers.add(header);
