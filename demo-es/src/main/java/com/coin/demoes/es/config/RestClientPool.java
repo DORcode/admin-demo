@@ -1,9 +1,8 @@
 package com.coin.demoes.es.config;
 
-import com.frameworkset.commons.pool2.PooledObjectFactory;
-import com.frameworkset.commons.pool2.impl.AbandonedConfig;
-import com.frameworkset.commons.pool2.impl.GenericObjectPool;
-import com.frameworkset.commons.pool2.impl.GenericObjectPoolConfig;
+import org.apache.commons.pool2.PooledObjectFactory;
+import org.apache.commons.pool2.impl.GenericObjectPool;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.beans.factory.DisposableBean;
 

@@ -5,6 +5,9 @@ import com.coin.demoes.es.config.RestClientCallback;
 import com.coin.demoes.es.config.RestClientTemplate;
 import com.fasterxml.jackson.core.JsonParser;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
+import org.elasticsearch.action.bulk.BulkRequest;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.support.master.AcknowledgedResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
@@ -17,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -113,6 +118,27 @@ public class EsService {
 
     public void search() {
 
+    }
+
+    public void insertAttachments(String index, Map<String, ?> source) {
+        IndexRequest indexRequest = new IndexRequest(index);
+        indexRequest.source(source);
+        IndexResponse execute = restClientTemplate.execute(restHighLevelClient -> {
+            return restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
+        });
+        System.out.println("execute = " + execute);
+    }
+
+    public void a() {
+        BulkRequest bulkRequest = new BulkRequest();
+        List<IndexRequest> requests = new ArrayList<>();
+        for (IndexRequest ir : requests) {
+            bulkRequest.add(ir);
+        }
+
+        restClientTemplate.execute(client -> {
+            return client.bulk(bulkRequest, RequestOptions.DEFAULT);
+        });
     }
 
 }

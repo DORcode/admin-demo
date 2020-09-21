@@ -1,7 +1,6 @@
 package com.coin.demoes.es.config;
 
-import com.frameworkset.commons.pool2.impl.GenericObjectPool;
-import com.frameworkset.commons.pool2.impl.GenericObjectPoolConfig;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 
 /**
  * @ClassName RestClientPoolConfig
@@ -15,7 +14,7 @@ public class RestClientPoolConfig extends GenericObjectPoolConfig {
     public RestClientPoolConfig() {
         setTestWhileIdle(true);
         setMinEvictableIdleTimeMillis(30000);
-        setTimeBetweenEvictionRunsMillis(5000);
+        setTimeBetweenEvictionRunsMillis(60000);
         setMaxIdle(32);
         setMaxTotal(64);
         setMinIdle(16);

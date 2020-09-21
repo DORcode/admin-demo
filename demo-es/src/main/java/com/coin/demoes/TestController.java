@@ -45,6 +45,11 @@ public class TestController {
                 "    }";
         long start = System.currentTimeMillis();
         for(int i = 0; i< 10000; i++) {
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             new Thread(new Runnable() {
                 @Override
                 public void run() {

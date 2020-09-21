@@ -1,17 +1,20 @@
 package com.coin.demoes.es.config;
 
 import com.coin.demoes.es.config.RestClientConfiguration;
-import com.frameworkset.commons.pool2.PooledObject;
-import com.frameworkset.commons.pool2.PooledObjectFactory;
-import com.frameworkset.commons.pool2.impl.DefaultPooledObject;
+import com.fasterxml.jackson.core.JsonFactory;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.commons.pool2.PooledObject;
+import org.apache.commons.pool2.PooledObjectFactory;
+import org.apache.commons.pool2.impl.DefaultPooledObject;
 import org.apache.http.Header;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.message.BasicHeader;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestClient;
-import org.elasticsearch.client.RestClientBuilder;
-import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.client.*;
+import org.elasticsearch.client.sniff.ElasticsearchNodesSniffer;
+import org.elasticsearch.client.sniff.SniffOnFailureListener;
+import org.elasticsearch.client.sniff.Sniffer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,6 +29,8 @@ import java.util.Map;
  * @Version V1.0
  **/
 public class RestHighLevelClientFactory implements PooledObjectFactory<RestHighLevelClient> {
+
+    private static final Log logger = LogFactory.getLog(RestHighLevelClientFactory.class);
 
     private RestClientBuilder builder;
 
@@ -66,7 +71,16 @@ public class RestHighLevelClientFactory implements PooledObjectFactory<RestHighL
     @Override
     public boolean validateObject(PooledObject<RestHighLevelClient> pooledObject) {
         try {
-            return pooledObject.getObject().ping(RequestOptions.DEFAULT);
+            boolean ping = pooledObject.getObject().ping(RequestOptions.DEFAULT);
+            List<Node> nodes = pooledObject.getObject().getLowLevelClient().getNodes();
+            logger.info(nodes.toString());
+            ElasticsearchNodesSniffer elasticsearchNodesSniffer = new ElasticsearchNodesSniffer(pooledObject.getObject().getLowLevelClient());
+            List<Node> sniff = elasticsearchNodesSniffer.sniff();
+            if(sniff.size() > nodes.size()) {
+                pooledObject.getObject().getLowLevelClient().setNodes(sniff);
+            }
+            logger.info(sniff.toString());
+            return ping;
         } catch (IOException e) {
             return false;
         }
