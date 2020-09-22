@@ -1,6 +1,10 @@
 package com.coin.demoes;
 
 import com.coin.base.config.JacksonUtil;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.apache.pdfbox.text.PDFTextStripperByArea;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,13 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import sun.misc.BASE64Encoder;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -108,7 +107,7 @@ class EsServiceTest {
         Map<String, Object> map = new HashMap<>();
         map.put("title", "台湾海峡");
         map.put("author", "张江江");
-        map.put("content", "中地一二三四五六七八九十中秋节要到了，国庆也要到了，中秋和国庆节在一天，一个世纪只有四次");
+        // map.put("content", "中地一二三四五六七八九十中秋节要到了，国庆也要到了，中秋和国庆节在一天，一个世纪只有四次");
         List<Map<String, Object>> attachs = new ArrayList<Map<String, Object>>();
         String file1 = "C:\\Users\\shenzhanwang\\Documents\\gitignore_global.txt";
         Map<String, Object> attach1 = new HashMap<>();
@@ -123,18 +122,34 @@ class EsServiceTest {
         attach3.put("filename", "建立三维数字长江模型的关键技术探讨_牛瑞卿.pdf");
         attach3.put("data", getFileStr(file3));
         Map<String, Object> attach4 = new HashMap<>();
-        String file4 = "C:\\Users\\shenzhanwang\\Downloads\\340-2017-G4A1-永久-0067.pdf";
-        attach4.put("filename", "340-2017-G4A1-永久-0067.pdf");
+        String file4 = "F:\\阿里巴巴Java开发手册（华山版）.pdf";
+        attach4.put("filename", "阿里巴巴Java开发手册（华山版）.pdf");
         attach4.put("data", getFileStr(file4));
 
-        attachs.add(attach1);
-        attachs.add(attach2);
-        attachs.add(attach3);
-        attachs.add(attach4);
+        Map<String, Object> attach5 = new HashMap<>();
+        String file5 = "F:\\企业级大数据构建方案：背景、实施、技术与应用.pptx";
+        attach5.put("filename", "企业级大数据构建方案：背景、实施、技术与应用.pptx");
+        attach5.put("data", getFileStr(file5));
+
+        Map<String, Object> attach6 = new HashMap<>();
+        String file6 = "C:\\Users\\shenzhanwang\\Downloads\\一种基于ELK框架的地理信息动态时空数据获取与挖掘方法_吴嘉琪.pdf";
+        attach6.put("filename", "一种基于ELK框架的地理信息动态时空数据获取与挖掘方法_吴嘉琪.pdf");
+        attach6.put("data", getFileStr(file6));
+
+
+
+//        attachs.add(attach1);
+//        attachs.add(attach2);
+//        attachs.add(attach3);
+//        attachs.add(attach4);
+//        attachs.add(attach5);
+        attachs.add(attach6);
+
 
         map.put("attachments", attachs);
         System.out.println("JacksonUtil.toJSONString(map) = " + JacksonUtil.toJSONString(map));
-        esService.insertAttachments("my-index-00001", map);
+
+        esService.insertDoc("my-index-00002", "attachment", map);
 
     }
 
@@ -150,30 +165,49 @@ class EsServiceTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //对字节数组Base64编码
-        BASE64Encoder encoder = new BASE64Encoder();
-        System.out.println("encoder = " + encoder.encode(data));
-        return encoder.encode(data);//返回Base64编码过的字节数组字符串
+
+        // System.out.println("encoder = " + encoder.encode(data));
+        try {
+            System.out.println("new String(Base64.getMimeDecoder().decode(data)) = " + new String(Base64.getDecoder().decode(Base64.getEncoder().encodeToString(data)), "utf-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return Base64.getEncoder().encodeToString(data);//返回Base64编码过的字节数组字符串
     }
 
+    @Test
+    void search() {
+        esService.search("my-index-00002", 0, 1, "信息", "attachments.attachment.content", "<span class=\"aa\">", "</span>", "attachments.attachment.content");
+    }
 
-//    Map<String,Object> properties = Maps.newHashMap();
-//    Map<String,Object> propertie = Maps.newHashMap();
-//            propertie.put("type","text");
-//            propertie.put("index",true);
-//            propertie.put("analyzer","ik_max_word");
-//            properties.put("field_name",propertie);
-//
-//    XContentBuilder builder = JsonXContent.contentBuilder();
-//            builder.startObject()
-//                    .startObject("mappings")
-//                            .startObject("index_name")
-//                                .field("properties",properties)
-//                            .endObject()
-//                        .endObject()
-//                        .startObject("settings")
-//                            .field("number_of_shards",3)
-//                            .field("number_of_replicas",1)
-//                        .endObject()
-//                    .endObject();
+    @Test
+    void pdf() {
+        String path = "C:\\Users\\shenzhanwang\\Downloads\\340-2017-G4A1-永久-0067.pdf";
+
+        try (PDDocument document = PDDocument.load(new File(path))) {
+
+            document.getClass();
+            System.out.println("\"获取pdf内容\" = " + "获取pdf内容");
+            if(!document.isEncrypted()) {
+                PDFTextStripperByArea stripper = new PDFTextStripperByArea();
+                stripper.setSortByPosition(true);
+                PDFTextStripper tStripper = new PDFTextStripper();
+
+                String pdfFileInText = tStripper.getText(document);
+
+                String[] lines = pdfFileInText.split("\\r?\\n");
+                for(String line : lines) {
+                    System.out.println(line);
+                }
+
+            }
+
+        } catch (InvalidPasswordException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+    }
 }

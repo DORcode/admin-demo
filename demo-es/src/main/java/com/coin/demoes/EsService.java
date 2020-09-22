@@ -8,6 +8,8 @@ import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.support.master.AcknowledgedResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
@@ -15,7 +17,17 @@ import org.elasticsearch.client.indices.CreateIndexRequest;
 import org.elasticsearch.client.indices.CreateIndexResponse;
 import org.elasticsearch.client.indices.GetIndexRequest;
 import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.text.Text;
 import org.elasticsearch.common.xcontent.XContentType;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.script.ScriptType;
+import org.elasticsearch.script.mustache.SearchTemplateRequest;
+import org.elasticsearch.script.mustache.SearchTemplateResponse;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.SearchHits;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -100,10 +112,6 @@ public class EsService {
         return true;
     }
 
-    public void insert() {
-
-    }
-
     public void update() {
 
     }
@@ -112,24 +120,94 @@ public class EsService {
 
     }
 
-    public void bulk() {
+    public SearchResponse search(String index, int from, int size, String keyWord, String highlightName, String preTags, String postTags, String... fieldNames) {
+        SearchRequest searchRequest = new SearchRequest(index);
+        SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+        sourceBuilder.query(QueryBuilders.multiMatchQuery(keyWord, fieldNames));
+        sourceBuilder.from(from);
+        sourceBuilder.size(size);
+        sourceBuilder.fetchSource(false);
+//        String[] includeFields = new String[] {"title", "innerObject.*"};
+//        String[] excludeFields = new String[] {"user"};
+//        sourceBuilder.fetchSource(includeFields, excludeFields);
+        searchRequest.source(sourceBuilder);
+        HighlightBuilder highlightBuilder = new HighlightBuilder();
+        HighlightBuilder.Field highlightField = new HighlightBuilder.Field(highlightName);
+        // highlightField.highlighterType("");
+        highlightField.preTags(preTags);
+        highlightField.postTags(postTags);
+        highlightBuilder.field(highlightField);
+        sourceBuilder.highlighter(highlightBuilder);
+        SearchResponse searchResponse = restClientTemplate.execute(client -> {
+            return client.search(searchRequest, RequestOptions.DEFAULT);
+        });
 
+        return searchResponse;
+//        SearchHits hits = searchResponse.getHits();
+//        for(SearchHit hit : hits.getHits()) {
+//            Map<String, HighlightField> highlightFields = hit.getHighlightFields();
+//            HighlightField highlight = highlightFields.get(highlightName);
+//            Text[] fragments = highlight.getFragments();
+//            System.out.println(fragments[0].toString());
+//
+//        }
     }
 
-    public void search() {
-
+    public SearchTemplateResponse search(String index, String script,  Map<String, Object> param) {
+        SearchTemplateRequest request = new SearchTemplateRequest();
+        request.setRequest(new SearchRequest(index));
+        request.setScriptType(ScriptType.INLINE);
+        request.setScript(script);
+        request.setScriptParams(param);
+        SearchTemplateResponse templateResponse = restClientTemplate.execute(client -> {
+            return client.searchTemplate(request, RequestOptions.DEFAULT);
+        });
+//        "{" +
+//                "  \"query\": { \"match\" : { \"{{field}}\" : \"{{value}}\" } }," +
+//                "  \"size\" : \"{{size}}\"" +
+//                "}");
+        return templateResponse;
     }
 
-    public void insertAttachments(String index, Map<String, ?> source) {
+    /**
+     * @MethodName insertDoc
+     * @Description 插入文档
+     * @param index
+     * @param source
+     * @return void
+     * @throws
+     * @author kh
+     * @date 2020-09-22 14:17
+     */
+    public void insertDoc(String index, Map<String, ?> source) {
         IndexRequest indexRequest = new IndexRequest(index);
         indexRequest.source(source);
-        IndexResponse execute = restClientTemplate.execute(restHighLevelClient -> {
+        IndexResponse indexResponse = restClientTemplate.execute(restHighLevelClient -> {
             return restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
         });
-        System.out.println("execute = " + execute);
     }
 
-    public void a() {
+    /**
+     * @MethodName insertDoc
+     * @Description 插入文档
+     * @param index 索引名称
+     * @param pipeline 管理，可以做一些处理，如果附件base64处理为文字
+     * @param source 文档数据
+     * @return void
+     * @throws
+     * @author kh
+     * @date 2020-09-22 14:18
+     */
+    public void insertDoc(String index, String pipeline, Map<String, ?> source) {
+        IndexRequest indexRequest = new IndexRequest(index);
+        indexRequest.setPipeline(pipeline);
+        indexRequest.source(source);
+        IndexResponse indexResponse = restClientTemplate.execute(restHighLevelClient -> {
+            return restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
+        });
+    }
+
+    public void bulk() {
         BulkRequest bulkRequest = new BulkRequest();
         List<IndexRequest> requests = new ArrayList<>();
         for (IndexRequest ir : requests) {
