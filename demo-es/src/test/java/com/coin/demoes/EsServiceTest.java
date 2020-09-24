@@ -3,8 +3,11 @@ package com.coin.demoes;
 import com.coin.base.config.JacksonUtil;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.apache.pdfbox.rendering.PDFRenderer;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.PDFTextStripperByArea;
+import org.apache.tika.Tika;
+import org.apache.tika.exception.TikaException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -200,6 +203,8 @@ class EsServiceTest {
                     System.out.println(line);
                 }
 
+            } else {
+                System.out.println("\"加密了\" = " + "加密了");
             }
 
         } catch (InvalidPasswordException e) {
@@ -209,5 +214,16 @@ class EsServiceTest {
 
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void pdf2() throws IOException, TikaException {
+        //选择要提取的文件
+        File file = new File("C:\\Users\\shenzhanwang\\Downloads\\340-2017-G4A1-永久-0067.pdf");
+
+        //获取并打印文件内容
+        Tika tika = new Tika();
+        String filecontent = tika.parseToString(file);
+        System.out.println("Extracted Content: " + filecontent);
     }
 }
