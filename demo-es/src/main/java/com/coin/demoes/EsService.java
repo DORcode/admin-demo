@@ -126,16 +126,14 @@ public class EsService {
         sourceBuilder.query(QueryBuilders.multiMatchQuery(keyWord, fieldNames));
         sourceBuilder.from(from);
         sourceBuilder.size(size);
-        sourceBuilder.fetchSource(false);
-//        String[] includeFields = new String[] {"title", "innerObject.*"};
-//        String[] excludeFields = new String[] {"user"};
-//        sourceBuilder.fetchSource(includeFields, excludeFields);
         searchRequest.source(sourceBuilder);
         HighlightBuilder highlightBuilder = new HighlightBuilder();
         HighlightBuilder.Field highlightField = new HighlightBuilder.Field(highlightName);
         // highlightField.highlighterType("");
         highlightField.preTags(preTags);
         highlightField.postTags(postTags);
+        highlightBuilder.fragmentSize(100000);
+        highlightBuilder.numOfFragments(1);
         highlightBuilder.field(highlightField);
         sourceBuilder.highlighter(highlightBuilder);
         SearchResponse searchResponse = restClientTemplate.execute(client -> {
@@ -143,14 +141,34 @@ public class EsService {
         });
 
         return searchResponse;
-//        SearchHits hits = searchResponse.getHits();
-//        for(SearchHit hit : hits.getHits()) {
-//            Map<String, HighlightField> highlightFields = hit.getHighlightFields();
-//            HighlightField highlight = highlightFields.get(highlightName);
-//            Text[] fragments = highlight.getFragments();
-//            System.out.println(fragments[0].toString());
 //
-//        }
+    }
+
+    public SearchResponse search(String index, int from, int size, String keyWord, List<String> highlightNames, String preTags, String postTags, String... fieldNames) {
+        SearchRequest searchRequest = new SearchRequest(index);
+        SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+        sourceBuilder.query(QueryBuilders.multiMatchQuery(keyWord, fieldNames));
+        sourceBuilder.from(from);
+        sourceBuilder.size(size);
+        searchRequest.source(sourceBuilder);
+        HighlightBuilder highlightBuilder = new HighlightBuilder();
+        for(String hln : highlightNames) {
+            HighlightBuilder.Field highlightField = new HighlightBuilder.Field(hln);
+            // highlightField.highlighterType("");
+            highlightField.preTags(preTags);
+            highlightField.postTags(postTags);
+            highlightBuilder.fragmentSize(100000);
+            highlightBuilder.numOfFragments(1);
+            highlightBuilder.field(highlightField);
+        }
+
+        sourceBuilder.highlighter(highlightBuilder);
+        SearchResponse searchResponse = restClientTemplate.execute(client -> {
+            return client.search(searchRequest, RequestOptions.DEFAULT);
+        });
+
+        return searchResponse;
+//
     }
 
     public SearchTemplateResponse search(String index, String script,  Map<String, Object> param) {
