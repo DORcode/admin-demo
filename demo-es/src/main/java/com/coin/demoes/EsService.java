@@ -47,9 +47,6 @@ import java.util.Map;
 public class EsService {
 
     @Autowired
-    RestHighLevelClient restHighLevelClient;
-
-    @Autowired
     RestClientTemplate restClientTemplate;
 
     /**
@@ -107,8 +104,9 @@ public class EsService {
             throw new Exception("索引不存在");
         }
         DeleteIndexRequest request = new DeleteIndexRequest(index);
-        AcknowledgedResponse delete = restHighLevelClient.indices().delete(request, RequestOptions.DEFAULT);
-        System.out.println("JacksonUtil.toJSONString(delete) = " + JacksonUtil.toJSONString(delete));
+        AcknowledgedResponse execute = restClientTemplate.execute(client -> {
+            return client.indices().delete(request, RequestOptions.DEFAULT);
+        });
         return true;
     }
 

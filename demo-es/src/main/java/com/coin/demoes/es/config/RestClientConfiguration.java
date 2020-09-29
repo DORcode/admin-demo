@@ -9,6 +9,8 @@ package com.coin.demoes.es.config;
  **/
 public class RestClientConfiguration {
 
+    private String esHost;
+
     /**
      * 连接超时时间
      */
@@ -33,6 +35,14 @@ public class RestClientConfiguration {
      * 最大路由连接数
      */
     private int maxConnectPerRoute = 100;
+
+    public String getEsHost() {
+        return esHost;
+    }
+
+    public void setEsHost(String esHost) {
+        this.esHost = esHost;
+    }
 
     public int getConnectTimeout() {
         return connectTimeout;

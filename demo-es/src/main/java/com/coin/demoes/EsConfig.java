@@ -14,6 +14,7 @@ import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -31,48 +32,18 @@ import java.util.Map;
 @Configuration
 public class EsConfig {
 
-    private static int connectTimeout = 1000; // 连接超时时间
-    private static int socketTimeout = 30000; // 连接超时时间
-    private static int connectionRequestTimeout = 500; // 获取连接的超时时间
-
-    private static int maxConnectNum = 100; // 最大连接数
-    private static int maxConnectPerRoute = 100; // 最大路由连接数
-
-    private RestHighLevelClient restHighLevelClient;
-
-    @Bean
-    public RestHighLevelClient restHighLevelClient() {
-
-        RestClientBuilder builder = RestClient.builder(
-                new HttpHost("localhost", 9200, "http"));
-
-        builder.setHttpClientConfigCallback(httpAsyncClientBuilder -> {
-                    httpAsyncClientBuilder.setMaxConnTotal(maxConnectNum);
-                    httpAsyncClientBuilder.setMaxConnPerRoute(maxConnectPerRoute);
-                    return httpAsyncClientBuilder;
-                });
-
-        builder.setRequestConfigCallback(new RestClientBuilder.RequestConfigCallback() {
-            @Override
-            public Builder customizeRequestConfig(Builder requestConfigBuilder) {
-                requestConfigBuilder.setConnectTimeout(connectTimeout);
-                requestConfigBuilder.setSocketTimeout(socketTimeout);
-                requestConfigBuilder.setConnectionRequestTimeout(connectionRequestTimeout);
-                return requestConfigBuilder;
-            }
-        });
-        restHighLevelClient = new RestHighLevelClient(builder);
-        return restHighLevelClient;
-    }
+    @Value("${es.host}")
+    private String esHost;
 
     @Bean
     public ElasticsearchClientFactory elasticsearchClientFactory() {
         RestClientPoolConfig restClientPoolConfig = new RestClientPoolConfig();
         restClientPoolConfig.setMinIdle(16);
-        restClientPoolConfig.setMaxTotal(64);
+        restClientPoolConfig.setMaxTotal(32);
         restClientPoolConfig.setMaxIdle(32);
         restClientPoolConfig.setMaxWaitMillis(8000);
         RestClientConfiguration restClientConfiguration = new RestClientConfiguration();
+        restClientConfiguration.setEsHost(esHost);
         restClientConfiguration.setConnectTimeout(1000);
         restClientConfiguration.setConnectionRequestTimeout(500);
         restClientConfiguration.setSocketTimeout(20000);

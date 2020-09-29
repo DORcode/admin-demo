@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * @ClassName Controller
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @Date 2020-09-18 14:13
  * @Version V1.0
  **/
+@ApiIgnore
 @Controller
 public class TestController {
     @Autowired

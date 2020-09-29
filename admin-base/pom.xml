@@ -8,9 +8,10 @@
         <version>0.0.1-SNAPSHOT</version>
         <!--<relativePath/>--> <!-- lookup parent from repository -->
     </parent>
+    <groupId>com.coin</groupId>
     <artifactId>admin-base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-<!--    <packaging>jar</packaging>-->
+    <packaging>jar</packaging>
     <name>admin-base</name>
     <description>Demo project for Spring Boot</description>
 

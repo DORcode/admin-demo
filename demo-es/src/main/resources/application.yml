@@ -3,6 +3,12 @@ server:
 
 
 es:
-  host: localhost
+  host: 10.6.172.179
   port: 9200
   scheme: http
+
+
+swagger:
+  enable: true
+  title: 全文检索
+  pkg: com.coin.demoes
