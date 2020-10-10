@@ -35,8 +35,15 @@ public class RestHighLevelClientFactory implements PooledObjectFactory<RestHighL
     private RestClientBuilder builder;
 
     public RestHighLevelClientFactory(RestClientConfiguration configuration, Map<String, String> defaultHeaders) {
-        builder = RestClient.builder(
-                new HttpHost(configuration.getEsHost(), 9200, "http"));
+
+        String[] split = configuration.getEsHost().split(",");
+        HttpHost[] httpHosts = new HttpHost[split.length];
+        for(int i = 0; i < split.length; i++) {
+            String[] strs = split[i].split(":");
+            HttpHost httpHost = new HttpHost(strs[0], Integer.parseInt(strs[1]), configuration.getScheme());
+            httpHosts[i] = httpHost;
+        }
+        builder = RestClient.builder(httpHosts);
 
         builder.setHttpClientConfigCallback(httpAsyncClientBuilder -> {
             httpAsyncClientBuilder.setMaxConnTotal(configuration.getMaxConnectTotal());

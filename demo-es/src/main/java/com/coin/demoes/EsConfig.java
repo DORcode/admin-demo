@@ -35,6 +35,9 @@ public class EsConfig {
     @Value("${es.host}")
     private String esHost;
 
+    @Value("${es.scheme}")
+    private String scheme;
+
     @Bean
     public ElasticsearchClientFactory elasticsearchClientFactory() {
         RestClientPoolConfig restClientPoolConfig = new RestClientPoolConfig();
@@ -44,13 +47,15 @@ public class EsConfig {
         restClientPoolConfig.setMaxWaitMillis(8000);
         RestClientConfiguration restClientConfiguration = new RestClientConfiguration();
         restClientConfiguration.setEsHost(esHost);
+        restClientConfiguration.setScheme(scheme);
         restClientConfiguration.setConnectTimeout(1000);
         restClientConfiguration.setConnectionRequestTimeout(500);
         restClientConfiguration.setSocketTimeout(20000);
         restClientConfiguration.setMaxConnectTotal(100);
         restClientConfiguration.setMaxConnectTotal(100);
         Map<String, String> defaultHeaders = new HashMap<>();
-        ElasticsearchClientFactory elasticsearchClientFactory = new ElasticsearchClientFactory(restClientConfiguration, restClientPoolConfig);
+        ElasticsearchClientFactory elasticsearchClientFactory = new ElasticsearchClientFactory(restClientConfiguration,
+                restClientPoolConfig);
         elasticsearchClientFactory.setDefaultHeaders(defaultHeaders);
         return elasticsearchClientFactory;
     }

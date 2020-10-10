@@ -3,8 +3,7 @@ server:
 
 
 es:
-  host: 10.6.172.179
-  port: 9200
+  host: 10.6.172.179:9200
   scheme: http
 
 

@@ -9,6 +9,8 @@ package com.coin.demoes.es.config;
  **/
 public class RestClientConfiguration {
 
+    private String scheme;
+
     private String esHost;
 
     /**
@@ -35,6 +37,14 @@ public class RestClientConfiguration {
      * 最大路由连接数
      */
     private int maxConnectPerRoute = 100;
+
+    public String getScheme() {
+        return scheme;
+    }
+
+    public void setScheme(String scheme) {
+        this.scheme= scheme;
+    }
 
     public String getEsHost() {
         return esHost;

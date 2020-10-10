@@ -139,7 +139,6 @@ public class EsService {
         });
 
         return searchResponse;
-//
     }
 
     public SearchResponse search(String index, int from, int size, String keyWord, List<String> highlightNames, String preTags, String postTags, String... fieldNames) {
@@ -166,7 +165,6 @@ public class EsService {
         });
 
         return searchResponse;
-//
     }
 
     public SearchTemplateResponse search(String index, String script,  Map<String, Object> param) {
