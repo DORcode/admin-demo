@@ -204,11 +204,6 @@ next
 
 sheet.Range(sheet.cells(rowsNum-colsNum+1,1),sheet.cells(rowsNum,8)).Borders.LineStyle = "1"
 
-With sheet.Range(sheet.cells(rowsNum-1, 1),sheet.cells(rowsNum, 8))
-	.HorizontalAlignment = xlCenter ''左右居中
-	.VerticalAlignment = xlCenter ''上下居中
-End With
-
 rowsNum = rowsNum + 1
 
 Output "FullDescription: " + tab.Name
