@@ -1,11 +1,11 @@
 package com.coin.minio;
 
 import com.coin.minio.config.MinioConfig;
-import io.minio.GetPresignedObjectUrlArgs;
-import io.minio.PutObjectArgs;
-import io.minio.UploadObjectArgs;
+import io.minio.*;
 import io.minio.errors.*;
 import io.minio.http.Method;
+import io.minio.messages.Bucket;
+import io.minio.messages.Item;
 import org.junit.jupiter.api.Test;
 import org.simpleframework.xml.Text;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.UUID;
 
 @SpringBootTest
@@ -52,6 +53,25 @@ class DemoMinioApplicationTests {
                 .build();
         String presignedObjectUrl = minioConfig.minioClient().getPresignedObjectUrl(presigned);
         System.out.println("presignedObjectUrl = " + presignedObjectUrl);
+    }
+
+    @Test
+    void buckets() throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException, NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, InvalidBucketNameException, ErrorResponseException {
+        List<Bucket> buckets = minioConfig.minioClient().listBuckets();
+        for (Bucket bk : buckets) {
+            System.out.println("bk = " + bk.name());
+            ListObjectsArgs build = ListObjectsArgs.builder().bucket(bk.name()).build();
+            Iterable<Result<Item>> results = minioConfig.minioClient().listObjects(build);
+            for(Result<Item> item : results) {
+                System.out.println("item.get().objectName() = " + item.get().objectName());
+            }
+        }
+        System.out.println("buckets = " + buckets.toString());
+    }
+
+    @Test
+    void listObjects() {
+
     }
 
 }
