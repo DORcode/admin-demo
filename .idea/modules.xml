@@ -11,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/admin-shiro/admin-shiro.iml" filepath="$PROJECT_DIR$/admin-shiro/admin-shiro.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-test/admin-test.iml" filepath="$PROJECT_DIR$/admin-test/admin-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-es/demo-es.iml" filepath="$PROJECT_DIR$/demo-es/demo-es.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-minio/demo-minio.iml" filepath="$PROJECT_DIR$/demo-minio/demo-minio.iml" />
     </modules>
   </component>
 </project>

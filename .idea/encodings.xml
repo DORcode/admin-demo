@@ -16,5 +16,6 @@
     <file url="file://$PROJECT_DIR$/admin-test" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-test/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-es" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-minio" charset="UTF-8" />
   </component>
 </project>

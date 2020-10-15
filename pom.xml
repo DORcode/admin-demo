@@ -41,6 +41,7 @@
         <module>admin-cas</module>
         <module>admin-test</module>
         <module>demo-es</module>
+        <module>demo-minio</module>
     </modules>
 
     <dependencies>
@@ -126,6 +127,11 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>7.1.4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
