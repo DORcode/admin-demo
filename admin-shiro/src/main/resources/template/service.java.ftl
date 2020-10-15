@@ -43,7 +43,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    ${entity}Vo select${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException;
+    ${entity}Dto select${entity}(${entity}Dto ${entity?uncap_first}) throws BaseException;
 
    /**
     * @MethodName select${entity}sPage
@@ -54,7 +54,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    IPage<${entity}Vo> select${entity}sPage(${entity}Po ${entity?uncap_first}) throws BaseException;
+    IPage<${entity}Dto> select${entity}sPage(${entity}Po ${entity?uncap_first}) throws BaseException;
 
    /**
    * @MethodName delete${entity}
@@ -76,7 +76,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-   int delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException;
+   int delete${entity}s(List<${entity}Dto> ${entity?uncap_first}List) throws BaseException;
 
    /**
     * @MethodName update${entity}
@@ -87,7 +87,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-   int update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException;
+   int update${entity}(${entity}Dto ${entity?uncap_first}) throws BaseException;
 
    /**
     * @MethodName update${entity}s
@@ -98,7 +98,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-   int update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException;
+   int update${entity}s(List<${entity}Dto> ${entity?uncap_first}List) throws BaseException;
 
    /**
     * @MethodName insert${entity}
@@ -109,7 +109,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-   int insert${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException;
+   int insert${entity}(${entity}Dto ${entity?uncap_first}) throws BaseException;
 
    /**
     * @MethodName insert${entity}s
@@ -120,7 +120,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-   int insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException;
+   int insert${entity}s(List<${entity}Dto> ${entity?uncap_first}List) throws BaseException;
 
  }
 </#if>

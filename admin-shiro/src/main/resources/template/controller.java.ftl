@@ -149,7 +149,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result delete${entity}s(@RequestBody List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public Result delete${entity}s(@RequestBody List<${entity}Dto> ${entity?uncap_first}List) throws BaseException {
         ${table.serviceName?uncap_first}.delete${entity}s(${entity?uncap_first}List);
         return Result.success(ResultCodeEnum.DELETE_SUCCESS);
     }
@@ -168,7 +168,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result update${entity}(@RequestBody ${entity}Vo ${entity?uncap_first}) throws BaseException {
+    public Result update${entity}(@RequestBody ${entity}Dto ${entity?uncap_first}) throws BaseException {
         ${table.serviceName?uncap_first}.update${entity}(${entity?uncap_first});
         return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
@@ -187,7 +187,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result update${entity}s(@RequestBody List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public Result update${entity}s(@RequestBody List<${entity}Dto> ${entity?uncap_first}List) throws BaseException {
         ${table.serviceName?uncap_first}.update${entity}s(${entity?uncap_first}List);
         return Result.success(ResultCodeEnum.UPDATE_SUCCESS);
     }
@@ -206,7 +206,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result insert${entity}(@RequestBody ${entity}Vo ${entity?uncap_first}) throws BaseException {
+    public Result insert${entity}(@RequestBody ${entity}Dto ${entity?uncap_first}) throws BaseException {
         ${table.serviceName?uncap_first}.insert${entity}(${entity?uncap_first});
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }
@@ -225,7 +225,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result insert${entity}s(@RequestBody List<${entity}Vo> ${entity?uncap_first}List) throws BaseException  {
+    public Result insert${entity}s(@RequestBody List<${entity}Dto> ${entity?uncap_first}List) throws BaseException  {
         ${table.serviceName?uncap_first}.insert${entity}s(${entity?uncap_first}List);
         return Result.success(ResultCodeEnum.SAVE_SUCCESS);
     }

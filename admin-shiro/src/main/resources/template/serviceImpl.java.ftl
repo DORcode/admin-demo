@@ -50,7 +50,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
     @Override
-    public ${entity}Vo select${entity}ById(Serializable id) throws BaseException {
+    public ${entity}Dto select${entity}ById(Serializable id) throws BaseException {
         QueryWrapper<${entity}> queryWrapper = new QueryWrapper<>();
         <#list table.fields as field>
         <#if field.keyFlag>
@@ -58,11 +58,11 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
         </#if>
         </#list>
         ${entity} ${entity?uncap_first} = ${table.mapperName?uncap_first}.selectOne(queryWrapper);
-        ${entity}Vo ${entity?uncap_first}Vo = new ${entity}Vo();
+        ${entity}Dto ${entity?uncap_first}Dto = new ${entity}Dto();
         if(null != ${entity?uncap_first}) {
-            BeanUtil.copyProperties(${entity?uncap_first}Vo, ${entity?uncap_first});
+            BeanUtil.copyProperties(${entity?uncap_first}Dto, ${entity?uncap_first});
         }
-        return ${entity?uncap_first}Vo;
+        return ${entity?uncap_first}Dto;
     }
 
     /**
@@ -75,7 +75,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public ${entity}Vo select${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+    public ${entity}Dto select${entity}(${entity}Dto ${entity?uncap_first}) throws BaseException {
         return null;
     }
 
@@ -89,9 +89,16 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public IPage<${entity}Vo> select${entity}sPage(${entity}Po ${entity?uncap_first}) throws BaseException {
+    public IPage<${entity}Dto> select${entity}sPage(${entity}Po ${entity?uncap_first}) throws BaseException {
         Page page = new Page(${entity?uncap_first}.getCurrent(), ${entity?uncap_first}.getSize());
-        return page.setRecords(${table.mapperName?uncap_first}.select${entity}sPage(page, ${entity?uncap_first}));
+        List<${entity}Vo> ${entity?uncap_first}Vos =  ${table.mapperName?uncap_first}.select${entity}sPage(page, ${entity?uncap_first});
+        List<${entity}Dto> ${entity?uncap_first}Dtos = new ArrayList<>();
+        for(${entity}Vo ${entity?uncap_first} : ${entity?uncap_first}Vos) {
+            ${entity}Dto ${entity?uncap_first}Dto = new ${entity}Dto();
+            BeanUtil.copyProperties(${entity?uncap_first}Dto, ${entity?uncap_first});
+            ${entity?uncap_first}Dtos.add(${entity?uncap_first}Dto);
+        }
+        return page.setRecords(${entity?uncap_first}Dtos);
     }
 
     /**
@@ -118,7 +125,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public int delete${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public int delete${entity}s(List<${entity}Dto> ${entity?uncap_first}List) throws BaseException {
         return 1;
     }
 
@@ -132,7 +139,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public int update${entity}(${entity}Vo ${entity?uncap_first}) throws BaseException {
+    public int update${entity}(${entity}Dto ${entity?uncap_first}) throws BaseException {
         ${table.mapperName?uncap_first}.updateByPrimaryKeySelective(${entity?uncap_first});
         return 1;
     }
@@ -147,23 +154,23 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public int update${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
+    public int update${entity}s(List<${entity}Dto> ${entity?uncap_first}List) throws BaseException {
         return 1;
     };
 
     /**
      * @MethodName insert${entity}
      * @Description TODO
-     * @param ${entity?uncap_first}Vo
+     * @param ${entity?uncap_first}Dto
      * @return
      * @throws BaseException
      * @author
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public int insert${entity}(${entity}Vo ${entity?uncap_first}Vo) throws BaseException {
+    public int insert${entity}(${entity}Dto ${entity?uncap_first}Dto) throws BaseException {
         ${entity} ${entity?uncap_first} = new ${entity}();
-        BeanUtil.copyProperties(${entity?uncap_first}, ${entity?uncap_first}Vo);
+        BeanUtil.copyProperties(${entity?uncap_first}, ${entity?uncap_first}Dto);
         ${table.mapperName?uncap_first}.insert(${entity?uncap_first});
         return 1;
     }
@@ -178,8 +185,8 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
      */
     @Override
-    public int insert${entity}s(List<${entity}Vo> ${entity?uncap_first}List) throws BaseException {
-        for(${entity}Vo ${entity?uncap_first} : ${entity?uncap_first}List) {
+    public int insert${entity}s(List<${entity}Dto> ${entity?uncap_first}List) throws BaseException {
+        for(${entity}Dto ${entity?uncap_first} : ${entity?uncap_first}List) {
             insert${entity}(${entity?uncap_first});
         }
         return ${entity?uncap_first}List.size();
