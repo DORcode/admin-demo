@@ -42,6 +42,7 @@
         <module>admin-test</module>
         <module>demo-es</module>
         <module>demo-minio</module>
+        <module>z-common</module>
     </modules>
 
     <dependencies>
