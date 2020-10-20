@@ -48,7 +48,7 @@ public class GeneratorUtil {
     public static void oracle(GlobalConfig gc) {
         DB_TYPE = DbType.ORACLE;
         DB_DRIVER = "oracle.jdbc.driver.OracleDriver";
-        DB_URL= "jdbc:oracle:thin:@10.6.172.161:1521:ORCL";
+        DB_URL= "jdbc:oracle:thin:@...:1521:ORCL";
         DB_UM = "GM_BEIJING";
         DB_PWD = "GM_BEIJING";
         TYPE_CONVERT = new OracleTypeConvert() {
@@ -66,7 +66,7 @@ public class GeneratorUtil {
     public static void mysql() {
         DB_TYPE = DbType.MYSQL;
         DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-        DB_URL= "jdbc:mysql://10.6.172.174:3306/info_publish?serverTimezone=UTC";
+        DB_URL= "jdbc:mysql://10..172.:3306/info_publish?serverTimezone=UTC";
         DB_UM = "root";
         DB_PWD = "123456";
         TYPE_CONVERT = new MySqlTypeConvert() {
