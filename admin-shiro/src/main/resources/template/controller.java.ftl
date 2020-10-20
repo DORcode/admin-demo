@@ -92,7 +92,7 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result select${entity}(@RequestBody ${entity}Vo ${entity?uncap_first}) throws BaseException {
+    public Result select${entity}(@RequestBody ${entity}Dto ${entity?uncap_first}) throws BaseException {
         ${table.serviceName?uncap_first}.select${entity}(${entity?uncap_first});
         return Result.success();
     }

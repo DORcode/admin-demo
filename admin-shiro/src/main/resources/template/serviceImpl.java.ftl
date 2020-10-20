@@ -19,6 +19,7 @@ import ${cfg.parentpackage}.dto.${entity}Dto;
 
 import lombok.extern.slf4j.Slf4j;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -93,9 +94,9 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
         Page page = new Page(${entity?uncap_first}.getCurrent(), ${entity?uncap_first}.getSize());
         List<${entity}Vo> ${entity?uncap_first}Vos =  ${table.mapperName?uncap_first}.select${entity}sPage(page, ${entity?uncap_first});
         List<${entity}Dto> ${entity?uncap_first}Dtos = new ArrayList<>();
-        for(${entity}Vo ${entity?uncap_first} : ${entity?uncap_first}Vos) {
+        for(${entity}Vo ${entity?uncap_first}Temp : ${entity?uncap_first}Vos) {
             ${entity}Dto ${entity?uncap_first}Dto = new ${entity}Dto();
-            BeanUtil.copyProperties(${entity?uncap_first}Dto, ${entity?uncap_first});
+            BeanUtil.copyProperties(${entity?uncap_first}Dto, ${entity?uncap_first}Temp);
             ${entity?uncap_first}Dtos.add(${entity?uncap_first}Dto);
         }
         return page.setRecords(${entity?uncap_first}Dtos);
@@ -140,7 +141,9 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
      */
     @Override
     public int update${entity}(${entity}Dto ${entity?uncap_first}) throws BaseException {
-        ${table.mapperName?uncap_first}.updateByPrimaryKeySelective(${entity?uncap_first});
+        ${entity}Vo ${entity?uncap_first}Vo = new ${entity}Vo();
+        BeanUtil.copyProperties(${entity?uncap_first}Vo, ${entity?uncap_first});
+        ${table.mapperName?uncap_first}.updateByPrimaryKeySelective(${entity?uncap_first}Vo);
         return 1;
     }
 

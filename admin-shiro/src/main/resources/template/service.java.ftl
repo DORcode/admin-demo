@@ -32,7 +32,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    ${entity}Vo select${entity}ById(Serializable id) throws BaseException;
+    ${entity}Dto select${entity}ById(Serializable id) throws BaseException;
 
    /**
     * @MethodName select${entity}
