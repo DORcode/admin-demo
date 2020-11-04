@@ -29,9 +29,9 @@ import java.util.Map;
 public class GeneratorUtil {
     private static String OUTPUT_JAVA = "f://generator/demo/src/main/java";
     private static String OUTPUT_RES = "f://generator/demo/src/main/resources";
-    private static String PARENTPACKAGE = "com.cjsjy.admin";
-    private static String PARENTPACKAGEPATH = "/com/cjsjy/admin/";
-    private static String UTILPACKAGE = "com.cjsjy" + ".util";
+    private static String PARENTPACKAGE = "temp";//"com.cjsjy.admin";
+    private static String PARENTPACKAGEPATH = "/temp/";//"/com/cjsjy/admin/";
+    private static String UTILPACKAGE = "temp";//"com.cjsjy" + ".util";
     private static DbType DB_TYPE = null;
     private static String DB_DRIVER = "";
     private static String DB_URL= "";
