@@ -29,9 +29,9 @@ import java.util.Map;
 public class GeneratorUtil {
     private static String OUTPUT_JAVA = "f://generator/demo/src/main/java";
     private static String OUTPUT_RES = "f://generator/demo/src/main/resources";
-    private static String PARENTPACKAGE = "com.cjsjy.info.web";
-    private static String PARENTPACKAGEPATH = "/com/cjsjy/info/web/";
-    private static String UTILPACKAGE = "com.cjsjy.info" + ".util";
+    private static String PARENTPACKAGE = "com.cjsjy.admin";
+    private static String PARENTPACKAGEPATH = "/com/cjsjy/admin/";
+    private static String UTILPACKAGE = "com.cjsjy" + ".util";
     private static DbType DB_TYPE = null;
     private static String DB_DRIVER = "";
     private static String DB_URL= "";
@@ -41,7 +41,7 @@ public class GeneratorUtil {
     private static GlobalConfig gc;
     public static void main(String[] args) {
         gc = new GlobalConfig();
-        mysql();
+        sqlserver();
 
     }
 
@@ -68,6 +68,24 @@ public class GeneratorUtil {
         DB_DRIVER = "com.mysql.cj.jdbc.Driver";
         DB_URL= "jdbc:mysql://10..172.:3306/info_publish?serverTimezone=UTC";
         DB_UM = "root";
+        DB_PWD = "123456";
+        TYPE_CONVERT = new MySqlTypeConvert() {
+            @Override
+            public IColumnType processTypeConvert(GlobalConfig gc, String fieldType) {
+                /*if(fieldType.contains("")) {
+                    return DbColumnType.BOOLEAN;
+                }*/
+                return super.processTypeConvert(gc, fieldType);
+            }
+        };
+        generate();
+    }
+
+    public static void sqlserver() {
+        DB_TYPE = DbType.SQL_SERVER;
+        DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        DB_URL= "jdbc:sqlserver://10.6.172.183:1433;DatabaseName=bot_site_db";
+        DB_UM = "sa";
         DB_PWD = "123456";
         TYPE_CONVERT = new MySqlTypeConvert() {
             @Override
