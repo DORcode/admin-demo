@@ -79,25 +79,6 @@ public class ${table.controllerName} {
     }
 
     /**
-     * @MethodName select${entity}
-     * @Description TODO
-     * @param ${entity?uncap_first}
-     * @return
-     * @throws BaseException
-     * @author
-     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
-     */
-    @PostMapping("select${entity}")
-    @ApiOperation(value="查询${table.comment!""}")
-    <#if restControllerStyle == false>
-        @ResponseBody
-    </#if>
-    public Result select${entity}(@RequestBody ${entity}Dto ${entity?uncap_first}) throws BaseException {
-        ${table.serviceName?uncap_first}.select${entity}(${entity?uncap_first});
-        return Result.success();
-    }
-
-    /**
      * @MethodName select${entity}s
      * @Description TODO
      * @param ${entity?uncap_first}
