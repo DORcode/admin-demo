@@ -69,15 +69,15 @@
         <where>
         <#list table.fields as field>
         <if test="${field.propertyName} != null">
-            <#if field.type?upper_case?split("(")[0] == "INT">
-               AND ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
-            <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
-                AND ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>
-            <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
-                AND  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>
-            <#else>
-                AND  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
-            </#if>
+        <#if field.type?upper_case?split("(")[0] == "INT">
+           AND ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
+        <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
+            AND ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>
+        <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
+            AND  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>
+        <#else>
+            AND  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
+        </#if>
         </if>
         </#list>
         </where>
@@ -89,13 +89,13 @@
         <#list table.fields as field>
         <if test="${entity?uncap_first}.${field.propertyName} != null">
             <#if field.type?upper_case?split("(")[0] == "INT">
-                AND ${field.name} = <#noparse>{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
+            AND ${field.name} = <#noparse>{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
-                AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>
+            AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>
             <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
-                AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>
+            AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>
             <#else>
-                AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
+            AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
             </#if>
         </if>
         </#list>
@@ -114,6 +114,31 @@
         <trim prefix="values (" suffix=")" suffixOverrides="," >
         <#list table.fields as field>
         <if test="${field.propertyName} != null">
+        <#if field.type?upper_case?split("(")[0] == "INT">
+            <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
+        <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
+            <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
+        <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
+            <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
+        <#else>
+            <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
+        </#if>
+        </if>
+        </#list>
+        </trim>
+    </insert>
+
+    <insert id="insert${entity}s" parameterType="${package.Entity}.${entity}">
+        insert into ${table.name}
+
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+        <#list table.fields as field>
+            ${field.name},
+        </#list>
+        </trim>
+        <foreach collection="list" item="item" separator=",">
+            <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <#list table.fields as field>
             <#if field.type?upper_case?split("(")[0] == "INT">
                 <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
@@ -123,10 +148,74 @@
             <#else>
                 <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
             </#if>
-        </if>
-        </#list>
-        </trim>
+            </#list>
+            </trim>
+        </foreach>
     </insert>
+
+    <update id="update${entity}s">
+        <foreach collection="list" item="item" separator=",">
+            update ${table.name}
+            <set>
+            <#list table.fields as field>
+            <if test="${field.propertyName} != null">
+            <#if field.type?upper_case?split("(")[0] == "INT">
+                ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
+            <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
+                ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
+            <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
+                ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
+            <#else>
+                ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
+            </#if>
+            </if>
+            </#list>
+            </set>
+            <#list table.fields as field>
+            <#if field.keyFlag>
+                <#if field.type?upper_case?split("(")[0] == "INT">
+                    where ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
+                <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
+                    where ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
+                <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
+                    where ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
+                <#else>
+                    where  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
+                </#if>
+            </#if>
+            </#list>
+        </foreach>
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="${cfg.parentpackage}.vo.${entity}Vo">
+        update ${table.name}
+        <set>
+            <#list table.fields as field>
+                <#if field.type?upper_case?split("(")[0] == "INT">
+                    ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
+                <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
+                    ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
+                <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
+                    ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
+                <#else>
+                    ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
+                </#if>
+            </#list>
+        </set>
+        <#list table.fields as field>
+            <#if field.keyFlag>
+                <#if field.type?upper_case?split("(")[0] == "INT">
+                    where ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
+                <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
+                    where ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
+                <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
+                    where ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
+                <#else>
+                    where  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
+                </#if>
+            </#if>
+        </#list>
+    </update>
 
     <update id="updateByPrimaryKeySelective" parameterType="${cfg.parentpackage}.vo.${entity}Vo">
         update ${table.name}
