@@ -33,7 +33,7 @@ public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
     * @author
     * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
     */
-    ${entity}Vo selectOneSelective(${entity}Vo ${entity?uncap_first});
+    ${entity}Vo selectSelective(${entity}Vo ${entity?uncap_first});
 
     /**
     * @MethodName select${entity}sPage

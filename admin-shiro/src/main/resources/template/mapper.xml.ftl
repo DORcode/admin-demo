@@ -64,7 +64,7 @@
 
 </#if>
 
-    <select id="selectOneSelective" parameterType="${cfg.parentpackage}.vo.${entity}Vo" resultType="${cfg.parentpackage}.vo.${entity}Vo">
+    <select id="selectSelective" parameterType="${cfg.parentpackage}.vo.${entity}Vo" resultType="${cfg.parentpackage}.vo.${entity}Vo">
         select * from ${table.name}
         <where>
         <#list table.fields as field>
