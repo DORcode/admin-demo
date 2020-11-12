@@ -20,6 +20,15 @@ import java.util.GregorianCalendar;
  **/
 public class DateUtil {
 
+    /**
+     * @MethodName getDayBegin
+     * @Description 获取天的开始
+     * @param
+     * @return java.util.Date
+     * @throws
+     * @author kh
+     * @date 2020-11-12 15:57
+     */
     public static Date getDayBegin() {
         Calendar cal = new GregorianCalendar();
         cal.set(Calendar.HOUR_OF_DAY, 0);
@@ -29,6 +38,15 @@ public class DateUtil {
         return cal.getTime();
     }
 
+    /**
+     * @MethodName getWeekBegin
+     * @Description 获取周的第一天
+     * @param
+     * @return java.util.Date
+     * @throws
+     * @author kh
+     * @date 2020-11-12 15:58
+     */
     public static Date getWeekBegin() {
         Date date = new Date();
         if (date == null) {
