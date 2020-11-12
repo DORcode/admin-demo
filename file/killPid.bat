@@ -1,6 +1,6 @@
 @echo off & setlocal EnableDelayedExpansion
 set pidNum=0
-set port=8087
+set port=8280
 for /f "tokens=5 delims= " %%i in ('netstat -aon ^| findstr !port! ^|findstr "LISTENING"') do (
 	echo %%i
 	set pidNum=%%i

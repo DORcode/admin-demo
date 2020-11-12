@@ -68,7 +68,11 @@
         select * from ${table.name}
         <where>
         <#list table.fields as field>
+        <#if field.propertyType?upper_case == "STRING">
+        <if test="${field.propertyName} != null and ${field.propertyName} != ''">
+        <#else>
         <if test="${field.propertyName} != null">
+        </#if>
         <#if field.type?upper_case?split("(")[0] == "INT">
            AND ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
         <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
@@ -87,7 +91,11 @@
         select * from ${table.name}
         <where>
         <#list table.fields as field>
-        <if test="${entity?uncap_first}.${field.propertyName} != null">
+            <#if field.propertyType?upper_case == "STRING">
+            <if test="${entity?uncap_first}.${field.propertyName} != null and ${entity?uncap_first}.${field.propertyName} != ''">
+            <#else>
+            <if test="${entity?uncap_first}.${field.propertyName} != null">
+            </#if>
             <#if field.type?upper_case?split("(")[0] == "INT">
             AND ${field.name} = <#noparse>{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
@@ -106,14 +114,22 @@
         insert into ${table.name}
         <trim prefix="(" suffix=")" suffixOverrides="," >
         <#list table.fields as field>
+        <#if field.propertyType?upper_case == "STRING">
+        <if test="${field.propertyName} != null and ${field.propertyName} != ''">
+        <#else>
         <if test="${field.propertyName} != null">
+        </#if>
             ${field.name},
         </if>
         </#list>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides="," >
         <#list table.fields as field>
+        <#if field.propertyType?upper_case == "STRING">
+        <if test="${field.propertyName} != null and ${field.propertyName} != ''">
+        <#else>
         <if test="${field.propertyName} != null">
+        </#if>
         <#if field.type?upper_case?split("(")[0] == "INT">
             <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
         <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
@@ -158,7 +174,11 @@
             update ${table.name}
             <set>
             <#list table.fields as field>
+            <#if field.propertyType?upper_case == "STRING">
+            <if test="${field.propertyName} != null and ${field.propertyName} != ''">
+            <#else>
             <if test="${field.propertyName} != null">
+            </#if>
             <#if field.type?upper_case?split("(")[0] == "INT">
                 ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
@@ -221,7 +241,11 @@
         update ${table.name}
         <set>
             <#list table.fields as field>
+            <#if field.propertyType?upper_case == "STRING">
+            <if test="${field.propertyName} != null and ${field.propertyName} != ''">
+            <#else>
             <if test="${field.propertyName} != null">
+            </#if>
             <#if field.type?upper_case?split("(")[0] == "INT">
                 ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
