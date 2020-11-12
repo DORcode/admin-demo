@@ -2,8 +2,6 @@ package com.coin.base.config;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -12,7 +10,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.TimeZone;
 
 /**
  * @ClassName DateUtil
@@ -149,7 +146,7 @@ public class DateUtil {
         return Date.from(localDateTime.toInstant(ZoneOffset.of(offsetId)));
     }
 
-    private static String getThisMonth() {
+    private static String getStartEndofCurrentMonth() {
         Calendar ca=Calendar.getInstance();
         SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
         int maximum = ca.getActualMaximum(Calendar.DAY_OF_MONTH);
@@ -168,7 +165,7 @@ public class DateUtil {
         return start + "," + end;
     }
 
-    private static String getThisWeek() {
+    private static String getStartEndOfCurrentWeek() {
         Calendar ca=Calendar.getInstance();
         SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
         int dayOfWeek = ca.get(Calendar.DAY_OF_WEEK);
@@ -189,7 +186,7 @@ public class DateUtil {
         return startDate + "," + endDate;
     }
 
-    public static String getQuarter(Integer year, int quarter) {
+    public static String getStartEndOfQuarter(Integer year, int quarter) {
         Calendar start = Calendar.getInstance();
         Calendar end = Calendar.getInstance();
         SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
@@ -226,49 +223,6 @@ public class DateUtil {
         return null;
     }
 
-    public static String getDateStringFromString(String str) {
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSSZ");
-        DateFormat df2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        df2.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-        Date date = null;
-        try {
-            date = df.parse(str);
-            String value = df2.format(date);
-            return value;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return "";
-    }
-
-    /**
-     * @MethodName getDateStringFromString
-     * @Description TODO
-     * @param sourcePattern
-     * @param destPattern
-     * @param str 
-     * @return java.lang.String
-     * @throws 
-     * @author kh
-     * @date 2020-11-11 17:11
-     */
-    public static String getDateStringFromString(String sourcePattern, String destPattern, String str) {
-        DateFormat df = new SimpleDateFormat(sourcePattern);
-        DateFormat df2 = new SimpleDateFormat(destPattern);
-        df2.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-        Date date = null;
-        try {
-            date = df.parse(str);
-            String value = df2.format(date);
-            return value;
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return "";
-    }
-
     public static void main(String[] args) {
         System.out.println("getBeginDayOfWeek() = " + getWeekBegin());
         System.out.println("getDayBegin() = " + getDayBegin());
@@ -278,8 +232,6 @@ public class DateUtil {
         BigDecimal divide = new BigDecimal(2).divide(new BigDecimal(15), 4, RoundingMode.HALF_UP);
         String format = String.format("%.2f", divide);
         System.out.println("format = " + format);
-
-        System.out.println(TimeZone.getDefault());
     }
 
 
