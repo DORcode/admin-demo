@@ -73,9 +73,9 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result select${entity}ById(@PathVariable("id") Serializable id) throws BaseException {
-        ${table.serviceName?uncap_first}.select${entity}ById(id);
-        return Result.success();
+    public Result<${entity}Dto> select${entity}ById(@PathVariable("id") Serializable id) throws BaseException {
+        ${entity}Dto ${entity?uncap_first}Dto = ${table.serviceName?uncap_first}.select${entity}ById(id);
+        return Result.success(${entity?uncap_first}Dto);
     }
 
     /**
@@ -92,9 +92,9 @@ public class ${table.controllerName} {
     <#if restControllerStyle == false>
         @ResponseBody
     </#if>
-    public Result select${entity}sPage(@RequestBody ${entity}Po ${entity?uncap_first}) throws BaseException {
-        ${table.serviceName?uncap_first}.select${entity}sPage(${entity?uncap_first});
-        return Result.success();
+    public Result<IPage<${entity}Dto>> select${entity}sPage(@RequestBody ${entity}Po ${entity?uncap_first}) throws BaseException {
+        IPage<${entity}Dto> pages = ${table.serviceName?uncap_first}.select${entity}sPage(${entity?uncap_first});
+        return Result.success(pages);
     }
 
     /**

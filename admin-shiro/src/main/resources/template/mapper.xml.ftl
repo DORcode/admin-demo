@@ -65,7 +65,7 @@
 </#if>
 
     <select id="selectSelective" parameterType="${cfg.parentpackage}.vo.${entity}Vo" resultType="${cfg.parentpackage}.vo.${entity}Vo">
-        select * from ${table.name}
+        select * from ${table.name} en
         <where>
         <#list table.fields as field>
         <#if field.propertyType?upper_case == "STRING">
@@ -74,13 +74,13 @@
         <if test="${field.propertyName} != null">
         </#if>
         <#if field.type?upper_case?split("(")[0] == "INT">
-           AND ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
+           AND en.${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
         <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
-            AND ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>
+            AND en.${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>
         <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
-            AND  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>
+            AND en.${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>
         <#else>
-            AND  ${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
+            AND en.${field.name} = <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
         </#if>
         </if>
         </#list>
@@ -88,7 +88,7 @@
     </select>
 
     <select id="select${entity}sPage" resultType="${cfg.parentpackage}.vo.${entity}Vo">
-        select * from ${table.name}
+        select * from ${table.name} en
         <where>
         <#list table.fields as field>
             <#if field.propertyType?upper_case == "STRING">
@@ -97,13 +97,13 @@
             <if test="${entity?uncap_first}.${field.propertyName} != null">
             </#if>
             <#if field.type?upper_case?split("(")[0] == "INT">
-            AND ${field.name} = <#noparse>{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
+            AND en.${field.name} = <#noparse>{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
-            AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>
+            AND en.${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>
             <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
-            AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>
+            AND en.${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>
             <#else>
-            AND ${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
+            AND en.${field.name} = <#noparse>#{</#noparse>${entity?uncap_first}.${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>
             </#if>
         </if>
         </#list>
