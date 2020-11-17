@@ -1,0 +1,83 @@
+body {
+    background-color: #eee;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+    background-color: #0072b0;
+    border-radius: 0.5em;
+    color: #fff;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    border-spacing: 1.5em 0;
+}
+
+.main {
+    width: 70%;
+    border-radius: 0.5em;
+    background-color: white;
+}
+
+.sidebar {
+    width: 30%;
+    margin-left: 1.2em;
+    /* width: cacl(30% - 3em); */
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: .5em;
+    margin-top: 0;
+    /*由于sidebar是兄弟元素，也加上了上外边距，将margin-top为0消除影响*/
+}
+
+.button-link {
+    padding: 0.5em;
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: #0090C9;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.sponsor-link {
+    display: block;
+    color: #0072b0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body *+* {
+    margin-top: 1.5em;
+}
+
+
+/*
+猫头鹰选择器（lobotomized owl selector）（以下简称猫头鹰选择器），因为它长这样：＊ + ＊。
+该选择器开头是一个通用选择器（＊），它可以选中所有元素，后面是一个相邻兄弟组合器（+），最后是另一个通用选择器。它因形似一只眼神空洞的猫头鹰而得名。猫头鹰选择器功能接近此前介绍的选择器：.social-button + .social-button，但是它不会选中直接跟在其他按钮后面的按钮，而是会选中直接跟在其他元素后面的任何元素。也就是说，它会选中页面上有着相同父级的非第一个子元素。
+*/
+
+
+/*除非别无选择，否则不要明确设置元素的高度。先寻找一个替代方案。设置高度一定会导致更复杂的情况。*/
+
+
+/*http://howtocenterincss.com/*/
+
+
+/*
+ ❑可以用一个自然高度的容器吗？给容器加上相等的上下内边距让内容居中。
+ ❑ 容器需要指定高度或者避免使用内边距吗？对容器使用display: table-cell和vertical-align: middle。
+ ❑ 可以用Flexbox吗？ 如果不需要支持IE9，可以用Flexbox居中内容。参见第5章。
+ ❑ 容器里面的内容只有一行文字吗？设置一个大的行高，让它等于理想的容器高度。这样会让容器高度扩展到能够容纳行高。如果内容不是行内元素，可以设置为inline-block。
+ ❑ 容器和内容的高度都知道吗？将内容绝对定位。参见第7章。（只有当前面提到的方法都无效时才推荐这种方式。）
+ ❑不知道内部元素的高度？用绝对定位结合变形（transform）。参见第15章的例子。（还是只有当前面提到的方法都无效时才推荐该方法。）
+*/
+
+
+/*
+当顶部和/或底部的外边距相邻时，就会重叠，产生单个外边距。这种现象被称作折叠
+*/

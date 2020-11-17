@@ -1,0 +1,79 @@
+:root {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #eee;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body *+* {
+    margin-top: 1.5em;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    /*左右外边距设置为0，让内层容器自动填充可用空间，实现水平居中*/
+}
+
+header {
+    background-color: #0072b0;
+    border-radius: 0.5em;
+    color: #fff;
+    padding: 4em 1em;
+}
+
+.main {
+    background-color: white;
+    padding: 0em 1em;
+    border-radius: 0.5em;
+    float: left;
+}
+
+.media {
+    width: calc(50% - 1.5em);
+    margin: 0 1.5em 1.5em 0;
+    float: left;
+    padding: 1.5em;
+    background-color: #eee;
+    border-radius: 0.5em;
+}
+
+.media:nth-child(odd) {
+    clear: left;
+}
+
+
+/* .clearfix::after {
+    display: block;
+    content: " ";
+    clear: both;
+} */
+
+.clearfix::before,
+.clearfix::after {
+    display: table;
+    content: " ";
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+
+/* 
+
+.media-img {
+    width: 20%;
+}
+
+.media-body {
+    padding: 0.5em;
+} */

@@ -1,0 +1,92 @@
+:root {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #eee;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+    background-color: #0072b0;
+    border-radius: 0.5em;
+    color: #fff;
+}
+
+.wrapper {
+    margin-left: -1em;
+    margin-right: -1em;
+}
+
+.container {
+    display: table;
+    width: 100%;
+    border-spacing: 1.5em 0;
+}
+
+.main {
+    display: block;
+}
+
+.main {
+    display: table-cell;
+    /* box-sizing: border-box; */
+    /* float: left; */
+    width: 70%;
+    border-radius: 0.5em;
+    background-color: white;
+}
+
+.sidebar {
+    width: cacl(30% - 4em);
+    display: table-cell;
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: .5em;
+}
+
+.button-link {
+    padding: 0.5em;
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: #0090C9;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.sponsor-link {
+    display: block;
+    color: #0072b0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body *+* {
+    margin-top: 1.5em;
+}
+
+
+/*两列并没有并排出现，而是折行显示。虽然将两列宽度设置为70%和30%，但它们总共占据的宽度超过了可用空间的100%，这是因为盒模型的默认行为（如图3-4所示）。当给一个元素设置宽或高的时候，指定的是内容的宽或高，所有内边距、边框、外边距都是追加到该宽度上的。*/
+
+
+/*让指定的宽度包含内边距和边框。在CSS中可以使用box-sizing属性调整盒模型的行为。box-sizing的默认值为content-box，这意味任何指定的宽或高都只会设置内容盒子的大小。将box-sizing设置为border-box后，height和width属性会设置内容、内边距以及边框的大小总和，这刚好符合示例的要求。*/
+
+
+/*
+.sidebar {
+    box-sizing: border-box;
+    float: left;
+    width: 29%;
+    margin-left: 1%;
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: .5em;
+}
+*/

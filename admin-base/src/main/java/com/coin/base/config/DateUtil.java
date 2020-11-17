@@ -167,19 +167,46 @@ public class DateUtil {
     private static String getStartEndofCurrentMonth() {
         Calendar ca=Calendar.getInstance();
         SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
-        int maximum = ca.getActualMaximum(Calendar.DAY_OF_MONTH);
+        SimpleDateFormat f2=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         int minmum=ca.getActualMinimum(Calendar.DAY_OF_MONTH);
         int day=ca.get(Calendar.DAY_OF_MONTH);
         Calendar cal=(Calendar)ca.clone();
-        cal.add(Calendar.DATE, maximum-day);
+        cal.add(Calendar.DATE, 1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
         Date endDate=cal.getTime();
-        String end=f.format(endDate);
+        String end=f2.format(endDate);
         cal=(Calendar)ca.clone();
         cal.add(Calendar.DATE, minmum-day);
+
         Date startDate=cal.getTime();
         String start=f.format(startDate);
+        return start + "," + end;
+    }
 
-        System.out.println("dateD="+start+" dateX="+end);
+    public static String getMonth(int year, int month) {
+        Calendar ca=Calendar.getInstance();
+        SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
+
+        SimpleDateFormat f2=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Calendar cal=(Calendar)ca.clone();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.DATE, 1);
+
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        Date endDate=cal.getTime();
+        String end=f2.format(endDate);
+        cal=(Calendar)ca.clone();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month - 1);
+        cal.set(Calendar.DATE, 1);
+        Date startDate=cal.getTime();
+        String start=f.format(startDate);
         return start + "," + end;
     }
 
