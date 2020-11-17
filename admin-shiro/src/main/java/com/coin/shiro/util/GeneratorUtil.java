@@ -84,9 +84,9 @@ public class GeneratorUtil {
     public static void sqlserver() {
         DB_TYPE = DbType.SQL_SERVER;
         DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        DB_URL= "jdbc:sqlserver://119.96.192.212:1433;DatabaseName=bot_site_db";
+        DB_URL= "jdbc:sqlserver://:1433;DatabaseName=bot_site_db";
         DB_UM = "sa";
-        DB_PWD = "cjwsjy@123";
+        DB_PWD = "";
         TYPE_CONVERT = new MySqlTypeConvert() {
             @Override
             public IColumnType processTypeConvert(GlobalConfig gc, String fieldType) {
