@@ -1,0 +1,164 @@
+:root {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+
+/*上方两个调整float left 被挤出*/
+
+body {
+    background-color: #eee;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body *+* {
+    /*用猫头鹰选择器设置全局外边距*/
+    margin-top: 1.5em;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #0072b0;
+    border-radius: 0.5em;
+    color: #fff;
+    padding: 4em 1em;
+}
+
+.main {
+    background-color: white;
+    padding: 0em 1.5em 1.5em;
+    border-radius: 0.5em;
+}
+
+.row {
+    margin-left: -0.75em;
+    margin-right: -0.75em;
+}
+
+[class*="column-"] {
+    /*属性选择器，根据元素的class属性匹配元素*/
+    float: left;
+    margin-top: 0;
+    padding: 0 0.75em;
+}
+
+.column-1 {
+    width: 8.333333%;
+}
+
+.column-2 {
+    width: 16.6666667%;
+}
+
+.column-3 {
+    width: 25%;
+}
+
+.column-4 {
+    width: 33.3333333%;
+}
+
+.column-5 {
+    width: 41.66666667%;
+}
+
+.column-6 {
+    width: 50%;
+}
+
+.column-7 {
+    width: 58.3333333%;
+}
+
+.column-8 {
+    width: 66.6666666667%;
+}
+
+.column-9 {
+    width: 75%;
+}
+
+.column-10 {
+    width: 83.3333333%;
+}
+
+.column-11 {
+    width: 91.666666667%;
+}
+
+.column-12 {
+    width: 100%;
+}
+
+.column-6 {
+    width: calc(50% - 1.5em);
+    margin: 0 1.5em 1.5em 0;
+    padding: 1.5em;
+    background-color: #eee;
+    border-radius: 0.5em;
+}
+
+.column-6:nth-child(odd) {
+    clear: left;
+}
+
+.row::after {
+    /*清除浮动规则，让行元素包含内部的浮云列*/
+    display: block;
+    content: " ";
+    clear: both;
+}
+
+.media-img {
+    float: left;
+    border-radius: 0.3em;
+    width: 7em;
+    height: 7em;
+}
+
+.media-body {
+    padding: 0.5em;
+    margin-top: 0;
+    overflow: auto;
+    /*块级格式化上下文（blockformatting context, BFC）*/
+}
+
+.media-body h4 {
+    margin-top: 0;
+}
+
+
+/*
+通过将内容放置到两个嵌套的容器中，然后给内层的容器设置外边距，让它在外层容器中居中。
+Web开发人员Brad Westfall把这种布局方式叫作双容器模式（double container pattern）。
+
+在本例中，<body>就是外层容器。因为它默认是100%的网页宽度，所以不用给它添加新的样式。
+在<body>内部，整个网页的内容放在了<div class="container">，也就是内层容器中。对于内层容器，
+需要设置一个max-width，并将外边距设置为auto，使内容居中。
+
+
+伪元素——一种特殊的选择器，可以选中文档的特定部分。伪元素以双冒号（::）开头，
+大部分浏览器为了向后兼容也支持单冒号的形式。最常见的伪元素是：:before和：:after，
+用来向元素的开始或者结束位置插入内容。
+
+以上代码仅仅实现了清除浮动。这样写是为了避免每添加一个行元素就要给它加一个clearfix类。
+❑ 浮动的设计初衷是让文字围绕一个元素排列，但有时这种效果并不是我们想要的。
+❑ 使用清除浮动来包含浮动元素。
+❑ BFC有3个好处：包含浮动元素，防止外边距折叠，防止文档流围绕浮动元素排列。
+❑ 使用双容器模式让页面内容居中。
+❑ 使用媒体对象模式将描述文字定位到图片旁边。
+❑ 使用网格系统实现更丰富的网页布局。
+
+四个媒体盒子没有如预期那样均匀地占据两行。虽然前两个盒子（“Strength”和“Cadence”）符合预期，但是第三个盒子（“Change it up”）出现在了右边，也就是第二个盒子的下方，导致第一个盒子下面出现了一片非常大的空白。这是因为浏览器会将浮动元素尽可能地放在靠上的地方
+要想修复这个问题很简单：清除第三个浮动元素上面的浮动。更通用的做法是，清除每行的第一个元素上面的浮动。由于已知每行有两个盒子，因此只需要清除每行的第奇数个元素上面那行的浮动即可。你可以用：nth-child()伪类选择器选中这些目标元素。将代码清单4-8添加到你的样式表中。
+它作用于第一、第三、第五个元素，等等。如果每行需要三个元素，则可以通过．media:nth-child(3n+1)来每隔两个元素选一个元素。
+*/

@@ -98,5 +98,12 @@ header {
 ❑ position:absolute或position: fixed。说明网页的根元素也创建了一个顶级的BFC。
 The Media Object Saves Hundreds of Lines of Code
 
+
+[class*=*column-*] {
+    float: left;
+}
+
 https://www.jianshu.com/p/ee3b2b45d85d
+
+
 */
