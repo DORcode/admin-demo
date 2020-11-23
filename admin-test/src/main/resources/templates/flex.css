@@ -18,53 +18,13 @@ body *+* {
     margin-top: 1.5em;
 }
 
-
-/*
-grid-template-columns: [start] 2fr [center] 1fr [end]
-对三条网格线进行全名，
-grid-column: start / center;
-
-grid-template-areas: "title title"
-                     "nav nav";
-                     "main aside1"
-                     "main aside1"
-对网格区域进行命名，需要占用的命名相同
-
-*/
-
 .container {
     max-width: 1080px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-auto-rows: repeat(4, auto);
-    /*repeat(3, 2fr 1fr)生成3个，6格*/
-    grid-gap: 1.5em;
-    /*定义四个水平轨道大小为auto*/
 }
 
-header,
-nav {
-    grid-column: 1 / 3;
-    /*根据网格线，占据1\2\3两列的3条线*/
-    grid-row: span 1;
-    /*刚好占据一条水平网格轨道*/
-}
 
-.main {
-    grid-column: 1 / 2;
-    grid-row: 3 / 5;
-}
-
-.sidebar-top {
-    grid-column: 2 / 3;
-    grid-row: 3 / 4;
-}
-
-.sider-bottom {
-    grid-column: 2 / 3;
-    grid-row: 4 / 5;
-}
+/*弹性容器应该是无序列表（<ul>）。它的子元素，即列表项（<li>）就是弹性子元素*/
 
 .nav {
     background-color: #5f4b44;
@@ -102,19 +62,40 @@ nav {
     font-size: calc(0.5em + 1vw);
 }
 
+[class*="column-"] {
+    /*属性选择器，根据元素的class属性匹配元素*/
+    float: left;
+    margin-top: 0;
+    padding: 0 0.75em;
+}
+
 .tile {
     background-color: white;
     padding: 1.5em;
 }
 
-.tile> :first-child {
-    margin-top: 0;
+.flex {
+    display: flex;
+    /*将主容器设置为flexbox*/
 }
 
+.flex>*+* {
+    margin-top: 0;
+    margin-left: 1.5em;
+    /*给每个弹性子元素之间加上间隔*/
+}
 
-/* .tile>*+* {
-    margin-top: 1.5em;
-} */
+.column-main {
+    /* width: 70%; */
+    flex: 66.67%;
+    background-color: white;
+}
+
+.column-sider {
+    flex: 33.33%;
+    /* width: 30%; */
+    margin-right: -0.75em;
+}
 
 .login-form h3 {
     margin: 0;
@@ -137,6 +118,17 @@ nav {
     background-color: white;
     padding: .5em 1em;
     cursor: pointer;
+}
+
+.flex::after {
+    /*清除浮动规则，让行元素包含内部的浮云列*/
+    display: block;
+    content: " ";
+    clear: both;
+}
+
+.centered {
+    text-align: center;
 }
 
 .cost {
@@ -174,3 +166,15 @@ nav {
     padding: .5em 1em;
     text-decoration: none;
 }
+
+
+/*
+❑ 使用Flexbox实现灵活易操作的网页内容布局。
+❑ Autoprefixer可以简化Flexbox对旧版浏览器的支持。
+❑ 使用flex指定任何能想到的弹性子元素大小的组合。
+❑ 使用嵌套的弹性盒子来组成复杂的布局，以及填满自适应大小的盒子的高度。
+❑ Flexbox自动地创建等高的列。
+❑ 使用align-items和align-self让一个弹性子元素在弹性容器中垂直居中。
+
+Flexbugs github
+*/

@@ -1,0 +1,33 @@
+.portfolia {
+    display: grid;
+    /*有时候我们不想给一个网格轨道设置固定尺寸，但是又希望限制它的最小值和最大值。这时候需要用到minmax()函数。*/
+    /*repeat()函数里的auto-fill关键字是一个特殊值。设置了之后，只要网格放得下，浏览器就会尽可能多地生成轨道，并且不会跟指定大小（minmax()值）的限制产生冲突。*/
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: 1fr;
+    grid-gap: .5em;
+    grid-auto-flow: dense;
+}
+
+.portfolia .featured {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+.portfolia>figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolia img {
+    flex: 1;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+.portfolia figcaption {
+    padding: 0.3em 0.8em;
+    background-color: rgb(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: right;
+}
