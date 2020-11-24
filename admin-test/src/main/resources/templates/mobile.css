@@ -1,0 +1,250 @@
+:root {
+    box-sizing: border-box;
+    font-size: calc(1vw + 0.6em);
+}
+
+@media (min-width: 50em) {
+     :root {
+        font-size: 1.125em;
+    }
+}
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    margin: 0;
+}
+
+a:link {
+    color: #1476b8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #1430b8;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #b81414;
+}
+
+.page-header {
+    padding: 0.4em 1em;
+    background-color: #fff;
+}
+
+@media (min-width: 35em) {
+    .page-header {
+        padding: 1em;
+    }
+}
+
+@media (min-width: 50em) {
+    .page-header {
+        padding: 1em 4em;
+    }
+}
+
+.title>h1 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0.2em 0;
+}
+
+
+/*在媒体查询里更适合用em, em是基于浏览器默认字号的（通常是16px）*/
+
+@media (min-width: 35em) {
+    .title>h1 {
+        font-size: 2.25rem;
+    }
+}
+
+.slogan {
+    color: #888;
+    font-size: 0.875em;
+    margin: 0;
+}
+
+.title>p {
+    color: darkgray;
+    font-size: 2em;
+}
+
+.menu {
+    position: relative;
+}
+
+.menu-toggle {
+    position: absolute;
+    top: -1.2em;
+    right: 0.1em;
+    border: 0;
+    background-color: transparent;
+    font-size: 3em;
+    width: 1em;
+    height: 1em;
+    line-height: 0.4;
+    text-indent: 5em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.menu-toggle::after {
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+    display: block;
+    content: "\2261";
+    text-indent: 0;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0;
+}
+
+.menu.is-open .menu-dropdown {
+    display: block;
+}
+
+.menu-dropdown {
+    position: fixed;
+    left: 0;
+    top: 12em;
+    min-width: 100%;
+    /*保证它至少等于容器的宽度（容器宽度由dropdown-label决定）*/
+    background-color: #eee;
+}
+
+@media (min-width: 35em) {
+    .menu-toggle {
+        display: none;
+    }
+    .menu-dropdown {
+        display: block;
+        position: static;
+    }
+}
+
+.nav-menu {
+    padding-left: 0;
+    margin: 0;
+    background-color: #000;
+    list-style: none;
+    border: 1px solid #ccc;
+    color: #fff;
+}
+
+.nav-menu>li+li {
+    border-top: 1px solid #ccc;
+}
+
+.nav-menu>li>a {
+    display: block;
+    padding: .5em 1.5em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+@media (min-width: 35em) {
+    .nav-menu {
+        display: flex;
+        border: 0;
+        padding: 0 1em;
+    }
+    .nav-menu>li {
+        flex: 1;
+    }
+    .nav-menu>li+li {
+        border: 0;
+    }
+    .nav-menu>li>a {
+        padding: 0.3em;
+        text-align: center;
+    }
+}
+
+@media (min-width: 50em) {
+    .nav-menu {
+        padding: 0 4em;
+    }
+}
+
+.hero {
+    padding: 2em 1em;
+    text-align: center;
+    background-size: 100%;
+    color: #fff;
+    text-shadow: 0.1em 0.1em 0.3em #000;
+}
+
+@media (min-width: 35em) {
+    .hero {
+        padding: 5em 3em;
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 50em) {
+    .hero {
+        padding: 7em 6em;
+    }
+}
+
+main {
+    padding: 1em;
+}
+
+@media (min-width: 35em) {
+    .main {
+        padding: 2em 1em;
+    }
+}
+
+@media (min-width: 50em) {
+    .main {
+        padding: 2em 4em;
+    }
+}
+
+.subtitle {
+    text-transform: uppercase;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 35em) {
+    .row {
+        display: flex;
+        margin-left: -.75em;
+        margin-right: -.75em;
+    }
+    .column {
+        flex: 1;
+        margin-right: 0.75em;
+        margin-left: 0.75em;
+    }
+}
+
+
+/*
+Web设计师Brad Frost列举了一系列响应模式
+https://bradfrost.github.io/this-is-responsive/patterns.html
+*/

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mobile.css" />
+</head>
+
+<body>
+    <header id="header" class="page-header">
+        <div class="title">
+            <h1>Wombat coffee roasters</h1>
+            <div class="slogan">We love coffee</div>
+        </div>
+    </header>
+    <nav class="menu" id="main-menu">
+        <button class="menu-toggle" id="toggle-menu">
+            toggle menu
+        </button>
+        <div class="menu-dropdown">
+            <ul class="nav-menu">
+                <li><a href="/">About</a></li>
+                <li><a href="/">Shop</a></li>
+                <li><a href="/">Menu</a></li>
+                <li><a href="/">Brew</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <aside id="hero" class="hero">
+        Welcome to Wombat Coffee Roasters! We are passionate about our craft, striving to bring you the best hand-crafted coffee in the city.
+    </aside>
+
+    <main id="main">
+        <div class="row">
+            <section class="column">
+                <h2 class="subtitle">Single-origin</h2>
+                <p></p>
+            </section>
+            <section class="column">
+                <h2 class="subtitle">Blends</h2>
+                <p></p>
+            </section>
+            <section class="column">
+                <h2 class="subtitle">Brewing Equipment</h2>
+                <p></p>
+            </section>
+        </div>
+    </main>
+
+    <script type="text/javascript">
+        (function() {
+            var button = document.getElementById("toggle-menu");
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                var menu = document.getElementById('main-menu');
+                menu.classList.toggle('is-open');
+            });
+        })()
+    </script>
+
+</body>
+
+</html>
