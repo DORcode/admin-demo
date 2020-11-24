@@ -1,0 +1,22 @@
+mongod.cfg
+
+bindIp: 0.0.0.0 由127.0.0.1改为0.0.0.0
+加入
+security:
+  authorization: enabled
+
+
+mongod.cfg,这个是单独的，应该到
+systemLog:
+    destination: file
+    path: D:\MongoDB\Server\4.4\log
+storage:
+    dbPath: D:\MongoDB\Server\4.4\data
+
+
+mongod --config D:\mongodb\mongod.cfg --install --serviceName "MongoDB" --journal
+
+net start mongoDB
+
+
+加入用户
