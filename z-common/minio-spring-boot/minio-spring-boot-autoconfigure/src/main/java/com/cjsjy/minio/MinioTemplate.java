@@ -5,6 +5,7 @@ import io.minio.errors.*;
 import io.minio.http.Method;
 import io.minio.messages.Bucket;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,6 +24,7 @@ import java.util.concurrent.TimeUnit;
  * @Version V1.0
  **/
 @Configuration
+@ConditionalOnProperty(name = "minio.endpoint")
 public class MinioTemplate {
     
     @Autowired

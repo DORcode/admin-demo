@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/demo-minio/demo-minio.iml" filepath="$PROJECT_DIR$/demo-minio/demo-minio.iml" />
       <module fileurl="file://$PROJECT_DIR$/z-common/minio-spring-boot/minio-spring-boot-autoconfigure/minio-spring-boot-autoconfigure.iml" filepath="$PROJECT_DIR$/z-common/minio-spring-boot/minio-spring-boot-autoconfigure/minio-spring-boot-autoconfigure.iml" />
       <module fileurl="file://$PROJECT_DIR$/z-common/minio-spring-boot/minio-spring-boot-starter/minio-spring-boot-starter.iml" filepath="$PROJECT_DIR$/z-common/minio-spring-boot/minio-spring-boot-starter/minio-spring-boot-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/z-common/redis-spring-boot/redis-spring-boot.iml" filepath="$PROJECT_DIR$/z-common/redis-spring-boot/redis-spring-boot.iml" />
       <module fileurl="file://$PROJECT_DIR$/z-common/minio-spring-boot/spring-boot-minio.iml" filepath="$PROJECT_DIR$/z-common/minio-spring-boot/spring-boot-minio.iml" />
       <module fileurl="file://$PROJECT_DIR$/z-common/z-common.iml" filepath="$PROJECT_DIR$/z-common/z-common.iml" />
     </modules>

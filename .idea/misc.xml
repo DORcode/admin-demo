@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/admin-cas/pom.xml" />
         <option value="$PROJECT_DIR$/demo-es/pom.xml" />
         <option value="$PROJECT_DIR$/demo-minio/pom.xml" />
+        <option value="$PROJECT_DIR$/z-common/redis-spring-boot/pom.xml" />
       </list>
     </option>
   </component>
