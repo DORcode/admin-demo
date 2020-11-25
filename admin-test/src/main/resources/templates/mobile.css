@@ -192,18 +192,21 @@ a:active {
     background-size: 100%;
     color: #fff;
     text-shadow: 0.1em 0.1em 0.3em #000;
+    background-image: url(coffee-beans-small.jpg);
 }
 
 @media (min-width: 35em) {
     .hero {
         padding: 5em 3em;
         font-size: 1.2rem;
+        background-image: url(coffee-beans-medium.jpg);
     }
 }
 
 @media (min-width: 50em) {
     .hero {
         padding: 7em 6em;
+        background-image: url(coffee-beans.jpg);
     }
 }
 
@@ -247,4 +250,11 @@ main {
 /*
 Web设计师Brad Frost列举了一系列响应模式
 https://bradfrost.github.io/this-is-responsive/patterns.html
+
+srcset属性可以解决html中不同屏幕大小的图片
+
+协助消除不同的客户端浏览器渲染上的不一致
+https://necolas.github.io/normalize.css/
+
+常用的写法是使用两个连字符来表示修饰符，比如message--error。
 */

@@ -1,3 +1,5 @@
+mongod.exe --dbpath="D:\MongoDB\Server\4.0\data"
+
 mongod.cfg
 
 bindIp: 0.0.0.0 由127.0.0.1改为0.0.0.0
@@ -20,3 +22,147 @@ net start mongoDB
 
 
 加入用户
+
+
+db.createUser(
+  {
+    user: "admin",
+    pwd: "123", // or cleartext password
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+  }
+)
+
+use test
+db.createUser(
+  {
+    user: "test",
+    pwd:  "123",   // or cleartext password
+    roles: [ { role: "readWrite", db: "test" },
+             { role: "read", db: "reporting" } ]
+  }
+)
+
+
+mongo --port 27017 -u "test" --authenticationDatabase "test" -p
+
+
+
+创建角色
+use admin
+db.createRole(
+   {
+     role: "mongostatRole",
+     privileges: [
+       { resource: { cluster: true }, actions: [ "serverStatus" ] }
+     ],
+     roles: []
+   }
+)
+
+use reporting
+db.getUser("reportsUser")
+
+use accounts
+db.getRole( "readWrite", { showPrivileges: true } )
+
+use reporting
+db.revokeRolesFromUser(
+    "reportsUser",
+    [
+      { role: "readWrite", db: "accounts" }
+    ]
+)
+
+use reporting
+db.grantRolesToUser(
+    "reportsUser",
+    [
+      { role: "read", db: "accounts" }
+    ]
+)
+
+db.changeUserPassword("reporting", "SOh3TbYhxuLiW8ypJPxmt1oOfL")
+
+
+加入可以修改密码的权限
+
+use admin
+db.createRole(
+   { role: "changeOwnPasswordCustomDataRole",
+     privileges: [
+        {
+          resource: { db: "", collection: ""},
+          actions: [ "changeOwnPassword", "changeOwnCustomData" ]
+        }
+     ],
+     roles: []
+   }
+)
+
+创建有修改密码权限的用户
+use test
+db.createUser(
+   {
+     user:"user123",
+     pwd: passwordPrompt(),  // or cleartext password
+     roles:[ "readWrite", { role:"changeOwnPasswordCustomDataRole", db:"admin" } ]
+   }
+)
+
+mongo --port 27017 -u user123 --authenticationDatabase 'test' -p
+
+use test
+db.updateUser(
+   "user123",
+   {
+      pwd: passwordPrompt(),  // or cleartext password
+      customData: { title: "Senior Manager" }
+   }
+)
+
+
+Specify a Collection of a Database as Resource
+
+{ db: "products", collection: "inventory" }
+
+https://docs.mongodb.com/master/reference/privilege-actions/#grantRole
+
+
+db.inventory.insertOne(
+   { item: "canvas", qty: 100, tags: ["cotton"], size: { h: 28, w: 35.5, uom: "cm" } }
+)
+
+db.inventory.find( { item: "canvas" } )
+
+db.inventory.insertMany([
+   { item: "journal", qty: 25, tags: ["blank", "red"], size: { h: 14, w: 21, uom: "cm" } },
+   { item: "mat", qty: 85, tags: ["gray"], size: { h: 27.9, w: 35.5, uom: "cm" } },
+   { item: "mousepad", qty: 25, tags: ["gel", "blue"], size: { h: 19, w: 22.85, uom: "cm" } }
+])
+
+db.inventory.find( { status: { $in: [ "A", "D" ] } } )
+
+db.inventory.find( { status: "A", qty: { $lt: 30 } } )
+
+db.inventory.find( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } )
+
+db.inventory.find( {
+     status: "A",
+     $or: [ { qty: { $lt: 30 } }, { item: /^p/ } ]
+} )
+
+db.inventory.updateOne(
+   { item: "paper" },
+   {
+     $set: { "size.uom": "cm", status: "P" },
+     $currentDate: { lastModified: true }
+   }
+)
+
+db.inventory.updateMany(
+   { "qty": { $lt: 50 } },
+   {
+     $set: { "size.uom": "in", status: "P" },
+     $currentDate: { lastModified: true }
+   }
+)
