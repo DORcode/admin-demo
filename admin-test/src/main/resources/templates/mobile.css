@@ -99,6 +99,7 @@ a:active {
     text-indent: 5em;
     white-space: nowrap;
     overflow: hidden;
+    transition: background-color 0.2s linear;
 }
 
 .menu-toggle::after {
@@ -108,6 +109,10 @@ a:active {
     display: block;
     content: "\2261";
     text-indent: 0;
+}
+
+.menu-toggle:hover {
+    background-color: hsl(280, 15%, 95%);
 }
 
 .menu-dropdown {
@@ -160,6 +165,12 @@ a:active {
     color: #fff;
     text-decoration: none;
     font-weight: normal;
+    transition: all .2s linear;
+}
+
+.nav-menu>li>a:hover {
+    background-color: hsl(280, 15%, 95%);
+    color: hsl(280, 25%, 10%);
 }
 
 @media (min-width: 35em) {
