@@ -210,6 +210,33 @@ public class DateUtil {
         return start + "," + end;
     }
 
+    private static String getMonth2(int year, int month) {
+        Calendar ca=Calendar.getInstance();
+        SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
+
+        SimpleDateFormat f2=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+
+        Calendar cal=(Calendar)ca.clone();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.DATE, 1);
+
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, -1);
+        // cal.add(Calendar.DATE, 1);
+        Date endDate=cal.getTime();
+        String end=f2.format(endDate);
+        cal=(Calendar)ca.clone();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month - 1);
+        cal.set(Calendar.DATE, 1);
+        Date startDate=cal.getTime();
+        String start=f.format(startDate);
+        return start + "," + end;
+    }
+
     private static String getStartEndOfCurrentWeek() {
         Calendar ca=Calendar.getInstance();
         SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
@@ -264,6 +291,44 @@ public class DateUtil {
             String endStr = f.format(end.getTime());
             return startStr + "," + endStr;
         } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public static String getStartEndOfQuarterWithMonth(Integer year, int month) {
+        Calendar start = Calendar.getInstance();
+        Calendar end = Calendar.getInstance();
+        SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            start.set(Calendar.YEAR, year);
+            end.set(Calendar.YEAR, year);
+            if (month >= 1 && month <= 3 ) {
+                start.set(Calendar.MONTH, 0);
+                start.set(Calendar.DATE,1);
+                end.set(Calendar.MONTH, 2);
+                end.set(Calendar.DATE, 31);
+            } else if (month >= 4 && month <= 6) {
+                start.set(Calendar.MONTH, 3);
+                start.set(Calendar.DATE,1);
+                end.set(Calendar.MONTH, 5);
+                end.set(Calendar.DATE, 30);
+            } else if (month >= 7 && month <= 9) {
+                start.set(Calendar.MONTH, 6);
+                start.set(Calendar.DATE,1);
+                end.set(Calendar.MONTH, 8);
+                end.set(Calendar.DATE, 30);
+            } else if (month >= 10 && month <= 12) {
+                start.set(Calendar.MONTH, 9);
+                start.set(Calendar.DATE,1);
+                end.set(Calendar.MONTH, 11);
+                end.set(Calendar.DATE, 31);
+            }
+            // end.add(Calendar.DATE,1);
+            String startStr = f.format(start.getTime());
+            String endStr = f.format(end.getTime());
+            return startStr + "," + endStr;
+        } catch (Exception e) {
+
         }
         return null;
     }
