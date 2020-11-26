@@ -7,9 +7,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 /**
  * @ClassName DateUtil
@@ -162,6 +160,42 @@ public class DateUtil {
 
     public static Date localDateTimeToDate(LocalDateTime localDateTime, String offsetId) {
         return Date.from(localDateTime.toInstant(ZoneOffset.of(offsetId)));
+    }
+
+    public static Calendar getCalendar(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal;
+    }
+
+    public static Calendar getCalendar(Date date, TimeZone zone) {
+        Calendar cal = Calendar.getInstance(zone);
+        cal.setTime(date);
+        return cal;
+    }
+
+    public static Calendar getCalendar(Date date, Locale aLocale) {
+        Calendar cal = Calendar.getInstance(aLocale);
+        cal.setTime(date);
+        return cal;
+    }
+
+    public static String getStartEndofYear(int year) {
+        Calendar cal=Calendar.getInstance();
+        SimpleDateFormat f=new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat f2=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        cal.set(Calendar.YEAR, year + 1);
+        cal.set(Calendar.MONTH, 0);
+        cal.set(Calendar.DATE, 1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        Date endDate=cal.getTime();
+        String end=f2.format(endDate);
+        cal.add(Calendar.YEAR, -1);
+        Date startDate=cal.getTime();
+        String start=f.format(startDate);
+        return start + "," + end;
     }
 
     private static String getStartEndofCurrentMonth() {
