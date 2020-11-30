@@ -1,0 +1,11 @@
+.card {
+    padding: 0.5em;
+    margin: 0 auto;
+    background-color: white;
+    max-width: 400px;
+    transform: rotate(15deg) translate(0, 40px);
+}
+
+img {
+    max-width: 100%;
+}
