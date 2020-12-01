@@ -80,6 +80,25 @@ http {
 
 }
 
+server {
+    listen 80 ;
+    server_name http://a.com http://b.com http://c.com;
+    location / {
+        root /home/website ;
+        if ($host = "http://a.com"){
+            set $index index.html ;
+        }
+        if ($host = "http://b.com"){
+            set $index index.php ;
+        }
+        if ($host = "http://c.com"){
+            set $index default.php ;
+        }
+        index $index ;
+    }
+}
+
+
 路径配置
 
 /api
