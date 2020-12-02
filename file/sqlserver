@@ -1,0 +1,4 @@
+select btm, convert(datetime, btm, 102) from aaa where len(btm) = 19 and btm is not null;
+
+select btm, etm, dateadd(hh,8,convert(datetime, SUBSTRING(btm, 0, 24), 126))
+from aaa where len(beg_tm) > 19 and btm is not null;
