@@ -2,3 +2,5 @@ select btm, convert(datetime, btm, 102) from aaa where len(btm) = 19 and btm is 
 
 select btm, etm, dateadd(hh,8,convert(datetime, SUBSTRING(btm, 0, 24), 126))
 from aaa where len(beg_tm) > 19 and btm is not null;
+
+CONVERT(varchar(23),aaa.btm, 120) &lt; CONVERT(varchar(23),aaa.mfd, 120)

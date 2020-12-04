@@ -2,6 +2,9 @@ package com.coin.base.config;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -17,6 +20,148 @@ import java.util.*;
  * @Version V1.0
  **/
 public class DateUtil {
+
+    public final static String shortFormat = "yyyyMMdd";
+
+    public final static String longFormat = "yyyyMMddHHmmss";
+
+    public final static String webFormat = "yyyy-MM-dd";
+
+    public final static String timeFormat = "HHmmss";
+
+    public final static String monthFormat = "yyyyMM";
+
+    public final static String chineseDtFormat = "yyyy年MM月dd日";
+
+    public final static String newFormat = "yyyy-MM-dd HH:mm:ss";
+
+    public final static String newFormat2 = "yyyy-MM-dd HH:mm";
+
+    public final static String newFormat3 = "yyyy-MM-dd HH";
+
+    public final static String FULL_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
+
+    public static Date getNowDate() {
+        return new Date();
+    }
+
+    public static Date getDate(long millsecord) {
+        return new Date(millsecord);
+    }
+
+    public static DateFormat getNewDateFormat(String pattern) {
+        DateFormat df = new SimpleDateFormat(pattern);
+
+        df.setLenient(false);
+        return df;
+    }
+
+    //日期格式转换，返回日期类型
+    public static Date formatDate(Date date, String format) {
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        String dateString = formatter.format(date);
+        ParsePosition pos = new ParsePosition(0);
+        Date newDate = formatter.parse(dateString, pos);
+        return newDate;
+    }
+
+    //日期格式转换，返回String
+    public static String format(Date date, String format) {
+        if (date == null) {
+            return null;
+        }
+
+        return new SimpleDateFormat(format).format(date);
+    }
+
+    public static String formatByLong(long date, String format) {
+        return new SimpleDateFormat(format).format(new Date(date));
+    }
+
+    public static Date formatByString(String str, String format) {
+        Date date = null;
+        try {
+            return new SimpleDateFormat(format).parse(str);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    /**
+     * @param beginStr
+     * @param endStr
+     * @return int
+     * @throws
+     * @MethodName getMonthCount
+     * @Description 计算两个日期间的月份
+     * @author kh
+     * @date 2020/1/3 15:42
+     */
+    public static int getMonthCount(String beginStr, String endStr) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+        Calendar begin = Calendar.getInstance();
+        Calendar end = Calendar.getInstance();
+
+        Date beginDate = null;
+        Date endDate = null;
+        try {
+            beginDate = sdf.parse(beginStr);
+            endDate = sdf.parse(endStr);
+            begin.setTime(beginDate);
+            end.setTime(endDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return (end.get(Calendar.YEAR) - begin.get(Calendar.YEAR)) * 12
+                + end.get(Calendar.MONTH) - begin.get(Calendar.MONTH) + 1;
+    }
+
+    /**
+     * @param str
+     * @return int
+     * @throws
+     * @MethodName getStringYear
+     * @Description 获取时间字符串的年份
+     * @author kh
+     * @date 2020/1/3 15:44
+     */
+    public static int getStringYear(String str) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+        Calendar calendar = Calendar.getInstance();
+        Date date = null;
+        try {
+            date = sdf.parse(str);
+            calendar.setTime(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return calendar.get(Calendar.YEAR);
+    }
+
+    /**
+     * @param str
+     * @return int
+     * @throws
+     * @MethodName getStringMonth
+     * @Description 获取字符串年份
+     * @author kh
+     * @date 2020/1/3 15:51
+     */
+    public static int getStringMonth(String str) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+        Calendar calendar = Calendar.getInstance();
+
+        Date date = null;
+        try {
+            date = sdf.parse(str);
+            calendar.setTime(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return calendar.get(Calendar.MONTH);
+    }
 
     /**
      * @MethodName getDayBegin
@@ -366,6 +511,8 @@ public class DateUtil {
         }
         return null;
     }
+
+
 
     public static void main(String[] args) {
         System.out.println("getBeginDayOfWeek() = " + getWeekBegin());
