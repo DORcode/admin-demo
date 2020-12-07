@@ -31,6 +31,7 @@
         <swagger.bootstrap.ui>1.9.0</swagger.bootstrap.ui>
         <shiro.version>1.5.1</shiro.version>
         <lombok.version>1.16.20</lombok.version>
+        <shardingsphere.version>4.1.1</shardingsphere.version>
     </properties>
 
     <modules>
@@ -147,6 +148,13 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-core</artifactId>
+                <version>${shardingsphere.version}</version>
+            </dependency>
+
 
             <!--https://www.graphql-java.com/documentation/v16/-->
             <!--https://www.graphql-java.com/tutorials/getting-started-with-spring-boot/-->

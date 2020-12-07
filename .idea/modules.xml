@@ -10,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/admin-mybatis-generator/admin-mybatis-generator.iml" filepath="$PROJECT_DIR$/admin-mybatis-generator/admin-mybatis-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-shiro/admin-shiro.iml" filepath="$PROJECT_DIR$/admin-shiro/admin-shiro.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-test/admin-test.iml" filepath="$PROJECT_DIR$/admin-test/admin-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db-sharding/db-sharding.iml" filepath="$PROJECT_DIR$/db-sharding/db-sharding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db-sharding/db-sharding-sphere/db-sharding-sphere.iml" filepath="$PROJECT_DIR$/db-sharding/db-sharding-sphere/db-sharding-sphere.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-es/demo-es.iml" filepath="$PROJECT_DIR$/demo-es/demo-es.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-minio/demo-minio.iml" filepath="$PROJECT_DIR$/demo-minio/demo-minio.iml" />
       <module fileurl="file://$PROJECT_DIR$/z-common/minio-spring-boot/minio-spring-boot-autoconfigure/minio-spring-boot-autoconfigure.iml" filepath="$PROJECT_DIR$/z-common/minio-spring-boot/minio-spring-boot-autoconfigure/minio-spring-boot-autoconfigure.iml" />

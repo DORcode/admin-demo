@@ -15,6 +15,8 @@
     <file url="file://$PROJECT_DIR$/admin-shiro/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-test" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-sharding" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/db-sharding/db-sharding-sphere" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-es" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-minio" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/file/killPid.bat" charset="GBK" />
