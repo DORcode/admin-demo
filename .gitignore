@@ -180,7 +180,7 @@
 admin-test/.mvn/wrapper/maven-wrapper.jar
 admin-test/.mvn/wrapper/maven-wrapper.properties
 admin-test/.mvn/wrapper/MavenWrapperDownloader.java
-/.idea/
+.idea/
 target/
 admin-test/target/classes/com/coin/admintest/effective/e002builder/NyPizza$Builder.class
 admin-test/target/classes/com/coin/admintest/effective/e002builder/NyPizza$Size.class
