@@ -158,6 +158,7 @@
 
             <!--https://www.graphql-java.com/documentation/v16/-->
             <!--https://www.graphql-java.com/tutorials/getting-started-with-spring-boot/-->
+            <!--https://www.yuque.com/rinbow/farkyg/rzg5rw-->
         </dependencies>
     </dependencyManagement>
     <!--如果你的项目是一个放置通用工具类的工程，那么该项目中，就不能包括上面这个打包插件，如果你这个工具类工程依赖有父工程，那么父工程中也不能包括该打包插件，只有你的项目是一个web项目时，含有Main方法的程序入口类，要加该打包插件。-->
