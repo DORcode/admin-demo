@@ -40,6 +40,7 @@
         <module>admin-auth</module>
         <module>admin-cas</module>
         <module>admin-test</module>
+        <module>db-sharding</module>
         <module>demo-es</module>
         <module>demo-minio</module>
         <module>z-common</module>
