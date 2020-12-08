@@ -1,0 +1,48 @@
+# 配置真实数据源
+spring:
+  shardingsphere:
+    datasource:
+      # 配置第一个数据源
+      ds0:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.zaxxer.hikari.HikariDataSource
+        jdbc-url: jdbc:mysql://localhost:3306/ds0?serverTimezone=Asia/Shanghai&useUnicode=true&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false
+        username: root
+        password: ''
+        # 配置第二个数据源
+      ds1:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.zaxxer.hikari.HikariDataSource
+        jdbc-url: jdbc:mysql://localhost:3306/ds1?serverTimezone=Asia/Shanghai&useUnicode=true&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false
+        username: root
+        password: ''
+        # 配置真实数据源
+      names: ds0,ds1
+    rules:
+      sharding:
+        # 配置分片算法
+        sharding-algorithms:
+          # 分库算法
+          database_inline:
+            props:
+              algorithm-expression: ds_${user_id % 2}
+            type: INLINE
+          # 分表算法
+          table_inline:
+            props:
+              algorithm-expression: t_order_${order_id % 2}
+            type: INLINE
+        tables:
+          # 配置表规则
+          t_order:
+            actual-data-nodes: ds$->{0..1}.t_order$->{0..1}
+            # 配置分库策略
+            database-strategy:
+              standard:
+                sharding-algorithm-name: database_inline
+                sharding-column: user_id
+            # 配置分表策略
+            table-strategy:
+              standard:
+                sharding-algorithm-name: table_inline
+                sharding-column: order_id

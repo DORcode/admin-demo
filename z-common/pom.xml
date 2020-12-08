@@ -18,6 +18,7 @@
 
     <modules>
         <module>minio-spring-boot</module>
+        <module>redis-spring-boot</module>
     </modules>
 
 </project>
