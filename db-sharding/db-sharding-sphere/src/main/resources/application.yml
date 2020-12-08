@@ -1,3 +1,5 @@
+server:
+  port: 8081
 # 配置真实数据源
 spring:
   shardingsphere:

@@ -19,7 +19,7 @@ import java.util.Map;
  * @Date 2020-12-08 9:53
  * @Version V1.0
  **/
-@Configuration
+// @Configuration
 public class ShardingSphereConfig {
 
     @ConfigurationProperties(prefix = "spring.shardingsphere.datasource.ds0")
@@ -41,7 +41,6 @@ public class ShardingSphereConfig {
         dataSourceMap.put("ds0", ds0);
         dataSourceMap.put("ds1", ds1);
         ShardingRuleConfiguration shardingRuleConfiguration = new ShardingRuleConfiguration();
-        shardingRuleConfiguration.getDefaultDatabaseShardingStrategyConfig()
         return null;
     }
 }
