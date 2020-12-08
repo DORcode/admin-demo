@@ -8,14 +8,14 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         jdbc-url: jdbc:mysql://localhost:3306/ds0?serverTimezone=Asia/Shanghai&useUnicode=true&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false
         username: root
-        password: ''
+        password: 123456
         # 配置第二个数据源
       ds1:
         driver-class-name: com.mysql.cj.jdbc.Driver
         type: com.zaxxer.hikari.HikariDataSource
         jdbc-url: jdbc:mysql://localhost:3306/ds1?serverTimezone=Asia/Shanghai&useUnicode=true&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false
         username: root
-        password: ''
+        password: 123456
         # 配置真实数据源
       names: ds0,ds1
     rules:
@@ -46,3 +46,15 @@ spring:
               standard:
                 sharding-algorithm-name: table_inline
                 sharding-column: order_id
+    props:
+      sql:
+        show: true
+
+
+
+#指定master0为主库，slave0为它的从库
+#spring.shardingsphere.sharding.master-slave-rules.master0.master-data-source-name=master0
+#spring.shardingsphere.sharding.master-slave-rules.master0.slave-data-source-names=slave0
+#指定master1为主库，slave1为它的从库
+#spring.shardingsphere.sharding.master-slave-rules.master1.master-data-source-name=master1
+#spring.shardingsphere.sharding.master-slave-rules.master1.slave-data-source-names=slave1

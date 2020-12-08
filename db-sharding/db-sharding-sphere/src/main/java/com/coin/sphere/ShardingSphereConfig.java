@@ -2,7 +2,11 @@ package com.coin.sphere;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.shardingsphere.api.config.sharding.ShardingRuleConfiguration;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -15,22 +19,29 @@ import java.util.Map;
  * @Date 2020-12-08 9:53
  * @Version V1.0
  **/
+@Configuration
 public class ShardingSphereConfig {
-    public DataSource dataSource() {
-        Map<String, DataSource> dataSourceMap = new HashMap<>();
-        HikariDataSource dataSource0 = new HikariDataSource();
-        dataSource0.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource0.setJdbcUrl("jdbc:mysql://localhost:3306/ds0");
-        dataSource0.setUsername("root");
-        dataSource0.setPassword("");
-        dataSourceMap.put("ds0", dataSource0);
 
-        HikariDataSource dataSource1 = new HikariDataSource();
-        dataSource1.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource1.setJdbcUrl("jdbc:mysql://localhost:3306/ds1");
-        dataSource1.setUsername("root");
-        dataSource1.setPassword("");
-        dataSourceMap.put("ds1", dataSource1);
+    @ConfigurationProperties(prefix = "spring.shardingsphere.datasource.ds0")
+    @Bean(name = "ds0")
+    public DataSource dataSource0() {
+        return new HikariDataSource();
+    }
+
+    @ConfigurationProperties(prefix = "spring.shardingsphere.datasource.ds1")
+    @Bean(name = "ds1")
+    public DataSource dataSource1() {
+        return new HikariDataSource();
+    }
+
+    @Primary
+    @Bean("")
+    public DataSource dataSource(@Qualifier("ds0") DataSource ds0, @Qualifier("ds1") DataSource ds1) {
+        Map<String, DataSource> dataSourceMap = new HashMap<>();
+        dataSourceMap.put("ds0", ds0);
+        dataSourceMap.put("ds1", ds1);
+        ShardingRuleConfiguration shardingRuleConfiguration = new ShardingRuleConfiguration();
+        shardingRuleConfiguration.getDefaultDatabaseShardingStrategyConfig()
         return null;
     }
 }
