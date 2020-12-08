@@ -1,5 +1,6 @@
 server:
   port: 8081
+
 # 配置真实数据源
 spring:
   shardingsphere:
@@ -59,4 +60,7 @@ spring:
 #spring.shardingsphere.sharding.master-slave-rules.master0.slave-data-source-names=slave0
 #指定master1为主库，slave1为它的从库
 #spring.shardingsphere.sharding.master-slave-rules.master1.master-data-source-name=master1
+logging:
+  file:
+    path:
 #spring.shardingsphere.sharding.master-slave-rules.master1.slave-data-source-names=slave1
