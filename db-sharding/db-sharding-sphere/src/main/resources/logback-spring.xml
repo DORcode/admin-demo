@@ -2,8 +2,7 @@
 <configuration>
 
     <!--设置系统日志目录-->
-    <property name="APP_DIR" value="appinfomanage" />
-    <property name="LOG_PATH" value="${LOG_PATH: -.}" />
+    <springProperty scope="context" name="LOG_PATH" source="logging.file.path" />
 
     <!-- 彩色日志 -->
     <!-- 彩色日志依赖的渲染类 -->
@@ -21,7 +20,7 @@
         </encoder>
         <!--此日志appender是为开发使用，只配置最底级别，控制台输出的日志级别是大于或等于此级别的日志信息-->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>info</level>
+            <level>debug</level>
         </filter>
     </appender>
 
@@ -174,7 +173,7 @@
 
     <logger name="org.springframework.web" level="info"/>
     <logger name="org.springframework.scheduling.annotation.ScheduledAnnotationBeanPostProcessor" level="INFO"/>
-    <logger name="com.cjsjy.info" level="debug"/>
+    <logger name="com.coin.sphere" level="debug"/>
     <logger name="warmer.star.blog.mapper" level="error" />
     <logger name="jdbc.sqltiming" level="error"/>
     <logger name="com.ibatis" level="error" />

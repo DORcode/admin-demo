@@ -1,6 +1,7 @@
 server:
   port: 8081
 
+
 # 配置真实数据源
 spring:
   shardingsphere:
@@ -88,6 +89,10 @@ spring:
       sql:
         show: true
 
+
+  profiles:
+    active: dev
+
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   global-config:
@@ -105,12 +110,7 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
 
-#指定master0为主库，slave0为它的从库
-#spring.shardingsphere.sharding.master-slave-rules.master0.master-data-source-name=master0
-#spring.shardingsphere.sharding.master-slave-rules.master0.slave-data-source-names=slave0
-#指定master1为主库，slave1为它的从库
-#spring.shardingsphere.sharding.master-slave-rules.master1.master-data-source-name=master1
 logging:
+  config: classpath:logback-spring.xml
   file:
-    path: f:\sphere
-#spring.shardingsphere.sharding.master-slave-rules.master1.slave-data-source-names=slave1
+    path: /logs/sphere
