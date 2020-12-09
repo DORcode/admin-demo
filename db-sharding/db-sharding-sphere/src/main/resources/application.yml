@@ -23,6 +23,13 @@ spring:
       names: ds0,ds1
     rules:
       sharding:
+        default-database-strategy:
+          inline:
+            sharding-column: user_id
+            algorithm-expression: ds$->{user_id % 2}
+        binding-tables[0]: t_order, t_order_item
+        broadcast-tables[0]: t_dict
+        default-data-source-name: ds0
         # 配置分片算法
         sharding-algorithms:
           # 分库算法
@@ -35,25 +42,68 @@ spring:
             props:
               algorithm-expression: t_order_${order_id % 2}
             type: INLINE
+          table_order_item_inline:
+            props:
+              algorithm-expression: t_order_item_${order_id % 2}
+            type: INLINE
         tables:
           # 配置表规则
           t_order:
             actual-data-nodes: ds$->{0..1}.t_order$->{0..1}
             # 配置分库策略
-            database-strategy:
-              standard:
-                sharding-algorithm-name: database_inline
-                sharding-column: user_id
+#            database-strategy:
+#              standard:
+#                sharding-algorithm-name: database_inline
+#                sharding-column: user_id
             # 配置分表策略
             table-strategy:
               standard:
                 sharding-algorithm-name: table_inline
                 sharding-column: order_id
+            key-generator:
+              column: order_id
+              type: SNOWFLAKE
+              props:
+                work:
+                  id: 123
+          t_order_item:
+            actual-data-nodes: ds$->{0..1}.t_order_item$->{0..1}
+              # 配置分库策略
+#            database-strategy:
+#              standard:
+#                sharding-algorithm-name: database_inline
+#                sharding-column: user_id
+            # 配置分表策略
+            table-strategy:
+              standard:
+                sharding-algorithm-name: table_order_item_inline
+                sharding-column: order_id
+            key-generator:
+              column: order_item_id
+              type: SNOWFLAKE
+              props:
+                work:
+                  id: 123
     props:
       sql:
         show: true
 
-
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      #驼峰下划线转换
+      column-underline: true
+      #逻辑删除配置
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      db-type: mysql
+    refresh: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
 
 #指定master0为主库，slave0为它的从库
 #spring.shardingsphere.sharding.master-slave-rules.master0.master-data-source-name=master0
@@ -62,5 +112,5 @@ spring:
 #spring.shardingsphere.sharding.master-slave-rules.master1.master-data-source-name=master1
 logging:
   file:
-    path:
+    path: f:\sphere
 #spring.shardingsphere.sharding.master-slave-rules.master1.slave-data-source-names=slave1
