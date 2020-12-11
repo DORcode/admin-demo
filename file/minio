@@ -1,0 +1,3 @@
+minio.exe server F:\minio
+
+mc admin config reset myminio crawler

@@ -1,0 +1,7 @@
+/usr/sbin/mysqld --initialize --user=mysql --lower-case-table-names=1
+
+mysqld --defaults-file=D:\mysql-8.0.12-winx64\my.ini --initialize --console
+
+mysql -u root -p
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
