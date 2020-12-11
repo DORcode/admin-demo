@@ -14,3 +14,12 @@ git update-index –assume-unchanged –path 可以忽略文件
 git update-index –no-assume-unchanged –path 可以取消忽略文件
 
 git check-ignore -v pom.xml
+
+
+
+git pull --rebase origin master
+
+[rejected] master -> master (non-fast forward)
+git pull origin master --allow-unrelated-histories //把远程仓库和本地同步，消除差异
+重新 add commit
+git push origin master

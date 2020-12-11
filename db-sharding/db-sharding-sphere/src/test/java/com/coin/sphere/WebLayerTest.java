@@ -11,6 +11,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.math.BigDecimal;
+
 /**
  * @ClassName WebLayerTest
  * @Description: TODO
@@ -33,7 +35,9 @@ public class WebLayerTest {
 
     @Test
     public void greetingShouldReturnMessageFromService() throws Exception {
-        Mockito.when("").thenReturn("Hello, Mock");
-        
+        // Mockito.when("").thenReturn("Hello, Mock");
+        System.out.println(Math.pow(2, 41) / (365 * 24 * 60 * 60 * 1000L));
+
+        System.out.println(new BigDecimal(Math.pow(2, 100)).toPlainString());
     }
 }
