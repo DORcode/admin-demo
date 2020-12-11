@@ -1,0 +1,515 @@
+PUT /ropledata3
+{
+  "settings": {
+    "index": {
+      "number_of_shards": "2",
+      "number_of_replicas": "0"
+    }
+  },
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "ik_max_word",
+		"search_analyzer": "ik_max_word"
+      },
+      "hobby": {
+        "type": "text"
+      }
+    }
+  }
+}
+
+PUT /ropledata4
+{
+  "settings": {
+    "index": {
+      "number_of_shards": "2",
+      "number_of_replicas": "0"
+    }
+  },
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "keyword",
+		"fields": {
+			"ik_max_analyzer": {
+              "type": "text",
+              "analyzer": "ik_max_word",
+              "search_analyzer": "ik_max_word"
+            },
+            "ik_smart_analyzer": {
+              "type": "text",
+              "analyzer": "ik_smart"
+            }
+		}
+      },
+      "hobby": {
+        "type": "text"
+      }
+    }
+  }
+}
+
+
+POST /ropledata4/_search
+{
+  "query": {
+    "match_phrase_prefix": {
+      "name.ik_max_analyzer": {
+        "query": "且"
+      }
+    }
+  },
+
+  "highlight" : {
+      "tags_schema" : "styled",
+
+      "fields" : {
+        "name.ik_max_analyzer" : {
+        }
+
+      }
+
+  }
+
+}
+
+PUT /ropledata
+{
+  "settings": {
+    "index": {
+      "number_of_shards": "2",
+      "number_of_replicas": "0"
+    }
+  },
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "name": {
+        "type" : "text",
+        "fields" : {
+            "name_ik" : {"type" : "text", "analyzer" :"ik_max_word"},
+            "name_standard" : {"type" : "text"}
+        }
+      },
+      "hobby": {
+        "type": "text"
+      }
+    }
+  }
+}
+
+
+
+POST _bulk
+{ "create" : { "_index" : "ropledata", "_id" : "1001" } }
+{"id":1,"name": "且听风吟，静待花开","hobby": "music and movie"}
+{ "create" : { "_index" : "ropledata", "_id" : "1002" } }
+{"id":2,"name": "且听_风吟","hobby": "music"}
+{ "create" : { "_index" : "ropledata", "_id" : "1003" } }
+{"id":3,"name": "大数据领域","hobby": "movie"}
+{ "create" : { "_index" : "ropledata", "_id" : "1004" } }
+{"id":4,"name": "一起学习","hobby": "run"}
+{ "create" : { "_index" : "ropledata", "_id" : "1005" } }
+{"id":1,"name": "新京报快讯据兰州市卫健委网站9月15日消息，2019年11月28，兰州市委、市政府高度重视，按照省委、省政府统一安排部署，第一时间成立以省委常委、市委书记李荣灿任组长，市委副书记、市长张伟文任副组长的兰州兽研所布鲁氏菌抗体阳性事件属地善后处置工作领导小组，下设“一办六组”，制定《兰州兽研所布鲁氏菌抗体阳性事件属地善后处置工作方案》和《兰州兽研所布鲁氏菌抗体阳性事件涉及人员补偿赔偿方案》，全力开展属地善后处置工作。确定11家公立医疗机构为定点医院，开设绿色通道和专门诊室，提供免费、便捷的健康检测和规范化治疗;对省级复核确认阳性人员逐人建立健康档案，确定专人每月开展健康随访;同时，采取专家现场辅导、网上咨询、热线电话、发放宣传册等方式组织开展专业、科学的科普宣传和答疑解惑。截至2020年9月14日，累计检测21847人，初步筛出阳性4646人，省疾控中心复核确认阳性3245人;建立健康档案3159人;累计咨询23479人次，举办现场医疗诊治讲座9场次，发放宣传折页15000余份。2019年12月26日，国家、省市专家组成的联合调查组调查认定：“2019年7月24日至8月20日，中牧兰州生物药厂在兽用布鲁氏菌疫苗生产过程中使用过期消毒剂，致使生产发酵罐废气排放灭菌不彻底，携带含菌发酵液的废气形成含菌气溶胶，生产时段该区域主风向为东南风，兰州兽研所处在中牧兰州生物药厂的下风向，人体吸入或粘膜接触产生抗体阳性，造成兰州兽研所发生布鲁氏菌抗体阳性事件。此次事件是一次意外的偶发事件，是短时间内出现的一次暴露” 。根据调查结果，省市联合调查组依法对涉事责任单位启动了立案查处工作，依法从严、快速追究相关单位和人员责任。2020年1月13日撤销了兰州生物药厂布病疫苗生产许可，1月15日，撤销了兰州生物药厂布鲁氏菌病活疫苗(S2株)和布鲁氏菌病活疫苗(A19株)产品批准文号，同时注销了兰州生物药厂布鲁氏菌病疫苗生产车间生产的疫苗产品共7个兽药产品批准文号。兰州生物药厂于2019年12月7日关停了布鲁氏菌疫苗生产车间，并于2020年2月4日在公司网站上发布《致歉信》。同时，按照相关规定，对8名责任人做出严肃处理。兰州生物药厂表示将深刻吸取教训，积极配合省市做好善后处置和补偿赔偿工作。省卫生健康委组织专家先后制定了《兰州生物药厂周边群众检测治疗方案》《中牧兰州生物药厂周边群众进一步检测和治疗方案》《兰州兽研所布鲁氏菌抗体阳性事件抗体阳性人员健康评估工作方案》，为此次事件处置提供了技术指导。目前，善后处置各项工作正在 “依法、科学、规范、有序”稳步开展。一是精准组织复查评估。按照省上《关于印发兰州兽研所布鲁氏菌抗体阳性事件抗体阳性人员健康评估工作方案的通知》要求，我市已于2020年7月16日开始，集中2个月时间，对省级复核确认的布鲁氏菌抗体阳性人员开展第二次复查检测，由市卫健委组织市肺科医院分批次对事件抗体阳性人员进行第二次采样后，由省疾控中心进行布鲁氏菌抗体检测，市肺科医院进行血常规、肝功能检查，结果纳入个人健康档案。对经省疾控中心第二次复核确认的布鲁氏菌抗体阳性人员，由城关区卫健局对资料进行审核后，由市卫健委将符合评估条件的人员资料上报，由省级评估专家组组织国家、省上专家进行健康评估。截至2020年9月14日14时，已组织复检2773人，省疾控中心反馈结果2768份，目前均按“一人一档”的要求，对复检后符合评估标准的抗体阳性人员评估材料进行整理，分批次向省级评估专家组报送。二是积极宣传科普知识。积极组织省市疾控、医疗权威专家到兰州兽研所及周边社区开展现场专题宣传教育讲座，制作布鲁氏菌防治科普知识宣传展板，继续发放布鲁氏菌预防和治疗宣传手册，设立定点咨询点，一对一开展政策咨询和答疑解惑，实施心理疏导干预，全力消除群众恐慌心理和思想顾虑。三是认真落实补偿赔偿。严格审核确认补偿赔偿人员的信息，确保个人信息的准确性，为分级分类开展补偿赔偿工作提供详实准确的信息台账。同时，合理测算健康检测、健康评估、补偿赔偿等工作所需费用，积极督促中牧实业股份有限公司兰州生物制药厂按时足额落实补偿赔偿资金，确保补偿赔偿工作顺利开展。下一步，我市将全面抓好善后处置各项工作的落实。一是广泛做好科普宣传。进一步加大科普宣传力度，有针对性地开展布鲁氏菌抗体阳性科普宣传和答疑解惑工作，加强心理疏导和人文关怀，彻底消除群众思想顾虑和疑虑。二是科学组织复检评估。有序开展复检及健康评估工作，由市卫健委分批次将健康评估资料报省级评估专家组评估，评估结果第一时间反馈当事人。三是依法依规补偿赔偿。第二次复检和健康评估工作全面结束后，由城关区卫健局对相关人员健康评估资料进行整理分类，并针对相关人员健康评估类别，根据相关法律法规、标准，协调、督促兰州生物药厂积极开展补偿赔偿工作，补偿赔偿工作于10月份分批次开展，切实维护好群众的健康权益。编辑 彭启航","hobby": "music and movie"}
+
+
+
+
+POST /ropledata1/_search
+{
+  "query" : {
+    "match": {
+      "name": "二"
+    }
+  },
+  "highlight": {
+    "number_of_fragments": 5, 
+    "boundary_scanner_locale":"zh_CN",
+    "pre_tags": ["<span>"], 
+    "post_tags": ["</span>"], 
+    "fields" : {
+        "name" : {
+          "pre_tags" : ["<tag2>"],
+
+          "post_tags" : ["</tag2>"],
+
+          "number_of_fragments" : 6,
+
+          "fragment_size" : 100000
+
+        }
+
+      }
+  }
+}
+
+
+POST /ropledata1/_search
+{
+  "query" : {
+    "match": {
+      "name": "新"
+
+    }
+
+  },
+
+  "highlight" : {
+      "tags_schema" : "styled",
+
+      "fields" : {
+        "name" : {
+        }
+
+      }
+
+  }
+
+}
+
+#控制关系
+GET /tehero_index/_doc/_search
+{
+  "query": {
+    "match": {
+      "content.ik_smart_analyzer": {
+        "query": "系统学es",
+        "operator":"and"
+      }
+    }
+  }
+}
+
+GET /_analyze
+{
+  "text": ["关注我,间隔系统学编程"],
+  "analyzer": "ik_smart"
+}
+
+match_phrase查询分析文本并根据分析的文本创建一个短语查询。match_phrase 会将检索关键词分词。match_phrase的分词结果必须在被检索字段的分词中都包含，而且顺序必须相同，而且默认必须都是连续的。
+match_phrase 核心参数：slop 参数-Token之间的位置距离容差值
+GET /tehero_index/_doc/_search
+{
+  "query":{
+    "match_phrase":{
+      "content.ik_smart_analyzer":{
+        "query":"关注我，系统学",
+        "slop":3
+      }
+      
+    }
+  }
+}
+
+与match_phrase查询类似，但是会对最后一个Token在倒排序索引列表中进行通配符搜索。Token的模糊匹配数控制：max_expansions 默认值为50。我们使用content.ik_smart_analyzer 这个字段中的【系统学】（文档1、2、4 包含）和【系统】（文档3包含）这两个Token来讲解match_phraseprefix 的用法：（因为使用的是ik_smart分词器，所以【系统学】就只能被分词为一个Token）
+GET /tehero_index/_doc/_search
+{
+  "query":{
+    "match_phrase_prefix":{
+      "content.ik_smart_analyzer":{
+        "query":"注",
+        "max_expansions":1
+      }
+      
+    }
+  }
+}
+
+
+GET /tehero_index1/_doc/_search
+{
+  "query":{
+    "multi_match": {
+      "query": "注",
+      "fields": [
+        "content",
+        "content.ik_smart_analyzer"
+      ]
+    }
+  },
+  "highlight" : {
+      "tags_schema" : "styled",
+
+      "fields" : {
+        "content.ik_smart_analyzer" : {
+        },
+        "content":{}
+
+      }
+
+  }
+}
+
+{
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "content": {
+          "type": "text",
+          "fields": {
+            "ik_max_analyzer": {
+              "type": "text",
+              "analyzer": "ik_max_word"
+            },
+            "ik_smart_analyzer": {
+              "type": "text",
+              "analyzer": "ik_smart"
+            }
+          }
+        },
+        "createAt": {
+          "type": "date"
+        },
+        "id": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
+
+
+put /test
+{
+  "settings":{
+    "number_of_shards" : "3",
+        "number_of_replicas" : "0",
+         "analysis": {
+            "analyzer": {
+                "ik_en_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "ik_max_word",
+                    "filter": ["my_pinyin"]
+                }
+            },
+            "filter": {
+                 "my_pinyin" : {
+                     "type" : "pinyin",
+                    "keep_separate_first_letter" : false,
+                    "keep_full_pinyin" : true,
+                    "keep_original" : true,
+                    "limit_first_letter_length" : 16,
+                    "lowercase" : true,
+                    "remove_duplicated_term" : true
+                }
+            }
+        }
+  },
+  "mappings":{
+    "properties":{
+      "id":{"type":"long"},
+      "name":{
+        "type" : "text",
+        "analyzer" : "ik_en_analyzer"
+      },
+      "text":{"type":"text"}
+    }
+  }
+}
+
+
+PUT _ingest/pipeline/attachment
+{
+  "description" : "Extract attachment information from arrays",
+  "processors" : [
+    {
+      "foreach": {
+        "field": "attachments",
+        "processor": {
+          "attachment": {
+            "target_field": "_ingest._value.attachment",
+            "field": "_ingest._value.data"
+          }
+        }
+      }
+    },
+	{
+      "foreach": {
+        "field": "attachments",
+        "processor": {
+          "remove": {
+            "field": "_ingest._value.data"
+          }
+        }
+      }
+    }
+  ]
+}
+
+PUT _ingest/pipeline/attachment
+{
+  "description" : "Extract attachment information from arrays",
+  "processors" : [
+    {
+      "foreach": {
+        "field": "attachments",
+        "processor": {
+          "attachment": {
+            "target_field": "_ingest._value.attachment",
+            "field": "_ingest._value.data"
+          }
+        }
+      }
+    }
+  ]
+}
+
+如果是多个附件，搜索时，原数据有多个，如果多个匹配，不能展示出来，
+
+PUT /my-index-00001
+{
+  "settings": {
+    "index": {
+      "number_of_shards": "2",
+      "number_of_replicas": "1"
+    }
+  },
+  "mappings": {
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "title": {
+          "type": "text",
+		  "analyzer": "ik_max_word"
+        },
+		"content": {
+          "type": "text",
+		  "analyzer": "ik_max_word"
+        },
+        "attachments": {
+          "properties": {
+			  "filename": {
+		          "type": "text",
+			      "analyzer": "ik_max_word"
+			  },
+			  "data": {
+				"type": "text"
+			  },
+			  "attachment": {
+			      "properties": {
+				      "content": {
+					      "type": "text",
+					      "analyzer": "ik_max_word"
+					  }
+				  }
+				
+			  }
+		  }
+        }
+      }
+  }
+}
+
+
+PUT _ingest/pipeline/singleattachment
+{
+  "description" : "Extract attachment information",
+  "processors" : [
+    {
+      "attachment" : {
+        "field" : "data"
+		
+      },
+	  "remove": {
+		"field": "data"
+	  }
+    }
+  ]
+}
+
+PUT /single-index-00001
+{
+  "settings": {
+    "index": {
+      "number_of_shards": "2",
+      "number_of_replicas": "1"
+    }
+  },
+  "mappings": {
+      "properties": {
+        "id": {
+          "type": "keyword"
+        },
+        "title": {
+          "type": "text",
+		  "analyzer": "ik_max_word"
+        },
+		"content": {
+          "type": "text",
+		  "analyzer": "ik_max_word"
+        },
+        "attachment": {
+          "properties": {
+			  "filename": {
+		          "type": "text",
+			      "analyzer": "ik_max_word"
+			  },
+			  "data": {
+				"type": "text"
+			  },
+			  "content": {
+				  "type": "text",
+				  "analyzer": "ik_max_word"
+			  }
+		  }
+        }
+      }
+  }
+}
+
+
+构造analyzer
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "optimizeIK": {
+          "type": "custom",
+          "tokenizer": "ik",
+          "filter": [
+            "stemmer"
+          ]
+        }
+      }
+    }
+  }
+}
+
+同义词
+curl -XPOST localhost:9200/_aliases -d '  
+{  
+    "actions": [  
+        { "add": {  
+            "alias": "my_index",  
+            "index": "my_index_v1"  
+        }}  
+    ]  
+}  
+'  
+
+elasticsearch.yml ，在后面加一行：
+index.analysis.analyzer.ik.type : "ik"
+
+
+put /_settings
+{
+"index" : {
+        "highlight.max_analyzed_offset" : 100000000
+    }}
+	
+bin/elasticsearch-plugin install file:\\\D:\elk\ingest-attachment-7.9.1.zip
+
+bin/elasticsearch-plugin remove ingest-attachment
+
+/bin/elasticsearch -Xmx4g -Xms4g
