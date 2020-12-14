@@ -513,3 +513,5 @@ bin/elasticsearch-plugin install file:\\\D:\elk\ingest-attachment-7.9.1.zip
 bin/elasticsearch-plugin remove ingest-attachment
 
 /bin/elasticsearch -Xmx4g -Xms4g
+
+将elasticsearch-analysis-ik-7.9.1 解压放入 plugins中，重启

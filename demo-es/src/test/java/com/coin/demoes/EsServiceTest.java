@@ -177,7 +177,7 @@ class EsServiceTest {
         map.put("attachments", attachs);
         System.out.println("JacksonUtil.toJSONString(map) = " + JacksonUtil.toJSONString(map));
 
-        esService.insertDoc("my-index-00002", "attachment", map);
+        esService.insertDoc("single-index-00001", "singleattachment", map);
 
     }
 
@@ -228,7 +228,7 @@ class EsServiceTest {
 //        attachs.add(attach3);
 //        attachs.add(attach4);
 //        attachs.add(attach5);
-        attachs.add(attach6);
+        attachs.add(attach5);
 
 
         map.put("attachments", attachs);
