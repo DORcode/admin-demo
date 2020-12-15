@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-12-15T01:21:51.314Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="neFNpoIXuD135fjh5vYg" version="14.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-15T01:22:15.856Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="3I2AIP2J2ukwMTf1dWXy" version="14.0.1" type="github">
   <diagram id="W7F-pXb3L-fyUlym3gCN" name="Page-1">
     <mxGraphModel dx="1229" dy="580" grid="1" gridSize="22" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2339" pageHeight="3300" background="none" math="0" shadow="0">
       <root>
@@ -78,7 +78,7 @@
         <mxCell id="Of2m18KN_05nrdPBPuww-6" value="" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="Of2m18KN_05nrdPBPuww-42">
           <mxGeometry width="60" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="Of2m18KN_05nrdPBPuww-7" value="" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="Of2m18KN_05nrdPBPuww-42">
+        <mxCell id="Of2m18KN_05nrdPBPuww-7" value="m3db集群" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="Of2m18KN_05nrdPBPuww-42">
           <mxGeometry x="168" width="60" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Of2m18KN_05nrdPBPuww-8" value="" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#b1ddf0;strokeColor=#10739e;" vertex="1" parent="Of2m18KN_05nrdPBPuww-42">
