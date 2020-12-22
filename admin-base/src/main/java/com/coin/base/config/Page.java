@@ -39,4 +39,19 @@ public class Page {
         this.orders = new ArrayList<>();
         this.orders = new ArrayList<>();
     }
+
+    public Page(long current, long size) {
+        this(0, current, size);
+    }
+
+    public Page(long total, long current, long size) {
+        this.total = total;
+        this.current = 1;
+        if (current > 1) {
+            this.current = current;
+        }
+        this.size = size;
+        this.orders = new ArrayList<>();
+        this.orders = new ArrayList<>();
+    }
 }
