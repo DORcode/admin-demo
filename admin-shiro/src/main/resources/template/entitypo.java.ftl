@@ -4,7 +4,7 @@ package ${cfg.parentpackage}.po;
 import ${pkg};
 </#list>
 <#if entityLombokModel>
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import ${cfg.utilpackage}.Page;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
