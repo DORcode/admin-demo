@@ -24,7 +24,7 @@ public class Condition {
     @ApiModelProperty(value="查询条件", required=false)
     private String value;
 
-    @ApiModelProperty(value="匹配规则", required=false, notes = "" +
+    @ApiModelProperty(value="匹配规则", required=false, example = "" +
             "    | EQ        | 等于         | \"string\"、12.11 、\"YYYY-MM-DD HH:mm:ss\"、true |      |\n" +
             "    | NEQ       | 不等于       | \"string\"、12.11 、\"YYYY-MM-DD HH:mm:ss\"、true |      |\n" +
             "    | LIKE      | 包含         | \"string\"                                      |      |\n" +
