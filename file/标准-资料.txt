@@ -18,7 +18,7 @@ http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=41D8BA8A0E12989B33F5CBBCD67239
 信用标准体系总体架构
 http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=36C1B6693901FD919F173E28025EA61B
 
-
+云平台间应用和数据迁移指南
 http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=045A5D34180EF8EA3F010688917E97DF
 
 系统运维和管理功能要求
@@ -50,4 +50,22 @@ http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=ED23B3DEF79BA011E848BC850DD24F
 
 大数据 数据分类指南
 http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=2C4F3A4EC9FFBC80ED85FE4C3C250AA6
+
+大数据 接口基本要求
+http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=ED23B3DEF79BA011E848BC850DD24F0C
+
+大数据系统基本要求
+http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=FB4EBE4526AA0B366E85F0C1E2467DFF
+
+
+大数据安全管理指南
+http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=D16FF5DF1E14AF4D3263C0D8FED78579
+
+
+大数据存储与处理系统功能测试要求
+http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=C23A59B5DEB0375975CFB4ABE0215636
+
+大数据分析系统功能要求
+http://c.gb688.cn/bzgk/gb/showGb?type=online&hcno=234F28EC68ED2676405FC8B8BD1B793A
+
 
