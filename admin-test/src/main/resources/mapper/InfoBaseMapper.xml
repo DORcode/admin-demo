@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coin.admintest.InfoBaseMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.coin.admintest.InfoBase">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+
+        <result column="TITLE" property="title" jdbcType="VARCHAR" />
+        <result column="SUMMARY" property="summary" jdbcType="VARCHAR" />
+        <result column="CONTENT" property="content" jdbcType="LONGVARCHAR" />
+        <result column="AUTHOR" property="author" jdbcType="VARCHAR" />
+        <result column="type_code" property="typeCode" jdbcType="INTEGER" />
+        <result column="TYPE" property="type" jdbcType="VARCHAR" />
+        <result column="SOURCE" property="source" jdbcType="INTEGER" />
+        <result column="index_number" property="indexNumber" jdbcType="VARCHAR" />
+        <result column="issued_number" property="issuedNumber" jdbcType="VARCHAR" />
+        <result column="subject" property="subject" jdbcType="VARCHAR" />
+        <result column="genre" property="genre" jdbcType="VARCHAR" />
+        <result column="issuing_agency" property="issuingAgency" jdbcType="VARCHAR" />
+        <result column="description" property="description" jdbcType="VARCHAR" />
+        <result column="keywords" property="keywords" jdbcType="VARCHAR" />
+        <result column="PIC_ADDRESS" property="picAddress" jdbcType="VARCHAR" />
+        <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+        <result column="HITS" property="hits" jdbcType="INTEGER" />
+        <result column="IS_DELETE" property="isDelete" jdbcType="INTEGER" />
+        <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="RELEASE_TIME" property="releaseTime" jdbcType="TIMESTAMP" />
+        <result column="END_TIME" property="endTime" jdbcType="TIMESTAMP" />
+        <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, TITLE, SUMMARY, CONTENT, AUTHOR, type_code, TYPE, SOURCE, index_number, issued_number, subject, genre, issuing_agency, description, keywords, PIC_ADDRESS, USER_ID, HITS, IS_DELETE, CREATE_TIME, RELEASE_TIME, END_TIME, UPDATE_TIME
+    </sql>
+
+    <insert id="insertSelective" parameterType="com.coin.admintest.InfoBase" >
+        insert into info_base
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+        <if test="id != null">
+            ID,
+        </if>
+        <if test="title != null">
+            TITLE,
+        </if>
+        <if test="summary != null">
+            SUMMARY,
+        </if>
+        <if test="content != null">
+            CONTENT,
+        </if>
+        <if test="author != null">
+            AUTHOR,
+        </if>
+        <if test="typeCode != null">
+            type_code,
+        </if>
+        <if test="type != null">
+            TYPE,
+        </if>
+        <if test="source != null">
+            SOURCE,
+        </if>
+        <if test="indexNumber != null">
+            index_number,
+        </if>
+        <if test="issuedNumber != null">
+            issued_number,
+        </if>
+        <if test="subject != null">
+            subject,
+        </if>
+        <if test="genre != null">
+            genre,
+        </if>
+        <if test="issuingAgency != null">
+            issuing_agency,
+        </if>
+        <if test="description != null">
+            description,
+        </if>
+        <if test="keywords != null">
+            keywords,
+        </if>
+        <if test="picAddress != null">
+            PIC_ADDRESS,
+        </if>
+        <if test="userId != null">
+            USER_ID,
+        </if>
+        <if test="hits != null">
+            HITS,
+        </if>
+        <if test="isDelete != null">
+            IS_DELETE,
+        </if>
+        <if test="createTime != null">
+            CREATE_TIME,
+        </if>
+        <if test="releaseTime != null">
+            RELEASE_TIME,
+        </if>
+        <if test="endTime != null">
+            END_TIME,
+        </if>
+        <if test="updateTime != null">
+            UPDATE_TIME,
+        </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+        <if test="id != null">
+                #{id, jdbcType=VARCHAR},
+        </if>
+        <if test="title != null">
+                #{title, jdbcType=VARCHAR},
+        </if>
+        <if test="summary != null">
+                #{summary, jdbcType=VARCHAR},
+        </if>
+        <if test="content != null">
+                #{content, jdbcType=LONGVARCHAR},
+        </if>
+        <if test="author != null">
+                #{author, jdbcType=VARCHAR},
+        </if>
+        <if test="typeCode != null">
+                #{typeCode, jdbcType=INTEGER},
+        </if>
+        <if test="type != null">
+                #{type, jdbcType=VARCHAR},
+        </if>
+        <if test="source != null">
+                #{source, jdbcType=INTEGER},
+        </if>
+        <if test="indexNumber != null">
+                #{indexNumber, jdbcType=VARCHAR},
+        </if>
+        <if test="issuedNumber != null">
+                #{issuedNumber, jdbcType=VARCHAR},
+        </if>
+        <if test="subject != null">
+                #{subject, jdbcType=VARCHAR},
+        </if>
+        <if test="genre != null">
+                #{genre, jdbcType=VARCHAR},
+        </if>
+        <if test="issuingAgency != null">
+                #{issuingAgency, jdbcType=VARCHAR},
+        </if>
+        <if test="description != null">
+                #{description, jdbcType=VARCHAR},
+        </if>
+        <if test="keywords != null">
+                #{keywords, jdbcType=VARCHAR},
+        </if>
+        <if test="picAddress != null">
+                #{picAddress, jdbcType=VARCHAR},
+        </if>
+        <if test="userId != null">
+                #{userId, jdbcType=VARCHAR},
+        </if>
+        <if test="hits != null">
+                #{hits, jdbcType=INTEGER},
+        </if>
+        <if test="isDelete != null">
+                #{isDelete, jdbcType=INTEGER},
+        </if>
+        <if test="createTime != null">
+                #{createTime, jdbcType=TIMESTAMP},
+        </if>
+        <if test="releaseTime != null">
+                #{releaseTime, jdbcType=TIMESTAMP},
+        </if>
+        <if test="endTime != null">
+                #{endTime, jdbcType=TIMESTAMP},
+        </if>
+        <if test="updateTime != null">
+                #{updateTime, jdbcType=TIMESTAMP},
+        </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.coin.admintest.InfoBase">
+        update info_base
+        <set>
+            <if test="title != null">
+                TITLE = #{title, jdbcType=VARCHAR},
+            </if>
+            <if test="summary != null">
+                SUMMARY = #{summary, jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                CONTENT = #{content, jdbcType=LONGVARCHAR},
+            </if>
+            <if test="author != null">
+                AUTHOR = #{author, jdbcType=VARCHAR},
+            </if>
+            <if test="typeCode != null">
+                type_code = #{typeCode, jdbcType=INTEGER},
+            </if>
+            <if test="type != null">
+                TYPE = #{type, jdbcType=VARCHAR},
+            </if>
+            <if test="source != null">
+                SOURCE = #{source, jdbcType=INTEGER},
+            </if>
+            <if test="indexNumber != null">
+                index_number = #{indexNumber, jdbcType=VARCHAR},
+            </if>
+            <if test="issuedNumber != null">
+                issued_number = #{issuedNumber, jdbcType=VARCHAR},
+            </if>
+            <if test="subject != null">
+                subject = #{subject, jdbcType=VARCHAR},
+            </if>
+            <if test="genre != null">
+                genre = #{genre, jdbcType=VARCHAR},
+            </if>
+            <if test="issuingAgency != null">
+                issuing_agency = #{issuingAgency, jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description, jdbcType=VARCHAR},
+            </if>
+            <if test="keywords != null">
+                keywords = #{keywords, jdbcType=VARCHAR},
+            </if>
+            <if test="picAddress != null">
+                PIC_ADDRESS = #{picAddress, jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                USER_ID = #{userId, jdbcType=VARCHAR},
+            </if>
+            <if test="hits != null">
+                HITS = #{hits, jdbcType=INTEGER},
+            </if>
+            <if test="isDelete != null">
+                IS_DELETE = #{isDelete, jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME = #{createTime, jdbcType=TIMESTAMP},
+            </if>
+            <if test="releaseTime != null">
+                RELEASE_TIME = #{releaseTime, jdbcType=TIMESTAMP},
+            </if>
+            <if test="endTime != null">
+                END_TIME = #{endTime, jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME = #{updateTime, jdbcType=TIMESTAMP},
+            </if>
+        </set>
+            where  ID = #{id, jdbcType=VARCHAR}
+    </update>
+</mapper>

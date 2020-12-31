@@ -15,6 +15,17 @@ import java.util.Map;
 public class Types {
 
     public static void main(String[] args) throws NoSuchMethodException {
+
+        for (int i = 0; i < 100; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (j == 0) {
+                    break;
+                }
+            }
+
+            System.out.printf("跳出内层%d\n", i);
+
+        }
         User user = new User();
         TypeVariable<? extends Class<? extends User>>[] typeParameters = user.getClass().getTypeParameters();
         System.out.printf("1-------",typeParameters);
@@ -53,7 +64,6 @@ public class Types {
                 System.out.println("------------");
             }
         }
-
 
     }
 
