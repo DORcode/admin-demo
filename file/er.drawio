@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-05T06:53:42.718Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="JO9LF4JAIgwNV_Bv4UZb" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-05T06:54:27.884Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="35ybF8lb9dybqnHNLTiJ" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="905" dy="1618" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -600,7 +600,7 @@
             <mxPoint y="-20" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-189" value="水库堤防信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-189" value="水库堤防基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
           <mxGeometry x="690" y="1080" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="JBPR91uLXjd6IZqAXIdJ-190" value="水库堤防关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
@@ -613,6 +613,23 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="JBPR91uLXjd6IZqAXIdJ-192" value="1" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-191">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-193" value="水库水闸基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
+          <mxGeometry x="830" y="1080" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-194" value="水库水闸关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
+          <mxGeometry x="820" y="940" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-195" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="JBPR91uLXjd6IZqAXIdJ-194" target="JBPR91uLXjd6IZqAXIdJ-193" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1040" y="1090" as="sourcePoint" />
+            <mxPoint x="1200" y="1090" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-196" value="1" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-195">
           <mxGeometry x="1" relative="1" as="geometry">
             <mxPoint y="-20" as="offset" />
           </mxGeometry>
