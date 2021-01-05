@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-05T08:37:00.776Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="PItpPBQC1T4-FG8FLNVb" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-05T08:37:52.826Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="wFxOmGdSO6KE4t1ZGfCt" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="1673" dy="2174" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1920" pageHeight="1200" background="none" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -1133,10 +1133,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="JBPR91uLXjd6IZqAXIdJ-391" value="湖泊动态汇总信息表" style="shape=ext;margin=3;double=1;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1650" y="700.02" width="100" height="39.98" as="geometry" />
+          <mxGeometry x="1691.5" y="700.02" width="100" height="39.98" as="geometry" />
         </mxCell>
         <mxCell id="JBPR91uLXjd6IZqAXIdJ-392" value="汇总" style="shape=rhombus;double=1;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontSize=8;" vertex="1" parent="1">
-          <mxGeometry x="1640" y="600" width="120" height="60" as="geometry" />
+          <mxGeometry x="1681.5" y="600" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="JBPR91uLXjd6IZqAXIdJ-393" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="JBPR91uLXjd6IZqAXIdJ-341" target="JBPR91uLXjd6IZqAXIdJ-392" parent="1">
           <mxGeometry relative="1" as="geometry">
@@ -1151,8 +1151,8 @@
         </mxCell>
         <mxCell id="JBPR91uLXjd6IZqAXIdJ-405" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="JBPR91uLXjd6IZqAXIdJ-392" target="JBPR91uLXjd6IZqAXIdJ-391" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1746" y="690" as="sourcePoint" />
-            <mxPoint x="1906" y="690" as="targetPoint" />
+            <mxPoint x="1787.5" y="690" as="sourcePoint" />
+            <mxPoint x="1947.5" y="690" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="JBPR91uLXjd6IZqAXIdJ-406" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-405">
@@ -1800,97 +1800,6 @@
             <mxPoint x="10" y="40" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-440" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=6;opacity=10;" vertex="1" parent="1">
-          <mxGeometry x="1130" y="660" width="490" height="180" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-441" value="生态保护区基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1342.5735294117646" y="786" width="72.05882352941178" height="36" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-442" value="生态保护区湖泊关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1335.3676470588236" y="678" width="86.47058823529413" height="72" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-443" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="JBPR91uLXjd6IZqAXIdJ-442" target="JBPR91uLXjd6IZqAXIdJ-441">
-          <mxGeometry x="1130" y="660" as="geometry">
-            <mxPoint x="1493.8970588235295" y="795" as="sourcePoint" />
-            <mxPoint x="1609.1911764705883" y="795" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-444" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-443">
-          <mxGeometry x="1" relative="1" as="geometry">
-            <mxPoint y="-12" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-445" value="堤防基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1436.25" y="786" width="72.05882352941178" height="36" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-446" value="堤防湖泊关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1429.0441176470588" y="678" width="86.47058823529413" height="72" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-447" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="JBPR91uLXjd6IZqAXIdJ-446" target="JBPR91uLXjd6IZqAXIdJ-445">
-          <mxGeometry x="1130" y="660" as="geometry">
-            <mxPoint x="1587.5735294117649" y="795" as="sourcePoint" />
-            <mxPoint x="1702.8676470588234" y="795" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="1472.2794117647059" y="750" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-448" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-447">
-          <mxGeometry x="1" relative="1" as="geometry">
-            <mxPoint y="-12" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-449" value="水闸基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1529.9264705882354" y="786" width="72.05882352941178" height="36" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-450" value="水闸湖泊关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1522.7205882352941" y="678" width="86.47058823529413" height="72" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-451" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="JBPR91uLXjd6IZqAXIdJ-450" target="JBPR91uLXjd6IZqAXIdJ-449">
-          <mxGeometry x="1130" y="660" as="geometry">
-            <mxPoint x="1681.25" y="795" as="sourcePoint" />
-            <mxPoint x="1796.544117647059" y="795" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-452" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-451">
-          <mxGeometry x="1" relative="1" as="geometry">
-            <mxPoint y="-12" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-453" value="泵站基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1151.6176470588234" y="786" width="72.05882352941178" height="36" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-454" value="泵站湖泊关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1144.4117647058824" y="678" width="86.47058823529413" height="72" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-455" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="JBPR91uLXjd6IZqAXIdJ-454" target="JBPR91uLXjd6IZqAXIdJ-453">
-          <mxGeometry x="1130" y="660" as="geometry">
-            <mxPoint x="1302.9411764705883" y="795" as="sourcePoint" />
-            <mxPoint x="1418.235294117647" y="795" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-456" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-455">
-          <mxGeometry x="1" relative="1" as="geometry">
-            <mxPoint y="-12" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-457" value="临湖建筑物基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1245.2941176470588" y="786" width="72.05882352941178" height="36" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-458" value="临湖建筑物湖泊关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
-          <mxGeometry x="1238.0882352941176" y="678" width="86.47058823529413" height="72" as="geometry" />
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-459" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="JBPR91uLXjd6IZqAXIdJ-458" target="JBPR91uLXjd6IZqAXIdJ-457">
-          <mxGeometry x="1130" y="660" as="geometry">
-            <mxPoint x="1396.6176470588236" y="795" as="sourcePoint" />
-            <mxPoint x="1511.9117647058824" y="795" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="JBPR91uLXjd6IZqAXIdJ-460" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-459">
-          <mxGeometry x="1" relative="1" as="geometry">
-            <mxPoint y="-12" as="offset" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="JBPR91uLXjd6IZqAXIdJ-829" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="JBPR91uLXjd6IZqAXIdJ-341" target="JBPR91uLXjd6IZqAXIdJ-324">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="2020" y="450" as="sourcePoint" />
@@ -2036,6 +1945,100 @@
         <mxCell id="JBPR91uLXjd6IZqAXIdJ-650" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-649">
           <mxGeometry x="1" relative="1" as="geometry">
             <mxPoint y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-849" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="1180" y="620" width="490" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-440" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=6;opacity=10;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry width="490" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-441" value="生态保护区基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry x="212.57352941176464" y="126" width="72.05882352941178" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-442" value="生态保护区湖泊关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry x="205.36764705882365" y="18" width="86.47058823529413" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-443" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="JBPR91uLXjd6IZqAXIdJ-849" source="JBPR91uLXjd6IZqAXIdJ-442" target="JBPR91uLXjd6IZqAXIdJ-441">
+          <mxGeometry as="geometry">
+            <mxPoint x="363.8970588235295" y="135" as="sourcePoint" />
+            <mxPoint x="479.1911764705883" y="135" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-444" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-443">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-445" value="堤防基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry x="306.25" y="126" width="72.05882352941178" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-446" value="堤防湖泊关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry x="299.0441176470588" y="18" width="86.47058823529413" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-447" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="JBPR91uLXjd6IZqAXIdJ-849" source="JBPR91uLXjd6IZqAXIdJ-446" target="JBPR91uLXjd6IZqAXIdJ-445">
+          <mxGeometry as="geometry">
+            <mxPoint x="457.57352941176487" y="135" as="sourcePoint" />
+            <mxPoint x="572.8676470588234" y="135" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="342.27941176470586" y="90" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-448" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-447">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-449" value="水闸基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry x="399.92647058823536" y="126" width="72.05882352941178" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-450" value="水闸湖泊关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry x="392.72058823529414" y="18" width="86.47058823529413" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-451" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="JBPR91uLXjd6IZqAXIdJ-849" source="JBPR91uLXjd6IZqAXIdJ-450" target="JBPR91uLXjd6IZqAXIdJ-449">
+          <mxGeometry as="geometry">
+            <mxPoint x="551.25" y="135" as="sourcePoint" />
+            <mxPoint x="666.544117647059" y="135" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-452" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-451">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-453" value="泵站基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry x="21.617647058823422" y="126" width="72.05882352941178" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-454" value="泵站湖泊关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry x="14.411764705882433" y="18" width="86.47058823529413" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-455" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="JBPR91uLXjd6IZqAXIdJ-849" source="JBPR91uLXjd6IZqAXIdJ-454" target="JBPR91uLXjd6IZqAXIdJ-453">
+          <mxGeometry as="geometry">
+            <mxPoint x="172.9411764705883" y="135" as="sourcePoint" />
+            <mxPoint x="288.2352941176471" y="135" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-456" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-455">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-457" value="临湖建筑物基础信息表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry x="115.29411764705878" y="126" width="72.05882352941178" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-458" value="临湖建筑物湖泊关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-849">
+          <mxGeometry x="108.08823529411757" y="18" width="86.47058823529413" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-459" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="JBPR91uLXjd6IZqAXIdJ-849" source="JBPR91uLXjd6IZqAXIdJ-458" target="JBPR91uLXjd6IZqAXIdJ-457">
+          <mxGeometry as="geometry">
+            <mxPoint x="266.61764705882365" y="135" as="sourcePoint" />
+            <mxPoint x="381.91176470588243" y="135" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-460" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-459">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
