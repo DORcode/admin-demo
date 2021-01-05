@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-05T06:28:35.531Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="o9Mrn_Ycqh-OsXNWozqZ" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-05T06:30:03.583Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="A_vq0HYEm0nsvsaYzD2w" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="905" dy="718" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -372,6 +372,32 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="JBPR91uLXjd6IZqAXIdJ-119" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-118">
+          <mxGeometry x="1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-120" value="拦河建筑物河段关联表" style="whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
+          <mxGeometry x="210" y="1220" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-121" value="拦河建筑物河段关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontSize=6;" vertex="1" parent="1">
+          <mxGeometry x="200" y="1080" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-122" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="JBPR91uLXjd6IZqAXIdJ-121" target="JBPR91uLXjd6IZqAXIdJ-120" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="1230" as="sourcePoint" />
+            <mxPoint x="580" y="1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-123" value="1" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-122">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-124" value="" style="endArrow=none;html=1;rounded=0;fontSize=6;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="JBPR91uLXjd6IZqAXIdJ-8" target="JBPR91uLXjd6IZqAXIdJ-121">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="270" y="1040" as="sourcePoint" />
+            <mxPoint x="430" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="JBPR91uLXjd6IZqAXIdJ-125" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="JBPR91uLXjd6IZqAXIdJ-124">
           <mxGeometry x="1" relative="1" as="geometry" />
         </mxCell>
       </root>
