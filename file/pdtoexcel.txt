@@ -135,7 +135,8 @@ Output "================================"
 'sheet.Range(sheet.cells(rowsNum, 5),sheet.cells(rowsNum, 6)).Merge
 
 rowsNum = rowsNum + 1
-
+sheet.cells(rowsNum-1, 1) = tab.name
+sheet.cells(rowsNum-1, 2) = tab.comment
 sheet.cells(rowsNum, 1) = "序号"
 
 'sheet.cells(rowsNum, 2) = "说明"
