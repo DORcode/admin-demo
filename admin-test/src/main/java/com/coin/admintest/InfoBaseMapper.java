@@ -16,8 +16,8 @@ import java.util.List;
 @Mapper
 public interface InfoBaseMapper {
 
-    @Select("select * from info_base")
-    List<InfoBase> selectList();
+    @Select("select * from info_base where id=#{id}")
+    List<InfoBase> selectList(String id);
 
     /**
     * @MethodName insertSelective

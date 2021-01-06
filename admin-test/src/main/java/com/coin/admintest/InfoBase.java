@@ -14,52 +14,50 @@ import java.time.LocalDateTime;
 * @Date 2020-10-20
 * @Version V1.0
 */
-@Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
 public class InfoBase implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private String id;
-
-    private String title;
-
-    private String summary;
-    private String content;
-
-    private String author;
     private Integer typeCode;
-
-    private String type;
     private Integer source;
-
-    private String indexNumber;
-
-    private String issuedNumber;
-
-    private String subject;
-
-    private String genre;
-
-    private String issuingAgency;
-
-    private String description;
-
-    private String keywords;
-
-    private String picAddress;
-
-    private String userId;
-
-    private Integer hits;
-
-    private Integer isDelete;
 
     private LocalDateTime createTime;
 
-    private LocalDateTime releaseTime;
-    private LocalDateTime endTime;
 
-    private LocalDateTime updateTime;
+    public String getId(String id) {
+        return id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getTypeCode() {
+        return typeCode;
+    }
+
+    public void setTypeCode(Integer typeCode) {
+        this.typeCode = typeCode;
+    }
+
+    public Integer getSource() {
+        return source;
+    }
+
+    public void setSource(Integer source) {
+        this.source = source;
+    }
+
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
 }

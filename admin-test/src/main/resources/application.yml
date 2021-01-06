@@ -18,8 +18,8 @@ spring:
       connection-test-query: select 1 from dual
 
 mybatis:
-  mapper-locations: classpath:mapping/*Mapper.xml
-  #type-aliases-package: com.example.domain.model
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.coin.admintest
   #type-handlers-package: com.example.typehandler
   configuration:
     map-underscore-to-camel-case: true

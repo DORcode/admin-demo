@@ -2,9 +2,12 @@ package com.coin;
 
 import com.coin.admintest.InfoBase;
 import com.coin.admintest.InfoBaseMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 /**
  * @ClassName TestMapper
@@ -14,6 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @Version V1.0
  **/
 @SpringBootTest
+@Slf4j
 public class TestMapper {
 
     @Autowired
@@ -22,9 +26,10 @@ public class TestMapper {
 
     @Test
     public void test() {
-        InfoBase infoBase = new InfoBase();
-        infoBase.setAuthor("张");
-        infoBaseMapper.insertSelective(infoBase);
+        List<InfoBase> infoBases = infoBaseMapper.selectList("1");
+
+        log.debug(infoBases.toString());
+
     }
 
 }
