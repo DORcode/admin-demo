@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-07T07:09:31.839Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="kSEtIznxeP1x9detGdBU" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-07T07:39:54.940Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="H2kfYo4FQO9h6O06icJn" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="984" dy="684" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -80,7 +80,19 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="ETopGWIWWFFzmafr7ryn-19" value="水厂基本信息表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="40" y="520" width="100" height="40" as="geometry" />
+          <mxGeometry x="40" y="580" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-20" value="水厂基本信息表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="270" y="580" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-21" value="水厂取水口信息表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="680" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-22" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.58;entryY=-0.025;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ETopGWIWWFFzmafr7ryn-19" target="ETopGWIWWFFzmafr7ryn-21">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="170" y="920" as="sourcePoint" />
+            <mxPoint x="270" y="820" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
