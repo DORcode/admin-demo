@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-01-07T07:58:38.944Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="YWSi1lAgFUtUUOhB1aJT" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-07T09:25:48.373Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="QlmmX9V75G4a7vg-4_Gx" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="984" dy="684" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="820" dy="570" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -68,16 +68,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="ETopGWIWWFFzmafr7ryn-19" value="水厂基本信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="120" y="540" width="100" height="40" as="geometry" />
+          <mxGeometry x="120" y="476" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="ETopGWIWWFFzmafr7ryn-21" value="水厂取水口信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="120" y="640" width="100" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="ETopGWIWWFFzmafr7ryn-22" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=14;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=仿宋;" edge="1" parent="1" source="ETopGWIWWFFzmafr7ryn-19">
-          <mxGeometry width="100" height="100" relative="1" as="geometry">
-            <mxPoint x="250" y="880" as="sourcePoint" />
-            <mxPoint x="170" y="639" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="ETopGWIWWFFzmafr7ryn-27" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=14;html=1;endArrow=ERzeroToMany;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="ETopGWIWWFFzmafr7ryn-13" target="ETopGWIWWFFzmafr7ryn-16">
           <mxGeometry width="100" height="100" relative="1" as="geometry">
@@ -94,11 +88,32 @@
         <mxCell id="ETopGWIWWFFzmafr7ryn-29" value="水厂取水口水位数据表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="120" y="752" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="ETopGWIWWFFzmafr7ryn-30" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ETopGWIWWFFzmafr7ryn-21" target="ETopGWIWWFFzmafr7ryn-29">
+        <mxCell id="ETopGWIWWFFzmafr7ryn-30" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="ETopGWIWWFFzmafr7ryn-21" target="ETopGWIWWFFzmafr7ryn-29">
           <mxGeometry width="100" height="100" relative="1" as="geometry">
             <mxPoint x="252" y="930" as="sourcePoint" />
             <mxPoint x="352" y="830" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-31" value="水厂与取水口关系表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="100" y="546" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-32" value="" style="endArrow=none;html=1;rounded=0;fontFamily=仿宋;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="ETopGWIWWFFzmafr7ryn-19" target="ETopGWIWWFFzmafr7ryn-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="322" y="563" as="sourcePoint" />
+            <mxPoint x="482" y="563" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-33" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="ETopGWIWWFFzmafr7ryn-32">
+          <mxGeometry x="1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-34" value="" style="endArrow=none;html=1;rounded=0;fontFamily=仿宋;fontSize=14;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="ETopGWIWWFFzmafr7ryn-31" target="ETopGWIWWFFzmafr7ryn-21">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="314" y="604" as="sourcePoint" />
+            <mxPoint x="474" y="604" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-35" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="ETopGWIWWFFzmafr7ryn-34">
+          <mxGeometry x="1" relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
