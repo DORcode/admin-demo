@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-07T09:25:48.373Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="QlmmX9V75G4a7vg-4_Gx" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-07T10:35:55.440Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="pDnDkINMhhMZ8OOS2Jld" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="820" dy="570" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -113,6 +113,33 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="ETopGWIWWFFzmafr7ryn-35" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="ETopGWIWWFFzmafr7ryn-34">
+          <mxGeometry x="1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-36" value="用户" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="513" y="908" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-37" value="部门" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="199" y="908" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-38" value="用户部门关联表" style="shape=associativeEntity;whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="336" y="898" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-39" value="" style="endArrow=none;html=1;rounded=0;fontFamily=仿宋;fontSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ETopGWIWWFFzmafr7ryn-37" target="ETopGWIWWFFzmafr7ryn-38">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="337" y="973" as="sourcePoint" />
+            <mxPoint x="497" y="973" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-40" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="ETopGWIWWFFzmafr7ryn-39">
+          <mxGeometry x="1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-41" value="" style="endArrow=none;html=1;rounded=0;fontFamily=仿宋;fontSize=14;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="ETopGWIWWFFzmafr7ryn-38" target="ETopGWIWWFFzmafr7ryn-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="532" y="970" as="sourcePoint" />
+            <mxPoint x="692" y="970" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ETopGWIWWFFzmafr7ryn-42" value="N" style="resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="ETopGWIWWFFzmafr7ryn-41">
           <mxGeometry x="1" relative="1" as="geometry" />
         </mxCell>
       </root>
