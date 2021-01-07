@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-07T00:04:25.148Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="oxxGlVMARbKr49rrrn5T" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-07T00:05:12.778Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="LYfhFVMPor0nin2X3SuW" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="984" dy="684" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -83,6 +83,12 @@
         </mxCell>
         <mxCell id="tR4LGc_wkCAK7GT1lzOk-24" value="取水口预警规则" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
           <mxGeometry x="160" y="790" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-1" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="tR4LGc_wkCAK7GT1lzOk-20">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="210" y="790" as="sourcePoint" />
+            <mxPoint x="360" y="860" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
