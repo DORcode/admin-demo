@@ -1,10 +1,10 @@
-<mxfile host="app.diagrams.net" modified="2021-01-08T07:51:02.911Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="IlWb5VphrdGKf8c1rpOK" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-08T07:52:38.350Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="c6x6GkkE4dsRPZVL6nfX" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="614" dy="2489" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="e_-otAbNgzu8_Yu5JfUF-1" value="用户单位基本信息表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-1" value="用水单位基本信息表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
           <mxGeometry x="121" y="-1638" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="e_-otAbNgzu8_Yu5JfUF-2" value="用水性质比例分配表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
@@ -14,6 +14,24 @@
           <mxGeometry width="100" height="100" relative="1" as="geometry">
             <mxPoint x="166" y="-1428" as="sourcePoint" />
             <mxPoint x="266" y="-1528" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-4" value="水表信息表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="121" y="-1492" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-5" value="" style="fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-4">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="231" y="-1301" as="sourcePoint" />
+            <mxPoint x="331" y="-1401" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-6" value="用水单位信息更改表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="340" y="-1494" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-7" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-6">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="283" y="-1315" as="sourcePoint" />
+            <mxPoint x="383" y="-1415" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
