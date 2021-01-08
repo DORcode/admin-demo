@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-01-07T06:30:51.454Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="j1apM1UL2j35Z8kBKey2" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-08T06:19:29.888Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="8QYeTyJzmgf67ETgylRX" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="984" dy="684" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="984" dy="89" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -78,6 +78,57 @@
             <mxPoint x="210" y="790" as="sourcePoint" />
             <mxPoint x="360" y="860" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-2" value="降雨量" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="960" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-3" value="河道水位" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="377" y="960" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-4" value="水库水位" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="602" y="960" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-5" value="视频监测站点" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="1072" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-6" value="水质数据" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="377" y="1072" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-7" value="预警信息" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="602" y="1072" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-8" value="雨量1小时降雨量统计表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="1172" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-9" value="监测站点" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="377" y="1176" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-10" value="监测站点监测指标" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="602" y="1172" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-11" value="监测设备表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="1255" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-12" value="供水站基础信息表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="375" y="1255" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-13" value="供水单位基础信息" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="602" y="1253" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-14" value="供水站人员信息" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="160" y="1347" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-16" value="巡检记录表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="375" y="1345" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-17" value="用水库信息" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="602" y="1345" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-18" value="检修信息" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="602" y="1433" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nlmW128QRvMNPVGI3ugg-19" value="在线自动监测" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="377" y="1433" width="100" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
