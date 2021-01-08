@@ -1,37 +1,152 @@
-<mxfile host="app.diagrams.net" modified="2021-01-08T07:52:38.350Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="c6x6GkkE4dsRPZVL6nfX" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-08T08:16:10.755Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="_CZuCitlQKGLtChQY12c" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="614" dy="2489" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="601" dy="2483" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="e_-otAbNgzu8_Yu5JfUF-1" value="用水单位基本信息表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="121" y="-1638" width="100" height="40" as="geometry" />
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-1" value="用水单位基本信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="317" y="-1642" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="e_-otAbNgzu8_Yu5JfUF-2" value="用水性质比例分配表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="333" y="-1638" width="100" height="40" as="geometry" />
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-2" value="用水性质比例分配表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="529" y="-1642" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="e_-otAbNgzu8_Yu5JfUF-3" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-2">
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-3" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-2">
           <mxGeometry width="100" height="100" relative="1" as="geometry">
-            <mxPoint x="166" y="-1428" as="sourcePoint" />
-            <mxPoint x="266" y="-1528" as="targetPoint" />
+            <mxPoint x="362" y="-1432" as="sourcePoint" />
+            <mxPoint x="462" y="-1532" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="e_-otAbNgzu8_Yu5JfUF-4" value="水表信息表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="121" y="-1492" width="100" height="40" as="geometry" />
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-4" value="水表信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="317" y="-1496" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="e_-otAbNgzu8_Yu5JfUF-5" value="" style="fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-4">
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-5" value="" style="fontSize=12;html=1;endArrow=ERzeroToMany;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-4">
           <mxGeometry width="100" height="100" relative="1" as="geometry">
-            <mxPoint x="231" y="-1301" as="sourcePoint" />
-            <mxPoint x="331" y="-1401" as="targetPoint" />
+            <mxPoint x="427" y="-1305" as="sourcePoint" />
+            <mxPoint x="527" y="-1405" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="e_-otAbNgzu8_Yu5JfUF-6" value="用水单位信息更改表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="340" y="-1494" width="100" height="40" as="geometry" />
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-6" value="用水单位信息更改表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="536" y="-1498" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="e_-otAbNgzu8_Yu5JfUF-7" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-6">
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-7" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-6">
           <mxGeometry width="100" height="100" relative="1" as="geometry">
-            <mxPoint x="283" y="-1315" as="sourcePoint" />
-            <mxPoint x="383" y="-1415" as="targetPoint" />
+            <mxPoint x="479" y="-1319" as="sourcePoint" />
+            <mxPoint x="579" y="-1419" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-8" value="用水性质比例分配更改表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="529" y="-1768" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-9" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-2" target="e_-otAbNgzu8_Yu5JfUF-8">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="508" y="-1618" as="sourcePoint" />
+            <mxPoint x="608" y="-1718" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-10" value="供水企业基本信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="321" y="-1259" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-11" value="供水企业阶梯收费信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="540" y="-1259" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-12" value="供水企业抄表收费信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="321" y="-1142" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-13" value="水厂信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="533" y="-1142" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-14" value="计划用水核定表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="321" y="-1429" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-15" value="初始计划用水量信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="536" y="-1429" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-16" value="计划用水调整记录表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="536" y="-1351" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-17" value="计划用水基本系数表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="317" y="-1747" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-18" value="计划用水基本系数调整表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="317" y="-1858" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-19" value="实际用水信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="105" y="-1642" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-20" value="实际用水变化信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="105" y="-1737" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-22" value="超计划用水警告信息表" style="whiteSpace=wrap;html=1;align=center;fontFamily=仿宋;" vertex="1" parent="1">
+          <mxGeometry x="105" y="-1521" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-23" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-10" target="e_-otAbNgzu8_Yu5JfUF-11">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="503" y="-1120" as="sourcePoint" />
+            <mxPoint x="603" y="-1220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-24" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-10" target="e_-otAbNgzu8_Yu5JfUF-12">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="459" y="-1096" as="sourcePoint" />
+            <mxPoint x="559" y="-1196" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-25" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-14">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="236" y="-1391" as="sourcePoint" />
+            <mxPoint x="336" y="-1491" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-26" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.62;exitY=0.975;exitDx=0;exitDy=0;exitPerimeter=0;elbow=vertical;entryX=0;entryY=0;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-15">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="425" y="-1292" as="sourcePoint" />
+            <mxPoint x="525" y="-1392" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-27" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-15" target="e_-otAbNgzu8_Yu5JfUF-16">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="737" y="-1350" as="sourcePoint" />
+            <mxPoint x="837" y="-1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-28" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-1" target="e_-otAbNgzu8_Yu5JfUF-17">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="465" y="-1600" as="sourcePoint" />
+            <mxPoint x="565" y="-1700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-29" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-17" target="e_-otAbNgzu8_Yu5JfUF-18">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="481" y="-1776" as="sourcePoint" />
+            <mxPoint x="581" y="-1876" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-30" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=仿宋;" edge="1" parent="1" target="e_-otAbNgzu8_Yu5JfUF-19">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="311" y="-1622" as="sourcePoint" />
+            <mxPoint x="159" y="-1544" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-32" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-20" target="e_-otAbNgzu8_Yu5JfUF-1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="-8" y="-1551" as="sourcePoint" />
+            <mxPoint x="92" y="-1651" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-33" value="" style="fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-22" target="e_-otAbNgzu8_Yu5JfUF-19">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="-20" y="-1470" as="sourcePoint" />
+            <mxPoint x="80" y="-1570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_-otAbNgzu8_Yu5JfUF-34" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;" edge="1" parent="1" source="e_-otAbNgzu8_Yu5JfUF-22" target="e_-otAbNgzu8_Yu5JfUF-15">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="114" y="-1309" as="sourcePoint" />
+            <mxPoint x="214" y="-1409" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="155" y="-1362" />
+              <mxPoint x="586" y="-1362" />
+            </Array>
           </mxGeometry>
         </mxCell>
       </root>
