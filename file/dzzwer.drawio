@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-11T03:35:14.832Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="z5LLymOS4bhwZrclXxxr" version="14.1.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-11T03:37:52.063Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="Vy4qPMOneNIvE0Lvn71t" version="14.1.8" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
     <mxGraphModel dx="860" dy="483" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
@@ -16,11 +16,53 @@
             <mxPoint x="363" y="148" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="MvNMtzte3DQy94AyBWWQ-4" value="文件表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="137" y="117" width="100" height="40" as="geometry" />
-        </mxCell>
         <mxCell id="MvNMtzte3DQy94AyBWWQ-5" value="短信表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
-          <mxGeometry x="137" y="199" width="100" height="40" as="geometry" />
+          <mxGeometry x="137" y="159" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MvNMtzte3DQy94AyBWWQ-6" value="发文管理&amp;nbsp;表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="137" y="225" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MvNMtzte3DQy94AyBWWQ-7" value="发文件工作人员关联表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="321" y="225" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MvNMtzte3DQy94AyBWWQ-8" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="MvNMtzte3DQy94AyBWWQ-6" target="MvNMtzte3DQy94AyBWWQ-7">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="353" y="402" as="sourcePoint" />
+            <mxPoint x="453" y="302" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MvNMtzte3DQy94AyBWWQ-9" value="附件表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="321" y="314" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MvNMtzte3DQy94AyBWWQ-10" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="MvNMtzte3DQy94AyBWWQ-6" target="MvNMtzte3DQy94AyBWWQ-9">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="79" y="457" as="sourcePoint" />
+            <mxPoint x="179" y="357" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MvNMtzte3DQy94AyBWWQ-12" value="收文管理表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="131" y="427" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MvNMtzte3DQy94AyBWWQ-13" value="收文工作人员关联表" style="whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="321" y="427" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="MvNMtzte3DQy94AyBWWQ-14" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="MvNMtzte3DQy94AyBWWQ-12" target="MvNMtzte3DQy94AyBWWQ-13">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="170" y="616" as="sourcePoint" />
+            <mxPoint x="270" y="516" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MvNMtzte3DQy94AyBWWQ-15" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="MvNMtzte3DQy94AyBWWQ-12" target="MvNMtzte3DQy94AyBWWQ-9">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="89" y="397" as="sourcePoint" />
+            <mxPoint x="189" y="297" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MvNMtzte3DQy94AyBWWQ-16" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="MvNMtzte3DQy94AyBWWQ-13" target="MvNMtzte3DQy94AyBWWQ-9">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="476" y="601" as="sourcePoint" />
+            <mxPoint x="576" y="501" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
