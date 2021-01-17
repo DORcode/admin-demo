@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-17T09:10:45.398Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="oE3riGV4D48Q7AQdlRGt" version="14.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-17T09:12:35.757Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="aj81m9gOMpFzrhk333Ga" version="14.2.4" type="github">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
     <mxGraphModel dx="1220" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
       <root>
@@ -361,6 +361,27 @@
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-33" value="监控" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFB2A6;fontSize=16;fillColor=#FFB2A6;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="268" y="1430" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-34" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fillColor=#FFB2A6;arcSize=3;strokeColor=#FFB2A6;" vertex="1" parent="1">
+          <mxGeometry x="247" y="1490" width="162" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-35" value="生命周期" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFB2A6;fontSize=16;fillColor=#FF7C0A;" vertex="1" parent="1">
+          <mxGeometry x="268" y="1500" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-36" value="合规检查" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFB2A6;fontSize=16;fillColor=#FF7C0A;" vertex="1" parent="1">
+          <mxGeometry x="268" y="1540" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-37" value="计费管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFB2A6;fontSize=16;fillColor=#FF7C0A;" vertex="1" parent="1">
+          <mxGeometry x="268" y="1580" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-38" value="容量规划" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFB2A6;fontSize=16;fillColor=#FF7C0A;" vertex="1" parent="1">
+          <mxGeometry x="268" y="1620" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-39" value="运维" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFB2A6;fontSize=16;fillColor=#FFB2A6;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="268" y="1710" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-40" value="问题分析" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFB2A6;fontSize=16;fillColor=#FF7C0A;" vertex="1" parent="1">
+          <mxGeometry x="268" y="1660" width="120" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
