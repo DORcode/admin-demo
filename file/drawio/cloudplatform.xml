@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-17T11:31:51.247Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="kqmd8YUHf_gdGZgjoezJ" version="14.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-17T11:34:57.218Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="MIwTTwM6WrH7glsTSouu" version="14.2.4" type="github">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
     <mxGraphModel dx="1103" dy="620" grid="1" gridSize="15" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
       <root>
@@ -377,7 +377,7 @@
         <mxCell id="2X-f57n_7fLFXhu9bXy1-151" value="分布式文件&lt;br&gt;系统" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fillColor=#F08137;fontSize=16;fontColor=#333333;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-137">
           <mxGeometry x="420" y="114.50999999999999" width="90" height="41.25" as="geometry" />
         </mxCell>
-        <mxCell id="2X-f57n_7fLFXhu9bXy1-152" value="文件&lt;br&gt;存&lt;br&gt;储&lt;br&gt;管&lt;br&gt;理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#F0C29E;fontStyle=1" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-137">
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-152" value="云存在管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#F0C29E;fontStyle=1" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-137">
           <mxGeometry x="525" y="82.63" width="30" height="105" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-154" value="" style="group" vertex="1" connectable="0" parent="2X-f57n_7fLFXhu9bXy1-137">
@@ -398,7 +398,7 @@
         <mxCell id="2X-f57n_7fLFXhu9bXy1-148" value="数据缓存" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fillColor=#F08137;fontSize=16;fontColor=#333333;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-156">
           <mxGeometry x="15" y="7.75" width="105" height="41.25" as="geometry" />
         </mxCell>
-        <mxCell id="2X-f57n_7fLFXhu9bXy1-149" value="数据存储服务" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#F0C29E;fontStyle=1" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-156">
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-149" value="云数据管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#F0C29E;fontStyle=1" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-156">
           <mxGeometry x="126" y="7.75" width="30" height="135" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-164" value="" style="group" vertex="1" connectable="0" parent="2X-f57n_7fLFXhu9bXy1-137">
@@ -434,7 +434,7 @@
         <mxCell id="2X-f57n_7fLFXhu9bXy1-162" value="报表引擎" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fillColor=#F08137;fontSize=16;fontColor=#333333;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-158">
           <mxGeometry x="15" y="30" width="105" height="41.25" as="geometry" />
         </mxCell>
-        <mxCell id="2X-f57n_7fLFXhu9bXy1-163" value="数据分析服务" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#F0C29E;fontStyle=1" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-158">
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-163" value="云分析服务" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#F0C29E;fontStyle=1" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-158">
           <mxGeometry x="126" y="7.75" width="30" height="135" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-176" value="" style="group" vertex="1" connectable="0" parent="2X-f57n_7fLFXhu9bXy1-137">
@@ -555,7 +555,7 @@
           <mxGeometry x="169.7" y="63.05285714285713" width="55.6" height="30.642857142857135" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-139" value="" style="group" vertex="1" connectable="0" parent="1">
-          <mxGeometry x="435" y="767" width="931" height="493.0000000000001" as="geometry" />
+          <mxGeometry x="435" y="945" width="931" height="493.0000000000001" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-7" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;fillColor=#8BC63E;strokeColor=#8BC63E;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-139">
           <mxGeometry width="676" height="208.33333333333346" as="geometry" />
