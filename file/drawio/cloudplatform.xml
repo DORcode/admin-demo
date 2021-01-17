@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-01-17T09:52:57.104Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="ylN4-V8KjwBpwPEraZV_" version="14.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-17T09:53:43.695Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="enlqCUWvZRswn99hPwU3" version="14.2.4" type="github">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
-    <mxGraphModel dx="1220" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
+    <mxGraphModel dx="1220" dy="744" grid="1" gridSize="15" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
@@ -10,7 +10,7 @@
         <mxCell id="2X-f57n_7fLFXhu9bXy1-15" value="I&lt;br&gt;A&lt;br&gt;A&lt;br&gt;S&lt;br&gt;基&lt;br&gt;础&lt;br&gt;层" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fontSize=24;fontStyle=1;fillColor=#0072BC;" vertex="1" parent="1">
           <mxGeometry x="1060" y="1681" width="39" height="220" as="geometry" />
         </mxCell>
-        <mxCell id="2X-f57n_7fLFXhu9bXy1-76" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#99FFFF;fontSize=18;fontColor=#FFFFFF;arcSize=2;fillColor=#0072BC;" vertex="1" parent="1">
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-76" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fontColor=#FFFFFF;arcSize=2;fillColor=#0072BC;strokeColor=#333333;strokeWidth=3;" vertex="1" parent="1">
           <mxGeometry x="660" y="1660" width="400" height="250" as="geometry" />
         </mxCell>
         <mxCell id="23046e2b9bb16c14-116" value="Azure Group" style="whiteSpace=wrap;html=1;rounded=1;shadow=0;strokeColor=none;strokeWidth=2;fillColor=#009BFF;fontSize=20;fontColor=#FFFFFF;align=center;arcSize=3;verticalAlign=top;spacingTop=4;" parent="1" vertex="1">
