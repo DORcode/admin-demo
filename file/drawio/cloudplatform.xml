@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-01-17T09:22:11.858Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="ftl5YMfovm_Oz4XiIbY3" version="14.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-17T09:22:42.769Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="xG8OV6flIub1WE3hnple" version="14.2.4" type="github">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
-    <mxGraphModel dx="1422" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
+    <mxGraphModel dx="1220" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
@@ -385,6 +385,9 @@
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-41" value="公有云" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#232ECC;fontSize=16;strokeColor=#232ECC;arcSize=8;" vertex="1" parent="1">
           <mxGeometry x="430" y="1750" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-42" value="DMZ区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#232ECC;fontSize=16;strokeColor=#232ECC;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="551" y="1750" width="80" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
