@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-17T10:46:50.229Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="yoYdHUcmZ_4RQI9yvdFH" version="14.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-17T10:47:54.738Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="FqVy0q6nb7U8A81Ua6V6" version="14.2.4" type="github">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
     <mxGraphModel dx="569" dy="331" grid="1" gridSize="15" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
       <root>
@@ -441,22 +441,22 @@
           <mxGeometry x="338" y="20.624999999999996" width="45" height="17.67857142857142" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-59" value="" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.vm_locked;rounded=1;fontSize=16;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-77">
-          <mxGeometry x="209.60000000000002" y="63.64285714285713" width="55.6" height="30.642857142857135" as="geometry" />
+          <mxGeometry x="234.50000000000003" y="63.05285714285713" width="55.6" height="30.642857142857135" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-62" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/social-media-chat-1/512/Windows_Phone-128.png;rounded=1;strokeColor=#ABB5BC;fillColor=#33FF99;fontSize=16;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-77">
-          <mxGeometry x="267" y="60.69642857142856" width="31.821428571428566" height="31.821428571428566" as="geometry" />
+          <mxGeometry x="296" y="60.69642857142856" width="31.821428571428566" height="31.821428571428566" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-63" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/social-media-chat-1/512/Windows_Phone-128.png;rounded=1;strokeColor=#ABB5BC;fillColor=#33FF99;fontSize=16;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-77">
-          <mxGeometry x="328" y="60.69642857142856" width="31.821428571428566" height="31.821428571428566" as="geometry" />
+          <mxGeometry x="344.59" y="61.286428571428566" width="31.821428571428566" height="31.821428571428566" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-64" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/32_Pixel_Social_Media_Icons_by_leslienayibe/linux.png;rounded=1;strokeColor=#ABB5BC;fillColor=#33FF99;fontSize=16;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-77">
           <mxGeometry x="20" y="63.0535714285714" width="27.107142857142843" height="27.107142857142843" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-65" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/32_Pixel_Social_Media_Icons_by_leslienayibe/linux.png;rounded=1;strokeColor=#ABB5BC;fillColor=#33FF99;fontSize=16;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-77">
-          <mxGeometry x="78" y="63.64285714285713" width="27.107142857142843" height="27.107142857142843" as="geometry" />
+          <mxGeometry x="67" y="63.64285714285713" width="27.107142857142843" height="27.107142857142843" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-66" value="" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.vm_locked;rounded=1;fontSize=16;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-77">
-          <mxGeometry x="146" y="63.64285714285713" width="55.6" height="30.642857142857135" as="geometry" />
+          <mxGeometry x="106.4" y="63.05285714285713" width="55.6" height="30.642857142857135" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-67" value="存储资源" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#0072BC;strokeColor=#0072BC;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-77">
           <mxGeometry x="22" y="114.91071428571426" width="74" height="17.67857142857142" as="geometry" />
@@ -466,6 +466,9 @@
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-69" value="网络资源" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#0072BC;strokeColor=#0072BC;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-77">
           <mxGeometry x="296" y="114.91071428571426" width="74" height="17.67857142857142" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-144" value="" style="shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#4495D1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.2d.vm_locked;rounded=1;fontSize=16;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-77">
+          <mxGeometry x="169.7" y="63.05285714285713" width="55.6" height="30.642857142857135" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-139" value="" style="group" vertex="1" connectable="0" parent="1">
           <mxGeometry x="435" y="930" width="676" height="225" as="geometry" />
