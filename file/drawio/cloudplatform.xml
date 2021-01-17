@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-17T09:57:39.411Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="xVltKS4hjan0Wz29ik4Y" version="14.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-17T10:26:55.934Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="9jV5H4K0eQkDBlfFLqPS" version="14.2.4" type="github">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
     <mxGraphModel dx="1422" dy="828" grid="1" gridSize="15" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
       <root>
@@ -308,8 +308,8 @@
         <mxCell id="2X-f57n_7fLFXhu9bXy1-9" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;fillColor=#F04D22;strokeColor=#F04D22;" vertex="1" parent="1">
           <mxGeometry x="423" y="1320" width="676" height="320" as="geometry" />
         </mxCell>
-        <mxCell id="2X-f57n_7fLFXhu9bXy1-11" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;strokeColor=#D5E8D4;fillColor=#F0FF1C;" vertex="1" parent="1">
-          <mxGeometry x="1120" y="990" width="176" height="940" as="geometry" />
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-11" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;strokeColor=#F0FF1C;fillColor=#F9FF54;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="990" width="176" height="840" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-13" value="S&lt;br&gt;A&lt;br&gt;A&lt;br&gt;S&lt;br&gt;应&lt;br&gt;用&lt;br&gt;层" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fontSize=24;fontStyle=1;fillColor=#8BC63E;" vertex="1" parent="1">
           <mxGeometry x="1060" y="1035" width="39" height="230" as="geometry" />
@@ -402,7 +402,7 @@
           <mxGeometry x="296" y="195" width="74" height="30" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-79" value="" style="group" vertex="1" connectable="0" parent="1">
-          <mxGeometry x="105" y="990" width="176" height="780" as="geometry" />
+          <mxGeometry x="240" y="990" width="176" height="780" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-12" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;fillColor=#FF6666;strokeColor=#FF6666;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-79">
           <mxGeometry width="176" height="780" as="geometry" />
@@ -469,6 +469,93 @@
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-40" value="问题分析" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#FFB2A6;fontSize=16;fillColor=#FF7C0A;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-79">
           <mxGeometry x="28" y="670" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-80" value="安全" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fillColor=#F0FF1C;fontSize=18;fontColor=#333333;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1261" y="1005" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-81" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=18;fontColor=#333333;arcSize=7;fillColor=#FFFF8C;" vertex="1" parent="1">
+          <mxGeometry x="1235.5" y="1035" width="165" height="285" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-82" value="防火墙" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1258" y="1050" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-83" value="流量统计" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1258" y="1095" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-84" value="地址转换" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1258" y="1135" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-85" value="策略管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1258" y="1180" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-86" value="VPN访问" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1261" y="1230" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-87" value="网络" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#FFFF8C;strokeColor=#FFFF8C;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1261" y="1280" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-88" value="防火墙" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1259.5" y="1050" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-89" value="流量统计" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1259.5" y="1095" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-90" value="地址转换" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1259.5" y="1135" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-91" value="策略管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1259.5" y="1180" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-92" value="VPN访问" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1262.5" y="1230" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-93" value="防火墙" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1261" y="1352.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-94" value="流量统计" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1261" y="1397.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-95" value="地址转换" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1261" y="1437.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-96" value="策略管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1261" y="1482.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-97" value="VPN访问" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1264" y="1532.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-99" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=18;fontColor=#333333;arcSize=7;fillColor=#FFFF8C;" vertex="1" parent="1">
+          <mxGeometry x="1237" y="1337.5" width="165" height="252.5" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-100" value="应用防火墙" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1258" y="1352.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-101" value="流量监控" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1259.5" y="1397.5" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-102" value="无代理病毒防护" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1258" y="1445" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-103" value="敏感数据保护" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1258" y="1492" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-104" value="应用和数据" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#FFFF8C;strokeColor=#FFFF8C;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1258" y="1545" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-105" value="" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=18;fontColor=#333333;arcSize=7;fillColor=#FFFF8C;" vertex="1" parent="1">
+          <mxGeometry x="1237" y="1605" width="165" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-106" value="统一用户管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1258" y="1625" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-107" value="认证和授权" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1259.5" y="1675" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-108" value="单点登录管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0FF1C;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#EFFF0D;" vertex="1" parent="1">
+          <mxGeometry x="1261" y="1720" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-110" value="用户" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=16;fontColor=#333333;fillColor=#FFFF8C;strokeColor=#FFFF8C;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1261" y="1768" width="120" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
