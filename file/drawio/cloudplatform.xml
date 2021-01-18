@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-18T00:05:05.749Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="3GwWjVnskhZn5yyY0pZH" version="14.1.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-18T00:05:26.462Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="DXSaJVouyyxyzRzkcgcn" version="14.1.9" type="github">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
     <mxGraphModel dx="1422" dy="794" grid="1" gridSize="15" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
       <root>
@@ -374,7 +374,7 @@
         <mxCell id="2X-f57n_7fLFXhu9bXy1-15" value="I&lt;br style=&quot;font-size: 16px;&quot;&gt;A&lt;br style=&quot;font-size: 16px;&quot;&gt;A&lt;br style=&quot;font-size: 16px;&quot;&gt;S&lt;br style=&quot;font-size: 16px;&quot;&gt;基&lt;br style=&quot;font-size: 16px;&quot;&gt;础&lt;br style=&quot;font-size: 16px;&quot;&gt;层" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fontSize=16;fontStyle=1;fillColor=#0072BC;" parent="2X-f57n_7fLFXhu9bXy1-138" vertex="1">
           <mxGeometry x="637" y="19.16071428571428" width="39" height="129.64285714285714" as="geometry" />
         </mxCell>
-        <mxCell id="2X-f57n_7fLFXhu9bXy1-41" value="公有云" style="rounded=1;whiteSpace=wrap;html=1;fontSize=19;arcSize=8;fontColor=#333333;fillColor=#6360CC;strokeColor=#6360CC;" parent="2X-f57n_7fLFXhu9bXy1-138" vertex="1">
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-41" value="公有云" style="rounded=1;whiteSpace=wrap;html=1;fontSize=19;arcSize=8;fontColor=#333333;strokeColor=#6360CC;fillColor=#7C76CC;" parent="2X-f57n_7fLFXhu9bXy1-138" vertex="1">
           <mxGeometry x="14" y="53.625" width="80" height="70.7142857142857" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-42" value="&lt;font color=&quot;#333333&quot;&gt;DMZ区&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;arcSize=8;fontColor=#FFFFFF;fillColor=#D7A3FF;strokeColor=#D7A3FF;" parent="2X-f57n_7fLFXhu9bXy1-138" vertex="1">
