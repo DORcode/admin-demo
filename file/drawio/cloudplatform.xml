@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-18T06:08:47.749Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="s0pGY75fAqKM8rkFDcT0" version="14.1.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-18T07:13:46.756Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="higTMWfLUTv7q8Djey9s" version="14.1.9" type="github">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
     <mxGraphModel dx="1413" dy="687" grid="0" gridSize="15" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
@@ -319,8 +319,11 @@
         <mxCell id="Ea_ZTz4MUGzFpEdPW386-7" value="镜像管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fillColor=#F08137;fontSize=14;fontColor=#333333;" parent="2X-f57n_7fLFXhu9bXy1-185" vertex="1">
           <mxGeometry x="131.99999999999994" y="60.23000000000002" width="110" height="22.25" as="geometry" />
         </mxCell>
-        <mxCell id="woW_iRwrdXJVZZrrLnRr-45" value="安全服务" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fillColor=#F08137;fontSize=14;fontColor=#333333;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-185">
+        <mxCell id="woW_iRwrdXJVZZrrLnRr-45" value="OpenStack管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fillColor=#F08137;fontSize=14;fontColor=#333333;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-185">
           <mxGeometry x="497.46" y="60.23000000000002" width="110" height="22.25" as="geometry" />
+        </mxCell>
+        <mxCell id="woW_iRwrdXJVZZrrLnRr-46" value="CloudFoundry管理" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#F0C29E;strokeWidth=3;fillColor=#F08137;fontSize=13;fontColor=#333333;" vertex="1" parent="2X-f57n_7fLFXhu9bXy1-185">
+          <mxGeometry x="373.99999999999994" y="60.23000000000002" width="110" height="22.25" as="geometry" />
         </mxCell>
         <mxCell id="Ea_ZTz4MUGzFpEdPW386-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;strokeColor=#B5C6AC;arcSize=7;fillColor=#A8C691;" parent="2X-f57n_7fLFXhu9bXy1-140" vertex="1">
           <mxGeometry x="15" y="119" width="615" height="99" as="geometry" />
