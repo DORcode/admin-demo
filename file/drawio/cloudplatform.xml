@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-01-18T00:25:49.197Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="nzGGVEtgHJWKISJ1UDqE" version="14.1.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-18T00:32:01.265Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="zGhmLGu8UqCtpW8Tbl_p" version="14.1.9" type="github">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="15" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
+    <mxGraphModel dx="1205" dy="634" grid="1" gridSize="15" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="#FFFFFF" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
@@ -611,13 +611,13 @@
         <mxCell id="2X-f57n_7fLFXhu9bXy1-216" value="综合行政" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;fontColor=#333333;fillColor=#2CC798;strokeColor=#2CC798;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
           <mxGeometry x="390" y="219.72000000000003" width="110" height="22.25" as="geometry" />
         </mxCell>
-        <mxCell id="2X-f57n_7fLFXhu9bXy1-217" value="综合行政" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;fontColor=#333333;fillColor=#2CC798;strokeColor=#2CC798;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-217" value="取水口管理" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;fontColor=#333333;fillColor=#2CC798;strokeColor=#2CC798;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
           <mxGeometry x="510" y="219.72000000000003" width="110" height="22.25" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-218" value="信息报送" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;fontColor=#333333;fillColor=#2CC798;strokeColor=#2CC798;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
           <mxGeometry x="23" y="247" width="110" height="22.25" as="geometry" />
         </mxCell>
-        <mxCell id="2X-f57n_7fLFXhu9bXy1-219" value="信息发布" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;fontColor=#333333;fillColor=#2CC798;strokeColor=#2CC798;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-219" value="岸线管理" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;fontColor=#333333;fillColor=#2CC798;strokeColor=#2CC798;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
           <mxGeometry x="146" y="247" width="110" height="22.25" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-220" value="互动交流" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;fontColor=#333333;fillColor=#2CC798;strokeColor=#2CC798;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
@@ -626,7 +626,7 @@
         <mxCell id="2X-f57n_7fLFXhu9bXy1-221" value="地理信息" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;fontColor=#333333;fillColor=#2CC798;strokeColor=#2CC798;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
           <mxGeometry x="390" y="247" width="110" height="22.25" as="geometry" />
         </mxCell>
-        <mxCell id="2X-f57n_7fLFXhu9bXy1-222" value="视频会议" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;fontColor=#333333;fillColor=#2CC798;strokeColor=#2CC798;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
+        <mxCell id="2X-f57n_7fLFXhu9bXy1-222" value="入河排污口监管" style="shape=ext;double=1;rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=14;fontColor=#333333;fillColor=#2CC798;strokeColor=#2CC798;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
           <mxGeometry x="510" y="247" width="110" height="22.25" as="geometry" />
         </mxCell>
         <mxCell id="2X-f57n_7fLFXhu9bXy1-223" value="应用" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;fontSize=12;fontColor=#333333;fontStyle=1;fillColor=#9AC7BF;strokeColor=#9AC7BF;" parent="2X-f57n_7fLFXhu9bXy1-139" vertex="1">
