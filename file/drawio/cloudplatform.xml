@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-01-19T00:28:19.327Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="rBfgBrrkN0CTKuSOR_bm" version="14.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-19T00:29:35.276Z" agent="5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36" etag="8qDjcOVCZF7WEd-TKYVf" version="14.2.4" type="github">
   <diagram name="Page-1" id="7a6c530e-6e37-e111-ec74-82921da8cc10">
-    <mxGraphModel dx="867" dy="287" grid="0" gridSize="15" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1129" dy="287" grid="0" gridSize="15" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
@@ -508,8 +508,8 @@
         <mxCell id="woW_iRwrdXJVZZrrLnRr-99" value="GlusterFS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;strokeColor=#0072BC;fillColor=#FFFFFF;" parent="woW_iRwrdXJVZZrrLnRr-47" vertex="1">
           <mxGeometry x="194" y="75" width="66" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="woW_iRwrdXJVZZrrLnRr-100" value="虚拟机" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;strokeColor=#0072BC;fillColor=#FFFFFF;" parent="woW_iRwrdXJVZZrrLnRr-47" vertex="1">
-          <mxGeometry x="315" y="75" width="66" height="30" as="geometry" />
+        <mxCell id="woW_iRwrdXJVZZrrLnRr-100" value="虚拟机资源" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;strokeColor=#0072BC;fillColor=#FFFFFF;" parent="woW_iRwrdXJVZZrrLnRr-47" vertex="1">
+          <mxGeometry x="311" y="84" width="70" height="21" as="geometry" />
         </mxCell>
         <mxCell id="woW_iRwrdXJVZZrrLnRr-101" value="IP保持" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;strokeColor=#0072BC;fillColor=#FFFFFF;" parent="woW_iRwrdXJVZZrrLnRr-47" vertex="1">
           <mxGeometry x="428" y="75" width="66" height="30" as="geometry" />
@@ -531,6 +531,9 @@
         </mxCell>
         <mxCell id="woW_iRwrdXJVZZrrLnRr-108" value="物理资源" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#0072BC;strokeColor=#0072BC;fontStyle=1" parent="woW_iRwrdXJVZZrrLnRr-47" vertex="1">
           <mxGeometry x="654" y="159.66428571428582" width="87" height="17.67857142857142" as="geometry" />
+        </mxCell>
+        <mxCell id="zTFTusleXUIoJ8IjPl_O-21" value="物理机资源" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;strokeColor=#0072BC;fillColor=#FFFFFF;" vertex="1" parent="woW_iRwrdXJVZZrrLnRr-47">
+          <mxGeometry x="311" y="54" width="70" height="20.84" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
