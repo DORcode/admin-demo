@@ -18,7 +18,6 @@
 
     <modules>
         <module>minio-spring-boot</module>
-        <module>redis-spring-boot</module>
         <module>elasticsearch-spring-boot-starter</module>
     </modules>
 
