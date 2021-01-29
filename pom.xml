@@ -32,7 +32,7 @@
         <shiro.version>1.5.1</shiro.version>
         <lombok.version>1.16.20</lombok.version>
         <shardingsphere.version>4.1.1</shardingsphere.version>
-        <mysql.version>8.0.11</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <es.version>7.9.1</es.version>
     </properties>
 
