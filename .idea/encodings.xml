@@ -20,6 +20,8 @@
     <file url="file://$PROJECT_DIR$/demo-es" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-minio" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/file/killPid.bat" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/z-common/elasticsearch-spring-boot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/z-common/elasticsearch-spring-boot-starter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/z-common/redis-spring-boot" charset="UTF-8" />
   </component>
 </project>

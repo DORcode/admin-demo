@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.cjsjy</groupId>
-    <artifactId>spring-boot-minio</artifactId>
+    <artifactId>minio-spring-boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-minio</name>
+    <name>minio-spring-boot</name>
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 
