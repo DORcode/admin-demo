@@ -1,6 +1,9 @@
 package com.coin.test.statics;
 
+import sun.misc.Launcher;
+
 import java.math.BigInteger;
+import java.net.URL;
 
 /**
  * @ClassName Son
@@ -34,6 +37,18 @@ public class Son extends Parent {
 
         String s1 = new BigInteger("00101010", 2).toString(16);
         System.out.println(s1);
+
+        ClassLoader classLoader = Son.class.getClassLoader();
+        System.out.println("classLoader = " + classLoader);
+        ClassLoader parent = classLoader.getParent();
+        System.out.println("parent = " + parent);
+        ClassLoader parent1 = parent.getParent();
+        System.out.println("parent1 = " + parent1);
+
+        URL[] urLs = Launcher.getBootstrapClassPath().getURLs();
+        for (URL ul : urLs) {
+            System.out.println("ul.toExternalForm() = " + ul.toExternalForm());
+        }
 
     }
 }
