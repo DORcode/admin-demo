@@ -1,5 +1,7 @@
 package com.coin.test.statics;
 
+import java.math.BigInteger;
+
 /**
  * @ClassName Son
  * @Description: TODO
@@ -21,6 +23,17 @@ public class Son extends Parent {
         Son son = new Son();
 
         Son son1 = new Son();
+
+        String str = new BigInteger("cafebabe", 16).toString(10);
+        System.out.println(str);
+
+        String s = new BigInteger("00000037", 16).toString(10);
+        System.out.println(s);
+
+        System.out.println(Math.pow(2, 16) - 1);
+
+        String s1 = new BigInteger("00101010", 2).toString(16);
+        System.out.println(s1);
 
     }
 }
