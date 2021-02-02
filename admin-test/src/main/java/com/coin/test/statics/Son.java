@@ -49,6 +49,10 @@ public class Son extends Parent {
         for (URL ul : urLs) {
             System.out.println("ul.toExternalForm() = " + ul.toExternalForm());
         }
+        test();
+    }
+
+    public static void test() throws RuntimeException {
 
     }
 }
