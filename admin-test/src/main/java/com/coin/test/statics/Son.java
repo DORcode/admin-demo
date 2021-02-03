@@ -4,6 +4,8 @@ import sun.misc.Launcher;
 
 import java.math.BigInteger;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @ClassName Son
@@ -49,6 +51,7 @@ public class Son extends Parent {
         for (URL ul : urLs) {
             System.out.println("ul.toExternalForm() = " + ul.toExternalForm());
         }
+        Map map = new HashMap<>();
         test();
     }
 
