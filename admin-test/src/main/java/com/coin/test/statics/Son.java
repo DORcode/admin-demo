@@ -5,7 +5,9 @@ import sun.misc.Launcher;
 import java.math.BigInteger;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @ClassName Son
@@ -22,7 +24,6 @@ public class Son extends Parent {
     public Son() {
         System.out.println("Son 构造函数");
     }
-
 
     public static void main(String[] args) {
         Son son = new Son();
@@ -53,6 +54,23 @@ public class Son extends Parent {
         }
         Map map = new HashMap<>();
         test();
+        List list = new CopyOnWriteArrayList<>();
+        list.add(1);
+        list.get(0);
+        list.lastIndexOf(2);
+        Object[] objects = list.toArray();
+        System.out.println((1112 >> 1));
+        String a = "a";
+        System.out.println(a.hashCode());
+        int w1 = 16 | 16 >>> 1;
+        System.out.println("w1 = " + w1);
+        int w2 = w1 | w1 >>> 2;
+        System.out.println("w2 = " + w2);
+        int w3 = w2 | w2 >>> 4;
+        System.out.println("w3 = " + w3);
+
+        int w4 = w3 | w3 >>> 8;
+        System.out.println("w4 = " + w4);
     }
 
     public static void test() throws RuntimeException {
