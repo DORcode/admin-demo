@@ -2,8 +2,10 @@ package com.coin.test.statics;
 
 import sun.misc.Launcher;
 
+import javax.validation.constraints.Negative;
 import java.math.BigInteger;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,6 +73,11 @@ public class Son extends Parent {
 
         int w4 = w3 | w3 >>> 8;
         System.out.println("w4 = " + w4);
+
+        Arrays.asList("a", "b", "c").forEach(c -> {
+            System.out.println("c = " + c);
+        });
+
     }
 
     public static void test() throws RuntimeException {
