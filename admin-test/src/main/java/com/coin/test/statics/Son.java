@@ -5,10 +5,7 @@ import sun.misc.Launcher;
 import javax.validation.constraints.Negative;
 import java.math.BigInteger;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -78,6 +75,33 @@ public class Son extends Parent {
             System.out.println("c = " + c);
         });
 
+        List a1 = new ArrayList();
+        a1.add(new Object());
+        a1.add("aaa");
+        a1.add(111);
+        List<Object> a2 = a1;
+        System.out.println("a2 = " + a2);
+
+        List<Integer> a3 = a1;
+        a3.add(123);
+        System.out.println("a3 = " + a3);
+
+        List<?> a4 = a1;
+
+        System.out.println("a4 = " + a4);
+
+        List<Parent> parents1 = new ArrayList<>();
+        List<Son> sons = new ArrayList<>();
+        parents1.add(new Parent());
+        List<? extends Parent> parents = parents1;
+        parents.get(0);
+
+        List<? extends Parent> parents2 = sons;
+
+        List<? super Son> son2 = new ArrayList<>();
+        son2.add(new Son());
+        // son2.add(new Parent());
+        son2.add(new S());
     }
 
     public static void test() throws RuntimeException {
