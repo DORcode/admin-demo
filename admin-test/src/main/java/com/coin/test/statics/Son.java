@@ -102,6 +102,25 @@ public class Son extends Parent {
         son2.add(new Son());
         // son2.add(new Parent());
         son2.add(new S());
+        Map<Object, Object> map1 = new HashMap<>();
+        map1.put(2, 1);
+        map1.put(null, 2);
+        map1.put(null, 3);
+        System.out.println("map1 = " + map1.toString());
+
+        // array转list
+        List<String> objects1 = new ArrayList<>(Arrays.asList("1", "2"));
+        objects1.add("15");
+        System.out.println("objects1 = " + objects1);
+
+        String[] strings = new String[3];
+        objects1.toArray(strings);
+        System.out.println("strings = " + strings);
+        for (String s2 : strings) {
+            System.out.println("s1 = " + s2);
+        }
+
+        House<? extends Parent> parentHouse = new House<Son>();
     }
 
     public static void test() throws RuntimeException {
