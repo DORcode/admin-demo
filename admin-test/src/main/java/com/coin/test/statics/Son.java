@@ -1,5 +1,6 @@
 package com.coin.test.statics;
 
+import lombok.experimental.var;
 import sun.misc.Launcher;
 
 import javax.validation.constraints.Negative;
