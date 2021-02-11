@@ -1,4 +1,4 @@
-package com.coin.test.statics;
+package com.coin.tests;
 
 /**
  * @ClassName House

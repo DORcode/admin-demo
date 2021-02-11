@@ -1,4 +1,4 @@
-package com.coin.demoes;
+package com.coin.tests;
 
 /**
  * @ClassName ThreadTest

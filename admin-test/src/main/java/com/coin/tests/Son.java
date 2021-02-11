@@ -1,9 +1,7 @@
-package com.coin.test.statics;
+package com.coin.tests;
 
-import lombok.experimental.var;
 import sun.misc.Launcher;
 
-import javax.validation.constraints.Negative;
 import java.math.BigInteger;
 import java.net.URL;
 import java.util.*;
