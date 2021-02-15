@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/admin-auth" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-auth/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/admin-base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-base/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/admin-cas" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-cas/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/admin-generator" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-generator/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/admin-mybatis-generator/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/admin-shiro" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-shiro/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/admin-test" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-test/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/db-sharding" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/db-sharding/db-sharding-sphere" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db-sharding/db-sharding-sphere/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/demo-es" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-es/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/demo-minio" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo-minio/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/file/killPid.bat" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/z-common/elasticsearch-spring-boot-starter" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

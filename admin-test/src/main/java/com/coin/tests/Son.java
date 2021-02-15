@@ -1,11 +1,18 @@
 package com.coin.tests;
 
+
 import sun.misc.Launcher;
 
 import java.math.BigInteger;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @ClassName Son
@@ -15,6 +22,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * @Version V1.0
  **/
 public class Son extends Parent {
+
+    private static final ThreadLocal<DateFormat> DATE_FORMAT_THREAD_LOCAL = new ThreadLocal<DateFormat>() {
+        @Override
+        protected DateFormat initialValue() {
+            return new SimpleDateFormat("");
+        }
+    };
     static {
         System.out.println("Son 静态代码块");
     }
@@ -93,6 +107,7 @@ public class Son extends Parent {
         List<Son> sons = new ArrayList<>();
         parents1.add(new Parent());
         List<? extends Parent> parents = parents1;
+
         parents.get(0);
 
         List<? extends Parent> parents2 = sons;
@@ -120,6 +135,8 @@ public class Son extends Parent {
         }
 
         House<? extends Parent> parentHouse = new House<Son>();
+
+
     }
 
     public static void test() throws RuntimeException {
