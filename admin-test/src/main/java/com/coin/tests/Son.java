@@ -136,7 +136,6 @@ public class Son extends Parent {
 
         House<? extends Parent> parentHouse = new House<Son>();
 
-
     }
 
     public static void test() throws RuntimeException {
