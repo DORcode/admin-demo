@@ -35,13 +35,13 @@ class Makeup implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
+                synchronized (lipStick) {
+                    System.out.println(Thread.currentThread().getName() + "lipStick = " + lipStick);
+                }
 
             }
 
-            synchronized (lipStick) {
-                System.out.println(Thread.currentThread().getName() + "lipStick = " + lipStick);
-            }
+
         } else {
             synchronized (lipStick) {
                 System.out.println(Thread.currentThread().getName() + "lipStick = " + lipStick);
@@ -52,12 +52,12 @@ class Makeup implements Runnable {
                     e.printStackTrace();
                 }
 
-
+                synchronized (mirror) {
+                    System.out.println(Thread.currentThread().getName() + "mirror = " + mirror);
+                }
             }
 
-            synchronized (mirror) {
-                System.out.println(Thread.currentThread().getName() + "mirror = " + mirror);
-            }
+
         }
     }
 }

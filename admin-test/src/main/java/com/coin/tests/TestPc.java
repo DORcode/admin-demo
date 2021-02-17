@@ -1,5 +1,7 @@
 package com.coin.tests;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.LinkedList;
 
 /**
@@ -9,9 +11,12 @@ import java.util.LinkedList;
  * @Date 2021/2/16 21:05
  * @Version V1.0
  **/
+@Slf4j(topic = "testpc")
 public class TestPc {
 
     public static void main(String[] args) {
+        log.info("aaa");
+
         Queue queue = new Queue();
         new Thread(new Producer(queue), "producer").start();
         new Thread(new Cosumer(queue), "cosumer").start();
