@@ -47,31 +47,33 @@ public class TlTest {
     };
 
     public static void main(String[] args) {
-        Semaphore semaphore = new Semaphore(1);
+        Semaphore semaphore = new Semaphore(5);
 
         for (int i = 0; i < T; i++) {
 
             new Thread(() -> {
                 try {
                     semaphore.acquire();
+                    ThreadLocalRandom RANDOM = ThreadLocalRandom.current();
                     int b = B_TL.get() - RANDOM.nextInt(B);
                     int k = K_TL.get() + RANDOM.nextInt(T / 2);
                     int l = L_TL.get() - RANDOM.nextInt(L);
 
-                    System.out.println("b = " + b);
-                    System.out.println("k = " + k);
-                    System.out.println("l = " + l);
+                    log.debug(Thread.currentThread().getName() + "b = " + b);
+                    log.debug(Thread.currentThread().getName() + "k = " + k);
+                    log.debug(Thread.currentThread().getName() + "l = " + l);
 
                     B_TL.remove();
                     K_TL.remove();
                     L_TL.remove();
+                    B_TL.set(10000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
                     semaphore.release();
                 }
 
-            }).start();
+            }, i + "").start();
         }
 
         try {
@@ -80,8 +82,8 @@ public class TlTest {
             e.printStackTrace();
         }
 
-        System.out.println("B_TL = " + B_TL.get());
-        System.out.println("K_TL = " + K_TL.get());
-        System.out.println("L_TL.get() = " + L_TL.get());
+        log.debug(Thread.currentThread().getName() + "B_TL = " + B_TL.get());
+        log.debug(Thread.currentThread().getName() + "K_TL = " + K_TL.get());
+        log.debug(Thread.currentThread().getName() + "L_TL = " + L_TL.get());
     }
 }
