@@ -24,7 +24,7 @@ public class Test5 {
                 System.out.println("getState() = " + getState());
 
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -32,6 +32,58 @@ public class Test5 {
                 System.out.println("args = " + args);
             }
         };
+
+        Thread d = new Thread("d") {
+
+            @Override
+            public void run() {
+                synchronized (Test5.class) {
+                    while (true) {
+
+                    }
+                }
+            }
+        };
+
+        d.start();
+
+        Thread c = new Thread("c") {
+            @Override
+            public void run() {
+                try {
+                    d.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        c.start();
+
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Thread f = new Thread("f") {
+
+            @Override
+            public void run() {
+                synchronized (Test5.class) {
+
+                }
+            }
+        };
+
+        f.start();
+
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("f = " + f.getState());
+        System.out.println("c.getState() = " + c.getState());
 
         System.out.println("thread.getState() = " + thread.getState());
 
