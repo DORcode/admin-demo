@@ -15,6 +15,9 @@ createuser.exe -U postgres test
 
 psql -U postgres -h localhost -d postgres -p 5432
 
+导入数据 postgresql bin目录下
+psql -U postgres -h localhost -d nyc -f "J:\postgis-workshop-2018\data\nyc_census_sociodata.sql"
+
 
 \data\postgresql.conf
 
@@ -24,5 +27,9 @@ listen_addresses='*'   --- 修改成'*'全部ip都可以访问改数据库
 \data\pg_hba.conf
 
 host    all             all             0.0.0.0/0               md5   --添加本行数据
+
+
+查询SRID
+select st_srid(geom) from table;
 
 
