@@ -1,0 +1,16 @@
+net user postgres pgsqlpw /add /expires:never /passwordchg:no
+
+net localgroup users postgres /del
+cacls . /T /E /P postgres:R 在pgsql目录下运行
+
+runas /noprofile /env /user:postgres "cmd"
+
+initdb -D "G:\postgresql-13.2-1\pgsql\data" -E UTF-8 --locale=C -A md5 -U postgres -W
+
+启动
+pg_ctl -D G:\postgresql-13.2-1\pgsql\data -l  G:\postgresql-13.2-1\pgsql\pglog.txt start
+createdb -U postgres abc
+
+createuser.exe -U postgres test
+
+
