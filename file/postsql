@@ -13,4 +13,16 @@ createdb -U postgres abc
 
 createuser.exe -U postgres test
 
+psql -U postgres -h localhost -d postgres -p 5432
+
+
+\data\postgresql.conf
+
+#listen_addresses='localhost'
+listen_addresses='*'   --- 修改成'*'全部ip都可以访问改数据库
+
+\data\pg_hba.conf
+
+host    all             all             0.0.0.0/0               md5   --添加本行数据
+
 
