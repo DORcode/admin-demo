@@ -1,5 +1,5 @@
 title work-report
-java -jar -Dspring.profiles.active=prod work-report-0.0.1-SNAPSHOT.jar --server.port=9092
+java -Dfile.encoding=UTF-8 -jar -Dspring.profiles.active=prod work-report-0.0.1-SNAPSHOT.jar --server.port=9092
 
 
 netstat -ano|findstr "9092"
