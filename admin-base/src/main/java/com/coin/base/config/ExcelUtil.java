@@ -1,6 +1,5 @@
 package com.coin.base.config;
 
-import com.cjwsjy.workreport.web.vo.RecordReportDetailQueryVo;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -216,30 +215,30 @@ public class ExcelUtil {
         // 获取左侧标题的最大值
         Map lenMap = data.get(0);
 
-        List<RecordReportDetailQueryVo> lenList = (List<RecordReportDetailQueryVo>) lenMap.get("log");
-        for (RecordReportDetailQueryVo rrdqv : lenList) {
-            if (rrdqv.getWorkTypeName().length() > leftTitleLen) {
-                leftTitleLen = rrdqv.getWorkTypeName().length();
-            }
-        }
+//        List<RecordReportDetailQueryVo> lenList = (List<RecordReportDetailQueryVo>) lenMap.get("log");
+//        for (RecordReportDetailQueryVo rrdqv : lenList) {
+//            if (rrdqv.getWorkTypeName().length() > leftTitleLen) {
+//                leftTitleLen = rrdqv.getWorkTypeName().length();
+//            }
+//        }
         leftTitleLen += 3;
 
         // 获取每行文字最长的
-        Integer[] typeMaxLens = new Integer[lenList.size()];
-        for (int i = 0; i < data.size(); i++) {
-            Map map = data.get(i);
-            List<RecordReportDetailQueryVo> logsList = (List<RecordReportDetailQueryVo>) map.get("log");
-            for (int j = 0; j < logsList.size(); j++) {
-                Integer len = typeMaxLens[j];
-                if (len == null) {
-                    len = 0;
-                    typeMaxLens[j] = 0;
-                }
-                if (org.apache.commons.lang.StringUtils.isNotEmpty(logsList.get(j).getMergeLog()) && len < logsList.get(j).getMergeLog().length()) {
-                    typeMaxLens[j] = logsList.get(j).getMergeLog().length();
-                }
-            }
-        }
+//        Integer[] typeMaxLens = new Integer[lenList.size()];
+//        for (int i = 0; i < data.size(); i++) {
+//            Map map = data.get(i);
+//            List<RecordReportDetailQueryVo> logsList = (List<RecordReportDetailQueryVo>) map.get("log");
+//            for (int j = 0; j < logsList.size(); j++) {
+//                Integer len = typeMaxLens[j];
+//                if (len == null) {
+//                    len = 0;
+//                    typeMaxLens[j] = 0;
+//                }
+//                if (org.apache.commons.lang.StringUtils.isNotEmpty(logsList.get(j).getMergeLog()) && len < logsList.get(j).getMergeLog().length()) {
+//                    typeMaxLens[j] = logsList.get(j).getMergeLog().length();
+//                }
+//            }
+//        }
 
         boolean isLeftWrite = false;
         int colNum = 1;
@@ -262,50 +261,50 @@ public class ExcelUtil {
 
                 sheet.setColumnWidth(colNum, 256 * 60);
 
-                List<RecordReportDetailQueryVo> logsList = (List<RecordReportDetailQueryVo>) map.get("log");
-                if (CollectionUtils.isNotEmpty(logsList)) {
-                    for (RecordReportDetailQueryVo rrdqv : logsList) {
-                        rowNum++;
-                        Row dataRow;
-                        if (null == sheet.getRow(rowNum)) {
-                            dataRow = sheet.createRow(rowNum);
-                        } else {
-                            dataRow = sheet.getRow(rowNum);
-                        }
-
-                        Cell dataCell = dataRow.createCell(colNum, CellType.STRING);
-
-                        CellStyle wrapStyle = wb.createCellStyle();
-                        wrapStyle.setVerticalAlignment(VerticalAlignment.CENTER);
-                        wrapStyle.setBorderBottom(BorderStyle.THIN);
-                        wrapStyle.setBorderTop(BorderStyle.THIN);
-                        wrapStyle.setBorderRight(BorderStyle.THIN);
-                        wrapStyle.setBorderLeft(BorderStyle.THIN);
-                        wrapStyle.setWrapText(true);
-
-                        if (!StringUtils.isEmpty(rrdqv.getMergeLog()) && typeMaxLens[rowNum - 1] * 1.5 > 60) {
-                            double height = 18 * (Math.floor(typeMaxLens[rowNum - 1] * 1.5 / 60) + 1);
-                            if (height > 80) {
-                                height = 80;
-                            }
-                            BigDecimal bigDecimal = new BigDecimal(String.valueOf(height));
-                            dataRow.setHeightInPoints(bigDecimal.floatValue());
-                            wrapStyle.setWrapText(true);
-                            dataCell.setCellStyle(wrapStyle);
-                        } else {
-                            dataRow.setHeightInPoints((short) 18);
-                            dataCell.setCellStyle(dataStyle);
-                        }
-                        dataCell.setCellValue(new XSSFRichTextString(rrdqv.getMergeLog()));
-                        if (!isLeftWrite) {
-                            sheet.setColumnWidth(0, (int) (leftTitleLen * 256 * 1.5));
-                            Cell leftCell = dataRow.createCell(0, CellType.STRING);
-                            leftCell.setCellValue(rrdqv.getWorkTypeName());
-                            leftCell.setCellStyle(headStyle);
-                        }
-                    }
-                    isLeftWrite = true;
-                }
+//                List<RecordReportDetailQueryVo> logsList = (List<RecordReportDetailQueryVo>) map.get("log");
+//                if (CollectionUtils.isNotEmpty(logsList)) {
+//                    for (RecordReportDetailQueryVo rrdqv : logsList) {
+//                        rowNum++;
+//                        Row dataRow;
+//                        if (null == sheet.getRow(rowNum)) {
+//                            dataRow = sheet.createRow(rowNum);
+//                        } else {
+//                            dataRow = sheet.getRow(rowNum);
+//                        }
+//
+//                        Cell dataCell = dataRow.createCell(colNum, CellType.STRING);
+//
+//                        CellStyle wrapStyle = wb.createCellStyle();
+//                        wrapStyle.setVerticalAlignment(VerticalAlignment.CENTER);
+//                        wrapStyle.setBorderBottom(BorderStyle.THIN);
+//                        wrapStyle.setBorderTop(BorderStyle.THIN);
+//                        wrapStyle.setBorderRight(BorderStyle.THIN);
+//                        wrapStyle.setBorderLeft(BorderStyle.THIN);
+//                        wrapStyle.setWrapText(true);
+//
+//                        if (!StringUtils.isEmpty(rrdqv.getMergeLog()) && typeMaxLens[rowNum - 1] * 1.5 > 60) {
+//                            double height = 18 * (Math.floor(typeMaxLens[rowNum - 1] * 1.5 / 60) + 1);
+//                            if (height > 80) {
+//                                height = 80;
+//                            }
+//                            BigDecimal bigDecimal = new BigDecimal(String.valueOf(height));
+//                            dataRow.setHeightInPoints(bigDecimal.floatValue());
+//                            wrapStyle.setWrapText(true);
+//                            dataCell.setCellStyle(wrapStyle);
+//                        } else {
+//                            dataRow.setHeightInPoints((short) 18);
+//                            dataCell.setCellStyle(dataStyle);
+//                        }
+//                        dataCell.setCellValue(new XSSFRichTextString(rrdqv.getMergeLog()));
+//                        if (!isLeftWrite) {
+//                            sheet.setColumnWidth(0, (int) (leftTitleLen * 256 * 1.5));
+//                            Cell leftCell = dataRow.createCell(0, CellType.STRING);
+//                            leftCell.setCellValue(rrdqv.getWorkTypeName());
+//                            leftCell.setCellStyle(headStyle);
+//                        }
+//                    }
+//                    isLeftWrite = true;
+//                }
 
                 colNum++;
             }
