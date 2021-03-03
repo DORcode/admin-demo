@@ -25,6 +25,12 @@ git pull origin master --allow-unrelated-histories //把远程仓库和本地同
 git push origin master
 
 
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+
+
 --------------
 1、创建一个分支test
 
