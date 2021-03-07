@@ -6,7 +6,7 @@ import java.util.concurrent.locks.LockSupport;
 
 /**
  * @ClassName TestPark
- * @Description: TODO
+ * @Description: unpark可以在park之前或之后调用
  * @Author kh
  * @Date 2021/2/17 23:06
  * @Version V1.0
