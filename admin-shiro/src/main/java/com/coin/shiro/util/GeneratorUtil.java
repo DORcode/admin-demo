@@ -29,9 +29,9 @@ import java.util.Map;
 public class GeneratorUtil {
     private static String OUTPUT_JAVA = "f://generator/demo/src/main/java";
     private static String OUTPUT_RES = "f://generator/demo/src/main/resources";
-    private static String PARENTPACKAGE = "temp";//"com.cjsjy.admin";
-    private static String PARENTPACKAGEPATH = "/temp/";//"/com/cjsjy/admin/";
-    private static String UTILPACKAGE = "temp";//"com.cjsjy" + ".util";
+    private static String PARENTPACKAGE = "com.cjsjy";//"com.cjsjy.admin";
+    private static String PARENTPACKAGEPATH = "/com/cjsjy/";//"/com/cjsjy/admin/";
+    private static String UTILPACKAGE = "com.cjsjy";//"com.cjsjy" + ".util";
     private static DbType DB_TYPE = null;
     private static String DB_DRIVER = "";
     private static String DB_URL= "";
@@ -84,9 +84,9 @@ public class GeneratorUtil {
     public static void sqlserver() {
         DB_TYPE = DbType.SQL_SERVER;
         DB_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        DB_URL= "jdbc:sqlserver://:1433;DatabaseName=bot_site_db";
+        DB_URL= "jdbc:sqlserver://119.96.192.212:1433;DatabaseName=szy_nanchang";
         DB_UM = "sa";
-        DB_PWD = "";
+        DB_PWD = "cjwsjy@123";
         TYPE_CONVERT = new MySqlTypeConvert() {
             @Override
             public IColumnType processTypeConvert(GlobalConfig gc, String fieldType) {
