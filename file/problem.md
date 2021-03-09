@@ -44,3 +44,26 @@
             ts= Source.ts,lgtd = Source.lgtd,shape=Source.shape
             WHEN NOT MATCHED THEN
             INSERT (objectid,stcd,st_Nm,st_Tp,lttd,ts,lgtd,shape) VALUES (Source.objectid,Source.stcd,Source.st_Nm,Source.st_Tp,Source.lttd,Source.ts,Source.lgtd,geometry::STGeomFromText(Source.shape, 4326));
+            
+            
+            MERGE INTO  AS Target
+                    USING (values
+                    <foreach collection="list" item="item" separator=",">
+                        <trim prefix="(" suffix=")" suffixOverrides="," >
+                            #{item., jdbcType=INTEGER},
+                            #{item., jdbcType=VARCHAR},
+                            #{item., jdbcType=VARCHAR},
+                            #{item., jdbcType=VARCHAR},
+                            #{item., jdbcType=VARCHAR},
+                            cast(#{item., jdbcType=DECIMAL} as decimal(38,8)),
+                            cast(#{item., jdbcType=DECIMAL} as decimal(38,8)),
+                        </trim>
+                    </foreach>
+                    )
+                    AS Source ()
+                    ON Target.objectid = Source.objectid
+                    WHEN MATCHED THEN
+                    UPDATE SET  = Source., = source.,  = Source.,  = cast(Source. as decimal(38,8)),
+                    = Source., = cast(Source. as decimal(38,8))
+                    WHEN NOT MATCHED THEN
+                    INSERT () VALUES (Source.,Source.,Source.,Source.,Source.,Source.,Source.);

@@ -151,18 +151,18 @@
         <#list table.fields as field>
             ${field.name},
         </#list>
-        </trim>
+        </trim> values
         <foreach collection="list" item="item" separator=",">
-            <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <trim prefix="(" suffix=")" suffixOverrides="," >
             <#list table.fields as field>
             <#if field.type?upper_case?split("(")[0] == "INT">
-                <#noparse>#{</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
+                <#noparse>#{item.</#noparse>${field.propertyName}, jdbcType=INTEGER<#noparse>}</#noparse>,
             <#elseif field.type?upper_case?split("(")[0] == "DATETIME">
-                <#noparse>#{</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
+                <#noparse>#{item.</#noparse>${field.propertyName}, jdbcType=TIMESTAMP<#noparse>}</#noparse>,
             <#elseif field.type?upper_case?split("(")[0] == "TEXT" || field.type?upper_case?split("(")[0] == "LONGTEXT">
-                <#noparse>#{</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
+                <#noparse>#{item.</#noparse>${field.propertyName}, jdbcType=LONGVARCHAR<#noparse>}</#noparse>,
             <#else>
-                <#noparse>#{</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
+                <#noparse>#{item.</#noparse>${field.propertyName}, jdbcType=${field.type?upper_case?split("(")[0]}<#noparse>}</#noparse>,
             </#if>
             </#list>
             </trim>
