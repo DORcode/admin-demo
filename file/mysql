@@ -5,3 +5,49 @@ mysqld --defaults-file=D:\mysql-8.0.12-winx64\my.ini --initialize --console
 mysql -u root -p
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+
+
+查询是否开户慢查询
+show variables like '%slow%';
+
+开户慢查询
+set global slow_query_log='ON'
+
+修改慢查询时间
+set long_query_time = 5;
+
+show global status like '%slow%’; 
+
+资源消耗情况
+select @@profiling;
+
+打开
+set profiling = 1;
+
+show profiles\G
+
+mysqlslap -a -c 500 -i 10 -uroot -p123456
+
+
+[mysqld]
+innodb_buffer_pool_size=256M
+innodb_buffer_pool_instances=1
+innodb_log_file_size=1G
+innodb_flush_method=O_DIRECT
+innodb_numa_interleave=1
+innodb_flush_neighbors=0
+log_bin
+server_id=1
+expire_logs_days=1
+log_output=file
+slow_query_log=ON
+long_query_time=0
+log_slow_rate_limit=1
+log_slow_rate_type=query
+log_slow_verbosity=full
+log_slow_admin_statements=ON
+log_slow_slave_statements=ON
+slow_query_log_always_write_time=1
+slow_query_log_use_global_control=all
+innodb_monitor_enable=all
+userstat=1

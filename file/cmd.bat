@@ -24,3 +24,6 @@ mysqld --defaults-file=D:\mysql-8.0.12-winx64\my.ini --initialize --console
 mysql -u root -p
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+
+@echo off
+START "demo" javaw  -jar -Dspring.profiles.active=prod jar包路径  --server.port=9092
