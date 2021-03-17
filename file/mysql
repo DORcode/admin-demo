@@ -28,11 +28,14 @@ show profiles\G
 
 mysqlslap -a -c 500 -i 10 -uroot -p123456
 
+innodb_buffer_pool_size,  innodb_additional_memory_pool_size, innodb_log_buffer_size,  innodb_sort_buffer_size (used only for sorting data while creating index in innodb, introduced from 5.6). max_connections, query_cache_size and table_cache
+
+read_buffer_size, sort_buffer_size, read_rnd_buffer_size and tmp_table_size
 
 [mysqld]
 innodb_buffer_pool_size=256M
 innodb_buffer_pool_instances=1
-innodb_log_file_size=1G
+innodb_log_file_size=1024M
 innodb_flush_method=O_DIRECT
 innodb_numa_interleave=1
 innodb_flush_neighbors=0
@@ -51,3 +54,47 @@ slow_query_log_always_write_time=1
 slow_query_log_use_global_control=all
 innodb_monitor_enable=all
 userstat=1
+
+
+
+
+[mysqld]
+# 设置3306端口
+port=3306
+# 设置mysql的安装目录
+basedir=G:/mysql-8.0.20-winx64 # 此处为mysql的解压缩路径
+# 设置mysql数据库的数据的存放目录
+datadir=G:/mysql/data 
+# 此处同上，先不要在路径中创建Data目录，后面初始化时会自动生成
+# 允许最大连接数
+max_connections=500
+# 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统
+max_connect_errors=10
+# 服务端使用的字符集默认为UTF8
+character-set-server=utf8
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+# 默认使用“mysql_native_password”插件认证
+default_authentication_plugin=mysql_native_password
+key_buffer_size=64M
+max_allowed_packet=1M
+#table_open_cache=256
+sort_buffer_size=2M
+read_buffer_size=2M
+read_rnd_buffer_size=8M
+myisam_sort_buffer_size=64M
+thread_cache_size=8
+
+max_heap_table_size=128M
+tmp_table_size=128M
+
+#query_cache_size=128M 启动不起来
+# Try number of CPU's*2 for thread_concurrency
+#thread_concurrency=8 启动不起来
+innodb_buffer_pool_size=2048M
+innodb_log_buffer_size=8M
+innodb_log_file_size = 1024M
+innodb_buffer_pool_instances=8
+innodb_file_per_table=on
+innodb_autoextend_increment=128
+lower_case_table_names=1
