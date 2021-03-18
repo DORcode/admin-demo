@@ -98,3 +98,38 @@ innodb_buffer_pool_instances=8
 innodb_file_per_table=on
 innodb_autoextend_increment=128
 lower_case_table_names=1
+
+
+
+
+---------------------
+
+innodb_page_size = 16384
+innodb_buffer_pool_size = 4G
+innodb_buffer_pool_instances = 2
+innodb_buffer_pool_load_at_startup = 1
+innodb_buffer_pool_dump_at_shutdown = 1
+innodb_lru_scan_depth = 2048
+innodb_lock_wait_timeout = 5
+lock_wait_timeout=5
+innodb_io_capacity = 1000
+innodb_io_capacity_max = 6000
+innodb_flush_method = O_DIRECT
+innodb_file_format = Barracuda
+innodb_file_format_max = Barracuda
+#innodb_undo_logs = 128
+innodb_undo_tablespaces = 2
+innodb_flush_neighbors = 0
+innodb_log_file_size = 128M
+innodb_log_files_in_group = 2
+innodb_log_buffer_size = 16777216
+#innodb_max_undo_log_size = 2147483648
+innodb_purge_threads = 4
+innodb_large_prefix = 1
+innodb_thread_concurrency = 16
+innodb_print_all_deadlocks = 1
+innodb_strict_mode = 1
+innodb_sort_buffer_size = 256k
+innodb_write_io_threads = 4
+innodb_read_io_threads = 4
+innodb_file_per_table = 1
