@@ -133,3 +133,40 @@ innodb_sort_buffer_size = 256k
 innodb_write_io_threads = 4
 innodb_read_io_threads = 4
 innodb_file_per_table = 1
+
+
+select engine,data,indexes,total
+from (
+  select 
+    ifnull(engine,'TOTALS') as engine, 
+    concat(data,' GB') as data, 
+    concat(indexes,' GB') as indexes, 
+    concat(tot,' GB') as total,
+    if(engine is null,-1,tot) as ord
+  from (
+    select   
+      engine,  
+      round( sum(data_length)/1024/1024/1024, 2 ) as data,  
+      round( sum(index_length)/1024/1024/1024, 2 ) as indexes,  
+      round( sum(data_length+index_length)/1024/1024/1024, 2 ) as tot
+    from information_schema.tables
+    where engine is not null and engine not in('information_schema','performance_schema')
+    group by engine with rollup
+  ) sums
+) list
+order by list.ord desc;
+
+select 
+  substring_index(event_name,'/',2) as code_area, 
+  sys.format_bytes( sum(current_alloc) ) as current_alloc 
+from sys.x$memory_global_by_current_bytes 
+group by substring_index(event_name,'/',2) 
+order by sum(current_alloc) desc;
+
+select 
+  concat(format(a.num * 100.0 / b.num,2),"%") bufferpoolfullpct 
+from 
+  (select variable_value num from performance_schema.global_status
+  where variable_name = 'innodb_buffer_pool_pages_data') a,
+  (select variable_value num from performance_schema.global_status
+  where variable_name = 'innodb_buffer_pool_pages_total') b;
