@@ -28,6 +28,10 @@ show profiles\G
 
 mysqlslap -a -c 500 -i 10 -uroot -p123456
 
+查看engine
+SHOW CREATE TABLE source_xsyj\G
+ 
+
 innodb_buffer_pool_size,  innodb_additional_memory_pool_size, innodb_log_buffer_size,  innodb_sort_buffer_size (used only for sorting data while creating index in innodb, introduced from 5.6). max_connections, query_cache_size and table_cache
 
 read_buffer_size, sort_buffer_size, read_rnd_buffer_size and tmp_table_size
