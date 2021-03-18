@@ -30,6 +30,8 @@ public class MapTest {
 
         Optional<String> first = collect.stream().findFirst();
         first.ifPresent(e -> System.out.println("e = " + e));
+
+
     }
 }
 
