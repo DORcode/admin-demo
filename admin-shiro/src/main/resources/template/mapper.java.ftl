@@ -59,6 +59,17 @@ public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
     int insertSelective(${entity} ${entity?uncap_first});
 
     /**
+    * @MethodName insertSelective
+    * @Description insert${entity}s
+    * @param ${entity?uncap_first}
+    * @return
+    * @throws
+    * @author
+    * @date ${.now?string["yyyy/MM/dd hh:mm:SS.sss"]}
+    */
+    int insert${entity}s(List<${entity}> ${entity?uncap_first});
+
+    /**
     * @MethodName updateByPrimaryKey
     * @Description TODO
     * @param ${entity?uncap_first}

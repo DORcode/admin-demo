@@ -5,3 +5,172 @@ mysqld --defaults-file=D:\mysql-8.0.12-winx64\my.ini --initialize --console
 mysql -u root -p
 
 ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+
+
+查询是否开户慢查询
+show variables like '%slow%';
+
+开户慢查询
+set global slow_query_log='ON'
+
+修改慢查询时间
+set long_query_time = 5;
+
+show global status like '%slow%’; 
+
+资源消耗情况
+select @@profiling;
+
+打开
+set profiling = 1;
+
+show profiles\G
+
+mysqlslap -a -c 500 -i 10 -uroot -p123456
+
+查看engine
+SHOW CREATE TABLE source_xsyj\G
+ 
+
+innodb_buffer_pool_size,  innodb_additional_memory_pool_size, innodb_log_buffer_size,  innodb_sort_buffer_size (used only for sorting data while creating index in innodb, introduced from 5.6). max_connections, query_cache_size and table_cache
+
+read_buffer_size, sort_buffer_size, read_rnd_buffer_size and tmp_table_size
+
+[mysqld]
+innodb_buffer_pool_size=256M
+innodb_buffer_pool_instances=1
+innodb_log_file_size=1024M
+innodb_flush_method=O_DIRECT
+innodb_numa_interleave=1
+innodb_flush_neighbors=0
+log_bin
+server_id=1
+expire_logs_days=1
+log_output=file
+slow_query_log=ON
+long_query_time=0
+log_slow_rate_limit=1
+log_slow_rate_type=query
+log_slow_verbosity=full
+log_slow_admin_statements=ON
+log_slow_slave_statements=ON
+slow_query_log_always_write_time=1
+slow_query_log_use_global_control=all
+innodb_monitor_enable=all
+userstat=1
+
+
+
+
+[mysqld]
+# 设置3306端口
+port=3306
+# 设置mysql的安装目录
+basedir=G:/mysql-8.0.20-winx64 # 此处为mysql的解压缩路径
+# 设置mysql数据库的数据的存放目录
+datadir=G:/mysql/data 
+# 此处同上，先不要在路径中创建Data目录，后面初始化时会自动生成
+# 允许最大连接数
+max_connections=500
+# 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统
+max_connect_errors=10
+# 服务端使用的字符集默认为UTF8
+character-set-server=utf8
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+# 默认使用“mysql_native_password”插件认证
+default_authentication_plugin=mysql_native_password
+key_buffer_size=64M
+max_allowed_packet=1M
+#table_open_cache=256
+sort_buffer_size=2M
+read_buffer_size=2M
+read_rnd_buffer_size=8M
+myisam_sort_buffer_size=64M
+thread_cache_size=8
+
+max_heap_table_size=128M
+tmp_table_size=128M
+
+#query_cache_size=128M 启动不起来
+# Try number of CPU's*2 for thread_concurrency
+#thread_concurrency=8 启动不起来
+innodb_buffer_pool_size=2048M
+innodb_log_buffer_size=8M
+innodb_log_file_size = 1024M
+innodb_buffer_pool_instances=8
+innodb_file_per_table=on
+innodb_autoextend_increment=128
+lower_case_table_names=1
+
+
+
+
+---------------------
+
+innodb_page_size = 16384
+innodb_buffer_pool_size = 4G
+innodb_buffer_pool_instances = 2
+innodb_buffer_pool_load_at_startup = 1
+innodb_buffer_pool_dump_at_shutdown = 1
+innodb_lru_scan_depth = 2048
+innodb_lock_wait_timeout = 5
+lock_wait_timeout=5
+innodb_io_capacity = 1000
+innodb_io_capacity_max = 6000
+innodb_flush_method = O_DIRECT
+innodb_file_format = Barracuda
+innodb_file_format_max = Barracuda
+#innodb_undo_logs = 128
+innodb_undo_tablespaces = 2
+innodb_flush_neighbors = 0
+innodb_log_file_size = 128M
+innodb_log_files_in_group = 2
+innodb_log_buffer_size = 16777216
+#innodb_max_undo_log_size = 2147483648
+innodb_purge_threads = 4
+innodb_large_prefix = 1
+innodb_thread_concurrency = 16
+innodb_print_all_deadlocks = 1
+innodb_strict_mode = 1
+innodb_sort_buffer_size = 256k
+innodb_write_io_threads = 4
+innodb_read_io_threads = 4
+innodb_file_per_table = 1
+
+
+select engine,data,indexes,total
+from (
+  select 
+    ifnull(engine,'TOTALS') as engine, 
+    concat(data,' GB') as data, 
+    concat(indexes,' GB') as indexes, 
+    concat(tot,' GB') as total,
+    if(engine is null,-1,tot) as ord
+  from (
+    select   
+      engine,  
+      round( sum(data_length)/1024/1024/1024, 2 ) as data,  
+      round( sum(index_length)/1024/1024/1024, 2 ) as indexes,  
+      round( sum(data_length+index_length)/1024/1024/1024, 2 ) as tot
+    from information_schema.tables
+    where engine is not null and engine not in('information_schema','performance_schema')
+    group by engine with rollup
+  ) sums
+) list
+order by list.ord desc;
+
+select 
+  substring_index(event_name,'/',2) as code_area, 
+  sys.format_bytes( sum(current_alloc) ) as current_alloc 
+from sys.x$memory_global_by_current_bytes 
+group by substring_index(event_name,'/',2) 
+order by sum(current_alloc) desc;
+
+select 
+  concat(format(a.num * 100.0 / b.num,2),"%") bufferpoolfullpct 
+from 
+  (select variable_value num from performance_schema.global_status
+  where variable_name = 'innodb_buffer_pool_pages_data') a,
+  (select variable_value num from performance_schema.global_status
+  where variable_name = 'innodb_buffer_pool_pages_total') b;

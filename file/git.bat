@@ -25,6 +25,14 @@ git pull origin master --allow-unrelated-histories //把远程仓库和本地同
 git push origin master
 
 
+
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+本地没有ReadMe文件，那么就在本地生成一个：
+git pull --rebase origin master     本地生成ReadMe文件
+git push origin master
+
 --------------
 1、创建一个分支test
 
