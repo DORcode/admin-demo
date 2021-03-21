@@ -1,7 +1,9 @@
-package com.coin.concurrent;
+package com.coin.concurrent.rel;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @ClassName Phiosophy
@@ -27,18 +29,22 @@ public class Phiosophy extends Thread {
     @Override
     public void run() {
         while (true) {
-            synchronized (left) {
-                //log.info("{}拿到了筷子{}", name, left.num);
-//                try {
-//                    Thread.sleep(1000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-                synchronized (right) {
-                    //log.info("{}拿到了筷子{}", name, right.num);
+            if (left.tryLock()) {
+                if (right.tryLock()) {
                     eat();
+                    try {
+
+                    } finally {
+                        right.unlock();
+                    }
+                }
+                try {
+
+                } finally {
+                    left.unlock();
                 }
             }
+
         }
     }
 
@@ -67,3 +73,7 @@ public class Phiosophy extends Thread {
     }
 }
 
+@AllArgsConstructor
+class Chopstick extends ReentrantLock {
+    int num;
+}
