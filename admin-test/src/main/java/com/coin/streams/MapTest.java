@@ -42,8 +42,6 @@ public class MapTest {
         log.info("\n----------");
         students.stream().distinct().forEach(System.out::println);
 
-        students.stream().allMatch()
-
 
     }
 }
