@@ -11,6 +11,12 @@ initdb -D "G:\postgresql-13.2-1\pgsql\data" -E UTF-8 --locale=C -A md5 -U postgr
 pg_ctl -D G:\postgresql-13.2-1\pgsql\data -l  G:\postgresql-13.2-1\pgsql\pglog.txt start
 createdb -U postgres abc
 
+停止
+pg_ctl -D G:\postgresql-13.2-1\pgsql\data -l G:\postgresql-13.2-1\pgsql\pglog.txt stop
+
+配置服务
+pg_ctl register -D G:\postgresql-13.2-1\pgsql\data
+
 createuser.exe -U postgres test
 
 psql -U postgres -h localhost -d postgres -p 5432
@@ -31,5 +37,9 @@ host    all             all             0.0.0.0/0               md5   --添加�
 
 查询SRID
 select st_srid(geom) from table;
+
+select cast (cjsj as  timestamp(0) without time zone) from clkzd;
+select extract(epoch from now());
+select timestamp 'epoch'+ 1568627897 * interval '1 second';
 
 
