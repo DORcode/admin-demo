@@ -43,7 +43,6 @@ public class MapTest {
         students.stream().distinct().forEach(System.out::println);
 
 
-
     }
 }
 
