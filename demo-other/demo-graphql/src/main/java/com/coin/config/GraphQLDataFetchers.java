@@ -31,6 +31,10 @@ public class GraphQLDataFetchers {
             ImmutableMap.of("id", "book-3",
                     "name", "Interview with the vampire",
                     "pageCount", "371",
+                    "authorId", "author-3"),
+            ImmutableMap.of("id", "book-4",
+                    "name", "The little women",
+                    "pageCount", "320",
                     "authorId", "author-3")
     );
 
@@ -66,6 +70,26 @@ public class GraphQLDataFetchers {
                     .filter(author -> author.get("id").equals(authorId))
                     .findFirst()
                     .orElse(null);
+        };
+    }
+
+    public DataFetcher getAuthorByIdDataFetcher() {
+        return dataFetchingEnvironment -> {
+            String authorId = dataFetchingEnvironment.getArgument("id");
+            return authors.stream()
+                    .filter(author -> author.get("id").equals(authorId))
+                    .findFirst()
+                    .orElse(null);
+        };
+    }
+
+    public DataFetcher getBookDataFetcher() {
+        return dataFetchingEnvironment -> {
+            Map<String, String> author = dataFetchingEnvironment.getSource();
+            String authorId = author.get("id");
+            return books.stream()
+                    .filter(e -> e.get("authorId").equals(authorId))
+                    .toArray();
         };
     }
 }

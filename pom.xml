@@ -46,7 +46,7 @@
         <module>db-sharding</module>
         <module>demo-es</module>
         <module>demo-minio</module>
-        <module></module>
+        <module>demo-other</module>
         <module>z-common</module>
     </modules>
 
@@ -139,12 +139,17 @@
             <dependency>
                 <groupId>com.graphql-java</groupId>
                 <artifactId>graphql-java</artifactId>
-                <version>11.0</version>
+                <version>15.0</version>
             </dependency>
             <dependency>
                 <groupId>com.graphql-java</groupId>
                 <artifactId>graphql-java-spring-boot-starter-webmvc</artifactId>
-                <version>1.0</version>
+                <version>2020-07-12T23-24-35-c6606f6</version>
+            </dependency>
+            <dependency>
+                <groupId>com.graphql-java-kickstart</groupId>
+                <artifactId>graphql-spring-boot-starter</artifactId>
+                <version>11.0.0</version>
             </dependency>
 
             <dependency>
