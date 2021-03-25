@@ -12,7 +12,9 @@
       <module fileurl="file://$PROJECT_DIR$/db-sharding/db-sharding.iml" filepath="$PROJECT_DIR$/db-sharding/db-sharding.iml" />
       <module fileurl="file://$PROJECT_DIR$/db-sharding/db-sharding-sphere/db-sharding-sphere.iml" filepath="$PROJECT_DIR$/db-sharding/db-sharding-sphere/db-sharding-sphere.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-es/demo-es.iml" filepath="$PROJECT_DIR$/demo-es/demo-es.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-other/demo-graphql/demo-graphql.iml" filepath="$PROJECT_DIR$/demo-other/demo-graphql/demo-graphql.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-minio/demo-minio.iml" filepath="$PROJECT_DIR$/demo-minio/demo-minio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-other/demo-other.iml" filepath="$PROJECT_DIR$/demo-other/demo-other.iml" />
       <module fileurl="file://$PROJECT_DIR$/z-common/elasticsearch-spring-boot-starter/elasticsearch-spring-boot-starter.iml" filepath="$PROJECT_DIR$/z-common/elasticsearch-spring-boot-starter/elasticsearch-spring-boot-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/z-common/minio-spring-boot/minio-spring-boot.iml" filepath="$PROJECT_DIR$/z-common/minio-spring-boot/minio-spring-boot.iml" />
       <module fileurl="file://$PROJECT_DIR$/z-common/minio-spring-boot/minio-spring-boot-autoconfigure/minio-spring-boot-autoconfigure.iml" filepath="$PROJECT_DIR$/z-common/minio-spring-boot/minio-spring-boot-autoconfigure/minio-spring-boot-autoconfigure.iml" />
