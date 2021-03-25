@@ -46,6 +46,7 @@
         <module>db-sharding</module>
         <module>demo-es</module>
         <module>demo-minio</module>
+        <module></module>
         <module>z-common</module>
     </modules>
 
