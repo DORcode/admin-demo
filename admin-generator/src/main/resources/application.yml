@@ -1,2 +1,11 @@
-server:
-  port: 8085
+spring:
+  profiles:
+    include: dev
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    path: f:/logs/admin-shiro

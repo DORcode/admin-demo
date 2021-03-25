@@ -116,3 +116,5 @@ https://www.ciyew.com/wp-content/uploads/2019/05/6b52d158c5224013ea65.pdf
 
 ---CH/T 9012 基础地理信息数字成果数据组织及文件命名规则，线划、高程、正射、栅格的数据目录组织、文件命名及成果的分发。
 
+---指标管理平台，https://zhuanlan.zhihu.com/p/76011240
+
