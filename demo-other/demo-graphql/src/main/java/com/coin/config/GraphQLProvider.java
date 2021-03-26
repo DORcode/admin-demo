@@ -5,6 +5,7 @@ import com.google.common.io.Resources;
 import graphql.GraphQL;
 import graphql.schema.GraphQLObjectType;
 import graphql.schema.GraphQLSchema;
+import graphql.schema.StaticDataFetcher;
 import graphql.schema.idl.RuntimeWiring;
 import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
@@ -67,7 +68,7 @@ public class GraphQLProvider {
                         .dataFetcher("author", graphQLDataFetchers.getAuthorDataFetcher()))
                 .type(newTypeWiring("Author")
                         .dataFetcher("books", graphQLDataFetchers.getBookDataFetcher())
-                )
+                ).type("Teacher", builder -> builder.dataFetcher("hello", new StaticDataFetcher("world")))
                 .build();
     }
 }
