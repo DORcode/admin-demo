@@ -33,7 +33,7 @@
         <lombok.version>1.16.20</lombok.version>
         <shardingsphere.version>4.1.1</shardingsphere.version>
         <mysql.version>8.0.11</mysql.version>
-        <es.version>7.9.1</es.version>
+        <es.version>7.11.2</es.version>
     </properties>
 
     <modules>
