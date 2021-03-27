@@ -1,6 +1,7 @@
 package com.coin.funs;
 
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 /**
  * @ClassName TestConsumer
@@ -34,5 +35,28 @@ public class TestConsumer {
 
         Consumer<String> c2 = new TestConsumer()::fetch;
         c2.accept("year");
+
+        method("heLLo", (str) -> {
+            System.out.println("str.toUpperCase() = " + str.toUpperCase());
+        }, (str) -> {
+            System.out.println("str.toLowerCase() = " + str.toLowerCase());
+        });
+
+        String[] array = {"迪,女", "古,女", "马,男"};
+
+        Stream.of(array).forEach(e -> {
+            print(str -> System.out.print("姓名：" + str.split(",")[0]),
+                    str -> System.out.println(" 性别：" + str.split(",")[1]), e);
+        });
+    }
+
+    public static void method(String s, Consumer<String> c1, Consumer<String> c2) {
+//        c1.accept(s);
+//        c2.accept(s);
+        c1.andThen(c2).accept(s);
+    }
+
+    public static void print(Consumer<String> c1, Consumer<String> c2, String s) {
+        c1.andThen(c2).accept(s);
     }
 }
