@@ -47,5 +47,36 @@ public class TestFun {
         System.out.println("func5 = " + func5.apply("flh"));
 
 
+        Function<String, Integer> f6 = Integer::valueOf;
+        Function<Integer, BigDecimal> f7 = i -> new BigDecimal(i).divide(new BigDecimal(11), 6, BigDecimal.ROUND_FLOOR);
+
+        System.out.println(f6.andThen(f7).apply("123"));
+
+        createAct("可行", str -> new Account(str));
+
+        createAct("是的吗", Account::new);
+
+        // this::方法
+        // super::方法
+        // int[]::new
+
+        Function<Integer, Integer[]> f = Integer[]::new;
+        Integer[] apply = f.apply(10);
+
+        apply[0] = 10;
+
+        System.out.println(apply);
+
+
+    }
+
+    public static void createAct(String name, AccountCrt a) {
+        Account account = a.create(name);
+        System.out.println(account);
+    }
+
+    @FunctionalInterface
+    interface AccountCrt {
+        Account create(String name);
     }
 }
