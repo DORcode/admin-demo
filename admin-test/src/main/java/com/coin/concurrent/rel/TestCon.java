@@ -23,7 +23,11 @@ public class TestCon {
         // 先要获得锁
         // 执行await后，释放锁，之后等待signal唤醒或者打断或者超时，重新竞争锁
         // 竞争锁成功后，从await后执行
-        condition1.await();
+        try {
+            condition1.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         condition1.signal();
 

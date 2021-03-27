@@ -17,5 +17,17 @@ public class TestSupp {
         };
 
         System.out.println("supplier = " + supplier.get());
+
+        Supplier<String> s2 = () -> "abc";
+
+        System.out.println("s2.get() = " + s2.get());
+
+        Supplier<String> s3 = TestSupp::get;
+        System.out.printf("", s3.get());
+    }
+
+    static String get() {
+        System.out.println("\"get\" = " + "get");
+        return "get";
     }
 }
