@@ -11,6 +11,10 @@ import java.util.function.Supplier;
  **/
 public class TestSupp {
 
+    public String put() {
+        return "put";
+    }
+
     public static void main(String[] args) {
         Supplier<Integer> supplier = () -> {
             return 10;
@@ -24,6 +28,12 @@ public class TestSupp {
 
         Supplier<String> s3 = TestSupp::get;
         System.out.printf("", s3.get());
+
+        Supplier<String> s4 = () -> new TestSupp().put();
+
+        Supplier<String> s5 = new TestSupp()::put;
+        System.out.println("s4 = " + s4.get());
+        System.out.println("s5 = " + s5.get());
     }
 
     static String get() {

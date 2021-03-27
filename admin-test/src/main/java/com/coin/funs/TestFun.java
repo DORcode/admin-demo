@@ -1,6 +1,7 @@
 package com.coin.funs;
 
 import java.math.BigDecimal;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
@@ -16,6 +17,16 @@ public class TestFun {
         return s.toUpperCase();
     }
 
+    static Integer len(String l, String r) {
+        return l.length() * r.length();
+    }
+
+
+    String concat(String str) {
+        return str.concat("dfe");
+    }
+
+
     public static void main(String[] args) {
 
         Function<String, String> func1 = (str) -> str.substring(5);
@@ -27,5 +38,14 @@ public class TestFun {
         Function<String, String> func3 = TestFun::toUpper;
 
         System.out.printf(func3.apply("aAbBcNcBbAa"));
+
+        BiFunction<String, String, Integer> func4 = TestFun::len;
+
+        System.out.println(func4.apply("abc", "xyz"));
+
+        Function<String, String> func5 = new TestFun()::concat;
+        System.out.println("func5 = " + func5.apply("flh"));
+
+
     }
 }

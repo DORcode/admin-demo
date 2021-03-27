@@ -16,6 +16,10 @@ public class TestConsumer {
         return  100;
     }
 
+    void fetch(String str) {
+        System.out.println("str = " + str);
+    }
+
     public static void main(String[] args) {
 
         Consumer<Integer> consumer = x -> {
@@ -27,5 +31,8 @@ public class TestConsumer {
 
         Consumer<Integer> c = TestConsumer::set;
         c.accept(10);
+
+        Consumer<String> c2 = new TestConsumer()::fetch;
+        c2.accept("year");
     }
 }
