@@ -23,5 +23,7 @@ public class TestPred {
 
         System.out.println("p.test(\"\") = " + p.test(""));
         System.out.println("p.and(p2).test(\"bbb\") = " + p.and(p2).and(p3).test("bbba"));
+
+        System.out.println(p2.or(p3).test("bbb"));
     }
 }
