@@ -66,9 +66,9 @@ public class GeneratorUtil {
     public static void mysql() {
         DB_TYPE = DbType.MYSQL;
         DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-        DB_URL= "jdbc:mysql://localhost:3306/nc_fldctl_drtrf?serverTimezone=UTC";
+        DB_URL= "jdbc:mysql://:3306/nc_gtpp_disp_dev?serverTimezone=UTC";
         DB_UM = "root";
-        DB_PWD = "123456";
+        DB_PWD = "";
         TYPE_CONVERT = new MySqlTypeConvert() {
             @Override
             public IColumnType processTypeConvert(GlobalConfig gc, String fieldType) {
