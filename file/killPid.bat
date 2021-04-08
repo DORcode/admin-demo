@@ -1,16 +1,16 @@
-@echo off & setlocal EnableDelayedExpansion
+ï»¿@echo off & setlocal EnableDelayedExpansion
 set pidNum=0
 set port=8280
 for /f "tokens=5 delims= " %%i in ('netstat -aon ^| findstr !port! ^|findstr "LISTENING"') do (
 	echo %%i
 	set pidNum=%%i
-	echo echo ¶Ë¿ÚºÅ¡¾!port!¡¿½ø³ÌÎª¡¾!pidNum!¡¿
+	echo echo ç«¯å£å·ã€!port!ã€‘è¿›ç¨‹ä¸ºã€!pidNum!ã€‘
 )
 if "!pidNum!"=="0" (
-	echo ¶Ë¿ÚºÅ¡¾!port!¡¿Î´Õ¼ÓÃ
+	echo ç«¯å£å·ã€!port!ã€‘æœªå ç”¨
 ) else (
 	taskkill /pid !pidNum! -f
-	echo ¶Ë¿ÚºÅ¡¾!port!¡¿¹Ø±Õ³É¹¦
+	echo ç«¯å£å·ã€!port!ã€‘å…³é—­æˆåŠŸ
 	
 )
 timeout /t 10
