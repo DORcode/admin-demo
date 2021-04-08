@@ -174,3 +174,6 @@ from
   where variable_name = 'innodb_buffer_pool_pages_data') a,
   (select variable_value num from performance_schema.global_status
   where variable_name = 'innodb_buffer_pool_pages_total') b;
+
+
+在winserver 中查询正常，数据迁到ubuntu mysql查询异常，原因是由于ubuntu mysql数据库的编码不是utf-8导致的中文查询错误。

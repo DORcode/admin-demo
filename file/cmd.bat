@@ -27,3 +27,5 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
 
 @echo off
 START "demo" javaw  -jar -Dspring.profiles.active=prod jar包路径  --server.port=9092
+
+
