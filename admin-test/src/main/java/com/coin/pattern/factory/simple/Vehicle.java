@@ -8,5 +8,5 @@ package com.coin.pattern.factory.simple;
  * @Version V1.0
  **/
 public interface Vehicle {
-
+    Vehicle newInstance();
 }
