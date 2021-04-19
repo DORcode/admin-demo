@@ -1,5 +1,6 @@
 package com.coin.funs;
 
+import java.awt.event.WindowAdapter;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
