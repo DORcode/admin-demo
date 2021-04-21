@@ -169,3 +169,27 @@ git branch -a 便可以查看所有(本地+远程仓库)分支了
 
 
 删除远程分支git push origin --delete 分支名称
+
+https://nvie.com/posts/a-successful-git-branching-model/
+
+master 长期分支，用于上线
+develop 与master并行的两个主分支，用于开发
+
+feature 特点分支，从develop分支来，最终合并到develop分支
+
+release分支 来自develop分支，合并到master分支和develop分支
+
+hotfix分支 来自master分支，合并到master分支和develop分支
+
+$ git checkout -b myfeature develop
+Switched to a new branch "myfeature"
+
+
+$ git checkout develop
+Switched to branch 'develop'
+$ git merge --no-ff myfeature
+Updating ea1b82a..05e9557 --no-off 目的是把myfeature合并到develop时保留myfeature的历次提交信息
+(Summary of changes)
+$ git branch -d myfeature
+Deleted branch myfeature (was 05e9557).
+$ git push origin develop
