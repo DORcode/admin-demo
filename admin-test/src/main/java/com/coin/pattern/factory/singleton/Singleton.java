@@ -1,4 +1,4 @@
-package com.coin.pattern.singleton;
+package com.coin.pattern.factory.singleton;
 
 /**
  * @ClassName Singleton

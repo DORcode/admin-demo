@@ -8,4 +8,8 @@ package com.coin.pattern.factory.simple;
  * @Version V1.0
  **/
 public class Bike implements Vehicle {
+    @Override
+    public Vehicle newInstance() {
+        return new Bike();
+    }
 }
